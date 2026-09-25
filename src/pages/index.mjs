@@ -21,7 +21,7 @@ export const page = {
 <p>Both of them want the same thing: the figure, where it came from, and whether it still holds after the last patch.</p>
 
 <h2>What the first page will do</h2>
-<p>The first page covers WARDOGS, and it is being written now. It will open with the two things a new player hits immediately: how the 2&nbsp;km&nbsp;&times;&nbsp;2&nbsp;km Control Zone scores, and how the smaller Hot Zone inside it doubles both cash and count. From there it goes through the vendor list &mdash; what each rifle and vehicle costs, what class level and one-off unlock fee stands in front of it, and why the cheapest shopping window in the game is also the window in which nothing worth buying is unlocked. It closes on the platform questions people ask before paying: which storefront, which hardware, and what the anti-cheat rules out.</p>
+<p>The first page covers WARDOGS, and it is live. It will open with the two things a new player hits immediately: how the 2&nbsp;km&nbsp;&times;&nbsp;2&nbsp;km Control Zone scores, and how the smaller Hot Zone inside it doubles both cash and count. From there it goes through the vendor list &mdash; what each rifle and vehicle costs, what class level and one-off unlock fee stands in front of it, and why the cheapest shopping window in the game is also the window in which nothing worth buying is unlocked. It closes on the platform questions people ask before paying: which storefront, which hardware, and what the anti-cheat rules out.</p>
 
 <h2>How the numbers here get checked</h2>
 <ul>
