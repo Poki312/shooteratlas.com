@@ -30,5 +30,7 @@ export const page = {
 <li>Anything the studio has never published is labelled as reported rather than confirmed.</li>
 <li>What cannot be sourced does not go on the page. There is no filler figure and no round number invented to fill a table cell.</li>
 </ul>
-<p>The result is a site that is slower to fill up than a news blog, and that is the point: a number you cannot trace back is worse than a blank space.</p>`,
+<p>The result is a site that is slower to fill up than a news blog, and that is the point: a number you cannot trace back is worse than a blank space.</p>
+
+<p><a href="/wardogs">Read the WARDOGS page &rarr;</a></p>`,
 };

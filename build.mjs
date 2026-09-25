@@ -51,7 +51,9 @@ async function build() {
       canonical: urlFor(page.path),
       body: page.body,
     });
-    const rel = page.path === "/" ? "index.html" : page.path.replace(/^\//, "");
+    // "/" -> index.html ; "/wardogs" -> wardogs.html (Pages serves /wardogs from it)
+    const clean = page.path.replace(/^\//, "");
+    const rel = clean === "" ? "index.html" : clean.endsWith(".html") ? clean : clean + ".html";
     const target = path.join(OUT, rel);
     await mkdir(path.dirname(target), { recursive: true });
     await writeFile(target, html, "utf8");
