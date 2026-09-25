@@ -5,7 +5,9 @@ export const page = {
   description:
     "How to reach Shooter Atlas: corrections, sourcing questions, advertising and licensing. One address, one independent developer reading it.",
   body: `<h1>Contact</h1>
-<p>One address for everything: <a href="mailto:contact@shooteratlas.com">contact@shooteratlas.com</a></p>
+<!-- The email_off comment pair is Cloudflare's documented opt-out from Email Address
+     Obfuscation (Scrape Shield), which otherwise rewrites mailto: links. -->
+<p>One address for everything: <!--email_off--><a href="mailto:contact@shooteratlas.com">contact@shooteratlas.com</a><!--/email_off--></p>
 
 <h2>What to write about</h2>
 <ul>
