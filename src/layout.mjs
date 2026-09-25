@@ -29,6 +29,9 @@ li{margin:.4rem 0}
 a{color:var(--link)}
 .site-foot{border-top:1px solid var(--rule);margin-top:2.6rem;padding:1.2rem 0 2.6rem;color:var(--muted);font-size:.9rem}
 .site-foot p{margin:0}
+.site-nav{margin:.8rem 0 0;display:flex;flex-wrap:wrap;gap:.25rem 1.1rem}
+.site-nav a{color:var(--muted);text-decoration:none}
+.site-nav a:hover{text-decoration:underline}
 @media (max-width:430px){body{font-size:16px}h1{font-size:1.5rem}}
 </style>
 </head>
@@ -42,6 +45,11 @@ ${body}
 </div></main>
 <footer class="site-foot"><div class="wrap">
 <p>Shooter Atlas. Every figure on this site is either taken from official material or measured in game, and is labelled with which of the two it is.</p>
+<nav class="site-nav" aria-label="Site">
+<a href="/about">About</a>
+<a href="/privacy">Privacy</a>
+<a href="/contact">Contact</a>
+</nav>
 </div></footer>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "37c294a762ef45d995a15279d79a66d1"}'></script>
 </body>
