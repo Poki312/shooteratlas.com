@@ -1,5 +1,5 @@
-// Shared HTML shell. No external requests: one inline stylesheet, no fonts, no
-// scripts until Web Analytics is switched on.
+// Shared HTML shell. One inline stylesheet, no web fonts. The only external
+// request is Cloudflare's own Web Analytics beacon at the end of the body.
 
 export function layout({ title, description, canonical, body }) {
   return `<!doctype html>
@@ -43,6 +43,7 @@ ${body}
 <footer class="site-foot"><div class="wrap">
 <p>Shooter Atlas. Every figure on this site is either taken from official material or measured in game, and is labelled with which of the two it is.</p>
 </div></footer>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "37c294a762ef45d995a15279d79a66d1"}'></script>
 </body>
 </html>`;
 }
