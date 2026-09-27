@@ -36,5 +36,6 @@ export const page = {
 </ul>
 <p>The result is a site that is slower to fill up than a news blog, and that is the point: a number you cannot trace back is worse than a blank space.</p>
 
-<p><a href="/wardogs">Read the WARDOGS page &rarr;</a></p>`,
+<p><a href="/wardogs">Read the WARDOGS page &rarr;</a></p>
+<p style="color:var(--muted);font-size:.82rem">Awin publisher verification.</p>`,
 };
