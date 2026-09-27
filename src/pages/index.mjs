@@ -8,6 +8,7 @@ export const page = {
     "<meta name='impact-site-verification' value='d4f89c0e-f51b-4811-8db0-8aaa955f9dde'>" +
     "\n<meta name='awin-verification' content='Awin'>" +
     "\n<meta name='mitgo-verification' content='ce9af179-d266-486b-a5e5-1d1362de694c'>" +
+    "\n<meta name='commission-factory-verification' content='efa67650281a4a0986ac78ae4f310090'>" +
     "\n<!-- Awin publisher verification marker -->",
   body: `<h1>Numbers for 100-player tactical shooters</h1>
 <p class="lede">Shooter Atlas is a reference site for large-scale tactical shooters &mdash; the kind where a hundred players split into three teams, fight over one moving objective, and pay for every loadout out of their own pocket.</p>
