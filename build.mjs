@@ -50,6 +50,7 @@ async function build() {
       description: page.description,
       canonical: urlFor(page.path),
       body: page.body,
+      extraHead: page.extraHead ?? "",
     });
     // "/" -> index.html ; "/wardogs" -> wardogs.html (Pages serves /wardogs from it)
     const clean = page.path.replace(/^\//, "");

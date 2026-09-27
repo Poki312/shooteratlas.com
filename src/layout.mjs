@@ -1,7 +1,7 @@
 // Shared HTML shell. One inline stylesheet, no web fonts. The only external
 // request is Cloudflare's own Web Analytics beacon at the end of the body.
 
-export function layout({ title, description, canonical, body }) {
+export function layout({ title, description, canonical, body, extraHead = "" }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -10,6 +10,7 @@ export function layout({ title, description, canonical, body }) {
 <title>${title}</title>
 <meta name="description" content="${description}">
 <link rel="canonical" href="${canonical}">
+${extraHead}
 <style>
 :root{--ink:#111722;--muted:#5b6774;--rule:#e3e7ed;--bg:#fff;--link:#0b57d0}
 *{box-sizing:border-box}
