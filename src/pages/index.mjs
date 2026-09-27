@@ -5,7 +5,9 @@ export const page = {
   description:
     "Shooter Atlas covers 100-player, three-team tactical shooters: how a match is scored, what weapons and vehicles cost, what gates them, and which platforms are actually supported. One game per page.",
   extraHead:
-    "<meta name='impact-site-verification' value='d4f89c0e-f51b-4811-8db0-8aaa955f9dde'>",
+    "<meta name='impact-site-verification' value='d4f89c0e-f51b-4811-8db0-8aaa955f9dde'>" +
+    "\n<meta name='awin-verification' content='Awin'>" +
+    "\n<!-- Awin publisher verification marker -->",
   body: `<h1>Numbers for 100-player tactical shooters</h1>
 <p class="lede">Shooter Atlas is a reference site for large-scale tactical shooters &mdash; the kind where a hundred players split into three teams, fight over one moving objective, and pay for every loadout out of their own pocket.</p>
 
