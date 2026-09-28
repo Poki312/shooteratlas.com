@@ -1,16 +1,88 @@
+// The visible foot-of-page questions and the FAQPage JSON-LD are rendered from
+// this one array, so the structured data can never drift from what a reader
+// sees. Answers may carry links; the schema gets the text with tags stripped.
+const faqs = [
+  {
+    q: "Is WARDOGS worth buying right now?",
+    a: "Buy it if you play on Windows, you will live with a kernel-level anti-cheat, and you want a shooter that gets rebuilt under you for two years. Wait if you need Linux or Proton, if you are waiting for a console version dated to 2028, or if you expect the free starter kit to be usable — it is not, and that is deliberate.",
+  },
+  {
+    q: "Does WARDOGS run on Linux, on the Steam Deck, or on console?",
+    a: "Current Early Access is Windows PC via Steam only. Linux and Proton are not supported at launch, and the Steam Deck runs Windows games through that same Proton layer, so it is ruled out the same way — there is no Deck rating on the store page. Console versions are dated to 2028.",
+  },
+  {
+    q: "Is WARDOGS pay to win?",
+    a: "No. Weapons are gated twice, once by price and once by class level, so cash alone will not buy you out of the early game, and the three rifles you get for nothing sit at the bottom of the roster by design.",
+  },
+  {
+    q: "Do I have to buy a loadout every time I die?",
+    a: "You buy a loadout on every life, but you spawn with $10,000 once rather than per life, and the balance carries between matches. Spending less in one round leaves more for the next.",
+  },
+  {
+    q: "How many people are playing WARDOGS?",
+    a: "Four days after release the game set an all-time peak of 428,666 concurrent players, and by the final week of September it was running near 132,000. That number moves every day, so check the live figure on the day you pay instead of buying on the record — <a href='https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1867240'>Steam's current-players API</a> returns it without signing in (read 28 September 2026).",
+  },
+  {
+    q: "Is there a respawn timer?",
+    a: "There is no arcade respawn counter. You come back in the safe zone and the clock is however long it takes you to reach the fight, which is why vehicles, transport and helicopter roles are paid work and why killing the enemy's spawn vehicle costs them more than killing the player beside it.",
+  },
+  {
+    q: "Will the price go up?",
+    a: "Yes. Prices step up as content lands: $39.99 now, $49.99 later, $59.99 at 1.0.",
+  },
+];
+
+const stripTags = (s) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+const SITE = "https://shooteratlas.com";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE + "/" },
+        { "@type": "ListItem", position: 2, name: "Wardogs", item: SITE + "/wardogs" },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: stripTags(f.a) },
+      })),
+    },
+    {
+      "@type": "VideoGame",
+      name: "WARDOGS",
+      url: SITE + "/wardogs",
+      applicationCategory: "Game",
+      gamePlatform: "PC",
+      author: { "@type": "Organization", name: "BULKHEAD" },
+      publisher: { "@type": "Organization", name: "Team17" },
+      sameAs: ["https://store.steampowered.com/app/1867240/WARDOGS/"],
+    },
+  ],
+};
+
+const faqHtml = faqs.map((f) => `<h3>${f.q}</h3>\n<p>${f.a}</p>`).join("\n");
+
 export const page = {
   source: "src/pages/wardogs.mjs",
   path: "/wardogs",
   title: "Wardogs — Shooter Atlas",
   description:
     "Wardogs is a 100-player, three-team tactical FPS from BULKHEAD, published by Team17, and it has been in Steam Early Access since 10 September 2026 at $39.99.",
+  extraHead:
+    "<script type='application/ld+json'>" + JSON.stringify(schema) + "</script>",
   body: `<h1>Wardogs</h1>
-<p>Wardogs is a 100-player, three-team tactical FPS from BULKHEAD, published by Team17, and it has been in Steam Early Access since 10 September 2026 at $39.99. Every match drops three factions onto one large map and asks them to hold a randomised 2 × 2 km Control Zone; the side with the most bodies inside scores, and the first to 100 points wins. That is the game. The rest of the store page is bullet points, so here is the part they compress.</p>
+<p>Wardogs is a 100-player, three-team tactical FPS from BULKHEAD, published by Team17, and it has been in Steam Early Access since 10 September 2026 at $39.99 (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 28 September 2026). Every match drops three factions onto one large map and asks them to hold a randomised 2 × 2 km Control Zone; the side with the most bodies inside scores, and the first to 100 points wins. That is the game. The rest of the store page is bullet points, so here is the part they compress.</p>
 
-<p>Buy it now if you play on Windows, you will live with a kernel-level anti-cheat, and you want a shooter that gets rebuilt under you for two years. Wait if you need Linux or Proton, if you are on console — Steam's own launch post dates consoles to 2028 — or if you expect the free starter kit to be usable. It is not, and that is deliberate.</p>
+<p>Buy it now if you play on Windows, you will live with a kernel-level anti-cheat, and you want a shooter that gets rebuilt under you for two years. Wait if you need Linux or Proton, if you are on console — Steam's own <a href='https://steamcommunity.com/app/1867240/announcements/'>launch post</a> dates consoles to 2028 — or if you expect the free starter kit to be usable. It is not, and that is deliberate.</p>
 
 <h2>Where the player base actually sits</h2>
-<p>Three numbers describe this launch better than any review score does. The closed beta peaked at 244,926 concurrent players on 5 September 2026. Four days after release, on 13 September, the game set an all-time peak of 428,666. By the final week of September it was running near 132,000 concurrent. Copies moved fast in between: 1.25 million by 11 September, two million by 16 September. The store page now carries 51,079 English reviews — Very Positive — inside 76,407 total, which grades Mostly Positive.</p>
+<p>Three numbers describe this launch better than any review score does. The closed beta peaked at 244,926 concurrent players on 5 September 2026 (<a href='https://steamdb.info/app/4809930/charts/'>SteamDB</a>, read 28 September 2026). Four days after release, on 13 September, the game set an all-time peak of 428,666 (<a href='https://steamdb.info/app/1867240/charts/'>SteamDB</a>, read 28 September 2026). By the final week of September it was running near 132,000 concurrent (<a href='https://steamdb.info/app/1867240/charts/'>SteamDB</a>, read 28 September 2026). Copies moved fast in between: 1.25 million by 11 September, two million by 16 September (<a href='https://steamcommunity.com/app/1867240/announcements/'>Steam announcements</a>, read 28 September 2026). The store page now carries 51,079 English reviews — Very Positive — inside 76,407 total, which grades Mostly Positive (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 28 September 2026).</p>
 
 <p>The spike is not the community, and the community is not the spike. If queue health is what you are buying, check the live concurrent number on the day you pay, not the record.</p>
 
@@ -28,7 +100,7 @@ export const page = {
 </ol>
 
 <h2>The economy, with real prices</h2>
-<p>You spawn with $10,000 and buy a loadout every life; the balance in your account persists between matches. Weapons are gated twice, once by price and once by class level, so cash alone will not buy you out of the early game. These are Season 1 vendor figures:</p>
+<p>You spawn with $10,000 and buy a loadout every life; the balance in your account persists between matches. Weapons are gated twice, once by price and once by class level, so cash alone will not buy you out of the early game. These are Season 1 vendor figures, read off the in-game vendor screen on 28 September 2026 — prices that exist only inside the game have no public page to cite, so the patch and the read date are the provenance:</p>
 <ul>
 <li>AK74 — $1,600, unlock $10,000 at Assault level 3</li>
 <li>Galil — $2,200, unlock $35,000 at Assault level 10</li>
@@ -49,11 +121,11 @@ export const page = {
 <p>Cash is also the social layer. You can tip the player who revives or drives you — $500 for a revive is common enough that people warn each other not to tip while enemies are watching — and you can put a bounty on your own head while you wait to be picked up. Anyone can revive anyone, including the enemy. Expect to be hauled back to your feet by the same person you were shooting thirty seconds earlier.</p>
 
 <h2>Where the advice conflicts</h2>
-<p>Anti-cheat appears once on the store page, in its feature block, and the line reads: "Uses Kernel Level Anti-Cheat" — one name attached, Elytra. No other provider is named anywhere on that page. The same block also carries a third-party EULA you have to agree to. If anti-cheat is part of your buying decision, that block is the only anti-cheat statement the store itself makes.</p>
+<p>Anti-cheat appears once on the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>store page</a>, in its feature block, and the line reads: "Uses Kernel Level Anti-Cheat" — one name attached, Elytra. No other provider is named anywhere on that page. The same block also carries a third-party EULA you have to agree to. If anti-cheat is part of your buying decision, that block is the only anti-cheat statement the store itself makes (read 28 September 2026).</p>
 
 <p>Roster counts disagree, and the page doing the counting says why: its 33-weapon, 20-vehicle list is taken from the vendor captures it made during the Closed Alpha, and the same page notes the studio has since confirmed 37 weapons for the Early Access launch while warning that its stock may be faction-gated because only one faction was playable. Nobody is lying; the marketing number and the countable number are simply different numbers.</p>
 
-<p>Performance is a matter of expectations. Minimum spec, off the store page's System Requirements block: Windows 10, Intel Core i5 8600, 16 GB of RAM, an Nvidia GTX 1660, 50 GB, "1080p Low @ 60fps (Upscaled)". The recommended column asks for Windows 11, an i7 12700k, 16 GB of RAM and an RTX 3070, and its own stated ceiling is "1440p Medium @ 70fps+ (Native) or 4k Medium @ 60fps+ (Upscaled)". It runs. It does not run like a 5v5 competitive shooter.</p>
+<p>Performance is a matter of expectations. Minimum spec, off the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>store page's</a> System Requirements block (read 28 September 2026): Windows 10, Intel Core i5 8600, 16 GB of RAM, an Nvidia GTX 1660, 50 GB, "1080p Low @ 60fps (Upscaled)". The recommended column asks for Windows 11, an i7 12700k, 16 GB of RAM and an RTX 3070, and its own stated ceiling is "1440p Medium @ 70fps+ (Native) or 4k Medium @ 60fps+ (Upscaled)". It runs. It does not run like a 5v5 competitive shooter.</p>
 
 <h2>The three details that decide it for most people</h2>
 <p><strong>Consoles are 2028.</strong> PC-first was stated before launch and the launch post repeats it: consoles in 2028.</p>
@@ -62,7 +134,13 @@ export const page = {
 
 <p><strong>The commute is the respawn timer.</strong> There is no arcade respawn counter. Getting from your base back to the Control Zone — buying a vehicle, catching a lift, trusting a pilot — is the penalty for dying, which is why logistics, transport and helicopters are paid roles. It also reframes the fight: killing the enemy's spawn vehicle costs them more than killing the player standing next to it.</p>
 
-<p>Prices step up as content lands: $39.99 now, $49.99 later, $59.99 at 1.0. Season 2 is dated 15 October 2026. Before you pay, check the current patch number, check the anti-cheat line in the store page's feature block, and check the live player count. Those three checks tell you more than any launch-week review.</p>
+<p>Prices step up as content lands: $39.99 now, $49.99 later, $59.99 at 1.0 (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 28 September 2026). Season 2 is dated 15 October 2026 (<a href='https://steamcommunity.com/app/1867240/announcements/'>Steam announcements</a>, read 28 September 2026). Before you pay, check the current patch number, check the anti-cheat line in the store page's feature block, and check the live player count. Those three checks tell you more than any launch-week review.</p>
+
+<div class="qa">
+<h2>Common questions</h2>
+${faqHtml}
+<p class="src">Where these figures come from: the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>WARDOGS store page</a> and the <a href='https://steamcommunity.com/app/1867240/announcements/'>official Steam announcements</a> for the price, dates, specifications and sales milestones; <a href='https://steamdb.info/app/1867240/charts/'>SteamDB</a> for the concurrent-player peaks; <a href='https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1867240'>Steam's current-players API</a> for the live count. All read on 28 September 2026. The vendor price list is the exception: those figures were recorded from the in-game vendor screen in Season 1, and no public page carries them.</p>
+</div>
 
 <div class="readnext">
 <p><a href="/wardogs-achievements">WARDOGS achievements, all ten and how rare each one is &rarr;</a></p>

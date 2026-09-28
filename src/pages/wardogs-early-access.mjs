@@ -1,3 +1,57 @@
+// One array drives both the visible questions and the FAQPage JSON-LD.
+const faqs = [
+  {
+    q: "How long will WARDOGS be in Early Access?",
+    a: "Around 1 to 2 years, in the studio's own words, and it says explicitly that it does not want to be in Early Access for a long time. The exact duration may still change with development and community feedback.",
+  },
+  {
+    q: "Will the price go up?",
+    a: "Yes. The stated plan is a lower price during Early Access and a higher price at full release, to reflect the more complete experience. Players who buy now are paying the lower tier.",
+  },
+  {
+    q: "What is planned for the full version?",
+    a: "New vehicle types including fighter jets, expanded weapon categories and additional objective variations, plus deeper progression systems and a stronger seasonal metagame. Balance, performance and stability are named as the ongoing priority.",
+  },
+  {
+    q: "Is the game finished now?",
+    a: "The Early Access build is fully playable and represents the core vision, with online multiplayer, large-scale maps, vehicles, logistics and proximity voice chat in place. Ongoing balance changes, feature expansion and polish should be expected.",
+  },
+  {
+    q: "When exactly does Early Access end?",
+    a: "No date is published. The studio gives a range rather than a date and says the exact duration may change.",
+  },
+  {
+    q: "Where does this text come from?",
+    a: "The Early Access question-and-answer block on the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read on 28 September 2026. Every quotation above is the developer's own wording from that block.",
+  },
+];
+
+const stripTags = (s) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+const SITE = "https://shooteratlas.com";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE + "/" },
+        { "@type": "ListItem", position: 2, name: "WARDOGS Early Access", item: SITE + "/wardogs-early-access" },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: stripTags(f.a) },
+      })),
+    },
+  ],
+};
+
+const faqHtml = faqs.map((f) => `<h3>${f.q}</h3>\n<p>${f.a}</p>`).join("\n");
+
 export const page = {
   source: "src/pages/wardogs-early-access.mjs",
   path: "/wardogs-early-access",
@@ -7,9 +61,10 @@ export const page = {
   extraHead:
     "<style>" +
     "blockquote{margin:0 0 1.2rem;padding:.7rem 1rem;border-left:3px solid var(--rule);color:var(--muted);font-style:italic;font-size:.98rem}" +
-    "</style>",
+    "</style>" +
+    "<script type='application/ld+json'>" + JSON.stringify(schema) + "</script>",
   body: `<h1>WARDOGS Early Access: what the developers actually say</h1>
-<p class="lede">WARDOGS entered Steam Early Access on 10 September 2026. The Steam store page carries the developer's own Early Access Q&amp;A — six questions, answered in their words. The short version: roughly 1–2 years in Early Access, a lower price now that rises toward full release, and a full version planned to add fighter jets, more weapon categories and more objective variations. The full text, quoted from Steam, is below (read 28 September 2026).</p>
+<p class="lede">WARDOGS entered Steam Early Access on 10 September 2026. The <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a> carries the developer's own Early Access Q&amp;A — six questions, answered in their words. The short version: roughly 1–2 years in Early Access, a lower price now that rises toward full release, and a full version planned to add fighter jets, more weapon categories and more objective variations. The full text, quoted from Steam, is below (read 28 September 2026).</p>
 
 <h2>Why Early Access?</h2>
 <blockquote>"Early Access lets us put a fully playable FPS in players' hands early, gather meaningful feedback, and iterate alongside the community. We want players to help shape balance, pacing, progression, and features as the game grows, while also being transparent about the development. Players will be able to engage with developers via Discord, X, and YouTube."</blockquote>
@@ -33,6 +88,12 @@ export const page = {
 <p>Three takeaways survive the marketing language. First, the timeline is bounded: "around 1 to 2 years", with the studio explicitly saying it does not want a long Early Access. Second, the price is a ramp: cheaper now, higher at 1.0 — which is why the store lists $39.99 for Early Access against higher planned tiers. Third, the content plan is concrete in places (fighter jets, expanded weapon categories, additional objective variations, deeper progression and a seasonal meta game) and vague in others (exact maps, exact dates). Treat the concrete list as the promise and the vague parts as undecided.</p>
 
 <p>None of the three sites that cover WARDOGS in depth compiles this Q&amp;A. wardogs.site mentions the 1–2 year window once in passing; wardogshub.gg tracks live data but does not quote the developer's Early Access statements. This page exists to put the official text in one place.</p>
+
+<div class="qa">
+<h2>Common questions</h2>
+${faqHtml}
+<p class="src">Source: the Early Access block on the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>WARDOGS store page</a>, read on 28 September 2026. The quotations on this page are reproduced from that block; the commentary around them is ours.</p>
+</div>
 
 <div class="readnext">
 <p><a href="/wardogs">Scoring, prices and platform support for WARDOGS &rarr;</a></p>

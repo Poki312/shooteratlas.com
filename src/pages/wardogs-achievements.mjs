@@ -1,3 +1,57 @@
+// One array drives both the visible questions and the FAQPage JSON-LD.
+const faqs = [
+  {
+    q: "How many achievements does WARDOGS have?",
+    a: "Ten, and all ten are listed in the table above with the share of players who have unlocked each one.",
+  },
+  {
+    q: "Which WARDOGS achievement is the rarest?",
+    a: "Big Spender, for spending $100,000 on a single loadout, at 0.1% of players.",
+  },
+  {
+    q: "Which achievement do most players have?",
+    a: "This is WARDOGS, for finishing the tutorial, at 78.3%. It is the only one of the ten that more than half of all players hold.",
+  },
+  {
+    q: "Why does one achievement have no description?",
+    a: "That was rude, at 13.3%, is the single entry Steam prints with a name and a rate but no text. The blank is in Valve's own table, so it stays blank here.",
+  },
+  {
+    q: "Do the percentages change?",
+    a: "Yes. They are population percentages rather than rankings of players, and the tutorial figure in particular falls as new owners arrive and rises only slowly again. Re-read the source before repeating any of these numbers.",
+  },
+  {
+    q: "Where do these numbers come from?",
+    a: "Steam's global achievement statistics for WARDOGS, app 1867240, <a href='https://steamcommunity.com/stats/1867240/achievements/'>read on 28 September 2026</a>. Valve counts them; this page only reports them.",
+  },
+];
+
+const stripTags = (s) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+const SITE = "https://shooteratlas.com";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE + "/" },
+        { "@type": "ListItem", position: 2, name: "WARDOGS achievements", item: SITE + "/wardogs-achievements" },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: stripTags(f.a) },
+      })),
+    },
+  ],
+};
+
+const faqHtml = faqs.map((f) => `<h3>${f.q}</h3>\n<p>${f.a}</p>`).join("\n");
+
 export const page = {
   source: "src/pages/wardogs-achievements.mjs",
   path: "/wardogs-achievements",
@@ -12,12 +66,13 @@ export const page = {
     "table.ach th{font-size:.8rem;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);font-weight:600}" +
     "table.ach td.rate{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}" +
     "@media (max-width:430px){table.ach{font-size:.92rem}table.ach th,table.ach td{padding:.5rem .45rem}}" +
-    "</style>",
+    "</style>" +
+    "<script type='application/ld+json'>" + JSON.stringify(schema) + "</script>",
   body: `<h1>WARDOGS achievements: all 10, and how rare each one is</h1>
-<p class="lede">WARDOGS ships ten Steam achievements, and the list doubles as a difficulty ladder. Globally, 78.3% of players have the first one and 0.1% have the last. Everything below is Valve's own figure for each achievement, read from Steam's public statistics on 28 September 2026 &mdash; official material, not a measurement of ours.</p>
+<p class="lede">WARDOGS ships ten Steam achievements, and the list doubles as a difficulty ladder. Globally, 78.3% of players have the first one and 0.1% have the last. Everything below is Valve's own figure for each achievement, read from <a href='https://steamcommunity.com/stats/1867240/achievements/'>Steam's public achievement statistics</a> on 28 September 2026 &mdash; official material, not a measurement of ours.</p>
 
 <h2>The full list, with the global unlock rate</h2>
-<p>Steam publishes a worldwide unlock percentage for every achievement, and it is visible without owning the game or signing in. These are the ten figures for WARDOGS (Steam app 1867240), printed in the order Steam lists them, rarest last. The percentage is the share of all players on record who have unlocked it.</p>
+<p>Steam publishes a worldwide unlock percentage for every achievement, and it is visible without owning the game or signing in. These are the ten figures for WARDOGS (<a href='https://steamcommunity.com/stats/1867240/achievements/'>Steam app 1867240</a>, read 28 September 2026), printed in the order Steam lists them, rarest last. The percentage is the share of all players on record who have unlocked it.</p>
 
 <div class="tablewrap">
 <table class="ach">
@@ -61,7 +116,13 @@ export const page = {
 <p>Seven of the achievements name a kill, a win or a survival feat. Two &mdash; Fat Stacks and Big Spender &mdash; never mention combat at all, and they bracket the economy from both ends: net profit inside one life, and the price of a single purchase. They are also the two that would move fastest if the cash system were rebalanced, which makes them worth re-reading after any patch that touches vendor prices or rewards.</p>
 
 <h2>Where these numbers come from, and what moves them</h2>
-<p>The source is Steam's global achievement statistics for WARDOGS, app 1867240, read on 28 September 2026. Valve counts them; we only report them. Two cautions before quoting any of them elsewhere: they are population percentages rather than rankings of players, and the tutorial figure in particular falls as new owners arrive and rise only slowly again, so every one of the ten drifts. Re-read the same page before you repeat a number from this one.</p>
+<p>The source is <a href='https://steamcommunity.com/stats/1867240/achievements/'>Steam's global achievement statistics</a> for WARDOGS, app 1867240, read on 28 September 2026. Valve counts them; we only report them. Two cautions before quoting any of them elsewhere: they are population percentages rather than rankings of players, and the tutorial figure in particular falls as new owners arrive and rise only slowly again, so every one of the ten drifts. Re-read the same page before you repeat a number from this one.</p>
+
+<div class="qa">
+<h2>Common questions</h2>
+${faqHtml}
+<p class="src">Source: the <a href='https://steamcommunity.com/stats/1867240/achievements/'>Steam Community global achievement statistics for app 1867240</a>, read on 28 September 2026. Every figure on this page is Valve's; none of it is measured by us.</p>
+</div>
 
 <div class="readnext">
 <p><a href="/wardogs">Scoring, prices and platform support for the same game &rarr;</a></p>
