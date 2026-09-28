@@ -55,6 +55,7 @@ const faqHtml = faqs.map((f) => `<h3>${f.q}</h3>\n<p>${f.a}</p>`).join("\n");
 import { adUnit } from "../ad.mjs";
 
 export const page = {
+  ogImage: "https://shooteratlas.com/assets/img/wardogs-reviews.png",
   source: "src/pages/wardogs-reviews.mjs",
   path: "/wardogs-reviews",
   title: "WARDOGS Steam reviews — 54,566 of them, 81% positive",
@@ -86,6 +87,8 @@ export const page = {
 ${faqHtml}
 <p class="src">Every figure on this page comes from the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>WARDOGS store page</a> on Steam, read on 28 September 2026. Valve computes the review count, the positive percentage and the summary label; this page reports them unchanged.</p>
 </div>
+
+<figure class="pagefig"><img src="/assets/img/wardogs-reviews.png" width="1200" height="630" alt="WARDOGS reviews card: 54,566 user reviews, 81% positive, summary Very Positive"><figcaption>Drawn for this page. Figures as read on 28 September 2026.</figcaption></figure>
 
 ${adUnit}
 

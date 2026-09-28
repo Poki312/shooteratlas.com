@@ -1,7 +1,21 @@
 // Shared HTML shell. One inline stylesheet, no web fonts. The only external
 // request is Cloudflare's own Web Analytics beacon at the end of the body.
 
-export function layout({ title, description, canonical, body, extraHead = "" }) {
+// Social-card tags. When a page has an image, the same file backs og:image and
+// twitter:image so a shared link never renders a broken card.
+function socialMeta(ogImage) {
+  if (!ogImage) return `<meta name="twitter:card" content="summary">`;
+  return [
+    `<meta property="og:image" content="${ogImage}">`,
+    `<meta property="og:image:width" content="1200">`,
+    `<meta property="og:image:height" content="630">`,
+    `<meta property="og:image:alt" content="Shooter Atlas">`,
+    `<meta name="twitter:card" content="summary_large_image">`,
+    `<meta name="twitter:image" content="${ogImage}">`,
+  ].join("\n");
+}
+
+export function layout({ title, description, canonical, body, extraHead = "", ogImage = "" }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -17,7 +31,7 @@ export function layout({ title, description, canonical, body, extraHead = "" }) 
 <meta property="og:title" content="${title}">
 <meta property="og:description" content="${description}">
 <meta property="og:url" content="${canonical}">
-<meta name="twitter:card" content="summary">
+${socialMeta(ogImage)}
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%230b57d0'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='6.5'%20fill='none'%20stroke='%23fff'%20stroke-width='2.4'/%3E%3Cpath%20d='M16%203.5v5M16%2023.5v5M3.5%2016h5M23.5%2016h5'%20stroke='%23fff'%20stroke-width='2.4'%20stroke-linecap='round'/%3E%3C/svg%3E">
 ${extraHead}
 <style>
@@ -70,6 +84,9 @@ a:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:3
 .ad-label{margin:0 0 .4rem;font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
 .ad-body{margin:0;font-size:1.05rem;font-weight:600;line-height:1.45}
 .ad-note{margin:.5rem 0 0;font-size:.85rem;color:var(--muted)}
+.pagefig{margin:2.8rem 0 0}
+.pagefig img{display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:10px}
+.pagefig figcaption{margin:.6rem 0 0;font-size:.86rem;color:var(--muted)}
 .cta{margin:2.6rem 0 1.2rem}
 @media (prefers-color-scheme: dark){
 :root{--ink:#e7ecf3;--muted:#9aa7b6;--rule:#242c37;--bg:#0f1319;--bg-soft:#151b23;--link:#7fb0ff;--ink-soft:#c3ccd4;--btn-hover:#9cc2ff}

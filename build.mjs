@@ -4,7 +4,7 @@
 // file mtime, then the build date). Add a page to src/pages.mjs and both the
 // page and its sitemap entry appear on the next build.
 
-import { mkdir, writeFile, stat } from "node:fs/promises";
+import { mkdir, writeFile, stat, cp } from "node:fs/promises";
 import { execFileSync } from "node:child_process";
 import path from "node:path";
 import { layout } from "./src/layout.mjs";
@@ -51,6 +51,7 @@ async function build() {
       canonical: urlFor(page.path),
       body: page.body,
       extraHead: page.extraHead ?? "",
+      ogImage: page.ogImage ?? "",
     });
     // "/" -> index.html ; "/wardogs" -> wardogs.html (Pages serves /wardogs from it)
     const clean = page.path.replace(/^\//, "");
@@ -70,6 +71,16 @@ async function build() {
   });
   await writeFile(path.join(OUT, "404.html"), nf, "utf8");
   console.log("page    404.html");
+
+  // Static assets (the per-page images) ship with the build. Cloudflare Pages
+  // serves dist/ as-is, so anything not copied here never reaches the live site.
+  try {
+    await cp("assets", path.join(OUT, "assets"), { recursive: true });
+    console.log("dir     assets/");
+  } catch (err) {
+    if (err.code !== "ENOENT") throw err;
+    console.log("dir     assets/ (none)");
+  }
 
   const robots = ["User-agent: *", "Allow: /", "Sitemap: " + SITE + "/sitemap.xml"].join("\n") + "\n";
   await writeFile(path.join(OUT, "robots.txt"), robots, "utf8");

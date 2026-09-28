@@ -55,6 +55,7 @@ const faqHtml = faqs.map((f) => `<h3>${f.q}</h3>\n<p>${f.a}</p>`).join("\n");
 import { adUnit } from "../ad.mjs";
 
 export const page = {
+  ogImage: "https://shooteratlas.com/assets/img/wardogs-early-access.png",
   source: "src/pages/wardogs-early-access.mjs",
   path: "/wardogs-early-access",
   title: "WARDOGS Early Access — what the developers say about the timeline, the price and the full game",
@@ -96,6 +97,8 @@ export const page = {
 ${faqHtml}
 <p class="src">Source: the Early Access block on the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>WARDOGS store page</a>, read on 28 September 2026. The quotations on this page are reproduced from that block; the commentary around them is ours.</p>
 </div>
+
+<figure class="pagefig"><img src="/assets/img/wardogs-early-access.png" width="1200" height="630" alt="WARDOGS Early Access card: 1-2 years in Early Access, $39.99 now, fighter jets planned"><figcaption>Drawn for this page. Figures as read on 28 September 2026.</figcaption></figure>
 
 ${adUnit}
 

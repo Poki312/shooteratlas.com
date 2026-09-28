@@ -55,6 +55,7 @@ const faqHtml = faqs.map((f) => `<h3>${f.q}</h3>\n<p>${f.a}</p>`).join("\n");
 import { adUnit } from "../ad.mjs";
 
 export const page = {
+  ogImage: "https://shooteratlas.com/assets/img/wardogs-achievements.png",
   source: "src/pages/wardogs-achievements.mjs",
   path: "/wardogs-achievements",
   title: "WARDOGS achievements — all 10, and how rare each one is",
@@ -125,6 +126,8 @@ export const page = {
 ${faqHtml}
 <p class="src">Source: the <a href='https://steamcommunity.com/stats/1867240/achievements/'>Steam Community global achievement statistics for app 1867240</a>, read on 28 September 2026. Every figure on this page is Valve's; none of it is measured by us.</p>
 </div>
+
+<figure class="pagefig"><img src="/assets/img/wardogs-achievements.png" width="1200" height="630" alt="WARDOGS achievements card: ten achievements, 78.3% most common, 0.1% rarest"><figcaption>Drawn for this page. Figures as read on 28 September 2026.</figcaption></figure>
 
 ${adUnit}
 

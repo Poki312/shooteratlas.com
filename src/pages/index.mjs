@@ -1,6 +1,7 @@
 import { adUnit } from "../ad.mjs";
 
 export const page = {
+  ogImage: "https://shooteratlas.com/assets/img/home.png",
   source: "src/pages/index.mjs",
   path: "/",
   title: "Shooter Atlas — numbers for large-scale tactical shooters",
@@ -45,6 +46,8 @@ export const page = {
 <li>What cannot be sourced does not go on the page. There is no filler figure and no round number invented to fill a table cell.</li>
 </ul>
 <p>The result is a site that is slower to fill up than a news blog, and that is the point: a number you cannot trace back is worse than a blank space.</p>
+
+<figure class="pagefig"><img src="/assets/img/home.png" width="1200" height="630" alt="Shooter Atlas card: numbers for 100-player tactical shooters, one game per page"><figcaption>Drawn for this page. Figures as read on 28 September 2026.</figcaption></figure>
 
 ${adUnit}
 
