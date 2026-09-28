@@ -62,5 +62,7 @@ export const page = {
 
 <p><strong>The commute is the respawn timer.</strong> There is no arcade respawn counter. Getting from your base back to the Control Zone — buying a vehicle, catching a lift, trusting a pilot — is the penalty for dying, which is why logistics, transport and helicopters are paid roles. It also reframes the fight: killing the enemy's spawn vehicle costs them more than killing the player standing next to it.</p>
 
-<p>Prices step up as content lands: $39.99 now, $49.99 later, $59.99 at 1.0. Season 2 is dated 15 October 2026. Before you pay, check the current patch number, check the anti-cheat line in the store page's feature block, and check the live player count. Those three checks tell you more than any launch-week review.</p>`,
+<p>Prices step up as content lands: $39.99 now, $49.99 later, $59.99 at 1.0. Season 2 is dated 15 October 2026. Before you pay, check the current patch number, check the anti-cheat line in the store page's feature block, and check the live player count. Those three checks tell you more than any launch-week review.</p>
+
+<p><a href="/wardogs-achievements">WARDOGS achievements, all ten and how rare each one is &rarr;</a></p>`,
 };
