@@ -52,6 +52,8 @@ const schema = {
 
 const faqHtml = faqs.map((f) => `<h3>${f.q}</h3>\n<p>${f.a}</p>`).join("\n");
 
+import { adUnit } from "../ad.mjs";
+
 export const page = {
   source: "src/pages/wardogs-reviews.mjs",
   path: "/wardogs-reviews",
@@ -84,6 +86,8 @@ export const page = {
 ${faqHtml}
 <p class="src">Every figure on this page comes from the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>WARDOGS store page</a> on Steam, read on 28 September 2026. Valve computes the review count, the positive percentage and the summary label; this page reports them unchanged.</p>
 </div>
+
+${adUnit}
 
 <div class="readnext">
 <p><a href="/wardogs">Scoring, prices and platform support for WARDOGS &rarr;</a></p>

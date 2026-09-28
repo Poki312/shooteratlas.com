@@ -68,6 +68,8 @@ const schema = {
 
 const faqHtml = faqs.map((f) => `<h3>${f.q}</h3>\n<p>${f.a}</p>`).join("\n");
 
+import { adUnit } from "../ad.mjs";
+
 export const page = {
   source: "src/pages/wardogs.mjs",
   path: "/wardogs",
@@ -145,6 +147,8 @@ export const page = {
 ${faqHtml}
 <p class="src">Where these figures come from: the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>WARDOGS store page</a> and the <a href='https://steamcommunity.com/app/1867240/announcements/'>official Steam announcements</a> for the price, dates, specifications and sales milestones; <a href='https://steamdb.info/app/1867240/charts/'>SteamDB</a>, a third-party community database, for the three concurrent-player figures, which are marked as third-party wherever they appear on this page; <a href='https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1867240'>Steam's current-players API</a> for the live count. All read on 28 September 2026. The vendor price list is the exception: those figures were recorded from the in-game vendor screen in Season 1, and no public page carries them.</p>
 </div>
+
+${adUnit}
 
 <div class="readnext">
 <p><a href="/wardogs-achievements">WARDOGS achievements, all ten and how rare each one is &rarr;</a></p>

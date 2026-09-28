@@ -52,6 +52,8 @@ const schema = {
 
 const faqHtml = faqs.map((f) => `<h3>${f.q}</h3>\n<p>${f.a}</p>`).join("\n");
 
+import { adUnit } from "../ad.mjs";
+
 export const page = {
   source: "src/pages/wardogs-early-access.mjs",
   path: "/wardogs-early-access",
@@ -94,6 +96,8 @@ export const page = {
 ${faqHtml}
 <p class="src">Source: the Early Access block on the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>WARDOGS store page</a>, read on 28 September 2026. The quotations on this page are reproduced from that block; the commentary around them is ours.</p>
 </div>
+
+${adUnit}
 
 <div class="readnext">
 <p><a href="/wardogs">Scoring, prices and platform support for WARDOGS &rarr;</a></p>

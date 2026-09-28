@@ -52,6 +52,8 @@ const schema = {
 
 const faqHtml = faqs.map((f) => `<h3>${f.q}</h3>\n<p>${f.a}</p>`).join("\n");
 
+import { adUnit } from "../ad.mjs";
+
 export const page = {
   source: "src/pages/wardogs-achievements.mjs",
   path: "/wardogs-achievements",
@@ -123,6 +125,8 @@ export const page = {
 ${faqHtml}
 <p class="src">Source: the <a href='https://steamcommunity.com/stats/1867240/achievements/'>Steam Community global achievement statistics for app 1867240</a>, read on 28 September 2026. Every figure on this page is Valve's; none of it is measured by us.</p>
 </div>
+
+${adUnit}
 
 <div class="readnext">
 <p><a href="/wardogs">Scoring, prices and platform support for the same game &rarr;</a></p>

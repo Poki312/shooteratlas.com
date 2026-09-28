@@ -5,7 +5,7 @@ export const page = {
   description:
     "What Shooter Atlas collects (very little), what Cloudflare's network and analytics see, and how third-party advertising is handled.",
   body: `<h1>Privacy</h1>
-<p>Last updated: 25 September 2026.</p>
+<p>Last updated: 29 September 2026.</p>
 
 <h2>The short version</h2>
 <p>Shooter Atlas has no accounts, no comment system and no forms. You can read every page on this site without identifying yourself to it, and the site itself does not set cookies of its own.</p>
@@ -27,7 +27,7 @@ export const page = {
 <li>Where the law in your region requires consent before advertising cookies are set, that consent is requested at the point advertising is loaded, and it can be refused.</li>
 <li>Shooter Atlas does not sell email addresses or any other information you send it. There is nothing to sell: the site holds no user database.</li>
 </ul>
-<p>The current build of this page is published before ad serving is switched on, so no ad script is running yet. When networks are added, they are named on this page — a list of unnamed advertisers is not a privacy policy.</p>
+<p>Advertising is now live. The only unit running is an affiliate link from <strong>CJ Affiliate</strong> for <strong>Surfshark</strong>, which appears at the foot of the reading pages and is labelled as advertising wherever it appears. It is a plain link and not a script: no advertising code runs inside this page, and nothing is set on your device unless you choose to follow the link, at which point CJ Affiliate and Surfshark handle the click under their own policies. Advertisers are named on this page as they are added — a list of unnamed advertisers is not a privacy policy.</p>
 
 <h2>Changes to this page</h2>
 <p>When this policy changes, the date at the top changes with it. It is written to be read, not to be skimmed past, so it stays short on purpose.</p>`,

@@ -1,3 +1,5 @@
+import { adUnit } from "../ad.mjs";
+
 export const page = {
   source: "src/pages/index.mjs",
   path: "/",
@@ -43,6 +45,8 @@ export const page = {
 <li>What cannot be sourced does not go on the page. There is no filler figure and no round number invented to fill a table cell.</li>
 </ul>
 <p>The result is a site that is slower to fill up than a news blog, and that is the point: a number you cannot trace back is worse than a blank space.</p>
+
+${adUnit}
 
 <p class="cta"><a class="btn" href="/wardogs">Read the WARDOGS page &rarr;</a></p>
 <p style="color:var(--muted);font-size:.82rem">Awin publisher verification.</p>`,

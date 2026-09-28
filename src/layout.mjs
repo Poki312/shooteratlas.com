@@ -66,6 +66,10 @@ a:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:3
 .qa p{margin:0 0 .45rem;color:var(--ink-soft)}
 .src{margin:2.3rem 0 0;font-size:.88rem;line-height:1.6;color:var(--muted);border-top:1px solid var(--rule);padding-top:1rem}
 .src a{color:inherit}
+.ad{margin:2.7rem 0 0;border:1px solid var(--rule);border-radius:10px;background:var(--bg-soft);padding:1rem 1.15rem 1.05rem}
+.ad-label{margin:0 0 .4rem;font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.ad-body{margin:0;font-size:1.05rem;font-weight:600;line-height:1.45}
+.ad-note{margin:.5rem 0 0;font-size:.85rem;color:var(--muted)}
 .cta{margin:2.6rem 0 1.2rem}
 @media (prefers-color-scheme: dark){
 :root{--ink:#e7ecf3;--muted:#9aa7b6;--rule:#242c37;--bg:#0f1319;--bg-soft:#151b23;--link:#7fb0ff;--ink-soft:#c3ccd4;--btn-hover:#9cc2ff}
