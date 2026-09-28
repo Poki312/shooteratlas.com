@@ -5,7 +5,7 @@ export const page = {
   description:
     "What Shooter Atlas collects (very little), what Cloudflare's network and analytics see, and how third-party advertising is handled.",
   body: `<h1>Privacy</h1>
-<p>Last updated: 28 September 2026.</p>
+<p>Last updated: 29 September 2026.</p>
 
 <h2>The short version</h2>
 <p>Shooter Atlas has no accounts, no comment system and no forms. You can read every page on this site without identifying yourself to it, and the site itself does not set cookies of its own.</p>
