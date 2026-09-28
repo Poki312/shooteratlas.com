@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "How many people are playing WARDOGS?",
-    a: "Four days after release the game set an all-time peak of 428,666 concurrent players, and by the final week of September it was running near 132,000. That number moves every day, so check the live figure on the day you pay instead of buying on the record — <a href='https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1867240'>Steam's current-players API</a> returns it without signing in (read 28 September 2026).",
+    a: "Four days after release the game set an all-time peak of 428,666 concurrent players, and by the final week of September it was running near 132,000, and both of those come from SteamDB, a third-party database rather than from Valve. That number moves every day, so check the official live figure on the day you pay instead of buying on the record — <a href='https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1867240'>Steam's current-players API</a> returns it without signing in (read 28 September 2026).",
   },
   {
     q: "Is there a respawn timer?",
@@ -82,7 +82,11 @@ export const page = {
 <p>Buy it now if you play on Windows, you will live with a kernel-level anti-cheat, and you want a shooter that gets rebuilt under you for two years. Wait if you need Linux or Proton, if you are on console — Steam's own <a href='https://steamcommunity.com/app/1867240/announcements/'>launch post</a> dates consoles to 2028 — or if you expect the free starter kit to be usable. It is not, and that is deliberate.</p>
 
 <h2>Where the player base actually sits</h2>
-<p>Three numbers describe this launch better than any review score does. The closed beta peaked at 244,926 concurrent players on 5 September 2026 (<a href='https://steamdb.info/app/4809930/charts/'>SteamDB</a>, read 28 September 2026). Four days after release, on 13 September, the game set an all-time peak of 428,666 (<a href='https://steamdb.info/app/1867240/charts/'>SteamDB</a>, read 28 September 2026). By the final week of September it was running near 132,000 concurrent (<a href='https://steamdb.info/app/1867240/charts/'>SteamDB</a>, read 28 September 2026). Copies moved fast in between: 1.25 million by 11 September, two million by 16 September (<a href='https://steamcommunity.com/app/1867240/announcements/'>Steam announcements</a>, read 28 September 2026). The store page now carries 51,079 English reviews — Very Positive — inside 76,407 total, which grades Mostly Positive (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 28 September 2026).</p>
+<p>Three numbers describe this launch better than any review score does, and all three come from a third-party database rather than from Valve. The closed beta peaked at 244,926 concurrent players on 5 September 2026. Four days after release, on 13 September, the game set an all-time peak of 428,666. By the final week of September it was running near 132,000 concurrent.</p>
+
+<p class="src">Those three figures are third-party, not official. They are recorded by <a href='https://steamdb.info/app/1867240/charts/'>SteamDB</a>, a community-run database that mirrors the player counts Steam exposes through its API; the Closed Beta peak sits on a separate app chart (<a href='https://steamdb.info/app/4809930/charts/'>app 4809930</a>). Read 28 September 2026. Valve publishes a live player count but no per-game concurrency history, so no official source exists for the Closed Beta peak, the 13 September peak or the late-September figure, and none of the three should be quoted as an official number. The nearest official statement is the launch-week maintenance post, which claims the game passed 400,000 peak concurrent users.</p>
+
+<p>Copies moved fast in between: 1.25 million by 11 September, two million by 16 September (<a href='https://steamcommunity.com/app/1867240/announcements/'>Steam announcements</a>, read 28 September 2026). The store page now carries 51,079 English reviews — Very Positive — inside 76,407 total, which grades Mostly Positive (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 28 September 2026).</p>
 
 <p>The spike is not the community, and the community is not the spike. If queue health is what you are buying, check the live concurrent number on the day you pay, not the record.</p>
 
@@ -139,7 +143,7 @@ export const page = {
 <div class="qa">
 <h2>Common questions</h2>
 ${faqHtml}
-<p class="src">Where these figures come from: the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>WARDOGS store page</a> and the <a href='https://steamcommunity.com/app/1867240/announcements/'>official Steam announcements</a> for the price, dates, specifications and sales milestones; <a href='https://steamdb.info/app/1867240/charts/'>SteamDB</a> for the concurrent-player peaks; <a href='https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1867240'>Steam's current-players API</a> for the live count. All read on 28 September 2026. The vendor price list is the exception: those figures were recorded from the in-game vendor screen in Season 1, and no public page carries them.</p>
+<p class="src">Where these figures come from: the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>WARDOGS store page</a> and the <a href='https://steamcommunity.com/app/1867240/announcements/'>official Steam announcements</a> for the price, dates, specifications and sales milestones; <a href='https://steamdb.info/app/1867240/charts/'>SteamDB</a>, a third-party community database, for the three concurrent-player figures, which are marked as third-party wherever they appear on this page; <a href='https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1867240'>Steam's current-players API</a> for the live count. All read on 28 September 2026. The vendor price list is the exception: those figures were recorded from the in-game vendor screen in Season 1, and no public page carries them.</p>
 </div>
 
 <div class="readnext">
