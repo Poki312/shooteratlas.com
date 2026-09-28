@@ -125,7 +125,7 @@ h1{font-size:1.6rem}
 ${body}
 </div></main>
 <footer class="site-foot"><div class="wrap">
-<p>Shooter Atlas. Every figure on this site is either taken from official material or measured in game, and is labelled with which of the two it is.</p>
+<p>Shooter Atlas. Every figure on this site is either taken from official material or measured in game, and is labelled with which of the two it is. The same figures run as short cards on <a href="https://www.youtube.com/channel/UCaFMBF4EPVor__gBeNZguQg" rel="noopener">Shooter Atlas on YouTube</a>.</p>
 <nav class="site-nav" aria-label="Site">
 <a href="/about">About</a>
 <a href="/privacy">Privacy</a>
