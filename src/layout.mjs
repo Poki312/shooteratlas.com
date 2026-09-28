@@ -49,7 +49,21 @@ a{color:var(--link)}
 .readnext p:first-child{margin-top:0}
 .readnext p:last-child{margin-bottom:0}
 .cta{margin:2.6rem 0 1.2rem}
-@media (max-width:430px){body{font-size:16px}h1{font-size:1.5rem}}
+@media (max-width:560px){
+.wrap{padding:0 1.1rem}
+.site-head{padding:1.1rem 0 .95rem}
+main{padding:1.9rem 0 1rem}
+h1{font-size:1.75rem}
+h2{font-size:1.22rem;margin-top:2.2rem}
+.lede{font-size:1.08rem}
+.site-nav{gap:.15rem 1.1rem}
+.site-nav a,.site-head-nav a{display:inline-block;padding:.6rem 0}
+}
+@media (max-width:430px){
+body{font-size:17px}
+h1{font-size:1.6rem}
+.lede{font-size:1.05rem}
+}
 </style>
 </head>
 <body>

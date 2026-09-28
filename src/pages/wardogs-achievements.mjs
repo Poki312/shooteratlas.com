@@ -6,10 +6,12 @@ export const page = {
     "WARDOGS has ten Steam achievements. Read from Steam's global stats on 28 September 2026, the commonest is finishing the tutorial at 78.3% of players and the rarest is Big Spender, spending $100,000 on one loadout, at 0.1%.",
   extraHead:
     "<style>" +
-    "table.ach{border-collapse:collapse;width:100%;margin:0 0 1.2rem;font-size:.96rem}" +
+    ".tablewrap{max-width:100%;overflow-x:auto;margin:0 0 1.2rem;-webkit-overflow-scrolling:touch}" +
+    "table.ach{border-collapse:collapse;width:100%;min-width:30rem;font-size:.96rem}" +
     "table.ach th,table.ach td{border-bottom:1px solid var(--rule);padding:.55rem .6rem;text-align:left;vertical-align:top}" +
     "table.ach th{font-size:.8rem;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);font-weight:600}" +
     "table.ach td.rate{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}" +
+    "@media (max-width:430px){table.ach{font-size:.92rem}table.ach th,table.ach td{padding:.5rem .45rem}}" +
     "</style>",
   body: `<h1>WARDOGS achievements: all 10, and how rare each one is</h1>
 <p class="lede">WARDOGS ships ten Steam achievements, and the list doubles as a difficulty ladder. Globally, 78.3% of players have the first one and 0.1% have the last. Everything below is Valve's own figure for each achievement, read from Steam's public statistics on 28 September 2026 &mdash; official material, not a measurement of ours.</p>
@@ -17,6 +19,7 @@ export const page = {
 <h2>The full list, with the global unlock rate</h2>
 <p>Steam publishes a worldwide unlock percentage for every achievement, and it is visible without owning the game or signing in. These are the ten figures for WARDOGS (Steam app 1867240), printed in the order Steam lists them, rarest last. The percentage is the share of all players on record who have unlocked it.</p>
 
+<div class="tablewrap">
 <table class="ach">
 <thead><tr><th>Achievement</th><th>What it asks you to do</th><th class="rate">Players who have it</th></tr></thead>
 <tbody>
@@ -32,6 +35,7 @@ export const page = {
 <tr><td>Big Spender</td><td>Spend $100,000 on a single loadout</td><td class="rate">0.1%</td></tr>
 </tbody>
 </table>
+</div>
 
 <h2>Four numbers that only appear here</h2>
 <p>The achievement text is the only place the game puts a figure on some things. Four of the ten carry one:</p>
