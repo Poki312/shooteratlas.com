@@ -59,5 +59,7 @@ export const page = {
 <h2>Where these numbers come from, and what moves them</h2>
 <p>The source is Steam's global achievement statistics for WARDOGS, app 1867240, read on 28 September 2026. Valve counts them; we only report them. Two cautions before quoting any of them elsewhere: they are population percentages rather than rankings of players, and the tutorial figure in particular falls as new owners arrive and rise only slowly again, so every one of the ten drifts. Re-read the same page before you repeat a number from this one.</p>
 
-<p><a href="/wardogs">Scoring, prices and platform support for the same game &rarr;</a></p>`,
+<div class="readnext">
+<p><a href="/wardogs">Scoring, prices and platform support for the same game &rarr;</a></p>
+</div>`,
 };

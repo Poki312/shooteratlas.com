@@ -22,7 +22,9 @@ export const page = {
 <li>Review scores measure mood, not content. They say how the people who wrote a review felt, not whether the match length, the anti-cheat or the economy work the way you want — those are separate questions this site covers on other pages.</li>
 </ul>
 
+<div class="readnext">
 <p><a href="/wardogs">Scoring, prices and platform support for WARDOGS &rarr;</a></p>
 <p><a href="/wardogs-early-access">What the developers say about Early Access timing and the full game &rarr;</a></p>
-<p><a href="/wardogs-achievements">All ten WARDOGS achievements and how rare each one is &rarr;</a></p>`,
+<p><a href="/wardogs-achievements">All ten WARDOGS achievements and how rare each one is &rarr;</a></p>
+</div>`,
 };

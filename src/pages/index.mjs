@@ -13,6 +13,12 @@ export const page = {
   body: `<h1>Numbers for 100-player tactical shooters</h1>
 <p class="lede">Shooter Atlas is a reference site for large-scale tactical shooters &mdash; the kind where a hundred players split into three teams, fight over one moving objective, and pay for every loadout out of their own pocket.</p>
 
+<nav class="hub" aria-label="Pages">
+<a href="/wardogs">Wardogs</a>
+<a href="/wardogs-achievements">WARDOGS achievements: all 10, and how rare each one is</a>
+<a href="/wardogs-reviews">WARDOGS on Steam: what 54,566 reviews say</a>
+<a href="/wardogs-early-access">WARDOGS Early Access: what the developers actually say</a>
+</nav>
 <h2>What this site is</h2>
 <p>One page per game, and the same questions answered in the same order on every page, so two games can be compared without re-learning a layout:</p>
 <ul>
@@ -38,6 +44,6 @@ export const page = {
 </ul>
 <p>The result is a site that is slower to fill up than a news blog, and that is the point: a number you cannot trace back is worse than a blank space.</p>
 
-<p><a href="/wardogs">Read the WARDOGS page &rarr;</a></p>
+<p class="cta"><a class="btn" href="/wardogs">Read the WARDOGS page &rarr;</a></p>
 <p style="color:var(--muted);font-size:.82rem">Awin publisher verification.</p>`,
 };

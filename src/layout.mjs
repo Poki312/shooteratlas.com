@@ -18,6 +18,11 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
 .wrap{max-width:41rem;margin:0 auto;padding:0 1.25rem}
 .site-head{border-bottom:1px solid var(--rule);padding:1.4rem 0 1.15rem}
+.site-head-in{display:flex;align-items:center;justify-content:space-between;gap:1.25rem;flex-wrap:wrap}
+.brand-block{min-width:0}
+.site-head-nav{display:flex;gap:1.1rem;flex-wrap:wrap}
+.site-head-nav a{color:var(--ink);text-decoration:none;font-size:.95rem}
+.site-head-nav a:hover{text-decoration:underline}
 .brand{display:inline-block;font-weight:700;font-size:1.14rem;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
 .tagline{margin:.25rem 0 0;color:var(--muted);font-size:.94rem}
 main{padding:2.4rem 0 1.2rem}
@@ -33,13 +38,31 @@ a{color:var(--link)}
 .site-nav{margin:.8rem 0 0;display:flex;flex-wrap:wrap;gap:.25rem 1.1rem}
 .site-nav a{color:var(--muted);text-decoration:none}
 .site-nav a:hover{text-decoration:underline}
+.btn{display:inline-block;background:var(--link);color:#fff;font-weight:600;padding:.7rem 1.15rem;border-radius:8px;text-decoration:none}
+.btn:hover{background:#0a4bb5;color:#fff}
+.hub{margin:0 0 2.4rem;border:1px solid var(--rule);border-radius:10px;padding:0 1.1rem}
+.hub a{display:block;padding:.8rem 0;border-top:1px solid var(--rule);font-weight:600;text-decoration:none}
+.hub a:first-child{border-top:0}
+.hub a:hover{text-decoration:underline}
+.readnext{margin:2.8rem 0 0;border:1px solid var(--rule);border-radius:10px;padding:1.1rem 1.2rem 1.2rem}
+.readnext p{margin:.5rem 0}
+.readnext p:first-child{margin-top:0}
+.readnext p:last-child{margin-bottom:0}
+.cta{margin:2.6rem 0 1.2rem}
 @media (max-width:430px){body{font-size:16px}h1{font-size:1.5rem}}
 </style>
 </head>
 <body>
-<header class="site-head"><div class="wrap">
+<header class="site-head"><div class="wrap site-head-in">
+<div class="brand-block">
 <a class="brand" href="/">Shooter Atlas</a>
 <p class="tagline">Numbers for large-scale tactical shooters</p>
+</div>
+<nav class="site-head-nav" aria-label="Site">
+<a href="/wardogs">Wardogs</a>
+<a href="/about">About</a>
+<a href="/contact">Contact</a>
+</nav>
 </div></header>
 <main><div class="wrap">
 ${body}

@@ -34,7 +34,9 @@ export const page = {
 
 <p>None of the three sites that cover WARDOGS in depth compiles this Q&amp;A. wardogs.site mentions the 1–2 year window once in passing; wardogshub.gg tracks live data but does not quote the developer's Early Access statements. This page exists to put the official text in one place.</p>
 
+<div class="readnext">
 <p><a href="/wardogs">Scoring, prices and platform support for WARDOGS &rarr;</a></p>
 <p><a href="/wardogs-reviews">What 54,566 Steam reviews say about WARDOGS &rarr;</a></p>
-<p><a href="/wardogs-achievements">All ten WARDOGS achievements and how rare each one is &rarr;</a></p>`,
+<p><a href="/wardogs-achievements">All ten WARDOGS achievements and how rare each one is &rarr;</a></p>
+</div>`,
 };
