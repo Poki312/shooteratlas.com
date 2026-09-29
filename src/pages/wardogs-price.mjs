@@ -139,7 +139,7 @@ ${faqHtml}
 <p class="src">Every figure on this page comes from Valve's own region-specific store data, read on 29 September 2026: the base and Supporter prices for the United States, United Kingdom, Germany, Japan, Korea, Brazil, Australia and Canada, the 0% discount in each, and the missing Russian price. The Early Access pricing policy is quoted from the Q&amp;A block on the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>WARDOGS store page</a>, read the same day. The Supporter Edition's cosmetic contents are taken from <a href='https://wardogs.site/price/'>wardogs.site</a> and labelled as that site's list. The 22.5–26.0% premium range is our own arithmetic on Valve's two prices per region, and is marked as such wherever it appears.</p>
 </div>
 
-<figure class="pagefig"><img src="/assets/img/wardogs-price.png" width="1200" height="630" alt="WARDOGS price by region card: $39.99 in the United States, ¥4,980 in Japan, no discount in any region on 29 September 2026"><figcaption>Drawn for this page. Prices as read on 29 September 2026.</figcaption></figure>
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-price-light.png"><img src="/assets/img/wardogs-price.png" width="1200" height="630" alt="WARDOGS price by region card: $39.99 in the United States, ¥4,980 in Japan, no discount in any region on 29 September 2026"></picture><figcaption>Drawn for this page, dark or light to match. Prices as read on 29 September 2026.</figcaption></figure>
 
 ${adUnit}
 

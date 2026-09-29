@@ -116,7 +116,7 @@ ${faqHtml}
 <p class="src">Every figure on this page comes from the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>WARDOGS store page</a> on Steam, read on 28 September 2026. Valve computes the review count, the positive percentage and the summary label; this page reports them unchanged.</p>
 </div>
 
-<figure class="pagefig"><img src="/assets/img/wardogs-reviews.png" width="1200" height="630" alt="WARDOGS reviews card: 51,079 English reviews, 81% positive, summary Very Positive"><figcaption>Drawn for this page. Figures as read on 28 September 2026.</figcaption></figure>
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-reviews-light.png"><img src="/assets/img/wardogs-reviews.png" width="1200" height="630" alt="WARDOGS reviews card: 51,079 English reviews, 81% positive, summary Very Positive"></picture><figcaption>Drawn for this page, dark or light to match. Figures as read on 28 September 2026.</figcaption></figure>
 
 ${adUnit}
 

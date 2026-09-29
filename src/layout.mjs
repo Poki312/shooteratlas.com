@@ -236,12 +236,24 @@ const THEME_TOGGLE = `<script>
   function label() {
     btn.setAttribute("aria-label", "Switch to " + (current() === "dark" ? "light" : "dark") + " theme");
   }
+  // The page card is a drawing, so it cannot inherit the theme the way a rule
+  // or a table can. Each page ships both drawings and the picture element picks
+  // by the reader's OS; this points it at the reader's explicit choice instead,
+  // which is the one thing a media query cannot see.
+  function syncCards() {
+    var sources = document.querySelectorAll("figure.pagefig picture > source");
+    for (var i = 0; i < sources.length; i++) {
+      sources[i].media = current() === "light" ? "all" : "not all";
+    }
+  }
   label();
+  syncCards();
   btn.addEventListener("click", function () {
     var next = current() === "dark" ? "light" : "dark";
     root.setAttribute("data-theme", next);
     try { localStorage.setItem("sa-theme", next); } catch (e) {}
     label();
+    syncCards();
   });
 })();
 </script>`;

@@ -140,7 +140,7 @@ ${faqHtml}
 <p class="src">Where this comes from: the ten threads listed above, all on <a href='https://www.reddit.com/r/WarDogs/'>r/WarDogs</a> or <a href='https://www.reddit.com/r/ShouldIbuythisgame/'>r/ShouldIbuythisgame</a> and all read on 28 September 2026, plus the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>WARDOGS store page</a> and <a href='https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1867240'>Steam's current-players API</a>, read 29 September 2026. Quotes are player replies reproduced as written, including their typos, and are attributed to the thread they came from; nothing here is the studio's words. Vote counts are not printed because they change daily.</p>
 </div>
 
-<figure class="pagefig"><img src="/assets/img/wardogs-reddit.png" width="1200" height="630" alt="WARDOGS on Reddit card: ten threads in the first Early Access month, five of them purchase questions"><figcaption>Drawn for this page. Thread counts as read on 28 September 2026.</figcaption></figure>
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-reddit-light.png"><img src="/assets/img/wardogs-reddit.png" width="1200" height="630" alt="WARDOGS on Reddit card: ten threads in the first Early Access month, five of them purchase questions"></picture><figcaption>Drawn for this page, dark or light to match. Thread counts as read on 28 September 2026.</figcaption></figure>
 
 ${adUnit}
 

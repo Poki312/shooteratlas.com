@@ -6,13 +6,16 @@ assets/img/:
 
     python tools/make-page-images.py
 
-One image per page, 1200x630 (the standard social-card size). The same file is
-used for the in-page <img> and for og:image.
+One image per page per theme, 1200x630 (the standard social-card size).
 
-The palette is the site's own: the tokens below are the dark set from
-src/layout.mjs, so a card and the page it belongs to are the same colours. If
-a token changes there, change it here too — this file is the only other place
-those values are written down.
+* `<name>.png` — the dark card. This is the og:image, because a card scraped by
+  a social platform has no theme to follow.
+* `<name>-light.png` — the same card on white.
+
+The page ships both and lets the reader's theme choose, so a card never sits
+drawn one way on a page rendered the other. The tokens below are the two sets
+from src/layout.mjs; if they change there, change them here too, because this
+is the only place they are written down a second time.
 """
 
 from pathlib import Path
@@ -21,16 +24,30 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 W, H = 1200, 630
 
-# src/layout.mjs, dark token set.
-BASE = (10, 14, 19)        # --bg      #0a0e13
-SURFACE = (18, 26, 35)     # --surface #121a23
-RULE = (38, 49, 61)        # --rule    #26313d
-INK = (233, 238, 244)      # --ink     #e9eef4
-MUTED = (124, 138, 155)    # --muted   #7c8a9b
-ACCENT = (240, 169, 44)    # --accent  #f0a92c
-ACCENT_INK = (16, 22, 29)  # text on an accent fill
+# src/layout.mjs, the same two token sets the stylesheet defines.
+THEMES = {
+    "dark": {
+        "base": (10, 14, 19),      # --bg      #0a0e13
+        "surface": (18, 26, 35),   # --surface #121a23
+        "rule": (38, 49, 61),      # --rule    #26313d
+        "ink": (233, 238, 244),    # --ink     #e9eef4
+        "muted": (124, 138, 155),  # --muted   #7c8a9b
+        "accent": (240, 169, 44),  # --accent  #f0a92c
+        "on_accent": (16, 22, 29),
+        "glow": 46,
+    },
+    "light": {
+        "base": (255, 255, 255),
+        "surface": (244, 247, 250),  # --surface-2 #f4f7fa
+        "rule": (221, 229, 238),     # --rule      #dde5ee
+        "ink": (14, 22, 32),         # --ink       #0e1620
+        "muted": (103, 115, 127),    # --muted     #67737f
+        "accent": (163, 95, 0),      # --accent    #a35f00
+        "on_accent": (255, 255, 255),
+        "glow": 22,
+    },
+}
 
-GRID = tuple(round(b + (255 - b) * 0.035) for b in BASE)
 GRID_STEP = 30
 
 OUT = Path(__file__).resolve().parent.parent / "assets" / "img"
@@ -73,6 +90,10 @@ def mono(size):
     return ImageFont.truetype(MONO, size)
 
 
+def blend(a, b, t):
+    return tuple(round(a[i] + (b[i] - a[i]) * t) for i in range(3))
+
+
 def wrap(draw, text, font, max_w):
     words, lines, cur = text.split(), [], ""
     for w in words:
@@ -96,82 +117,85 @@ def tracked(draw, x, y, text, font, fill, tracking):
     return x - tracking
 
 
-def background():
-    """Base colour, the blueprint grid, and the amber glow in the top corner."""
-    img = Image.new("RGB", (W, H), BASE)
+def background(t):
+    """Base colour, the blueprint grid, and the accent glow in the top corner."""
+    img = Image.new("RGB", (W, H), t["base"])
     d = ImageDraw.Draw(img)
+    grid = blend(t["base"], t["ink"], 0.045)
     for x in range(0, W + GRID_STEP, GRID_STEP):
-        d.line([(x, 0), (x, H)], fill=GRID, width=1)
+        d.line([(x, 0), (x, H)], fill=grid, width=1)
     for y in range(0, H + GRID_STEP, GRID_STEP):
-        d.line([(0, y), (W, y)], fill=GRID, width=1)
+        d.line([(0, y), (W, y)], fill=grid, width=1)
 
     glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     gd = ImageDraw.Draw(glow)
-    gd.ellipse([W - 620, -300, W + 260, 240], fill=ACCENT + (46,))
+    gd.ellipse([W - 620, -300, W + 260, 240], fill=t["accent"] + (t["glow"],))
     glow = glow.filter(ImageFilter.GaussianBlur(130))
-    img = Image.alpha_composite(img.convert("RGBA"), glow).convert("RGB")
-    return img
+    return Image.alpha_composite(img.convert("RGBA"), glow).convert("RGB")
 
 
-def mark(d, x, y, size):
-    d.rounded_rectangle([x, y, x + size, y + size], radius=16, fill=ACCENT)
+def mark(d, x, y, size, t):
+    d.rounded_rectangle([x, y, x + size, y + size], radius=16, fill=t["accent"])
     cx, cy = x + size / 2, y + size / 2
     r = size * 0.21
-    d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=ACCENT_INK, width=4)
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=t["on_accent"], width=4)
     for seg in ((cx, y + 8, cx, cy - r - 3), (cx, cy + r + 3, cx, y + size - 8),
                 (x + 8, cy, cx - r - 3, cy), (cx + r + 3, cy, x + size - 8, cy)):
-        d.line(list(seg), fill=ACCENT_INK, width=4)
+        d.line(list(seg), fill=t["on_accent"], width=4)
 
 
-def chip(d, x, y, value, label):
+def chip(d, x, y, value, label, t):
     pad_x, gap = 24, 14
     fv, fl = mono(34), f(15, bold=False)
     wv = d.textlength(value, font=fv)
     wl = d.textlength(label, font=fl)
     cw = max(wv, wl) + pad_x * 2
     ch = 92
-    d.rounded_rectangle([x, y, x + cw, y + ch], radius=12, fill=SURFACE, outline=RULE, width=2)
-    d.text((x + pad_x, y + 17), value, font=fv, fill=ACCENT)
-    d.text((x + pad_x, y + 60), label, font=fl, fill=MUTED)
+    d.rounded_rectangle([x, y, x + cw, y + ch], radius=12,
+                        fill=t["surface"], outline=t["rule"], width=2)
+    d.text((x + pad_x, y + 17), value, font=fv, fill=t["accent"])
+    d.text((x + pad_x, y + 60), label, font=fl, fill=t["muted"])
     return x + cw + gap
 
 
-def build(name, eyebrow, headline, stats, path, date):
-    img = background()
+def build(name, eyebrow, headline, stats, path, date, theme):
+    t = THEMES[theme]
+    img = background(t)
     d = ImageDraw.Draw(img)
 
     # wordmark: the crosshair mark plus the site name and its tagline
     mx, my, ms = 72, 52, 34
-    mark(d, mx, my, ms)
-    d.text((mx + ms + 12, my - 4), "Shooter Atlas", font=f(21, bold=True), fill=INK)
+    mark(d, mx, my, ms, t)
+    d.text((mx + ms + 12, my - 4), "Shooter Atlas", font=f(21, bold=True), fill=t["ink"])
     d.text((mx + ms + 12, my + 20), "Numbers for large-scale tactical shooters",
-           font=f(15, bold=False), fill=MUTED)
+           font=f(15, bold=False), fill=t["muted"])
 
-    # eyebrow, with the same amber dash the pages put in front of it
+    # eyebrow, with the same rule the pages put in front of it
     y = 178
-    d.line([(72, y + 11), (98, y + 11)], fill=ACCENT, width=2)
-    tracked(d, 112, y, eyebrow.upper(), f(15, bold=True), ACCENT, 2.4)
+    d.line([(72, y + 11), (98, y + 11)], fill=t["accent"], width=2)
+    tracked(d, 112, y, eyebrow.upper(), f(15, bold=True), t["accent"], 2.4)
 
     # headline
     y += 40
     hl = f(58, bold=True)
     for line in wrap(d, headline, hl, W - 144)[:3]:
-        d.text((72, y), line, font=hl, fill=INK)
+        d.text((72, y), line, font=hl, fill=t["ink"])
         y += 68
 
     # figures along the bottom, then the rule and the footer line
     x = 72
     for value, label in stats:
-        x = chip(d, x, H - 214, value, label)
+        x = chip(d, x, H - 214, value, label, t)
 
-    d.line([(72, H - 92), (W - 72, H - 92)], fill=RULE, width=1)
-    d.text((72, H - 66), "shooteratlas.com" + path, font=mono(19), fill=MUTED)
+    d.line([(72, H - 92), (W - 72, H - 92)], fill=t["rule"], width=1)
+    d.text((72, H - 66), "shooteratlas.com" + path, font=mono(19), fill=t["muted"])
     d.text((W - 72 - d.textlength(date, font=f(19, bold=False)), H - 66),
-           date, font=f(19, bold=False), fill=MUTED)
+           date, font=f(19, bold=False), fill=t["muted"])
 
     OUT.mkdir(parents=True, exist_ok=True)
-    img.save(OUT / f"{name}.png", optimize=True)
-    return name
+    suffix = "" if theme == "dark" else "-" + theme
+    img.save(OUT / f"{name}{suffix}.png", optimize=True)
+    return f"{name}{suffix}.png"
 
 
 # One row per page. The figures here are the same ones the page leads with, so
@@ -211,5 +235,6 @@ PAGES = [
      "/wardogs-release-date", "29 September 2026"),
 ]
 
-for name, eyebrow, headline, stats, path, date in PAGES:
-    print("wrote", build(name, eyebrow, headline, stats, path, date))
+for row in PAGES:
+    for theme in ("dark", "light"):
+        print("wrote", build(*row, theme))

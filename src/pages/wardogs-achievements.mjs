@@ -133,7 +133,7 @@ ${faqHtml}
 <p class="src">Source: the <a href='https://steamcommunity.com/stats/1867240/achievements/'>Steam Community global achievement statistics for app 1867240</a>, read on 28 September 2026. Every figure on this page is Valve's; none of it is measured by us.</p>
 </div>
 
-<figure class="pagefig"><img src="/assets/img/wardogs-achievements.png" width="1200" height="630" alt="WARDOGS achievements card: 78.3% finish the tutorial, 0.1% hold Big Spender, a 45-fold drop to the last one"><figcaption>Drawn for this page. Figures as read on 28 September 2026.</figcaption></figure>
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-achievements-light.png"><img src="/assets/img/wardogs-achievements.png" width="1200" height="630" alt="WARDOGS achievements card: 78.3% finish the tutorial, 0.1% hold Big Spender, a 45-fold drop to the last one"></picture><figcaption>Drawn for this page, dark or light to match. Figures as read on 28 September 2026.</figcaption></figure>
 
 ${adUnit}
 

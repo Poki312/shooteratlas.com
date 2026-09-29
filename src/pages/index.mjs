@@ -78,7 +78,7 @@ export const page = {
 </ul>
 <p>The result is a site that is slower to fill up than a news blog, and that is the point: a number you cannot trace back is worse than a blank space.</p>
 
-<figure class="pagefig"><img src="/assets/img/home.png" width="1200" height="630" alt="Shooter Atlas card: one game per page, 100 players per match, three teams"><figcaption>Drawn for this page. Figures as read on 28 September 2026.</figcaption></figure>
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/home-light.png"><img src="/assets/img/home.png" width="1200" height="630" alt="Shooter Atlas card: one game per page, 100 players per match, three teams"></picture><figcaption>Drawn for this page, dark or light to match. Figures as read on 28 September 2026.</figcaption></figure>
 
 ${adUnit}
 

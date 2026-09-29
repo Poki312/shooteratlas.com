@@ -105,7 +105,7 @@ ${faqHtml}
 <p class="src">Source: the Early Access block on the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>WARDOGS store page</a>, read on 28 September 2026. The quotations on this page are reproduced from that block; the commentary around them is ours.</p>
 </div>
 
-<figure class="pagefig"><img src="/assets/img/wardogs-early-access.png" width="1200" height="630" alt="WARDOGS Early Access card: 1–2 years planned in Early Access, started 10 September 2026, price rises at full release"><figcaption>Drawn for this page. Figures as read on 28 September 2026.</figcaption></figure>
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-early-access-light.png"><img src="/assets/img/wardogs-early-access.png" width="1200" height="630" alt="WARDOGS Early Access card: 1–2 years planned in Early Access, started 10 September 2026, price rises at full release"></picture><figcaption>Drawn for this page, dark or light to match. Figures as read on 28 September 2026.</figcaption></figure>
 
 ${adUnit}
 
