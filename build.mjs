@@ -200,10 +200,16 @@ async function build() {
     "/ai/*",
     "  Access-Control-Allow-Origin: *",
     "",
-    // The card drawings keep their filename when they are redrawn, so together
-    // with the HTML they always describe the same build: a reader must never
-    // get a new page next to the previous version of its card. Unchanged files
-    // answer 304, which costs one conditional request per image.
+    // Declared, but not currently in force. This zone's Browser Cache TTL —
+    // four hours, Cloudflare's default — overrides the Cache-Control an origin
+    // sends for a cached static asset, which is why a reader could get the new
+    // page next to the previous drawing of its card. The CORS rule further up
+    // in this same file does apply, so it is the zone setting and not the file.
+    //
+    // It is left harmless by the versioned asset URLs below: a redrawn card is
+    // a different URL and is fetched at once whatever the cache policy is. The
+    // rule stays so that switching the zone to respect origin headers would
+    // change nothing rather than something.
     "/assets/*",
     "  Cache-Control: public, max-age=0, must-revalidate",
     "",
