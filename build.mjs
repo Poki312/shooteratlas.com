@@ -4,8 +4,9 @@
 // file mtime, then the build date). Add a page to src/pages.mjs and both the
 // page and its sitemap entry appear on the next build.
 
-import { mkdir, writeFile, stat, cp } from "node:fs/promises";
+import { mkdir, writeFile, stat, cp, readFile, readdir } from "node:fs/promises";
 import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import path from "node:path";
 import { layout } from "./src/layout.mjs";
 import { pages, notFound } from "./src/pages.mjs";
@@ -45,6 +46,26 @@ function urlFor(p) {
 async function build() {
   await mkdir(OUT, { recursive: true });
 
+  // Every asset URL carries a hash of the file it points at.
+  //
+  // A card is redrawn but keeps its filename, and Cloudflare caches /assets/*
+  // for four hours whatever the origin says. Versioning the URL is the one fix
+  // that holds whatever the cache policy is: a redrawn card is a new URL and is
+  // fetched at once, and og:image moves with it, which is also what busts the
+  // copy a social platform has already scraped.
+  const assetVersions = new Map();
+  try {
+    for (const name of await readdir("assets/img")) {
+      const bytes = await readFile(path.join("assets/img", name));
+      assetVersions.set(name, createHash("sha256").update(bytes).digest("hex").slice(0, 8));
+    }
+  } catch (err) {
+    if (err.code !== "ENOENT") throw err;
+  }
+  const versionAssets = (html) =>
+    html.replace(/\/assets\/img\/([A-Za-z0-9._-]+)/g, (whole, name) =>
+      assetVersions.has(name) ? whole + "?v=" + assetVersions.get(name) : whole);
+
   const sitemapEntries = [];
   const rendered = [];
   for (const page of pages) {
@@ -62,7 +83,9 @@ async function build() {
     const rel = clean === "" ? "index.html" : clean.endsWith(".html") ? clean : clean + ".html";
     const target = path.join(OUT, rel);
     await mkdir(path.dirname(target), { recursive: true });
-    await writeFile(target, html, "utf8");
+    // The Markdown twin keeps the plain URL: it is read, not rendered, and the
+    // version query would only be noise in a text answer.
+    await writeFile(target, versionAssets(html), "utf8");
     const pageLastmod = await lastmod(page.source);
     sitemapEntries.push({ loc: urlFor(page.path), lastmod: pageLastmod });
     rendered.push({ page, html, lastmod: pageLastmod });
