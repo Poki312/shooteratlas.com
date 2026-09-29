@@ -149,6 +149,10 @@ PAGES = [
      "What Steam charges in eight regions",
      [("$39.99", "US base game"), ("8", "regions read"), ("0%", "discount")], "/wardogs-price",
      "29 September 2026"),
+    ("wardogs-release-date", "WARDOGS RELEASE DATE",
+     "10 September 2026, 16:00 UTC",
+     [("10 Sep", "2026, Early Access"), ("3M", "copies by 26 Sept"), ("2 yrs", "EA window, at most")], "/wardogs-release-date",
+     "29 September 2026"),
 ]
 
 for name, eyebrow, headline, stats, path, date in PAGES:
