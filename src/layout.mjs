@@ -16,6 +16,15 @@ function socialMeta(ogImage) {
 }
 
 export function layout({ title, description, canonical, body, extraHead = "", ogImage = "" }) {
+  // The Markdown twin of this page. It is served when a client asks for
+  // text/markdown instead of HTML; see functions/_middleware.js.
+  let pagePath = "/";
+  try {
+    pagePath = new URL(canonical).pathname;
+  } catch {
+    pagePath = "/";
+  }
+  const mdPath = "/md/" + (pagePath === "/" ? "index" : pagePath.replace(/^\/+|\/+$/g, "")) + ".md";
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -24,6 +33,8 @@ export function layout({ title, description, canonical, body, extraHead = "", og
 <title>${title}</title>
 <meta name="description" content="${description}">
 <link rel="canonical" href="${canonical}">
+<link rel="alternate" type="text/markdown" href="${mdPath}" title="Markdown">
+<link rel="ai-catalog" href="/.well-known/ai-catalog.json">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#0b57d0">
 <meta property="og:type" content="website">
@@ -145,6 +156,75 @@ ${body}
 </nav>
 </div></footer>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "37c294a762ef45d995a15279d79a66d1"}'></script>
+<script>
+// WebMCP: hand the site's own read-only lookup to an agent that is driving this
+// browser. Same data and same rules as the server API, no new capability. A
+// browser without the API simply skips this.
+(function () {
+  var ctx = document.modelContext || navigator.modelContext;
+  if (!ctx || typeof ctx.registerTool !== "function") return;
+  var controller = new AbortController();
+  window.addEventListener("pagehide", function () { try { controller.abort(); } catch (e) {} });
+  function register(tool) {
+    try {
+      var r = ctx.registerTool(tool, { signal: controller.signal });
+      if (r && typeof r.catch === "function") r.catch(function () {});
+    } catch (e) {}
+  }
+  function read(url) {
+    return fetch(url, { headers: { Accept: "application/json" } }).then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    });
+  }
+  var rules = "::ILANG [TYPE:tool][SERVICE:Shooter Atlas][LANG:en] "
+    + "::RULE{read-only: this tool only reads published pages} "
+    + "::RULE{keep the source link and the read date that sit next to every figure} "
+    + "::RULE{never present a snapshot as a live value} "
+    + "::BOUNDARY{never:invent a figure, a date or a source|scope:permanent}";
+  register({
+    name: "site_lookup",
+    description: "Read one page of shooteratlas.com as markdown and return it with its source URL and last-modified date. " + rules,
+    inputSchema: {
+      type: "object",
+      properties: {
+        id: { type: "string", description: "Page id, for example wardogs-price, wardogs-achievements, index" }
+      },
+      required: ["id"]
+    },
+    execute: function (args) {
+      var id = String((args && args.id) || "").replace(/^\\/+/, "");
+      if (!id) return Promise.resolve("Give a page id, for example wardogs-price.");
+      return read("/api/agent/pages/" + encodeURIComponent(id)).then(function (page) {
+        return "source_url: " + page.url + "\\nlast_modified: " + page.last_modified
+          + "\\ngenerated: see " + page.markdown_url + "\\n\\n" + page.text;
+      }).catch(function () {
+        return "No page with id " + id + ". Try: index, wardogs, wardogs-price, wardogs-reviews, wardogs-achievements, wardogs-early-access, wardogs-reddit, about, privacy, contact.";
+      });
+    }
+  });
+  register({
+    name: "find_pages",
+    description: "Search the pages of shooteratlas.com by keyword and return the pages that match, each with its URL. " + rules,
+    inputSchema: {
+      type: "object",
+      properties: { query: { type: "string", description: "Words to match against page titles and descriptions" } },
+      required: ["query"]
+    },
+    execute: function (args) {
+      var terms = String((args && args.query) || "").toLowerCase().split(/[^a-z0-9]+/).filter(function (t) { return t.length > 2; });
+      return read("/api/agent/pages").then(function (data) {
+        var hits = data.pages.filter(function (p) {
+          var hay = (p.title + " " + p.description).toLowerCase();
+          return terms.some(function (t) { return hay.indexOf(t) >= 0; });
+        });
+        if (!hits.length) return "Nothing matched. Pages: " + data.pages.map(function (p) { return p.id; }).join(", ") + ".";
+        return hits.map(function (p) { return p.title + " — " + p.url; }).join("\\n");
+      }).catch(function () { return "The page index could not be read."; });
+    }
+  });
+})();
+</script>
 </body>
 </html>`;
 }
