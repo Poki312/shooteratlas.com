@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     q: "Will the price go up?",
-    a: "Yes. Prices step up as content lands: $39.99 now, $49.99 later, $59.99 at 1.0.",
+    a: "Yes — the studio's Early Access notes say the price is lower during Early Access and rises toward the full release.",
   },
 ];
 
@@ -76,11 +76,11 @@ export const page = {
   path: "/wardogs",
   title: "Wardogs — Shooter Atlas",
   description:
-    "Wardogs is a 100-player, three-team tactical FPS from BULKHEAD, published by Team17, and it has been in Steam Early Access since 10 September 2026 at $39.99.",
+    "Wardogs is a 100-player, three-team tactical FPS from BULKHEAD, published by Team17, and it has been in Steam Early Access since 10 September 2026.",
   extraHead:
     "<script type='application/ld+json'>" + JSON.stringify(schema) + "</script>",
   body: `<h1>Wardogs</h1>
-<p>Wardogs is a 100-player, three-team tactical FPS from BULKHEAD, published by Team17, and it has been in Steam Early Access since 10 September 2026 at $39.99 (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 28 September 2026). Every match drops three factions onto one large map and asks them to hold a randomised 2 × 2 km Control Zone; the side with the most bodies inside scores, and the first to 100 points wins. That is the game. The rest of the store page is bullet points, so here is the part they compress.</p>
+<p>Wardogs is a 100-player, three-team tactical FPS from BULKHEAD, published by Team17, and it has been in Steam Early Access since 10 September 2026 (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 28 September 2026). Every match drops three factions onto one large map and asks them to hold a randomised 2 × 2 km Control Zone; the side with the most bodies inside scores, and the first to 100 points wins. That is the game. The rest of the store page is bullet points, so here is the part they compress.</p>
 
 <p>Buy it now if you play on Windows, you will live with a kernel-level anti-cheat, and you want a shooter that gets rebuilt under you for two years. Wait if you need Linux or Proton, if you are on console — Steam's own <a href='https://steamcommunity.com/app/1867240/announcements/'>launch post</a> dates consoles to 2028 — or if you expect the free starter kit to be usable. It is not, and that is deliberate.</p>
 
@@ -141,7 +141,7 @@ export const page = {
 
 <p><strong>The commute is the respawn timer.</strong> There is no arcade respawn counter. Getting from your base back to the Control Zone — buying a vehicle, catching a lift, trusting a pilot — is the penalty for dying, which is why logistics, transport and helicopters are paid roles. It also reframes the fight: killing the enemy's spawn vehicle costs them more than killing the player standing next to it.</p>
 
-<p>Prices step up as content lands: $39.99 now, $49.99 later, $59.99 at 1.0 (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 28 September 2026). Season 2 is dated 15 October 2026 (<a href='https://steamcommunity.com/app/1867240/announcements/'>Steam announcements</a>, read 28 September 2026). Before you pay, check the current patch number, check the anti-cheat line in the store page's feature block, and check the live player count. Those three checks tell you more than any launch-week review.</p>
+<p>The studio's Early Access notes say the price is lower during Early Access and rises toward the full release (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 28 September 2026). Season 2 is dated 15 October 2026 (<a href='https://steamcommunity.com/app/1867240/announcements/'>Steam announcements</a>, read 28 September 2026). Before you pay, check the current patch number, check the anti-cheat line in the store page's feature block, and check the live player count. Those three checks tell you more than any launch-week review.</p>
 
 <div class="qa">
 <h2>Common questions</h2>

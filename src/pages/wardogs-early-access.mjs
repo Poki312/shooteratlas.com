@@ -88,7 +88,7 @@ export const page = {
 <blockquote>"Community involvement is central to how WARDOGS is being built. We plan to: actively gather feedback through Steam, social channels, and playtests; monitor gameplay data to inform balance and economy changes; run seasonal updates that respond directly to player behaviour; share development updates and design decisions openly. WARDOGS is designed to evolve alongside its community, with player feedback helping guide both short term improvements and long term direction."</blockquote>
 
 <h2>What the answers tell you</h2>
-<p>Three takeaways survive the marketing language. First, the timeline is bounded: "around 1 to 2 years", with the studio explicitly saying it does not want a long Early Access. Second, the price is a ramp: cheaper now, higher at 1.0 — which is why the store lists $39.99 for Early Access against higher planned tiers. Third, the content plan is concrete in places (fighter jets, expanded weapon categories, additional objective variations, deeper progression and a seasonal meta game) and vague in others (exact maps, exact dates). Treat the concrete list as the promise and the vague parts as undecided.</p>
+<p>Three takeaways survive the marketing language. First, the timeline is bounded: "around 1 to 2 years", with the studio explicitly saying it does not want a long Early Access. Second, the price is a ramp: cheaper during Early Access, higher at the full release — as the developer's pricing note states. Third, the content plan is concrete in places (fighter jets, expanded weapon categories, additional objective variations, deeper progression and a seasonal meta game) and vague in others (exact maps, exact dates). Treat the concrete list as the promise and the vague parts as undecided.</p>
 
 <p>None of the three sites that cover WARDOGS in depth compiles this Q&amp;A. wardogs.site mentions the 1–2 year window once in passing; wardogshub.gg tracks live data but does not quote the developer's Early Access statements. This page exists to put the official text in one place.</p>
 
@@ -98,7 +98,7 @@ ${faqHtml}
 <p class="src">Source: the Early Access block on the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>WARDOGS store page</a>, read on 28 September 2026. The quotations on this page are reproduced from that block; the commentary around them is ours.</p>
 </div>
 
-<figure class="pagefig"><img src="/assets/img/wardogs-early-access.png" width="1200" height="630" alt="WARDOGS Early Access card: 1-2 years in Early Access, $39.99 now, fighter jets planned"><figcaption>Drawn for this page. Figures as read on 28 September 2026.</figcaption></figure>
+<figure class="pagefig"><img src="/assets/img/wardogs-early-access.png" width="1200" height="630" alt="WARDOGS Early Access card: 1-2 years in Early Access, fighter jets planned"><figcaption>Drawn for this page. Figures as read on 28 September 2026.</figcaption></figure>
 
 ${adUnit}
 

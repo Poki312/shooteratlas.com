@@ -139,7 +139,7 @@ PAGES = [
      "28 September 2026"),
     ("wardogs-early-access", "WARDOGS EARLY ACCESS",
      "What the developers actually say",
-     [("1-2 yrs", "in Early Access"), ("$39.99", "now"), ("Fighter jets", "planned")], "/wardogs-early-access",
+     [("1-2 yrs", "in Early Access"), ("Fighter jets", "planned")], "/wardogs-early-access",
      "28 September 2026"),
     ("wardogs-reddit", "WARDOGS ON REDDIT",
      "What players actually ask for",
