@@ -50,9 +50,10 @@ const schema = {
   ],
 };
 
-const faqHtml = faqs.map((f) => `<h3>${f.q}</h3>\n<p>${f.a}</p>`).join("\n");
+const faqHtml = faqList(faqs);
 
 import { adUnit } from "../ad.mjs";
+import { faqList } from "../faq.mjs";
 
 export const page = {
   ogImage: "https://shooteratlas.com/assets/img/wardogs-achievements.png",
@@ -64,6 +65,13 @@ export const page = {
   extraHead: "<script type='application/ld+json'>" + JSON.stringify(schema) + "</script>",
   body: `<h1>WARDOGS achievements: all 10, and how rare each one is</h1>
 <p class="lede">WARDOGS ships ten Steam achievements, and the list doubles as a difficulty ladder. Globally, 78.3% of players have the first one and 0.1% have the last. Everything below is Valve's own figure for each achievement, read from <a href='https://steamcommunity.com/stats/1867240/achievements/'>Steam's public achievement statistics</a> on 28 September 2026 &mdash; official material, not a measurement of ours.</p>
+
+<div class="strip">
+<div><span class="stat-n">10</span><span class="stat-k">achievements in the game</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
+<div><span class="stat-n">78.3%</span><span class="stat-k">hold the commonest one</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
+<div><span class="stat-n">0.1%</span><span class="stat-k">hold the rarest</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
+<div><span class="stat-n">45&times;</span><span class="stat-k">drop between the last two entries</span><span class="stat-src"><span class="src-chip src-calc">our arithmetic</span></span></div>
+</div>
 
 <h2 id="ach-list">The full list, with the global unlock rate</h2>
 <p>Steam publishes a worldwide unlock percentage for every achievement, and it is visible without owning the game or signing in. These are the ten figures for WARDOGS (<a href='https://steamcommunity.com/stats/1867240/achievements/'>Steam app 1867240</a>, read 28 September 2026), printed in the order Steam lists them, rarest last. The percentage is the share of all players on record who have unlocked it.</p>

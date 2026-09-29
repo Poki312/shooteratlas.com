@@ -68,9 +68,10 @@ const schema = {
   ],
 };
 
-const faqHtml = faqs.map((f) => `<h3>${f.q}</h3>\n<p>${f.a}</p>`).join("\n");
+const faqHtml = faqList(faqs);
 
 import { adUnit } from "../ad.mjs";
+import { faqList } from "../faq.mjs";
 
 export const page = {
   ogImage: "https://shooteratlas.com/assets/img/wardogs-price.png",
@@ -83,6 +84,13 @@ export const page = {
     "<script type='application/ld+json'>" + JSON.stringify(schema) + "</script>",
   body: `<h1>WARDOGS price by region: eight Steam regions, read today</h1>
 <p class="lede">WARDOGS costs $39.99 in the United States, £36.99 in the United Kingdom, €39.99 in Germany, ¥4,980 in Japan, ₩47,270 in Korea, R$119.99 in Brazil, A$54.95 in Australia and CDN$49.99 in Canada, with the Supporter Edition running between 22.5% and 26.0% above the base game in every one of those regions. All of it was read from Valve's own store API on 29 September 2026, and none of it is a currency conversion — these are the numbers Valve returns for each region, at a 0% discount. One region returns no price at all, and that is printed below rather than guessed. The three WARDOGS coverage sites do not have this matrix: wardogs.site states that it verifies United States pricing only.</p>
+
+<div class="strip">
+<div><span class="stat-n">$39.99</span><span class="stat-k">United States, base game</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
+<div><span class="stat-n">¥4,980</span><span class="stat-k">Japan, base game</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
+<div><span class="stat-n">22.5&ndash;26.0%</span><span class="stat-k">Supporter premium, all eight regions</span><span class="stat-src"><span class="src-chip src-calc">our arithmetic</span></span></div>
+<div><span class="stat-n">0%</span><span class="stat-k">discount, everywhere, that day</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
+</div>
 
 <h2>The full matrix</h2>
 <div class="matrix-scroll" role="region" tabindex="0" aria-labelledby="price-matrix-caption">

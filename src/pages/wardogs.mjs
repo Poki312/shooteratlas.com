@@ -66,9 +66,10 @@ const schema = {
   ],
 };
 
-const faqHtml = faqs.map((f) => `<h3>${f.q}</h3>\n<p>${f.a}</p>`).join("\n");
+const faqHtml = faqList(faqs);
 
 import { adUnit } from "../ad.mjs";
+import { faqList } from "../faq.mjs";
 
 export const page = {
   ogImage: "https://shooteratlas.com/assets/img/wardogs.png",
@@ -82,7 +83,23 @@ export const page = {
   body: `<h1>Wardogs</h1>
 <p>Wardogs is a 100-player, three-team tactical FPS from BULKHEAD, published by Team17, and it has been in Steam Early Access since 10 September 2026 (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 28 September 2026). Every match drops three factions onto one large map and asks them to hold a randomised 2 × 2 km Control Zone; the side with the most bodies inside scores, and the first to 100 points wins. That is the game. The rest of the store page is bullet points, so here is the part they compress.</p>
 
-<p>Buy it now if you play on Windows, you will live with a kernel-level anti-cheat, and you want a shooter that gets rebuilt under you for two years. Wait if you need Linux or Proton, if you are on console — Steam's own <a href='https://steamcommunity.com/app/1867240/announcements/'>launch post</a> dates consoles to 2028 — or if you expect the free starter kit to be usable. It is not, and that is deliberate.</p>
+<div class="strip">
+<div><span class="stat-n">428,666</span><span class="stat-k">all-time peak concurrent</span><span class="stat-src"><span class="src-chip src-third">third&#8209;party</span></span></div>
+<div><span class="stat-n">$39.99</span><span class="stat-k">US Steam price</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
+<div><span class="stat-n">81%</span><span class="stat-k">of 51,079 English reviews</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
+<div><span class="stat-n">2028</span><span class="stat-k">console release window</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
+</div>
+
+<div class="verdict">
+<div class="verdict-col verdict-yes">
+<h3>Buy it if</h3>
+<p>You play on Windows, you will live with a kernel-level anti-cheat, and you want a shooter that gets rebuilt under you for two years.</p>
+</div>
+<div class="verdict-col verdict-no">
+<h3>Wait if</h3>
+<p>You need Linux or Proton, you are on console — Steam's own <a href='https://steamcommunity.com/app/1867240/announcements/'>launch post</a> dates consoles to 2028 — or you expect the free starter kit to be usable. It is not, and that is deliberate.</p>
+</div>
+</div>
 
 <h2>Where the player base actually sits</h2>
 <p>Three numbers describe this launch better than any review score does, and all three come from a third-party database rather than from Valve. The closed beta peaked at 244,926 concurrent players on 5 September 2026. Four days after release, on 13 September, the game set an all-time peak of 428,666. By the final week of September it was running near 132,000 concurrent.</p>

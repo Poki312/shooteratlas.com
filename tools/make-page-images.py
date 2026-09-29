@@ -8,18 +8,31 @@ assets/img/:
 
 One image per page, 1200x630 (the standard social-card size). The same file is
 used for the in-page <img> and for og:image.
+
+The palette is the site's own: the tokens below are the dark set from
+src/layout.mjs, so a card and the page it belongs to are the same colours. If
+a token changes there, change it here too — this file is the only other place
+those values are written down.
 """
 
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 W, H = 1200, 630
-INK = (17, 23, 34)
-MUTED = (91, 103, 116)
-RULE = (227, 231, 237)
-SOFT = (246, 248, 251)
-ACCENT = (11, 87, 208)
+
+# src/layout.mjs, dark token set.
+BASE = (10, 14, 19)        # --bg      #0a0e13
+SURFACE = (18, 26, 35)     # --surface #121a23
+RULE = (38, 49, 61)        # --rule    #26313d
+INK = (233, 238, 244)      # --ink     #e9eef4
+MUTED = (124, 138, 155)    # --muted   #7c8a9b
+ACCENT = (240, 169, 44)    # --accent  #f0a92c
+ACCENT_INK = (16, 22, 29)  # text on an accent fill
+
+GRID = tuple(round(b + (255 - b) * 0.035) for b in BASE)
+GRID_STEP = 30
+
 OUT = Path(__file__).resolve().parent.parent / "assets" / "img"
 
 BOLD_CANDIDATES = [
@@ -32,6 +45,12 @@ REG_CANDIDATES = [
     r"C:\Windows\Fonts\arial.ttf",
     r"C:\Windows\Fonts\calibri.ttf",
 ]
+# Figures are set in a monospace on the site, so the cards use one too.
+MONO_CANDIDATES = [
+    r"C:\Windows\Fonts\consolab.ttf",
+    r"C:\Windows\Fonts\consola.ttf",
+    r"C:\Windows\Fonts\cour.ttf",
+]
 
 
 def pick(paths):
@@ -43,10 +62,15 @@ def pick(paths):
 
 BOLD = pick(BOLD_CANDIDATES)
 REG = pick(REG_CANDIDATES)
+MONO = pick(MONO_CANDIDATES)
 
 
 def f(size, bold=True):
     return ImageFont.truetype(BOLD if bold else REG, size)
+
+
+def mono(size):
+    return ImageFont.truetype(MONO, size)
 
 
 def wrap(draw, text, font, max_w):
@@ -64,64 +88,96 @@ def wrap(draw, text, font, max_w):
     return lines
 
 
-def chip(draw, x, y, value, label):
-    pad_x, pad_y, gap = 24, 18, 20
-    fv, fl = f(42), f(19, bold=False)
-    wv = draw.textlength(value, font=fv)
-    wl = draw.textlength(label, font=fl)
+def tracked(draw, x, y, text, font, fill, tracking):
+    """Draw text with letter-spacing; PIL has no tracking of its own."""
+    for ch in text:
+        draw.text((x, y), ch, font=font, fill=fill)
+        x += draw.textlength(ch, font=font) + tracking
+    return x - tracking
+
+
+def background():
+    """Base colour, the blueprint grid, and the amber glow in the top corner."""
+    img = Image.new("RGB", (W, H), BASE)
+    d = ImageDraw.Draw(img)
+    for x in range(0, W + GRID_STEP, GRID_STEP):
+        d.line([(x, 0), (x, H)], fill=GRID, width=1)
+    for y in range(0, H + GRID_STEP, GRID_STEP):
+        d.line([(0, y), (W, y)], fill=GRID, width=1)
+
+    glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    gd = ImageDraw.Draw(glow)
+    gd.ellipse([W - 620, -300, W + 260, 240], fill=ACCENT + (46,))
+    glow = glow.filter(ImageFilter.GaussianBlur(130))
+    img = Image.alpha_composite(img.convert("RGBA"), glow).convert("RGB")
+    return img
+
+
+def mark(d, x, y, size):
+    d.rounded_rectangle([x, y, x + size, y + size], radius=16, fill=ACCENT)
+    cx, cy = x + size / 2, y + size / 2
+    r = size * 0.21
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=ACCENT_INK, width=4)
+    for seg in ((cx, y + 8, cx, cy - r - 3), (cx, cy + r + 3, cx, y + size - 8),
+                (x + 8, cy, cx - r - 3, cy), (cx + r + 3, cy, x + size - 8, cy)):
+        d.line(list(seg), fill=ACCENT_INK, width=4)
+
+
+def chip(d, x, y, value, label):
+    pad_x, gap = 24, 14
+    fv, fl = mono(34), f(15, bold=False)
+    wv = d.textlength(value, font=fv)
+    wl = d.textlength(label, font=fl)
     cw = max(wv, wl) + pad_x * 2
-    ch = 108
-    draw.rounded_rectangle([x, y, x + cw, y + ch], radius=12, fill=SOFT, outline=RULE, width=2)
-    draw.text((x + pad_x, y + pad_y - 4), value, font=fv, fill=ACCENT)
-    draw.text((x + pad_x, y + 70), label, font=fl, fill=MUTED)
+    ch = 92
+    d.rounded_rectangle([x, y, x + cw, y + ch], radius=12, fill=SURFACE, outline=RULE, width=2)
+    d.text((x + pad_x, y + 17), value, font=fv, fill=ACCENT)
+    d.text((x + pad_x, y + 60), label, font=fl, fill=MUTED)
     return x + cw + gap
 
 
 def build(name, eyebrow, headline, stats, path, date):
-    img = Image.new("RGB", (W, H), "white")
+    img = background()
     d = ImageDraw.Draw(img)
 
-    # soft band across the bottom third so the card reads as one family
-    d.rectangle([0, H - 96, W, H], fill=SOFT)
-    d.line([0, H - 96, W, H - 96], fill=RULE, width=2)
+    # wordmark: the crosshair mark plus the site name and its tagline
+    mx, my, ms = 72, 52, 34
+    mark(d, mx, my, ms)
+    d.text((mx + ms + 12, my - 4), "Shooter Atlas", font=f(21, bold=True), fill=INK)
+    d.text((mx + ms + 12, my + 20), "Numbers for large-scale tactical shooters",
+           font=f(15, bold=False), fill=MUTED)
 
-    # masthead: drawn crosshair mark + wordmark
-    mx, my, ms = 72, 64, 52
-    d.rounded_rectangle([mx, my, mx + ms, my + ms], radius=12, fill=(11, 87, 208, 255))
-    cx, cy = mx + ms / 2, my + ms / 2
-    d.ellipse([cx - 11, cy - 11, cx + 11, cy + 11], outline="white", width=4)
-    for xy in ((cx, my + 8, cx, cy - 14), (cx, cy + 14, cx, my + ms - 8),
-               (mx + 8, cy, cx - 14, cy), (cx + 14, cy, mx + ms - 8, cy)):
-        d.line(list(xy), fill="white", width=4)
-    d.text((mx + ms + 20, my + 2), "Shooter Atlas", font=f(36, bold=True), fill=INK)
-    d.text((mx + ms + 22, my + 40), "Numbers for large-scale tactical shooters",
-           font=f(21, bold=False), fill=MUTED)
+    # eyebrow, with the same amber dash the pages put in front of it
+    y = 178
+    d.line([(72, y + 11), (98, y + 11)], fill=ACCENT, width=2)
+    tracked(d, 112, y, eyebrow.upper(), f(15, bold=True), ACCENT, 2.4)
 
-    # eyebrow + headline
-    y = 208
-    d.text((72, y), eyebrow, font=f(22, bold=True), fill=ACCENT)
-    y += 44
-    hl = f(66, bold=True)
+    # headline
+    y += 40
+    hl = f(58, bold=True)
     for line in wrap(d, headline, hl, W - 144)[:3]:
         d.text((72, y), line, font=hl, fill=INK)
-        y += 78
+        y += 68
 
-    # stat chips along the bottom band
+    # figures along the bottom, then the rule and the footer line
     x = 72
     for value, label in stats:
-        x = chip(d, x, H - 210, value, label)
+        x = chip(d, x, H - 214, value, label)
 
-    d.text((72, H - 62), "shooteratlas.com" + path, font=f(22, bold=False), fill=MUTED)
-    d.text((W - 72 - d.textlength(date, font=f(22, bold=False)), H - 62),
-           date, font=f(22, bold=False), fill=MUTED)
+    d.line([(72, H - 92), (W - 72, H - 92)], fill=RULE, width=1)
+    d.text((72, H - 66), "shooteratlas.com" + path, font=mono(19), fill=MUTED)
+    d.text((W - 72 - d.textlength(date, font=f(19, bold=False)), H - 66),
+           date, font=f(19, bold=False), fill=MUTED)
 
     OUT.mkdir(parents=True, exist_ok=True)
     img.save(OUT / f"{name}.png", optimize=True)
     return name
 
 
+# One row per page. The figures here are the same ones the page leads with, so
+# a shared link and the page it opens agree.
 PAGES = [
-    ("home", "SHOOTER ATLAS",
+    ("home", "Shooter Atlas",
      "Numbers for 100-player tactical shooters",
      [("1", "game per page"), ("100", "players per match"), ("3", "teams")], "/",
      "28 September 2026"),
@@ -129,30 +185,30 @@ PAGES = [
      "Scoring, prices and platform support",
      [("$10,000", "starting balance"), ("100", "players per match"), ("3", "factions")], "/wardogs",
      "28 September 2026"),
-    ("wardogs-achievements", "WARDOGS ACHIEVEMENTS",
-     "All ten, and how rare each one is",
-     [("10", "achievements"), ("78.3%", "most common"), ("0.1%", "rarest")], "/wardogs-achievements",
+    ("wardogs-achievements", "WARDOGS · Achievements",
+     "Ten achievements, from universal to almost unheld",
+     [("78.3%", "finish the tutorial"), ("0.1%", "Big Spender"), ("45×", "drop to the last one")],
+     "/wardogs-achievements", "28 September 2026"),
+    ("wardogs-reviews", "WARDOGS · Steam reviews",
+     "What the English store view shows",
+     [("51,079", "English reviews"), ("81%", "of them positive"), ("Very Positive", "Steam's summary")],
+     "/wardogs-reviews", "28 September 2026"),
+    ("wardogs-early-access", "WARDOGS · Early Access",
+     "What the developers say, quoted in full",
+     [("1-2 yrs", "planned in Early Access"), ("10 Sep 2026", "Early Access start"), ("Rises", "price at 1.0")],
+     "/wardogs-early-access", "28 September 2026"),
+    ("wardogs-reddit", "WARDOGS · Community",
+     "What players are actually asking for",
+     [("10", "threads in month one"), ("5", "are buy-or-wait"), ("4", "recurring asks")], "/wardogs-reddit",
      "28 September 2026"),
-    ("wardogs-reviews", "WARDOGS ON STEAM",
-     "What 54,566 reviews say",
-     [("54,566", "user reviews"), ("81%", "positive"), ("Very Positive", "Steam summary")], "/wardogs-reviews",
-     "28 September 2026"),
-    ("wardogs-early-access", "WARDOGS EARLY ACCESS",
-     "What the developers actually say",
-     [("1-2 yrs", "in Early Access"), ("Fighter jets", "planned")], "/wardogs-early-access",
-     "28 September 2026"),
-    ("wardogs-reddit", "WARDOGS ON REDDIT",
-     "What players actually ask for",
-     [("10", "threads read"), ("5", "ask buy-or-wait"), ("4", "recurring asks")], "/wardogs-reddit",
-     "28 September 2026"),
-    ("wardogs-price", "WARDOGS PRICE BY REGION",
-     "What Steam charges in eight regions",
-     [("$39.99", "US base game"), ("8", "regions read"), ("0%", "discount")], "/wardogs-price",
+    ("wardogs-price", "WARDOGS · Price",
+     "Eight Steam regions, one table",
+     [("$39.99", "United States"), ("¥4,980", "Japan"), ("0%", "discount, that day")], "/wardogs-price",
      "29 September 2026"),
-    ("wardogs-release-date", "WARDOGS RELEASE DATE",
+    ("wardogs-release-date", "WARDOGS · Release date",
      "10 September 2026, 16:00 UTC",
-     [("10 Sep", "2026, Early Access"), ("3M", "copies by 26 Sept"), ("2 yrs", "EA window, at most")], "/wardogs-release-date",
-     "29 September 2026"),
+     [("10 Sep", "2026, Early Access"), ("3M", "copies by 26 Sept"), ("2 yrs", "EA window, at most")],
+     "/wardogs-release-date", "29 September 2026"),
 ]
 
 for name, eyebrow, headline, stats, path, date in PAGES:

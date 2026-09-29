@@ -55,6 +55,7 @@ async function build() {
       body: page.body,
       extraHead: page.extraHead ?? "",
       ogImage: page.ogImage ?? "",
+      toc: page.toc !== false,
     });
     // "/" -> index.html ; "/wardogs" -> wardogs.html (Pages serves /wardogs from it)
     const clean = page.path.replace(/^\//, "");

@@ -50,9 +50,10 @@ const schema = {
   ],
 };
 
-const faqHtml = faqs.map((f) => `<h3>${f.q}</h3>\n<p>${f.a}</p>`).join("\n");
+const faqHtml = faqList(faqs);
 
 import { adUnit } from "../ad.mjs";
+import { faqList } from "../faq.mjs";
 
 export const page = {
   ogImage: "https://shooteratlas.com/assets/img/wardogs-early-access.png",
@@ -68,6 +69,12 @@ export const page = {
     "<script type='application/ld+json'>" + JSON.stringify(schema) + "</script>",
   body: `<h1>WARDOGS Early Access: what the developers actually say</h1>
 <p class="lede">WARDOGS entered Steam Early Access on 10 September 2026. The <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a> carries the developer's own Early Access Q&amp;A — six questions, answered in their words. The short version: roughly 1–2 years in Early Access, a lower price now that rises toward full release, and a full version planned to add fighter jets, more weapon categories and more objective variations. The full text, quoted from Steam, is below (read 28 September 2026).</p>
+
+<div class="strip">
+<div><span class="stat-n">1&ndash;2 yrs</span><span class="stat-k">planned time in Early Access</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
+<div><span class="stat-n">10 Sep 2026</span><span class="stat-k">Early Access start</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
+<div><span class="stat-n">Rises</span><span class="stat-k">price at full release, by design</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
+</div>
 
 <h2>Why Early Access?</h2>
 <blockquote>"Early Access lets us put a fully playable FPS in players' hands early, gather meaningful feedback, and iterate alongside the community. We want players to help shape balance, pacing, progression, and features as the game grows, while also being transparent about the development. Players will be able to engage with developers via Discord, X, and YouTube."</blockquote>

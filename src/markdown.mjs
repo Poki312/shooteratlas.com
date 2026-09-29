@@ -105,6 +105,9 @@ export function htmlToMarkdown(html) {
 
   s = s.replace(/<figure\b[^>]*>[\s\S]*?<\/figure>/gi, (m) => "\n\n" + figureToMarkdown(m) + "\n\n");
   s = s.replace(/<table\b[^>]*>[\s\S]*?<\/table>/gi, (m) => "\n\n" + tableToMarkdown(m) + "\n\n");
+  // The contents rail only repeats headings the markdown already carries, and
+  // its anchors mean nothing in a text answer, so it is the one thing dropped.
+  s = s.replace(/<nav\b[^>]*class="[^"]*\btoc\b[^"]*"[^>]*>[\s\S]*?<\/nav>/gi, "");
   // Navigation becomes a link list: the page's own links are part of what the
   // markdown answer has to preserve.
   s = s.replace(/<nav\b[^>]*>([\s\S]*?)<\/nav>/gi, (_m, inner) => {

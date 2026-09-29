@@ -50,9 +50,10 @@ const schema = {
   ],
 };
 
-const faqHtml = faqs.map((f) => `<h3>${f.q}</h3>\n<p>${f.a}</p>`).join("\n");
+const faqHtml = faqList(faqs);
 
 import { adUnit } from "../ad.mjs";
+import { faqList } from "../faq.mjs";
 
 export const page = {
   ogImage: "https://shooteratlas.com/assets/img/wardogs-reviews.png",
@@ -65,6 +66,13 @@ export const page = {
     "<script type='application/ld+json'>" + JSON.stringify(schema) + "</script>",
   body: `<h1>WARDOGS on Steam: what 51,079 reviews say</h1>
 <p class="lede">On the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>English Steam store view</a> for WARDOGS (app 1867240), read on 28 September 2026, the game carries 51,079 English reviews at 81% positive, which Steam sums up as "Very Positive" — inside 76,407 reviews across all languages, which grades "Mostly Positive". That single line is the most complete statement Steam makes about how players feel, and none of the three sites that cover WARDOGS in depth — wardogs.site, wardogs.wiki and wardogshub.gg — reproduces it. This page is both figures, and what they do and do not tell you.</p>
+
+<div class="strip">
+<div><span class="stat-n">51,079</span><span class="stat-k">English reviews</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
+<div><span class="stat-n">81%</span><span class="stat-k">of them positive</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
+<div><span class="stat-n">Very Positive</span><span class="stat-k">Steam's summary, English view</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
+<div><span class="stat-n">76,407</span><span class="stat-k">all languages: Mostly Positive</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
+</div>
 
 <h2>Where the number comes from</h2>
 <p class="src">Source: the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>English Steam store page for WARDOGS</a>, read on 28 September 2026.</p>

@@ -61,9 +61,10 @@ const schema = {
   ],
 };
 
-const faqHtml = faqs.map((f) => `<h3>${f.q}</h3>\n<p>${f.a}</p>`).join("\n");
+const faqHtml = faqList(faqs);
 
 import { adUnit } from "../ad.mjs";
+import { faqList } from "../faq.mjs";
 
 export const page = {
   ogImage: "https://shooteratlas.com/assets/img/wardogs-reddit.png",
@@ -76,6 +77,12 @@ export const page = {
     "<script type='application/ld+json'>" + JSON.stringify(schema) + "</script>",
   body: `<h1>WARDOGS on Reddit: what players are actually asking for</h1>
 <p class="lede">In the first month of Early Access — 4 to 26 September 2026 — the WARDOGS subreddit and r/ShouldIbuythisgame produced ten threads that between them cover almost everything a new buyer asks. Five of the ten are the same question dressed differently: is this worth buying. The most-upvoted verdict says the game shows a lot of potential provided the studio does not misstep, and the four things players keep asking to be changed are mortars, vehicle collision physics, being looted by your own team, and whether a sniper headshot should always be lethal. All ten threads are listed below with their dates, and none of the three WARDOGS coverage sites — wardogs.site, wardogs.wiki, wardogshub.gg — collects any of this.</p>
+
+<div class="strip">
+<div><span class="stat-n">10</span><span class="stat-k">threads in the first month</span><span class="stat-src"><span class="src-chip src-calc">our count</span></span></div>
+<div><span class="stat-n">5</span><span class="stat-k">are the same buy-or-wait question</span><span class="stat-src"><span class="src-chip src-calc">our count</span></span></div>
+<div><span class="stat-n">4</span><span class="stat-k">things players keep asking for</span><span class="stat-src"><span class="src-chip src-calc">our count</span></span></div>
+</div>
 
 <h2>The ten threads, in date order</h2>
 <p class="src">Sources: <a href='https://www.reddit.com/r/WarDogs/'>r/WarDogs</a> and <a href='https://www.reddit.com/r/ShouldIbuythisgame/'>r/ShouldIbuythisgame</a>. Thread titles and dates are reproduced as posted; each was checked on 28 September 2026. The count of ten, and the count of five purchase questions inside it, are ours.</p>

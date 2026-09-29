@@ -41,7 +41,7 @@ const DARK_TOKENS =
   "--grid:rgba(255,255,255,.035)";
 
 const STYLES = `
-:root{${LIGHT_TOKENS};--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,"Cascadia Mono","Segoe UI Mono",Menlo,Consolas,monospace;--wrap:60rem;--prose:44rem;--r:12px;--r-sm:6px}
+:root{${LIGHT_TOKENS};--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,"Cascadia Mono","Segoe UI Mono",Menlo,Consolas,monospace;--wrap:64rem;--prose:44rem;--rail:14rem;--r:12px;--r-sm:6px}
 :root[data-theme="dark"]{${DARK_TOKENS}}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){${DARK_TOKENS}}}
 *{box-sizing:border-box}
@@ -68,8 +68,31 @@ blockquote p:last-child{margin-bottom:0}
 figure.pagefig{margin:2.4rem 0 0}
 figure.pagefig img{display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:var(--r)}
 figure.pagefig figcaption{margin:.6rem 0 0;font-size:.84rem;color:var(--muted)}
-/* Running text keeps a readable measure; data blocks stay at full width. */
-main>.wrap>:is(h1,h2,h3,p,ul,ol,blockquote,.src,.lede){max-width:var(--prose)}
+/* Running text keeps a readable measure; data blocks stay at full width,
+   with or without the contents rail beside them. */
+main>.wrap>:is(h1,h2,h3,p,ul,ol,blockquote,.src,.lede),
+.page-grid>article>:is(h1,h2,h3,p,ul,ol,blockquote,.src,.lede){max-width:var(--prose)}
+.page-grid{display:grid;grid-template-columns:minmax(0,1fr) var(--rail);gap:2.5rem;align-items:start}
+.toc{position:sticky;top:5.5rem;font-size:.88rem}
+.toc h2{margin:0 0 .7rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.toc h2::before{display:none}
+.toc ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--rule)}
+.toc li{margin:0}
+.toc a{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;padding:.32rem 0 .32rem .85rem;margin-left:-1px;border-left:2px solid transparent;color:var(--ink-2);text-decoration:none;line-height:1.4}
+.toc a:hover{color:var(--ink);border-left-color:var(--rule)}
+.hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.9fr);gap:2.5rem;align-items:start;margin:0 0 2.4rem}
+.hero>:is(h1,p,.lede,.strip,.btn-row){max-width:none}
+.spec{border:1px solid var(--rule);border-radius:var(--r);background:var(--surface);overflow:hidden;justify-self:end;width:100%;max-width:24rem}
+.spec-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 1.1rem;border-bottom:1px solid var(--rule);background:var(--surface-2);font-size:.74rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.spec-grid{display:grid;grid-template-columns:1fr 1fr}
+.spec-grid>div{padding:1.05rem 1.1rem;border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft)}
+.spec-grid>div:nth-child(2n){border-right:0}
+.spec-grid>div:nth-last-child(-n+2){border-bottom:0}
+.filter{display:flex;align-items:center;gap:.6rem;max-width:22rem;margin:0 0 1rem;padding:.55rem .8rem;border:1px solid var(--rule);border-radius:var(--r-sm);background:var(--surface)}
+.filter:focus-within{border-color:var(--accent)}
+.filter svg{flex:none;color:var(--muted)}
+.filter input{border:0;background:none;color:var(--ink);font:inherit;font-size:.93rem;width:100%;outline:none}
+.filter input::placeholder{color:var(--muted)}
 .lede{font-size:1.14rem;line-height:1.58;color:var(--ink-2);margin:0 0 2.2rem;text-wrap:pretty}
 .src{margin:2.3rem 0 0;font-size:.88rem;line-height:1.6;color:var(--muted);border-top:1px solid var(--rule);padding-top:1rem}
 .src a{color:inherit}
@@ -118,6 +141,7 @@ table.matrix code{font-size:.88em}
 .src-ingame{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 40%,transparent);background:var(--accent-wash)}
 .src-third{color:var(--link);border-color:color-mix(in srgb,var(--link) 40%,transparent);background:color-mix(in srgb,var(--link) 12%,transparent)}
 .src-reported{color:var(--muted);border-color:var(--rule);background:var(--surface-2)}
+.src-calc{color:var(--muted);border-color:var(--rule);background:var(--surface-2)}
 .pill{display:inline-flex;align-items:center;gap:.35rem;padding:.22rem .55rem;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;border:1px solid var(--rule);color:var(--muted);background:var(--surface-2)}
 .pill--live{color:var(--ok);border-color:color-mix(in srgb,var(--ok) 45%,transparent);background:var(--ok-wash)}
 .pill--ea{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 45%,transparent);background:var(--accent-wash)}
@@ -170,6 +194,13 @@ details.qa[open]>summary::after{content:"\\2212"}
 .foot-about p{margin:.8rem 0 0;font-size:.88rem;color:var(--muted);max-width:26rem}
 .foot-bar{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:2.4rem;padding-top:1.1rem;border-top:1px solid var(--rule-soft);font-size:.82rem;color:var(--muted)}
 @media (max-width:960px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:960px){
+.page-grid{grid-template-columns:1fr;gap:1.6rem}
+.toc{position:static;order:-1}
+.toc ol{display:flex;flex-wrap:wrap;gap:.4rem;border-left:0}
+.toc a{display:block;margin:0;border:1px solid var(--rule);border-radius:999px;padding:.3rem .7rem;font-size:.82rem;overflow:visible}
+}
+@media (max-width:820px){.hero{grid-template-columns:1fr;gap:1.8rem}.spec{justify-self:stretch;max-width:none}}
 @media (max-width:620px){
 .wrap{padding:0 1.15rem}
 main{padding:1.9rem 0 0}
@@ -215,9 +246,41 @@ const THEME_TOGGLE = `<script>
 })();
 </script>`;
 
-export function layout({ title, description, canonical, body, extraHead = "", ogImage = "" }) {
+// Sections worth a contents rail. A page with fewer than this many <h2>s reads
+// end to end without one, so it does not get a rail it would only clutter.
+const TOC_MIN_SECTIONS = 4;
+
+// Build the contents rail from the markup that actually ships: every <h2>
+// gets an id and the rail links to it, so the two can never drift apart.
+function contentsFor(body) {
+  const heads = [...body.matchAll(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/gi)];
+  if (heads.length < TOC_MIN_SECTIONS) return null;
+
+  let n = 0;
+  const items = [];
+  const withIds = body.replace(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/gi, (whole, attrs, text) => {
+    const existing = /\bid="([^"]+)"/.exec(attrs);
+    const id = existing ? existing[1] : "s" + ++n;
+    items.push({ id, label: text.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim() });
+    return existing ? whole : `<h2${attrs} id="${id}">${text}</h2>`;
+  });
+
+  return {
+    body: withIds,
+    rail:
+      `<nav class="toc" aria-label="On this page">\n<h2>On this page</h2>\n<ol>\n` +
+      items.map((i) => `<li><a href="#${i.id}">${i.label}</a></li>`).join("\n") +
+      `\n</ol>\n</nav>`,
+  };
+}
+
+export function layout({ title, description, canonical, body, extraHead = "", ogImage = "", toc = true }) {
   // The Markdown twin of this page. It is served when a client asks for
   // text/markdown instead of HTML; see functions/_middleware.js.
+  const contents = toc ? contentsFor(body) : null;
+  const main = contents
+    ? `<div class="page-grid"><article class="prose">\n${contents.body}\n</article>\n${contents.rail}\n</div>`
+    : body;
   let pagePath = "/";
   try {
     pagePath = new URL(canonical).pathname;
@@ -262,7 +325,7 @@ ${THEME_INIT}
 </nav>
 </div></header>
 <main id="main"><div class="wrap">
-${body}
+${main}
 </div></main>
 <footer class="site-foot"><div class="wrap">
 <div class="foot-grid">

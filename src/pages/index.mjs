@@ -1,6 +1,8 @@
 import { adUnit } from "../ad.mjs";
 
 export const page = {
+  // The home page is not an article: it has no contents rail.
+  toc: false,
   ogImage: "https://shooteratlas.com/assets/img/home.png",
   source: "src/pages/index.mjs",
   path: "/",
@@ -13,15 +15,44 @@ export const page = {
     "\n<meta name='mitgo-verification' content='ce9af179-d266-486b-a5e5-1d1362de694c'>" +
     "\n<meta name='commission-factory-verification' content='efa67650281a4a0986ac78ae4f310090'>" +
     "\n<!-- Awin publisher verification marker -->",
-  body: `<h1>Numbers for 100&#8209;player tactical shooters</h1>
+  body: `<div class="hero">
+<div>
+<h1>Numbers for 100&#8209;player tactical shooters</h1>
 <p class="lede">Shooter Atlas is a reference site for large-scale tactical shooters &mdash; the kind where a hundred players split into three teams, fight over one moving objective, and pay for every loadout out of their own pocket.</p>
+</div>
+<aside class="spec" aria-label="At a glance">
+<div class="spec-head"><span>At a glance</span><span>v2026.09</span></div>
+<div class="spec-grid">
+<div><span class="stat-n">1</span><span class="stat-k">game documented</span></div>
+<div><span class="stat-n">100</span><span class="stat-k">players per match</span></div>
+<div><span class="stat-n">3</span><span class="stat-k">factions, one objective</span></div>
+<div><span class="stat-n">10</span><span class="stat-k">pages published</span></div>
+</div>
+</aside>
+</div>
 
-<nav class="hub" aria-label="Pages">
-<a href="/wardogs">Wardogs</a>
-<a href="/wardogs-achievements">WARDOGS achievements: all 10, and how rare each one is</a>
-<a href="/wardogs-reviews">WARDOGS on Steam: what 51,079 English reviews say</a>
-<a href="/wardogs-early-access">WARDOGS Early Access: what the developers actually say</a>
-</nav>
+<h2>WARDOGS pages</h2>
+<p>Player counts, store prices, achievement rarity, review sentiment and the developer's own answers. One game per page, and the same questions in the same order on every one.</p>
+<div class="filter">
+<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5l5 5"/></svg>
+<input id="page-filter" type="search" placeholder="Filter pages &mdash; try &ldquo;price&rdquo; or &ldquo;reviews&rdquo;" aria-label="Filter pages" autocomplete="off">
+</div>
+<div class="data-block">
+<div class="matrix-scroll" role="region" tabindex="0" aria-label="WARDOGS pages">
+<table class="matrix" id="pages-table">
+<thead><tr><th scope="col">Page</th><th scope="col">What it answers</th><th scope="col" class="num">Read on</th></tr></thead>
+<tbody>
+<tr data-terms="wardogs overview match scoring economy platforms kit loadout"><td><a href="/wardogs">WARDOGS</a></td><td class="wrap-cell">How a match is scored, what kit costs, what gates it, and what runs it.</td><td class="num">28 Sep 2026</td></tr>
+<tr data-terms="price region steam store japan korea brazil currency premium supporter"><td><a href="/wardogs-price">Price by region</a></td><td class="wrap-cell">What Steam charges in eight countries, and the premium each one carries on the Supporter Edition.</td><td class="num">29 Sep 2026</td></tr>
+<tr data-terms="achievements rarity steam global stats big spender tutorial"><td><a href="/wardogs-achievements">Achievements</a></td><td class="wrap-cell">All ten, and how rare each one is &mdash; from 78.3% on the tutorial to 0.1% on Big Spender.</td><td class="num">28 Sep 2026</td></tr>
+<tr data-terms="reviews steam sentiment positive summary very positive mostly positive all languages"><td><a href="/wardogs-reviews">Steam reviews</a></td><td class="wrap-cell">What 51,079 English reviews say, why the all-language total grades lower, and what a review score can and cannot tell you.</td><td class="num">28 Sep 2026</td></tr>
+<tr data-terms="early access timeline roadmap developer jets weapons price rise"><td><a href="/wardogs-early-access">Early Access</a></td><td class="wrap-cell">The official Q&amp;A in the developer's own words: the timeline, the price rise, and what is planned for 1.0.</td><td class="num">28 Sep 2026</td></tr>
+<tr data-terms="reddit community requests mortar sniper looting buy or wait"><td><a href="/wardogs-reddit">On Reddit</a></td><td class="wrap-cell">Ten threads from the first month: five are the same buy-or-wait question, and the four asks that keep returning.</td><td class="num">28 Sep 2026</td></tr>
+</tbody>
+</table>
+</div>
+<p class="data-foot">Every page carries the source link and the date each figure was read. Nothing here is a live value, and nothing is a round number invented to fill a cell.</p>
+</div>
 <h2>What this site is</h2>
 <p>One page per game, and the same questions answered in the same order on every page, so two games can be compared without re-learning a layout:</p>
 <ul>
@@ -52,5 +83,23 @@ export const page = {
 ${adUnit}
 
 <p class="cta"><a class="btn" href="/wardogs">Read the WARDOGS page &rarr;</a></p>
-<p style="color:var(--muted);font-size:.82rem">Awin publisher verification.</p>`,
+<p style="color:var(--muted);font-size:.82rem">Awin publisher verification.</p>
+
+<script>
+// Filter for the page list above. The rows carry their own search terms so a
+// reader can type "price" or "reviews" rather than the exact page title.
+(function () {
+  var input = document.getElementById("page-filter");
+  var table = document.getElementById("pages-table");
+  if (!input || !table) return;
+  var rows = Array.prototype.slice.call(table.querySelectorAll("tbody tr"));
+  input.addEventListener("input", function () {
+    var q = input.value.trim().toLowerCase();
+    rows.forEach(function (tr) {
+      var hay = (tr.getAttribute("data-terms") + " " + tr.textContent).toLowerCase();
+      tr.hidden = q.length > 0 && hay.indexOf(q) === -1;
+    });
+  });
+})();
+</script>`,
 };
