@@ -68,18 +68,19 @@ export const page = {
     "table.ach th,table.ach td{border-bottom:1px solid var(--rule);padding:.55rem .6rem;text-align:left;vertical-align:top}" +
     "table.ach th{font-size:.8rem;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);font-weight:600}" +
     "table.ach td.rate{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}" +
+    ".tablewrap:focus-visible{outline:2px solid var(--link);outline-offset:3px;border-radius:8px}" +
     "@media (max-width:430px){table.ach{font-size:.92rem}table.ach th,table.ach td{padding:.5rem .45rem}}" +
     "</style>" +
     "<script type='application/ld+json'>" + JSON.stringify(schema) + "</script>",
   body: `<h1>WARDOGS achievements: all 10, and how rare each one is</h1>
 <p class="lede">WARDOGS ships ten Steam achievements, and the list doubles as a difficulty ladder. Globally, 78.3% of players have the first one and 0.1% have the last. Everything below is Valve's own figure for each achievement, read from <a href='https://steamcommunity.com/stats/1867240/achievements/'>Steam's public achievement statistics</a> on 28 September 2026 &mdash; official material, not a measurement of ours.</p>
 
-<h2>The full list, with the global unlock rate</h2>
+<h2 id="ach-list">The full list, with the global unlock rate</h2>
 <p>Steam publishes a worldwide unlock percentage for every achievement, and it is visible without owning the game or signing in. These are the ten figures for WARDOGS (<a href='https://steamcommunity.com/stats/1867240/achievements/'>Steam app 1867240</a>, read 28 September 2026), printed in the order Steam lists them, rarest last. The percentage is the share of all players on record who have unlocked it.</p>
 
-<div class="tablewrap">
+<div class="tablewrap" role="region" tabindex="0" aria-labelledby="ach-list">
 <table class="ach">
-<thead><tr><th>Achievement</th><th>What it asks you to do</th><th class="rate">Players who have it</th></tr></thead>
+<thead><tr><th scope="col">Achievement</th><th scope="col">What it asks you to do</th><th scope="col" class="rate">Players who have it</th></tr></thead>
 <tbody>
 <tr><td>This is WARDOGS</td><td>Complete the Tutorial</td><td class="rate">78.3%</td></tr>
 <tr><td>Ricochet</td><td>Kill an enemy player with a ricochet bullet</td><td class="rate">23.1%</td></tr>

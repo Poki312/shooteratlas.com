@@ -96,6 +96,9 @@ a:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:3
 .matrix td:first-child,.matrix th:first-child{padding-left:0}
 .matrix td:last-child,.matrix th:last-child{padding-right:0}
 .matrix code{font-size:.88em}
+/* The table wrapper scrolls sideways on narrow screens, so it has to be
+   reachable and visible by keyboard too. */
+.matrix-scroll:focus-visible{outline:2px solid var(--link);outline-offset:3px;border-radius:8px}
 .cta{margin:2.6rem 0 1.2rem}
 @media (prefers-color-scheme: dark){
 :root{--ink:#e7ecf3;--muted:#9aa7b6;--rule:#242c37;--bg:#0f1319;--bg-soft:#151b23;--link:#7fb0ff;--ink-soft:#c3ccd4;--btn-hover:#9cc2ff}
@@ -135,7 +138,7 @@ ${body}
 </div></main>
 <footer class="site-foot"><div class="wrap">
 <p>Shooter Atlas. Every figure on this site is either taken from official material or measured in game, and is labelled with which of the two it is. The same figures run as short cards on <a href="https://www.youtube.com/channel/UCaFMBF4EPVor__gBeNZguQg" rel="noopener">Shooter Atlas on YouTube</a>.</p>
-<nav class="site-nav" aria-label="Site">
+<nav class="site-nav" aria-label="Footer">
 <a href="/about">About</a>
 <a href="/privacy">Privacy</a>
 <a href="/contact">Contact</a>

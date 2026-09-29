@@ -85,10 +85,10 @@ export const page = {
 <p class="lede">WARDOGS costs $39.99 in the United States, £36.99 in the United Kingdom, €39.99 in Germany, ¥4,980 in Japan, ₩47,270 in Korea, R$119.99 in Brazil, A$54.95 in Australia and CDN$49.99 in Canada, with the Supporter Edition running between 22.5% and 26.0% above the base game in every one of those regions. All of it was read from Valve's own store API on 29 September 2026, and none of it is a currency conversion — these are the numbers Valve returns for each region, at a 0% discount. One region returns no price at all, and that is printed below rather than guessed. The three WARDOGS coverage sites do not have this matrix: wardogs.site states that it verifies United States pricing only.</p>
 
 <h2>The full matrix</h2>
-<div class="matrix-scroll">
+<div class="matrix-scroll" role="region" tabindex="0" aria-labelledby="price-matrix-caption">
 <table class="matrix">
-<caption>WARDOGS, base game and Supporter Edition, by Steam region. Read 29 September 2026.</caption>
-<thead><tr><th>Region</th><th>Base game</th><th>Supporter Edition</th><th>Read from</th></tr></thead>
+<caption id="price-matrix-caption">WARDOGS, base game and Supporter Edition, by Steam region. Read 29 September 2026.</caption>
+<thead><tr><th scope="col">Region</th><th scope="col">Base game</th><th scope="col">Supporter Edition</th><th scope="col">Read from</th></tr></thead>
 <tbody>
 <tr><td>United States</td><td>$39.99</td><td>$49.99</td><td><a href='https://store.steampowered.com/app/1867240/WARDOGS/?cc=us'>Steam store, US</a></td></tr>
 <tr><td>United Kingdom</td><td>£36.99</td><td>£45.99</td><td><a href='https://store.steampowered.com/app/1867240/WARDOGS/?cc=gb'>Steam store, UK</a></td></tr>
