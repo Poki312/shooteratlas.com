@@ -77,7 +77,7 @@ def chip(draw, x, y, value, label):
     return x + cw + gap
 
 
-def build(name, eyebrow, headline, stats, path):
+def build(name, eyebrow, headline, stats, path, date):
     img = Image.new("RGB", (W, H), "white")
     d = ImageDraw.Draw(img)
 
@@ -112,8 +112,8 @@ def build(name, eyebrow, headline, stats, path):
         x = chip(d, x, H - 210, value, label)
 
     d.text((72, H - 62), "shooteratlas.com" + path, font=f(22, bold=False), fill=MUTED)
-    d.text((W - 72 - d.textlength("28 September 2026", font=f(22, bold=False)), H - 62),
-           "28 September 2026", font=f(22, bold=False), fill=MUTED)
+    d.text((W - 72 - d.textlength(date, font=f(22, bold=False)), H - 62),
+           date, font=f(22, bold=False), fill=MUTED)
 
     OUT.mkdir(parents=True, exist_ok=True)
     img.save(OUT / f"{name}.png", optimize=True)
@@ -123,20 +123,33 @@ def build(name, eyebrow, headline, stats, path):
 PAGES = [
     ("home", "SHOOTER ATLAS",
      "Numbers for 100-player tactical shooters",
-     [("1", "game per page"), ("100", "players per match"), ("3", "teams")], "/"),
+     [("1", "game per page"), ("100", "players per match"), ("3", "teams")], "/",
+     "28 September 2026"),
     ("wardogs", "WARDOGS",
      "Scoring, prices and platform support",
-     [("$10,000", "starting balance"), ("100", "players per match"), ("3", "factions")], "/wardogs"),
+     [("$10,000", "starting balance"), ("100", "players per match"), ("3", "factions")], "/wardogs",
+     "28 September 2026"),
     ("wardogs-achievements", "WARDOGS ACHIEVEMENTS",
      "All ten, and how rare each one is",
-     [("10", "achievements"), ("78.3%", "most common"), ("0.1%", "rarest")], "/wardogs-achievements"),
+     [("10", "achievements"), ("78.3%", "most common"), ("0.1%", "rarest")], "/wardogs-achievements",
+     "28 September 2026"),
     ("wardogs-reviews", "WARDOGS ON STEAM",
      "What 54,566 reviews say",
-     [("54,566", "user reviews"), ("81%", "positive"), ("Very Positive", "Steam summary")], "/wardogs-reviews"),
+     [("54,566", "user reviews"), ("81%", "positive"), ("Very Positive", "Steam summary")], "/wardogs-reviews",
+     "28 September 2026"),
     ("wardogs-early-access", "WARDOGS EARLY ACCESS",
      "What the developers actually say",
-     [("1-2 yrs", "in Early Access"), ("$39.99", "now"), ("Fighter jets", "planned")], "/wardogs-early-access"),
+     [("1-2 yrs", "in Early Access"), ("$39.99", "now"), ("Fighter jets", "planned")], "/wardogs-early-access",
+     "28 September 2026"),
+    ("wardogs-reddit", "WARDOGS ON REDDIT",
+     "What players actually ask for",
+     [("10", "threads read"), ("5", "ask buy-or-wait"), ("4", "recurring asks")], "/wardogs-reddit",
+     "28 September 2026"),
+    ("wardogs-price", "WARDOGS PRICE BY REGION",
+     "What Steam charges in eight regions",
+     [("$39.99", "US base game"), ("8", "regions read"), ("0%", "discount")], "/wardogs-price",
+     "29 September 2026"),
 ]
 
-for name, eyebrow, headline, stats, path in PAGES:
-    print("wrote", build(name, eyebrow, headline, stats, path))
+for name, eyebrow, headline, stats, path, date in PAGES:
+    print("wrote", build(name, eyebrow, headline, stats, path, date))

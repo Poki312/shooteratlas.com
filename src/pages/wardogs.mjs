@@ -154,6 +154,8 @@ ${faqHtml}
 ${adUnit}
 
 <div class="readnext">
+<p><a href="/wardogs-reddit">What WARDOGS players are asking for on Reddit &rarr;</a></p>
+<p><a href="/wardogs-price">What WARDOGS costs in eight Steam regions &rarr;</a></p>
 <p><a href="/wardogs-achievements">WARDOGS achievements, all ten and how rare each one is &rarr;</a></p>
 <p><a href="/wardogs-reviews">What 54,566 Steam reviews say about WARDOGS &rarr;</a></p>
 <p><a href="/wardogs-early-access">What the developers say about Early Access timing and the full game &rarr;</a></p>

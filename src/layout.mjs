@@ -87,6 +87,15 @@ a:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:3
 .pagefig{margin:2.8rem 0 0}
 .pagefig img{display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:10px}
 .pagefig figcaption{margin:.6rem 0 0;font-size:.86rem;color:var(--muted)}
+.matrix-scroll{margin:0 0 1.05rem;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.matrix{border-collapse:collapse;width:100%;font-size:.94rem;line-height:1.45}
+.matrix caption{caption-side:top;text-align:left;font-size:.88rem;color:var(--muted);padding:0 0 .6rem}
+.matrix th,.matrix td{text-align:left;padding:.5rem .7rem;border-bottom:1px solid var(--rule);white-space:nowrap}
+.matrix th{font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--rule)}
+.matrix tbody tr:last-child td{border-bottom:0}
+.matrix td:first-child,.matrix th:first-child{padding-left:0}
+.matrix td:last-child,.matrix th:last-child{padding-right:0}
+.matrix code{font-size:.88em}
 .cta{margin:2.6rem 0 1.2rem}
 @media (prefers-color-scheme: dark){
 :root{--ink:#e7ecf3;--muted:#9aa7b6;--rule:#242c37;--bg:#0f1319;--bg-soft:#151b23;--link:#7fb0ff;--ink-soft:#c3ccd4;--btn-hover:#9cc2ff}
