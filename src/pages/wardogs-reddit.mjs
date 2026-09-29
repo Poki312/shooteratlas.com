@@ -140,7 +140,7 @@ ${adUnit}
 <div class="readnext">
 <p><a href="/wardogs">Scoring, prices and platform support for WARDOGS &rarr;</a></p>
 <p><a href="/wardogs-price">What WARDOGS costs in eight Steam regions &rarr;</a></p>
-<p><a href="/wardogs-reviews">What 54,566 Steam reviews say about WARDOGS &rarr;</a></p>
+<p><a href="/wardogs-reviews">What 51,079 English Steam reviews say about WARDOGS &rarr;</a></p>
 <p><a href="/wardogs-achievements">All ten WARDOGS achievements and how rare each one is &rarr;</a></p>
 </div>`,
 };

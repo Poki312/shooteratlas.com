@@ -61,39 +61,36 @@ export const page = {
   title: "WARDOGS achievements — all 10, and how rare each one is",
   description:
     "WARDOGS has ten Steam achievements. Read from Steam's global stats on 28 September 2026, the commonest is finishing the tutorial at 78.3% of players and the rarest is Big Spender, spending $100,000 on one loadout, at 0.1%.",
-  extraHead:
-    "<style>" +
-    ".tablewrap{max-width:100%;overflow-x:auto;margin:0 0 1.2rem;-webkit-overflow-scrolling:touch}" +
-    "table.ach{border-collapse:collapse;width:100%;min-width:30rem;font-size:.96rem}" +
-    "table.ach th,table.ach td{border-bottom:1px solid var(--rule);padding:.55rem .6rem;text-align:left;vertical-align:top}" +
-    "table.ach th{font-size:.8rem;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);font-weight:600}" +
-    "table.ach td.rate{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}" +
-    ".tablewrap:focus-visible{outline:2px solid var(--link);outline-offset:3px;border-radius:8px}" +
-    "@media (max-width:430px){table.ach{font-size:.92rem}table.ach th,table.ach td{padding:.5rem .45rem}}" +
-    "</style>" +
-    "<script type='application/ld+json'>" + JSON.stringify(schema) + "</script>",
+  extraHead: "<script type='application/ld+json'>" + JSON.stringify(schema) + "</script>",
   body: `<h1>WARDOGS achievements: all 10, and how rare each one is</h1>
 <p class="lede">WARDOGS ships ten Steam achievements, and the list doubles as a difficulty ladder. Globally, 78.3% of players have the first one and 0.1% have the last. Everything below is Valve's own figure for each achievement, read from <a href='https://steamcommunity.com/stats/1867240/achievements/'>Steam's public achievement statistics</a> on 28 September 2026 &mdash; official material, not a measurement of ours.</p>
 
 <h2 id="ach-list">The full list, with the global unlock rate</h2>
 <p>Steam publishes a worldwide unlock percentage for every achievement, and it is visible without owning the game or signing in. These are the ten figures for WARDOGS (<a href='https://steamcommunity.com/stats/1867240/achievements/'>Steam app 1867240</a>, read 28 September 2026), printed in the order Steam lists them, rarest last. The percentage is the share of all players on record who have unlocked it.</p>
 
-<div class="tablewrap" role="region" tabindex="0" aria-labelledby="ach-list">
-<table class="ach">
-<thead><tr><th scope="col">Achievement</th><th scope="col">What it asks you to do</th><th scope="col" class="rate">Players who have it</th></tr></thead>
+<div class="data-block">
+<div class="data-head">
+<h3>All ten achievements, by global unlock rate</h3>
+<span class="data-note"><span class="src-chip src-official">official</span> Steam global stats, read 28 Sep 2026</span>
+</div>
+<div class="matrix-scroll" role="region" tabindex="0" aria-labelledby="ach-list">
+<table class="matrix">
+<thead><tr><th scope="col">Achievement</th><th scope="col">What it asks you to do</th><th scope="col">Players who have it</th></tr></thead>
 <tbody>
-<tr><td>This is WARDOGS</td><td>Complete the Tutorial</td><td class="rate">78.3%</td></tr>
-<tr><td>Ricochet</td><td>Kill an enemy player with a ricochet bullet</td><td class="rate">23.1%</td></tr>
-<tr><td>Fat Stacks</td><td>Reach $100,000 net profit in a single life</td><td class="rate">19.3%</td></tr>
-<tr><td>That was rude</td><td>No description published</td><td class="rate">13.3%</td></tr>
-<tr><td>Long Shot</td><td>Get a kill from over 950 m away</td><td class="rate">10.1%</td></tr>
-<tr><td>Top Dog</td><td>Finish the match as the top cash earner across all teams</td><td class="rate">8.5%</td></tr>
-<tr><td>Do Not Resuscitate</td><td>Kill an enemy player using the defibrillator charge</td><td class="rate">6.2%</td></tr>
-<tr><td>CZ Survivor</td><td>Spend 60 minutes in the CZ without dying</td><td class="rate">6.0%</td></tr>
-<tr><td>Clean Sweep</td><td>Win a match without another team scoring a point</td><td class="rate">4.5%</td></tr>
-<tr><td>Big Spender</td><td>Spend $100,000 on a single loadout</td><td class="rate">0.1%</td></tr>
+<tr><td>This is WARDOGS</td><td class="wrap-cell">Complete the Tutorial</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:97.88%"></span></span><span class="bar-val">78.3%</span></span></td></tr>
+<tr><td>Ricochet</td><td class="wrap-cell">Kill an enemy player with a ricochet bullet</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:28.88%"></span></span><span class="bar-val">23.1%</span></span></td></tr>
+<tr><td>Fat Stacks</td><td class="wrap-cell">Reach $100,000 net profit in a single life</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:24.13%"></span></span><span class="bar-val">19.3%</span></span></td></tr>
+<tr><td>That was rude</td><td class="wrap-cell">No description published</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:16.63%"></span></span><span class="bar-val">13.3%</span></span></td></tr>
+<tr><td>Long Shot</td><td class="wrap-cell">Get a kill from over 950 m away</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:12.63%"></span></span><span class="bar-val">10.1%</span></span></td></tr>
+<tr><td>Top Dog</td><td class="wrap-cell">Finish the match as the top cash earner across all teams</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:10.63%"></span></span><span class="bar-val">8.5%</span></span></td></tr>
+<tr><td>Do Not Resuscitate</td><td class="wrap-cell">Kill an enemy player using the defibrillator charge</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:7.75%"></span></span><span class="bar-val">6.2%</span></span></td></tr>
+<tr><td>CZ Survivor</td><td class="wrap-cell">Spend 60 minutes in the CZ without dying</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:7.50%"></span></span><span class="bar-val">6.0%</span></span></td></tr>
+<tr><td>Clean Sweep</td><td class="wrap-cell">Win a match without another team scoring a point</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:5.63%"></span></span><span class="bar-val">4.5%</span></span></td></tr>
+<tr><td>Big Spender</td><td class="wrap-cell">Spend $100,000 on a single loadout</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:0.60%"></span></span><span class="bar-val">0.1%</span></span></td></tr>
 </tbody>
 </table>
+</div>
+<p class="data-foot">Bars scale 0&ndash;80%, the rate of the commonest achievement. The percentage beside each bar is Valve's own figure for that achievement, printed exactly as Steam returns it &mdash; the bar is a reading aid, the number is the datum.</p>
 </div>
 
 <h2>Four numbers that only appear here</h2>
@@ -128,7 +125,7 @@ ${faqHtml}
 <p class="src">Source: the <a href='https://steamcommunity.com/stats/1867240/achievements/'>Steam Community global achievement statistics for app 1867240</a>, read on 28 September 2026. Every figure on this page is Valve's; none of it is measured by us.</p>
 </div>
 
-<figure class="pagefig"><img src="/assets/img/wardogs-achievements.png" width="1200" height="630" alt="WARDOGS achievements card: ten achievements, 78.3% most common, 0.1% rarest"><figcaption>Drawn for this page. Figures as read on 28 September 2026.</figcaption></figure>
+<figure class="pagefig"><img src="/assets/img/wardogs-achievements.png" width="1200" height="630" alt="WARDOGS achievements card: 78.3% finish the tutorial, 0.1% hold Big Spender, a 45-fold drop to the last one"><figcaption>Drawn for this page. Figures as read on 28 September 2026.</figcaption></figure>
 
 ${adUnit}
 

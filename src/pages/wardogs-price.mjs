@@ -87,18 +87,18 @@ export const page = {
 <h2>The full matrix</h2>
 <div class="matrix-scroll" role="region" tabindex="0" aria-labelledby="price-matrix-caption">
 <table class="matrix">
-<caption id="price-matrix-caption">WARDOGS, base game and Supporter Edition, by Steam region. Read 29 September 2026.</caption>
-<thead><tr><th scope="col">Region</th><th scope="col">Base game</th><th scope="col">Supporter Edition</th><th scope="col">Read from</th></tr></thead>
+<caption id="price-matrix-caption">WARDOGS, base game and Supporter Edition, by Steam region. Read 29 September 2026. The Supporter premium column is our arithmetic on Valve's two prices for each region, not a figure Valve publishes, and the bars scale 0&ndash;30%.</caption>
+<thead><tr><th scope="col">Region</th><th scope="col" class="num">Base game</th><th scope="col" class="num">Supporter Edition</th><th scope="col">Supporter premium</th><th scope="col">Read from</th></tr></thead>
 <tbody>
-<tr><td>United States</td><td>$39.99</td><td>$49.99</td><td><a href='https://store.steampowered.com/app/1867240/WARDOGS/?cc=us'>Steam store, US</a></td></tr>
-<tr><td>United Kingdom</td><td>£36.99</td><td>£45.99</td><td><a href='https://store.steampowered.com/app/1867240/WARDOGS/?cc=gb'>Steam store, UK</a></td></tr>
-<tr><td>Germany</td><td>€39.99</td><td>€49.99</td><td><a href='https://store.steampowered.com/app/1867240/WARDOGS/?cc=de'>Steam store, DE</a></td></tr>
-<tr><td>Japan</td><td>¥4,980</td><td>¥6,200</td><td><a href='https://store.steampowered.com/app/1867240/WARDOGS/?cc=jp'>Steam store, JP</a></td></tr>
-<tr><td>Korea</td><td>₩47,270</td><td>₩58,000</td><td><a href='https://store.steampowered.com/app/1867240/WARDOGS/?cc=kr'>Steam store, KR</a></td></tr>
-<tr><td>Brazil</td><td>R$119.99</td><td>R$146.99</td><td><a href='https://store.steampowered.com/app/1867240/WARDOGS/?cc=br'>Steam store, BR</a></td></tr>
-<tr><td>Australia</td><td>A$54.95</td><td>A$67.95</td><td><a href='https://store.steampowered.com/app/1867240/WARDOGS/?cc=au'>Steam store, AU</a></td></tr>
-<tr><td>Canada</td><td>CDN$49.99</td><td>CDN$62.99</td><td><a href='https://store.steampowered.com/app/1867240/WARDOGS/?cc=ca'>Steam store, CA</a></td></tr>
-<tr><td>Russia</td><td>no price returned</td><td>no price returned</td><td><a href='https://store.steampowered.com/api/appdetails?appids=1867240&amp;cc=ru&amp;l=english'>Steam API, cc=ru</a></td></tr>
+<tr><td>United States</td><td class="num">$39.99</td><td class="num">$49.99</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:83.3%"></span></span><span class="bar-val">25.0%</span></span></td><td><a href='https://store.steampowered.com/app/1867240/WARDOGS/?cc=us'>Steam store, US</a></td></tr>
+<tr><td>United Kingdom</td><td class="num">£36.99</td><td class="num">£45.99</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:81.0%"></span></span><span class="bar-val">24.3%</span></span></td><td><a href='https://store.steampowered.com/app/1867240/WARDOGS/?cc=gb'>Steam store, UK</a></td></tr>
+<tr><td>Germany</td><td class="num">€39.99</td><td class="num">€49.99</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:83.3%"></span></span><span class="bar-val">25.0%</span></span></td><td><a href='https://store.steampowered.com/app/1867240/WARDOGS/?cc=de'>Steam store, DE</a></td></tr>
+<tr><td>Japan</td><td class="num">¥4,980</td><td class="num">¥6,200</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:81.7%"></span></span><span class="bar-val">24.5%</span></span></td><td><a href='https://store.steampowered.com/app/1867240/WARDOGS/?cc=jp'>Steam store, JP</a></td></tr>
+<tr><td>Korea</td><td class="num">₩47,270</td><td class="num">₩58,000</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:75.7%"></span></span><span class="bar-val">22.7%</span></span></td><td><a href='https://store.steampowered.com/app/1867240/WARDOGS/?cc=kr'>Steam store, KR</a></td></tr>
+<tr><td>Brazil</td><td class="num">R$119.99</td><td class="num">R$146.99</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:75.0%"></span></span><span class="bar-val">22.5%</span></span></td><td><a href='https://store.steampowered.com/app/1867240/WARDOGS/?cc=br'>Steam store, BR</a></td></tr>
+<tr><td>Australia</td><td class="num">A$54.95</td><td class="num">A$67.95</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:79.0%"></span></span><span class="bar-val">23.7%</span></span></td><td><a href='https://store.steampowered.com/app/1867240/WARDOGS/?cc=au'>Steam store, AU</a></td></tr>
+<tr><td>Canada</td><td class="num">CDN$49.99</td><td class="num">CDN$62.99</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:86.7%"></span></span><span class="bar-val">26.0%</span></span></td><td><a href='https://store.steampowered.com/app/1867240/WARDOGS/?cc=ca'>Steam store, CA</a></td></tr>
+<tr><td>Russia</td><td class="num">no price returned</td><td class="num">no price returned</td><td class="num">&mdash;</td><td><a href='https://store.steampowered.com/api/appdetails?appids=1867240&amp;cc=ru&amp;l=english'>Steam API, cc=ru</a></td></tr>
 </tbody>
 </table>
 </div>
@@ -131,7 +131,7 @@ ${faqHtml}
 <p class="src">Every figure on this page comes from Valve's own region-specific store data, read on 29 September 2026: the base and Supporter prices for the United States, United Kingdom, Germany, Japan, Korea, Brazil, Australia and Canada, the 0% discount in each, and the missing Russian price. The Early Access pricing policy is quoted from the Q&amp;A block on the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>WARDOGS store page</a>, read the same day. The Supporter Edition's cosmetic contents are taken from <a href='https://wardogs.site/price/'>wardogs.site</a> and labelled as that site's list. The 22.5–26.0% premium range is our own arithmetic on Valve's two prices per region, and is marked as such wherever it appears.</p>
 </div>
 
-<figure class="pagefig"><img src="/assets/img/wardogs-price.png" width="1200" height="630" alt="WARDOGS price by region card: $39.99 in the US, ¥4,980 in Japan, eight regions read 29 September 2026"><figcaption>Drawn for this page. Prices as read on 29 September 2026.</figcaption></figure>
+<figure class="pagefig"><img src="/assets/img/wardogs-price.png" width="1200" height="630" alt="WARDOGS price by region card: $39.99 in the United States, ¥4,980 in Japan, no discount in any region on 29 September 2026"><figcaption>Drawn for this page. Prices as read on 29 September 2026.</figcaption></figure>
 
 ${adUnit}
 
@@ -139,6 +139,6 @@ ${adUnit}
 <p><a href="/wardogs">Scoring, prices and platform support for WARDOGS &rarr;</a></p>
 <p><a href="/wardogs-reddit">What WARDOGS players are asking for on Reddit &rarr;</a></p>
 <p><a href="/wardogs-early-access">What the developers say about Early Access timing and the full game &rarr;</a></p>
-<p><a href="/wardogs-reviews">What 54,566 Steam reviews say about WARDOGS &rarr;</a></p>
+<p><a href="/wardogs-reviews">What 51,079 English Steam reviews say about WARDOGS &rarr;</a></p>
 </div>`,
 };

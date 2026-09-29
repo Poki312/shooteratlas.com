@@ -89,7 +89,7 @@ export const page = {
 
 <p class="src">Those three figures are third-party, not official. They are recorded by <a href='https://steamdb.info/app/1867240/charts/'>SteamDB</a>, a community-run database that mirrors the player counts Steam exposes through its API; the Closed Beta peak sits on a separate app chart (<a href='https://steamdb.info/app/4809930/charts/'>app 4809930</a>). Read 28 September 2026. Valve publishes a live player count but no per-game concurrency history, so no official source exists for the Closed Beta peak, the 13 September peak or the late-September figure, and none of the three should be quoted as an official number. The nearest official statement is the launch-week maintenance post, which claims the game passed 400,000 peak concurrent users.</p>
 
-<p>Copies moved fast in between: 1.25 million by 11 September, two million by 16 September (<a href='https://steamcommunity.com/app/1867240/announcements/'>Steam announcements</a>, read 28 September 2026). The store page now carries 51,079 English reviews — Very Positive — inside 76,407 total, which grades Mostly Positive (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 28 September 2026).</p>
+<p>Copies moved fast in between: 1.25 million by 11 September, two million by 16 September (<a href='https://steamcommunity.com/app/1867240/announcements/'>Steam announcements</a>, read 28 September 2026). The store page now carries 51,079 English reviews — Very Positive — inside 76,407 across all languages, which grades Mostly Positive (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 28 September 2026).</p>
 
 <p>The spike is not the community, and the community is not the spike. If queue health is what you are buying, check the live concurrent number on the day you pay, not the record.</p>
 
@@ -157,7 +157,7 @@ ${adUnit}
 <p><a href="/wardogs-reddit">What WARDOGS players are asking for on Reddit &rarr;</a></p>
 <p><a href="/wardogs-price">What WARDOGS costs in eight Steam regions &rarr;</a></p>
 <p><a href="/wardogs-achievements">WARDOGS achievements, all ten and how rare each one is &rarr;</a></p>
-<p><a href="/wardogs-reviews">What 54,566 Steam reviews say about WARDOGS &rarr;</a></p>
+<p><a href="/wardogs-reviews">What 51,079 English Steam reviews say about WARDOGS &rarr;</a></p>
 <p><a href="/wardogs-early-access">What the developers say about Early Access timing and the full game &rarr;</a></p>
 </div>`,
 };

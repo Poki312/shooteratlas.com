@@ -98,13 +98,13 @@ ${faqHtml}
 <p class="src">Source: the Early Access block on the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>WARDOGS store page</a>, read on 28 September 2026. The quotations on this page are reproduced from that block; the commentary around them is ours.</p>
 </div>
 
-<figure class="pagefig"><img src="/assets/img/wardogs-early-access.png" width="1200" height="630" alt="WARDOGS Early Access card: 1-2 years in Early Access, fighter jets planned"><figcaption>Drawn for this page. Figures as read on 28 September 2026.</figcaption></figure>
+<figure class="pagefig"><img src="/assets/img/wardogs-early-access.png" width="1200" height="630" alt="WARDOGS Early Access card: 1–2 years planned in Early Access, started 10 September 2026, price rises at full release"><figcaption>Drawn for this page. Figures as read on 28 September 2026.</figcaption></figure>
 
 ${adUnit}
 
 <div class="readnext">
 <p><a href="/wardogs">Scoring, prices and platform support for WARDOGS &rarr;</a></p>
-<p><a href="/wardogs-reviews">What 54,566 Steam reviews say about WARDOGS &rarr;</a></p>
+<p><a href="/wardogs-reviews">What 51,079 English Steam reviews say about WARDOGS &rarr;</a></p>
 <p><a href="/wardogs-achievements">All ten WARDOGS achievements and how rare each one is &rarr;</a></p>
 </div>`,
 };

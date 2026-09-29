@@ -13,13 +13,13 @@ export const page = {
     "\n<meta name='mitgo-verification' content='ce9af179-d266-486b-a5e5-1d1362de694c'>" +
     "\n<meta name='commission-factory-verification' content='efa67650281a4a0986ac78ae4f310090'>" +
     "\n<!-- Awin publisher verification marker -->",
-  body: `<h1>Numbers for 100-player tactical shooters</h1>
+  body: `<h1>Numbers for 100&#8209;player tactical shooters</h1>
 <p class="lede">Shooter Atlas is a reference site for large-scale tactical shooters &mdash; the kind where a hundred players split into three teams, fight over one moving objective, and pay for every loadout out of their own pocket.</p>
 
 <nav class="hub" aria-label="Pages">
 <a href="/wardogs">Wardogs</a>
 <a href="/wardogs-achievements">WARDOGS achievements: all 10, and how rare each one is</a>
-<a href="/wardogs-reviews">WARDOGS on Steam: what 54,566 reviews say</a>
+<a href="/wardogs-reviews">WARDOGS on Steam: what 51,079 English reviews say</a>
 <a href="/wardogs-early-access">WARDOGS Early Access: what the developers actually say</a>
 </nav>
 <h2>What this site is</h2>
@@ -47,7 +47,7 @@ export const page = {
 </ul>
 <p>The result is a site that is slower to fill up than a news blog, and that is the point: a number you cannot trace back is worse than a blank space.</p>
 
-<figure class="pagefig"><img src="/assets/img/home.png" width="1200" height="630" alt="Shooter Atlas card: numbers for 100-player tactical shooters, one game per page"><figcaption>Drawn for this page. Figures as read on 28 September 2026.</figcaption></figure>
+<figure class="pagefig"><img src="/assets/img/home.png" width="1200" height="630" alt="Shooter Atlas card: one game per page, 100 players per match, three teams"><figcaption>Drawn for this page. Figures as read on 28 September 2026.</figcaption></figure>
 
 ${adUnit}
 
