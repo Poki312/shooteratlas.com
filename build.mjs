@@ -177,6 +177,13 @@ async function build() {
     "/ai/*",
     "  Access-Control-Allow-Origin: *",
     "",
+    // The card drawings keep their filename when they are redrawn, so together
+    // with the HTML they always describe the same build: a reader must never
+    // get a new page next to the previous version of its card. Unchanged files
+    // answer 304, which costs one conditional request per image.
+    "/assets/*",
+    "  Cache-Control: public, max-age=0, must-revalidate",
+    "",
     "/md/*",
     "  Access-Control-Allow-Origin: *",
     "  Content-Type: text/markdown; charset=utf-8",
