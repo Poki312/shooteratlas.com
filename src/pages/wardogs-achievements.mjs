@@ -65,6 +65,8 @@ export const page = {
   extraHead: "<script type='application/ld+json'>" + JSON.stringify(schema) + "</script>",
   body: `<h1>WARDOGS achievements: all 10, and how rare each one is</h1>
 
+<h2 id="full-list">The full list, with the global unlock rate</h2>
+
 <div class="data-block">
 <div class="data-head">
 <h3 id="ach-list">All ten achievements, by global unlock rate</h3>
