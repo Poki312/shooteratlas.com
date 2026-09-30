@@ -177,6 +177,8 @@ export const page = {
 </tbody>
 </table>
 </div>
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-languages-fig-unlisted-light.png"><img src="/assets/img/wardogs-languages-fig-unlisted.png" width="1200" height="630" alt="Bar chart of reviews in languages the store does not list: Czech 611, Dutch 331, Swedish 328, Spanish - Latin America 313, Thai 287, and five more down to Greek at 31"></picture><figcaption>Reviews in the ten largest languages that are not on Valve's fourteen-language list, from the review API. Read 30 September 2026.</figcaption></figure>
+
 <p>Those ten account for 2,650 of the 5,651 unlisted reviews, and all of it is Valve's own count (<a href='https://store.steampowered.com/appreviews/1867240?json=1&language=all&purchase_type=all&num_per_page=0'>Steam review API</a>, read 30 September 2026). A review written in Czech is a review by a Czech-speaking player, and the API says nothing about which language the game's own text was in for them &mdash; this page is not going to infer it. What the table does establish is the direction of the gap: the store lists fourteen languages, and the largest audience it does not list is Czech on 611 reviews with a Very Positive label, ahead of Dutch, Swedish and Latin American Spanish. The audience this game has is wider than the language list on its store page.</p>
 
 <h2>What the three WARDOGS sites have, and what this page adds</h2>

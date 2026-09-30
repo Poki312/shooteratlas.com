@@ -305,6 +305,11 @@ FIGURES = [
       ("Portuguese - Brazil", "207", 207 / 62512)], "reviewapi"),
     ("wardogs-languages-fig-ticks", "Wardogs · languages", "What Valve's own table ticks", "numbers",
      [("14", "Interface"), ("1", "Full audio, English"), ("0", "Subtitles")], "store30"),
+    ("wardogs-languages-fig-unlisted", "Wardogs · languages", "Reviews in languages the store does not list", "bars",
+     [("Czech", "611", 611 / 611), ("Dutch", "331", 331 / 611), ("Swedish", "328", 328 / 611),
+      ("Spanish - Latin America", "313", 313 / 611), ("Thai", "287", 287 / 611), ("Hungarian", "206", 206 / 611),
+      ("Norwegian", "204", 204 / 611), ("Finnish", "186", 186 / 611), ("Danish", "183", 183 / 611),
+      ("Greek", "31", 31 / 611)], "reviewapi"),
 ]
 
 
