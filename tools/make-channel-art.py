@@ -1,7 +1,12 @@
 """Draw the Shooter Atlas channel art: avatar and banner.
 
-Same palette, same mark and same type as the five page cards, so the channel
-does not look like a second brand. Everything is drawn here from primitives.
+Same palette, same mark and same type as the page cards, so the channel does
+not look like a second brand. Everything is drawn here from primitives.
+
+The colours below are the site's dark-theme tokens, copied from
+src/layout.mjs (the `:root` block, lines 37-40) — the site is the standard, this
+file follows it. Geometry is unchanged from the first version: only the colours
+moved, so the channel still wears the same mark, type and layout.
 
     python tools/make-channel-art.py
 """
@@ -10,11 +15,13 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
-INK = (17, 23, 34)
-MUTED = (91, 103, 116)
-RULE = (227, 231, 237)
-SOFT = (246, 248, 251)
-ACCENT = (11, 87, 208)
+# src/layout.mjs, dark theme
+INK = (233, 238, 244)      # --ink        #e9eef4
+MUTED = (124, 138, 155)    # --muted      #7c8a9b
+RULE = (38, 49, 61)        # --rule       #26313d
+SOFT = (10, 14, 19)        # --bg         #0a0e13
+ACCENT = (240, 169, 44)    # --accent     #f0a92c
+ACCENT_INK = (16, 22, 29)  # --accent-ink #10161d
 OUT = Path(__file__).resolve().parent.parent / "assets" / "img"
 
 
@@ -45,7 +52,7 @@ def avatar():
     S = 800
     img = Image.new("RGB", (S, S), ACCENT)
     d = ImageDraw.Draw(img)
-    crosshair(d, S // 2, S // 2, 168, "white", 34)
+    crosshair(d, S // 2, S // 2, 168, ACCENT_INK, 34)
     OUT.mkdir(parents=True, exist_ok=True)
     img.save(OUT / "channel-avatar.png", optimize=True)
     return "channel-avatar.png"
@@ -68,7 +75,7 @@ def banner():
     x = (W - row_w) / 2
     y = 540
     d.rounded_rectangle([x, y, x + mark, y + mark], radius=26, fill=ACCENT)
-    crosshair(d, x + mark / 2, y + mark / 2, 26, "white", 7)
+    crosshair(d, x + mark / 2, y + mark / 2, 26, ACCENT_INK, 7)
     d.text((x + mark + gap, y + 8), "Shooter Atlas", font=f_word, fill=INK)
 
     tag = "Numbers for large-scale tactical shooters"
