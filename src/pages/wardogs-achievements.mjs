@@ -64,41 +64,37 @@ export const page = {
     "WARDOGS has ten Steam achievements. Read from Steam's global stats on 28 September 2026, the commonest is finishing the tutorial at 78.3% of players and the rarest is Big Spender, spending $100,000 on one loadout, at 0.1%.",
   extraHead: "<script type='application/ld+json'>" + JSON.stringify(schema) + "</script>",
   body: `<h1>WARDOGS achievements: all 10, and how rare each one is</h1>
-<p class="lede">WARDOGS ships ten Steam achievements, and the list doubles as a difficulty ladder. Globally, 78.3% of players have the first one and 0.1% have the last. Everything below is Valve's own figure for each achievement, read from <a href='https://steamcommunity.com/stats/1867240/achievements/'>Steam's public achievement statistics</a> on 28 September 2026 &mdash; official material, not a measurement of ours.</p>
+
+<div class="data-block">
+<div class="data-head">
+<h3 id="ach-list">All ten achievements, by global unlock rate</h3>
+<span class="data-note"><span class="src-chip src-official">official</span> Steam global stats, read 28 Sep 2026</span>
+</div>
+<div class="matrix-scroll" role="region" tabindex="0" aria-labelledby="ach-list">
+<table class="matrix">
+<thead><tr><th scope="col">Achievement</th><th scope="col">What it asks you to do</th><th scope="col">Category</th><th scope="col">Players who have it</th><th scope="col">Read on</th></tr></thead>
+<tbody>
+<tr><td>This is WARDOGS</td><td class="wrap-cell">Complete the Tutorial</td><td>Progression</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:97.88%"></span></span><span class="bar-val">78.3%</span></span></td><td class="num">28 Sep 2026</td></tr>
+<tr><td>Ricochet</td><td class="wrap-cell">Kill an enemy player with a ricochet bullet</td><td>Combat</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:28.88%"></span></span><span class="bar-val">23.1%</span></span></td><td class="num">28 Sep 2026</td></tr>
+<tr><td>Fat Stacks</td><td class="wrap-cell">Reach $100,000 net profit in a single life</td><td>Economy</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:24.13%"></span></span><span class="bar-val">19.3%</span></span></td><td class="num">28 Sep 2026</td></tr>
+<tr><td>That was rude</td><td class="wrap-cell">No description published</td><td>Not published</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:16.63%"></span></span><span class="bar-val">13.3%</span></span></td><td class="num">28 Sep 2026</td></tr>
+<tr><td>Long Shot</td><td class="wrap-cell">Get a kill from over 950 m away</td><td>Combat</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:12.63%"></span></span><span class="bar-val">10.1%</span></span></td><td class="num">28 Sep 2026</td></tr>
+<tr><td>Top Dog</td><td class="wrap-cell">Finish the match as the top cash earner across all teams</td><td>Match</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:10.63%"></span></span><span class="bar-val">8.5%</span></span></td><td class="num">28 Sep 2026</td></tr>
+<tr><td>Do Not Resuscitate</td><td class="wrap-cell">Kill an enemy player using the defibrillator charge</td><td>Combat</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:7.75%"></span></span><span class="bar-val">6.2%</span></span></td><td class="num">28 Sep 2026</td></tr>
+<tr><td>CZ Survivor</td><td class="wrap-cell">Spend 60 minutes in the CZ without dying</td><td>Survival</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:7.50%"></span></span><span class="bar-val">6.0%</span></span></td><td class="num">28 Sep 2026</td></tr>
+<tr><td>Clean Sweep</td><td class="wrap-cell">Win a match without another team scoring a point</td><td>Match</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:5.63%"></span></span><span class="bar-val">4.5%</span></span></td><td class="num">28 Sep 2026</td></tr>
+<tr><td>Big Spender</td><td class="wrap-cell">Spend $100,000 on a single loadout</td><td>Economy</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:0.60%"></span></span><span class="bar-val">0.1%</span></span></td><td class="num">28 Sep 2026</td></tr>
+</tbody>
+</table>
+</div>
+<p class="data-foot">The percentage beside each bar is Valve's own figure for that achievement, printed exactly as Steam returns it &mdash; the bar is a reading aid, the number is the datum &mdash; and the order is Valve's, rarest last (<a href='https://steamcommunity.com/stats/1867240/achievements/'>Steam global achievement statistics, app 1867240</a>, read 28 September 2026). The percentage is the share of all players on record who have unlocked it. Two columns are not Valve's: <strong>Category</strong> is our grouping of what the published description asks you to do, and where Valve publishes no description the cell reads Not published rather than a guess; <strong>Read on</strong> is the day we read that row's figure, because Valve prints no read date of its own.</p>
+</div>
 
 <div class="strip">
 <div><span class="stat-n">10</span><span class="stat-k">achievements in the game</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
 <div><span class="stat-n">78.3%</span><span class="stat-k">hold the commonest one</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
 <div><span class="stat-n">0.1%</span><span class="stat-k">hold the rarest</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
 <div><span class="stat-n">45&times;</span><span class="stat-k">drop between the last two entries</span><span class="stat-src"><span class="src-chip src-calc">our arithmetic</span></span></div>
-</div>
-
-<h2 id="ach-list">The full list, with the global unlock rate</h2>
-<p>Steam publishes a worldwide unlock percentage for every achievement, and it is visible without owning the game or signing in. These are the ten figures for WARDOGS (<a href='https://steamcommunity.com/stats/1867240/achievements/'>Steam app 1867240</a>, read 28 September 2026), printed in the order Steam lists them, rarest last. The percentage is the share of all players on record who have unlocked it.</p>
-
-<div class="data-block">
-<div class="data-head">
-<h3>All ten achievements, by global unlock rate</h3>
-<span class="data-note"><span class="src-chip src-official">official</span> Steam global stats, read 28 Sep 2026</span>
-</div>
-<div class="matrix-scroll" role="region" tabindex="0" aria-labelledby="ach-list">
-<table class="matrix">
-<thead><tr><th scope="col">Achievement</th><th scope="col">What it asks you to do</th><th scope="col">Players who have it</th></tr></thead>
-<tbody>
-<tr><td>This is WARDOGS</td><td class="wrap-cell">Complete the Tutorial</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:97.88%"></span></span><span class="bar-val">78.3%</span></span></td></tr>
-<tr><td>Ricochet</td><td class="wrap-cell">Kill an enemy player with a ricochet bullet</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:28.88%"></span></span><span class="bar-val">23.1%</span></span></td></tr>
-<tr><td>Fat Stacks</td><td class="wrap-cell">Reach $100,000 net profit in a single life</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:24.13%"></span></span><span class="bar-val">19.3%</span></span></td></tr>
-<tr><td>That was rude</td><td class="wrap-cell">No description published</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:16.63%"></span></span><span class="bar-val">13.3%</span></span></td></tr>
-<tr><td>Long Shot</td><td class="wrap-cell">Get a kill from over 950 m away</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:12.63%"></span></span><span class="bar-val">10.1%</span></span></td></tr>
-<tr><td>Top Dog</td><td class="wrap-cell">Finish the match as the top cash earner across all teams</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:10.63%"></span></span><span class="bar-val">8.5%</span></span></td></tr>
-<tr><td>Do Not Resuscitate</td><td class="wrap-cell">Kill an enemy player using the defibrillator charge</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:7.75%"></span></span><span class="bar-val">6.2%</span></span></td></tr>
-<tr><td>CZ Survivor</td><td class="wrap-cell">Spend 60 minutes in the CZ without dying</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:7.50%"></span></span><span class="bar-val">6.0%</span></span></td></tr>
-<tr><td>Clean Sweep</td><td class="wrap-cell">Win a match without another team scoring a point</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:5.63%"></span></span><span class="bar-val">4.5%</span></span></td></tr>
-<tr><td>Big Spender</td><td class="wrap-cell">Spend $100,000 on a single loadout</td><td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:0.60%"></span></span><span class="bar-val">0.1%</span></span></td></tr>
-</tbody>
-</table>
-</div>
-<p class="data-foot">Bars scale 0&ndash;80%, the rate of the commonest achievement. The percentage beside each bar is Valve's own figure for that achievement, printed exactly as Steam returns it &mdash; the bar is a reading aid, the number is the datum.</p>
 </div>
 
 <figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-achievements-fig-rarity-light.png"><img src="/assets/img/wardogs-achievements-fig-rarity.png" width="1200" height="630" alt="Bar chart of all ten WARDOGS achievements by global unlock rate, from This is WARDOGS at 78.3% down to Big Spender at 0.1%"></picture><figcaption>Valve's own global achievement rates for all ten, drawn from the table above. Read 28 September 2026.</figcaption></figure>
