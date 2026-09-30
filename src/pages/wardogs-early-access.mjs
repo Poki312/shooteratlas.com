@@ -99,6 +99,8 @@ export const page = {
 
 <p>None of the three sites that cover WARDOGS in depth compiles this Q&amp;A. wardogs.site mentions the 1–2 year window once in passing; wardogshub.gg tracks live data but does not quote the developer's Early Access statements. This page exists to put the official text in one place.</p>
 
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-early-access-fig-window-light.png"><img src="/assets/img/wardogs-early-access-fig-window.png" width="1200" height="630" alt="Four panels from the studio's Early Access answers: 1-2 years in Early Access, start on 10 September 2026, the price rises at 1.0, and no date for 1.0 itself"></picture><figcaption>The studio's own answers, in four numbers. Read 30 September 2026.</figcaption></figure>
+
 <div class="qa">
 <h2>Common questions</h2>
 ${faqHtml}

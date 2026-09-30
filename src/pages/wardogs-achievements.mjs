@@ -101,6 +101,8 @@ export const page = {
 <p class="data-foot">Bars scale 0&ndash;80%, the rate of the commonest achievement. The percentage beside each bar is Valve's own figure for that achievement, printed exactly as Steam returns it &mdash; the bar is a reading aid, the number is the datum.</p>
 </div>
 
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-achievements-fig-rarity-light.png"><img src="/assets/img/wardogs-achievements-fig-rarity.png" width="1200" height="630" alt="Bar chart of all ten WARDOGS achievements by global unlock rate, from This is WARDOGS at 78.3% down to Big Spender at 0.1%"></picture><figcaption>Valve's own global achievement rates for all ten, drawn from the table above. Read 28 September 2026.</figcaption></figure>
+
 <h2>Four numbers that only appear here</h2>
 <p>The achievement text is the only place the game puts a figure on some things. Four of the ten carry one:</p>
 <ul>

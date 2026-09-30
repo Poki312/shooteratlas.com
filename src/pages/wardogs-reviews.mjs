@@ -98,8 +98,12 @@ export const page = {
 </div>
 <p>If you have seen a third number for WARDOGS elsewhere, it is almost certainly one of these two filters read differently rather than a contradiction. Mixing them — a count from one filter beside a percentage from the other — produces a rating the store page itself does not show, which is why this page keeps them apart.</p>
 
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-reviews-fig-totals-light.png"><img src="/assets/img/wardogs-reviews-fig-totals.png" width="1200" height="630" alt="Bar chart of the two WARDOGS review totals on the same store page: 51,079 English reviews and 76,407 across all languages"></picture><figcaption>The two totals the same store page returns, drawn to the same scale. Read 28 September 2026.</figcaption></figure>
+
 <h2>What "Very Positive" means here</h2>
 <p>Steam attaches its own summary label to every game's reviews, and for WARDOGS that label is "Very Positive" — the store's second-highest rating, one step below "Overwhelmingly Positive". Eighty-one percent positive is a clear majority: the large majority of the people who wrote a review left a positive one, and roughly one review in five was negative.</p>
+
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-reviews-fig-share-light.png"><img src="/assets/img/wardogs-reviews-fig-share.png" width="1200" height="630" alt="Three figures from the English store view: 66.9% is the English share of all 76,407 reviews, 81% is the positive rate, and the summary reads Very Positive"></picture><figcaption>English share and rating, from the store page's own figures; the share is our arithmetic on them. Read 28 September 2026.</figcaption></figure>
 
 <h2>Why this page exists</h2>
 <p>The three sites that document WARDOGS in depth cover different ground. wardogs.site is a translated official changelog and FAQ. wardogs.wiki is a database of item stats with no editorial articles. wardogshub.gg tracks concurrent player counts, prices, weapons and progression. All three measure the game's size or its live population; none of them reports the review sentiment Steam itself publishes. That gap is the reason this page exists — it is first-party Steam data that the coverage ecosystem leaves unread.</p>

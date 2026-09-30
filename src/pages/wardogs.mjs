@@ -110,6 +110,10 @@ export const page = {
 
 <p>The spike is not the community, and the community is not the spike. If queue health is what you are buying, check the live concurrent number on the day you pay, not the record.</p>
 
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-fig-players-light.png"><img src="/assets/img/wardogs-fig-players.png" width="1200" height="630" alt="Bar chart of three WARDOGS concurrency readings: closed beta peak 244,926, all-time peak 428,666, final week of September about 132,000"></picture><figcaption>Concurrency, as recorded by <a href='https://steamdb.info/app/1867240/charts/'>SteamDB</a>, a third-party database rather than Valve. Read 28 September 2026.</figcaption></figure>
+
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-fig-copies-light.png"><img src="/assets/img/wardogs-fig-copies.png" width="1200" height="630" alt="Timeline of WARDOGS sales posts: 1.25 million copies on 11 September 2026, two million on 15 September, three million on 26 September"></picture><figcaption>The studio's own sales posts on the <a href='https://steamcommunity.com/app/1867240/announcements/'>official Steam announcement feed</a>. Read 30 September 2026.</figcaption></figure>
+
 <h2>Scoring, including the part almost nobody explains</h2>
 <p>Points come from occupancy, not kills. You stand in the Control Zone, you score; your team reaches 100, you win. Inside that zone sits a smaller Hot Zone that pays double cash and counts each player twice toward the score, which is why the last two minutes of a close match turn violent.</p>
 

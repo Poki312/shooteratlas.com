@@ -99,6 +99,8 @@ export const page = {
 <li>26 September 2026 — "My feedback after 100+ hours of WARDOGS" — <a href='https://www.reddit.com/r/WarDogs/comments/1wqr8ks/my_feedback_after_100_hours_of_wardogs/'>r/WarDogs</a></li>
 </ul>
 
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-reddit-fig-threads-light.png"><img src="/assets/img/wardogs-reddit-fig-threads.png" width="1200" height="630" alt="Four panels about the WARDOGS Reddit month: ten threads, five of them buy-or-wait, four recurring asks, one repeated verdict"></picture><figcaption>The shape of month one, counted from the ten threads listed above. Read 28 September 2026.</figcaption></figure>
+
 <h2>What the most-upvoted replies say</h2>
 <p>The single sentence the community keeps agreeing with shows up in the older of the two general-verdict threads, titled "Be honest, WARDOGS good or bad?" and posted on 22 August 2026 — before Early Access, on the strength of the beta. Its top reply reads: "It shows a lot of potential ... provided they don't misstep ... could be a great game when eventually out of Early Access" (<a href='https://www.reddit.com/r/WarDogs/comments/1vuz1ch/'>r/WarDogs, thread 1vuz1ch</a>, read 28 September 2026).</p>
 <p>That is the shape of the whole subreddit in one line: the people who like it are buying a direction of travel rather than a finished game.</p>
