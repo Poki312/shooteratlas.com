@@ -6,11 +6,13 @@ import { page as wardogsReviews } from "./pages/wardogs-reviews.mjs";
 import { page as wardogsEarlyAccess } from "./pages/wardogs-early-access.mjs";
 import { page as wardogsReddit } from "./pages/wardogs-reddit.mjs";
 import { page as wardogsPrice } from "./pages/wardogs-price.mjs";
+import { page as wardogsReleaseDate } from "./pages/wardogs-release-date.mjs";
+import { page as wardogsBattalion1944 } from "./pages/wardogs-battalion-1944.mjs";
 import { page as about } from "./pages/about.mjs";
 import { page as privacy } from "./pages/privacy.mjs";
 import { page as contact } from "./pages/contact.mjs";
 
 // Every page that should exist on the live site. 404 is rendered separately and
 // deliberately kept out of the sitemap.
-export const pages = [index, wardogs, wardogsAchievements, wardogsReviews, wardogsEarlyAccess, wardogsReddit, wardogsPrice, about, privacy, contact];
+export const pages = [index, wardogs, wardogsAchievements, wardogsReviews, wardogsEarlyAccess, wardogsReddit, wardogsPrice, wardogsReleaseDate, wardogsBattalion1944, about, privacy, contact];
 export { notFound };

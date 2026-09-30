@@ -26,7 +26,7 @@ export const page = {
 <div><span class="stat-n">1</span><span class="stat-k">game documented</span></div>
 <div><span class="stat-n">100</span><span class="stat-k">players per match</span></div>
 <div><span class="stat-n">3</span><span class="stat-k">factions, one objective</span></div>
-<div><span class="stat-n">10</span><span class="stat-k">pages published</span></div>
+<div><span class="stat-n">12</span><span class="stat-k">pages published</span></div>
 </div>
 </aside>
 </div>
@@ -48,6 +48,8 @@ export const page = {
 <tr data-terms="reviews steam sentiment positive summary very positive mostly positive all languages"><td><a href="/wardogs-reviews">Steam reviews</a></td><td class="wrap-cell">What 51,079 English reviews say, why the all-language total grades lower, and what a review score can and cannot tell you.</td><td class="num">28 Sep 2026</td></tr>
 <tr data-terms="early access timeline roadmap developer jets weapons price rise"><td><a href="/wardogs-early-access">Early Access</a></td><td class="wrap-cell">The official Q&amp;A in the developer's own words: the timeline, the price rise, and what is planned for 1.0.</td><td class="num">28 Sep 2026</td></tr>
 <tr data-terms="reddit community requests mortar sniper looting buy or wait"><td><a href="/wardogs-reddit">On Reddit</a></td><td class="wrap-cell">Ten threads from the first month: five are the same buy-or-wait question, and the four asks that keep returning.</td><td class="num">28 Sep 2026</td></tr>
+<tr data-terms="release date launch unlock hour 16:00 utc steam early access september 2026 console 2028 queue sales"><td><a href="/wardogs-release-date">Release date</a></td><td class="wrap-cell">The day, the unlock hour in fourteen time zones, the launch-day queue figures and what the date did not settle.</td><td class="num">30 Sep 2026</td></tr>
+<tr data-terms="battalion 1944 bulkhead previous game developer design maps alpha movement unlocks drop shot"><td><a href="/wardogs-battalion-1944">Battalion 1944</a></td><td class="wrap-cell">The studio's previous tactical shooter, from its own 2017 notes: the map formula, the refusal to make unlocks the reward, and the alpha cuts.</td><td class="num">29 Sep 2026</td></tr>
 </tbody>
 </table>
 </div>

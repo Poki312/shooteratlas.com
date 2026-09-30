@@ -232,7 +232,11 @@ PAGES = [
     ("wardogs-release-date", "WARDOGS · Release date",
      "10 September 2026, 16:00 UTC",
      [("10 Sep", "2026, Early Access"), ("3M", "copies by 26 Sept"), ("2 yrs", "EA window, at most")],
-     "/wardogs-release-date", "29 September 2026"),
+     "/wardogs-release-date", "30 September 2026"),
+    ("wardogs-battalion-1944", "WARDOGS · The studio's first shooter",
+     "Bulkhead's 2017 design notes, item by item",
+     [("-30%", "movement, alpha v0.2"), ("-25%", "strafe jump"), ("2017", "when it was written")],
+     "/wardogs-battalion-1944", "29 September 2026"),
 ]
 
 for row in PAGES:

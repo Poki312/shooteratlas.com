@@ -142,7 +142,7 @@ function skillDoc(site, pageList) {
     "",
     "A page id is its path without the leading slash, and the homepage is `index`: `index`, `wardogs`,",
     "`wardogs-price`, `wardogs-reviews`, `wardogs-achievements`, `wardogs-early-access`,",
-    "`wardogs-reddit`, `about`, `privacy`, `contact`.",
+    "`wardogs-reddit`, `wardogs-release-date`, `wardogs-battalion-1944`, `about`, `privacy`, `contact`.",
     "",
     "## Agent instructions",
     "",

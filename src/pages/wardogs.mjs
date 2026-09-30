@@ -176,5 +176,6 @@ ${adUnit}
 <p><a href="/wardogs-achievements">WARDOGS achievements, all ten and how rare each one is &rarr;</a></p>
 <p><a href="/wardogs-reviews">What 51,079 English Steam reviews say about WARDOGS &rarr;</a></p>
 <p><a href="/wardogs-early-access">What the developers say about Early Access timing and the full game &rarr;</a></p>
+<p><a href="/wardogs-release-date">When WARDOGS released, and what the date did not settle &rarr;</a></p>
 </div>`,
 };
