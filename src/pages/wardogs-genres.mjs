@@ -72,6 +72,7 @@ import { adUnit } from "../ad.mjs";
 import { faqList } from "../faq.mjs";
 
 export const page = {
+  ogImage: "https://shooteratlas.com/assets/img/wardogs-genres.png",
   source: "src/pages/wardogs-genres.mjs",
   path: "/wardogs-genres",
   title: "WARDOGS genres and platform specs — five genres, eight categories, Windows only",
@@ -147,6 +148,8 @@ export const page = {
 ${faqHtml}
 <p class="src">Sources: the <a href='https://store.steampowered.com/api/appdetails?appids=1867240&cc=us&l=english'>Steam appdetails API</a> and the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>WARDOGS store page</a>, both read 30 September 2026; archived pages of the studio's previous site, as dated above. Every figure on this page carries the surface it was read from and the day it was read.</p>
 </div>
+
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-genres-light.png"><img src="/assets/img/wardogs-genres.png" width="1200" height="630" alt="Card for the WARDOGS spec sheet: five genres in Valve's own list, eight store categories, zero VR entries, and Windows as the only platform"></picture><figcaption>Drawn for this page, dark or light to match. Figures as read on 30 September 2026.</figcaption></figure>
 
 ${adUnit}
 

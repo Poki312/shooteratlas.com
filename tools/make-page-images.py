@@ -245,6 +245,10 @@ PAGES = [
      "Fourteen languages, one with full audio",
      [("14", "languages listed"), ("1", "with full audio"), ("0", "subtitles ticks")],
      "/wardogs-languages", "30 September 2026"),
+    ("wardogs-genres", "WARDOGS · Genres and specs",
+     "Five genres, eight categories, Windows only",
+     [("5", "genres, Valve's own list"), ("8", "store categories"), ("0", "VR entries")],
+     "/wardogs-genres", "30 September 2026"),
 ]
 
 for row in PAGES:
