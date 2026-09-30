@@ -1,0 +1,202 @@
+// One array drives both the visible questions and the FAQPage JSON-LD, so the
+// structured data can never drift from what a reader can open on the page.
+const faqs = [
+  {
+    q: "When was the Battalion 1944 closed alpha?",
+    a: "The first Closed Alpha weekend was 26 May 2017. The studio's own announcement sets the \"Official Closed Alpha Release Date\" as May 26th, with Kickstarter backer surveys out on 28 April and Steam codes sent on 24 May that activated on the 26th (<a href='https://web.archive.org/web/*/battaliongame.com/news/closed-alpha-date-announcement-ks-update-nikkyyhd-trailer-reveal'>archived studio announcement</a>, page dated 2 May 2017, captured 27 May 2017, read 30 September 2026).",
+  },
+  {
+    q: "Could you stream the Battalion 1944 alpha?",
+    a: "No. The FAQ answer reads: \"We will not be allowing players to stream the Battalion 1944 closed alpha in May 2017.\" The same answer allows streaming of the Closed Beta and Early Access builds on two conditions &mdash; creators link viewers to the studio's site, and tell them the game is in an early pre-release state where bugs and balance problems are expected (<a href='https://web.archive.org/web/*/battaliongame.com/faq'>archived studio FAQ</a>, captured 26 May 2017, read 30 September 2026).",
+  },
+  {
+    q: "Was the closed alpha under an NDA?",
+    a: "Yes, and the terms are on the FAQ page: downloading the Closed Alpha meant agreeing to the rules, under which \"nobody is allowed to share videos/pictures/media or discuss the game outside of our official closed channels (Closed Alpha Forum &amp; Closed Alpha Discord)\" (<a href='https://web.archive.org/web/*/battaliongame.com/faq'>archived studio FAQ</a>, captured 26 May 2017, read 30 September 2026). The alpha v0.2 patch note of 11 July 2017 still repeats that the agreement was in force &mdash; \"NDA is still in place so please stick to it\" &mdash; which is why almost none of this material was discussed in public while it was current.",
+  },
+  {
+    q: "What did the 2018 roadmap promise?",
+    a: "Four quarters, on the studio's own roadmap page. Q1: Early Access release, a stability update, a new map in both rotations, offline LAN support, and the line \"ALL future DLC will be free\". Q2: the first official LAN tournament, an arcade map, large map support and two undisclosed weapons. Q3: a second LAN tournament, a spectator overhaul for esports, and 'Clanwars' on \"high tick servers\". Q4: the full Steam release, a new HUD/UI and Theatre Mode, with the price going up at that point (<a href='https://web.archive.org/web/*/battaliongame.com/'>archived studio roadmap</a>, captured 20 January 2018, read 30 September 2026).",
+  },
+  {
+    q: "Was Battalion 1944's DLC free?",
+    a: "The studio promised it would be. The roadmap page opens with \"ALL future DLC will be free\", and its 2019 block repeats \"Unannounced Free DLC\" (<a href='https://web.archive.org/web/*/battaliongame.com/'>archived studio roadmap</a>, captured 20 January 2018, read 30 September 2026). Whether that held for the game's whole life is something this page cannot confirm: the material we could read stops in January 2018, and no later document we could find states what was released or what it cost.",
+  },
+  {
+    q: "Who published Battalion 1944?",
+    a: "By January 2018 the roadmap page carried \"PUBLISHED BY SQUARE ENIX COLLECTIVE\" in its footer, alongside a credit to Bulkhead Interactive. The 2017 pages read here name no publisher at all. That is the whole of the publisher record in this material &mdash; no deal date, no territories and no terms (<a href='https://web.archive.org/web/*/battaliongame.com/'>archived studio roadmap</a>, captured 20 January 2018, read 30 September 2026).",
+  },
+  {
+    q: "Is the original Battalion 1944 site still up?",
+    a: "No. battaliongame.com no longer serves these pages, so every quote here comes from an archive record of the page as it stood in 2017 or 2018: a 26 May 2017 capture of the <a href='https://web.archive.org/web/*/battaliongame.com/faq'>FAQ</a>, a 27 May 2017 capture of the <a href='https://web.archive.org/web/*/battaliongame.com/news/closed-alpha-date-announcement-ks-update-nikkyyhd-trailer-reveal'>alpha announcement</a>, and a 20 January 2018 capture of the <a href='https://web.archive.org/web/*/battaliongame.com/'>roadmap</a>. The copies read for this page were pulled from Common Crawl's WARC records of those crawls on 30 September 2026.",
+  },
+];
+
+const stripTags = (s) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+const SITE = "https://shooteratlas.com";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE + "/" },
+        { "@type": "ListItem", position: 2, name: "Wardogs", item: SITE + "/wardogs" },
+        { "@type": "ListItem", position: 3, name: "Battalion 1944", item: SITE + "/wardogs-battalion-1944" },
+        { "@type": "ListItem", position: 4, name: "Launch", item: SITE + "/wardogs-battalion-1944-launch" },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: stripTags(f.a) },
+      })),
+    },
+    {
+      "@type": "VideoGame",
+      name: "Battalion 1944",
+      url: SITE + "/wardogs-battalion-1944-launch",
+      applicationCategory: "Game",
+      gamePlatform: "PC",
+      author: { "@type": "Organization", name: "Bulkhead Interactive" },
+      publisher: { "@type": "Organization", name: "Square Enix Collective" },
+      sameAs: ["https://web.archive.org/web/*/battaliongame.com"],
+      about: { "@type": "VideoGame", name: "WARDOGS", url: "https://store.steampowered.com/app/1867240/WARDOGS/" },
+    },
+  ],
+};
+
+const faqHtml = faqList(faqs);
+
+import { adUnit } from "../ad.mjs";
+import { faqList } from "../faq.mjs";
+
+export const page = {
+  ogImage: "https://shooteratlas.com/assets/img/wardogs-battalion-1944-launch.png",
+  source: "src/pages/wardogs-battalion-1944-launch.mjs",
+  path: "/wardogs-battalion-1944-launch",
+  title: "Battalion 1944 launch — closed alpha rules, the dates and the 2018 roadmap",
+  description:
+    "Battalion 1944 spent its first month in a closed alpha whose testers were barred from streaming it or discussing it in public, then went into Steam Early Access under a four-quarter plan that promised free DLC, offline LAN, a clan system on high tick servers and a price rise at full release. All of it in the studio's own words, from captures of pages it no longer serves.",
+  extraHead:
+    "<script type='application/ld+json'>" + JSON.stringify(schema) + "</script>",
+  body: `<h1>Battalion 1944 launch: closed alpha rules, the dates and the 2018 roadmap</h1>
+<p class="lede"><strong>Battalion 1944 spent its first month in a closed alpha that testers were barred from streaming or discussing in public, and it went into Steam Early Access the next year under a four-quarter plan that promised offline LAN, a clan system on high tick servers, free DLC for the game's whole life, and a price rise at full release.</strong> Every one of those commitments is the studio's own wording, published on pages battaliongame.com no longer serves. The copies read here are archive records of three captures &mdash; the FAQ on 26 May 2017, the alpha announcement on 27 May 2017 and the roadmap on 20 January 2018 &mdash; re-read on 30 September 2026.</p>
+
+<div class="strip">
+<div><span class="stat-n">26 May 2017</span><span class="stat-k">first closed alpha weekend</span><span class="stat-src"><span class="src-chip src-official">studio's own</span></span></div>
+<div><span class="stat-n">No streams</span><span class="stat-k">and no public talk, under the test agreement</span><span class="stat-src"><span class="src-chip src-official">studio's own</span></span></div>
+<div><span class="stat-n">4 quarters</span><span class="stat-k">the 2018 plan, in full</span><span class="stat-src"><span class="src-chip src-official">studio's own</span></span></div>
+<div><span class="stat-n">Free DLC</span><span class="stat-k">promised for the game's whole life</span><span class="stat-src"><span class="src-chip src-official">studio's own</span></span></div>
+</div>
+
+<h2>The test agreement, in the studio's own words</h2>
+<p>Two answers on the studio's FAQ page carry the rules the alpha ran under, and both are worth quoting rather than summarising, because the wording is the most restrictive part of the whole record (<a href='https://web.archive.org/web/*/battaliongame.com/faq'>archived studio FAQ</a>, captured 26 May 2017, read 30 September 2026). The first is the agreement itself:</p>
+<blockquote><p>"Yes, by downloading the Battalion 1944 Closed Alpha, you're agreeing to adhere to our NDA rules. This means nobody is allowed to share videos/pictures/media or discuss the game outside of our official closed channels (Closed Alpha Forum &amp; Closed Alpha Discord)"</p></blockquote>
+<p>The second answer covers streaming, and it draws a line between the alpha and everything that came after it (<a href='https://web.archive.org/web/*/battaliongame.com/faq'>same archived FAQ page</a>, read 30 September 2026). No streams in May 2017; from the Closed Beta and Early Access onward, streaming was allowed on two conditions attached to the creator rather than to the game:</p>
+<blockquote><p>"The closed alpha/beta sessions aren't glorified marketing tools for us, they'll be used exactly as intended; for bug testing and balancing the game. There will be unresolved issues/bugs to be fixed before release. We will not be allowing players to stream the Battalion 1944 closed alpha in May 2017. However, we're totally cool with the community streaming the Closed Beta/Early Access versions, as long as content creators link viewers directly to our site and strictly inform their viewers that the game is in an early pre-release state and that bugs/balancing issues are to be expected."</p></blockquote>
+<p>Read together, the two answers describe a test that was run as a test: no footage, no public threads, no streams during the alpha weekends, and a later phase where a creator could stream the game only while telling the audience what they were watching. The FAQ page itself carries no publication date; the capture read here is dated 26 May 2017, and at that point the same page already answered "access to the Alpha / Beta testing is now closed" (<a href='https://web.archive.org/web/*/battaliongame.com/faq'>archived studio FAQ</a>, captured 26 May 2017, read 30 September 2026).</p>
+
+<h2>The alpha calendar: three dates and a trailer</h2>
+<p>Three weeks before the first playtest, the studio published the calendar in a single recap, which is the only place the dates appear in that granularity. Every line below is the studio's own (<a href='https://web.archive.org/web/*/battaliongame.com/news/closed-alpha-date-announcement-ks-update-nikkyyhd-trailer-reveal'>archived studio announcement</a>, page dated 2 May 2017, captured 27 May 2017, read 30 September 2026):</p>
+<div class="matrix-scroll" role="region" tabindex="0" aria-labelledby="alpha-dates-caption">
+<table class="matrix">
+<caption id="alpha-dates-caption">The closed alpha calendar as the studio recapped it, page dated 2 May 2017, captured 27 May 2017, read 30 September 2026.</caption>
+<thead><tr><th scope="col">Date</th><th scope="col">What the studio said happens</th></tr></thead>
+<tbody>
+<tr><td class="num">28 April 2017</td><td class="wrap-cell">Kickstarter backer surveys get sent out</td></tr>
+<tr><td class="num">24 May 2017</td><td class="wrap-cell">Closed Alpha Steam codes get sent &mdash; they activate on the 26th</td></tr>
+<tr><td class="num">26 May 2017</td><td class="wrap-cell">First closed alpha weekend, set as the "Official Closed Alpha Release Date"</td></tr>
+</tbody>
+</table>
+</div>
+<p>Two more facts sit in the same post. The announcement trailer was made by NikkyyHD, credited there as the creator of the frag movies 'Clockwork 4' and 'sViix'. And the studio said a full development roadmap plus an alpha weekend schedule would follow "within the coming weeks" &mdash; which is the January 2018 roadmap further down this page (<a href='https://web.archive.org/web/*/battaliongame.com/news/closed-alpha-date-announcement-ks-update-nikkyyhd-trailer-reveal'>same archived post</a>, read 30 September 2026).</p>
+<p>The FAQ, captured three weeks later, independently confirms one of the three dates, in an answer about survey delivery: "All Kickstarter Surveys have been sent as of 28th April 2017" (<a href='https://web.archive.org/web/*/battaliongame.com/faq'>archived studio FAQ</a>, captured 26 May 2017, read 30 September 2026). That is a small thing and it is worth noting as method: the calendar is not one page's claim, it is two of the studio's own pages agreeing.</p>
+
+<h2>What the 2017 FAQ committed the game to</h2>
+<p>The FAQ is the long document in this record: 18 answers, written while the alpha was running. A handful of them set expectations specific enough to be checked against the game later, and this page prints those as the studio wrote them (<a href='https://web.archive.org/web/*/battaliongame.com/faq'>archived studio FAQ</a>, captured 26 May 2017, read 30 September 2026):</p>
+<ul>
+<li><strong>No killstreaks, no deathstreaks.</strong> "Absolutely not. No killstreaks/deathstreaks, just you and your skill as a player."</li>
+<li><strong>One server browser, and it is in the game.</strong> "We'll have an ingame server browser exactly like classic shooters, but no external server browser", with official servers run in partnership with Multiplay and player-hosted servers able to switch between ranked, unranked and private rule sets.</li>
+<li><strong>No single-player campaign.</strong> "We currently have no plans for a single player campaign."</li>
+<li><strong>Mapping and modding support</strong> planned "throughout Battalion 1944's lifespan".</li>
+<li><strong>Anti-cheat beyond Valve's.</strong> "We aren't just relying on VAC, we aim to keep the game as cheat free as possible with extra persistent anti-cheat systems".</li>
+<li><strong>Refunds on store and Kickstarter purchases:</strong> "As a rule of thumb I'm afraid we do not support refunds for digital items purchased via our Storefront / Kickstarter."</li>
+<li><strong>Platforms and the release window:</strong> PC first, with Xbox One and PlayStation 4 to follow, and "The game will be available to the public when the game releases on Steam early access, late 2017."</li>
+</ul>
+<p>That last line is the one the January 2018 roadmap quietly corrects, because it lists Early Access release inside Q1 2018 (<a href='https://web.archive.org/web/*/battaliongame.com/'>archived studio roadmap</a>, captured 20 January 2018, read 30 September 2026). Both statements are the studio's own, and the slip from "late 2017" to a 2018 quarter is only visible by putting the two pages side by side &mdash; which is what this page does, and it is a comparison rather than anything the studio ever admitted.</p>
+
+<h2>The 2018 roadmap, quarter by quarter</h2>
+<p>The roadmap page is the most specific document in the record, and it opens with a promise that applies to the whole plan rather than to one quarter: <strong>"ALL future DLC will be free"</strong>. The four quarters that follow are reproduced below, item for item, in the studio's own phrasing (<a href='https://web.archive.org/web/*/battaliongame.com/'>archived studio roadmap</a>, captured 20 January 2018, read 30 September 2026):</p>
+<div class="matrix-scroll" role="region" tabindex="0" aria-labelledby="roadmap-caption">
+<table class="matrix">
+<caption id="roadmap-caption">The 2018 development plan, as published. Captured 20 January 2018, read 30 September 2026.</caption>
+<thead><tr><th scope="col">Quarter</th><th scope="col">What the studio planned</th></tr></thead>
+<tbody>
+<tr><td class="num">Q1 2018</td><td class="wrap-cell"><strong>Early Access release, and the stability update.</strong> Fix what the community finds and make sure "EVERYONE can play our existing content, before we move on to the new content". A new map into both the casual and the competitive rotation. <strong>Offline LAN support across all modes.</strong> A Twitch AMA with Brammertron &amp; KingHoward on the future of the game.</td></tr>
+<tr><td class="num">Q2 2018</td><td class="wrap-cell"><strong>The content update.</strong> The first official LAN tournament. An arcade map built around Capture the Flag and Domination. A competitive map, still unannounced. <strong>Large map support</strong> for bigger player counts. Two new undisclosed weapons.</td></tr>
+<tr><td class="num">Q3 2018</td><td class="wrap-cell"><strong>The competition update.</strong> A second official LAN tournament. <strong>Spectator mode overhaul for esports.</strong> 'Clanwars' launches &mdash; an in-game clan system for scrims, ladders and competitions, described as running on <strong>high tick servers</strong>.</td></tr>
+<tr><td class="num">Q4 2018</td><td class="wrap-cell"><strong>The winter update, called "The Beginning".</strong> The game hits Steam "as a fully released title", and in the studio's words: "At this point, the price of the game will increase." Theatre Mode. A new HUD and UI. A casual map, still unannounced.</td></tr>
+<tr><td class="num">2019</td><td class="wrap-cell">Listed under future plans: <strong>FULL RELEASE TO STEAM</strong> and <strong>Unannounced Free DLC</strong>.</td></tr>
+</tbody>
+</table>
+</div>
+<p>Two details in that table deserve to be pulled out. The first is the ordering inside Q1: bug-fixing is placed ahead of new content, in writing, which is unusual for a roadmap page whose job is to promise things. The second is that the price decision was taken in advance and printed: the increase is announced in a plan published months before it was due, not in a store-page footnote afterwards (<a href='https://web.archive.org/web/*/battaliongame.com/'>same archived plan</a>, read 30 September 2026).</p>
+<p>There is also an inconsistency inside the studio's own plan, and this page prints it rather than smoothing it over: the Q4 2018 block describes the game reaching Steam "as a fully released title", while the 2019 block repeats "FULL RELEASE TO STEAM" as something still to come. Both lines are on the same captured page, and nothing in the material read here resolves which one was current. For anyone reading the plan as a promise, that matters: the full release is dated twice (<a href='https://web.archive.org/web/*/battaliongame.com/'>archived studio roadmap</a>, captured 20 January 2018, read 30 September 2026).</p>
+
+<h2>Who was publishing it</h2>
+<p>The roadmap page carries something the 2017 pages do not: a footer reading <strong>"PUBLISHED BY SQUARE ENIX COLLECTIVE"</strong>, next to a credit to Bulkhead Interactive, and a copyright line dated 2018 (<a href='https://web.archive.org/web/*/battaliongame.com/'>archived studio roadmap</a>, captured 20 January 2018, read 30 September 2026). The 2017 FAQ and announcement name no publisher at all. That is the entire publishing record in this material &mdash; no deal date, no territories, no terms, and no statement about what the arrangement covered.</p>
+
+<h2>How each claim on this page is labelled</h2>
+<p>This site sorts every conclusion into one of three buckets. On this page the buckets carry more weight than usual, because the underlying pages no longer exist on the live web and a reader ought to see exactly how thin the ground is.</p>
+<div class="matrix-scroll" role="region" tabindex="0" aria-labelledby="layers-caption">
+<table class="matrix">
+<caption id="layers-caption">Every claim on this page, sorted. Read 30 September 2026.</caption>
+<thead><tr><th scope="col">Layer</th><th scope="col">What is in it</th></tr></thead>
+<tbody>
+<tr><td>Confirmed by the studio</td><td class="wrap-cell">The NDA terms and the streaming answer, in the studio's own words. The three alpha dates and the trailer credit to NikkyyHD. Every line of the 2018 plan, including the free-DLC promise, offline LAN support, the two LAN tournaments, Clanwars on high tick servers, the Q4 price increase, Theatre Mode and the new HUD/UI. The Square Enix Collective credit in the 2018 footer. All of it is the studio's own published text, captured in the archive in May 2017 and January 2018.</td></tr>
+<tr><td>Observed, not officially confirmed</td><td class="wrap-cell">That the alpha calendar slipped: the May 2017 FAQ promised Early Access for "late 2017" and the January 2018 plan lists it in Q1 2018. Both statements are the studio's; the comparison between them is ours, and no captured page admits the change. The same goes for the contradiction between the Q4 2018 full-release block and the 2019 full-release line.</td></tr>
+<tr><td>Not yet confirmed</td><td class="wrap-cell">Whether any of the 2018 plan was delivered. Nothing in the material read here records what shipped, and the studio's site stops being readable after January 2018 within this page's window. The game's sales, its player numbers and its final state are all outside it.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Still not on any official record</h2>
+<p>The gaps are part of the answer here, so they are written down rather than left out:</p>
+<ul>
+<li><strong>The actual Early Access release date.</strong> The plan says Q1 2018 and prints no day. No dated announcement in the material read here gives one.</li>
+<li><strong>Whether the roadmap was delivered.</strong> Offline LAN, the two LAN tournaments, large map support, the two undisclosed weapons, the spectator overhaul, Clanwars, Theatre Mode and the HUD/UI rebuild are all promises in this record and none of them has an outcome in it.</li>
+<li><strong>What the price rose to.</strong> The plan says the price increases at full release and prints no figure, and no later price list could be read.</li>
+<li><strong>Whether the NDA was ever formally lifted.</strong> The FAQ distinguishes alpha from beta and Early Access for streaming only; it says nothing about when the agreement ended or what replaced it.</li>
+<li><strong>Sales and player numbers.</strong> The studio's own pages read here carry none for Battalion 1944, and this page does not import any from elsewhere.</li>
+<li><strong>Anything after January 2018.</strong> The captures this page could read stop there, and the digging rules behind this site only take archive snapshots dated before 1 January 2023.</li>
+</ul>
+
+<h2>What the three WARDOGS sites have, and what this page adds</h2>
+<p>All three sites were swept end to end on 30 September 2026 &mdash; every URL each one lists in its own sitemap, fetched and read, not just the pages that look relevant:</p>
+<ul>
+<li><strong>wardogs.site</strong> lists 27 pages and the word Battalion does not appear in any of them. Its coverage starts with the current game (<a href='https://wardogs.site/'>wardogs.site</a>, read 30 September 2026).</li>
+<li><strong>wardogshub.gg</strong> lists 861 pages. Four mention Battalion 1944, in two blog posts published in English and in Spanish: a comparison piece against Arma 3 and a recap of the studio's own "ten reasons not to buy" devlog. Both use the previous game as a trust question &mdash; that it did not work out, that Kickstarter backers were refunded, and that the studio's own advice is not to rush a purchase if that history still bothers you. Neither carries the test agreement, the alpha calendar, or any part of the plan (<a href='https://wardogshub.gg/'>wardogshub.gg</a>, read 30 September 2026).</li>
+<li><strong>wardogs.wiki</strong> lists 486 pages in its MediaWiki sitemap. One of them mentions the game: the studio's own entry, which lists Battalion 1944 among the titles shipped and gives the year as 2018 (<a href='https://wardogs.wiki/BULKHEAD'>wardogs.wiki</a>, read 30 September 2026).</li>
+</ul>
+<p>What none of the three has is the primary record &mdash; the NDA and streaming answers verbatim, the three dates with the trailer credit, and the quarter-by-quarter plan with its free-DLC promise and its scheduled price rise. That is what this page adds, and it can only be added from captures of pages the studio stopped serving.</p>
+
+<div class="qa">
+<h2>Common questions</h2>
+${faqHtml}
+<p class="src">Where this comes from: the studio's own pages for Battalion 1944, captured before its site was withdrawn &mdash; the FAQ and the closed alpha announcement, pages dated May 2017 in captures of 26 and 27 May 2017, and the 2018 development plan, captured on 20 January 2018. The copies read for this page were taken from Common Crawl's WARC records of those captures (crawls CC-MAIN-2017-22 and CC-MAIN-2018-05) on 30 September 2026. Every quote in this page is the studio's own text; the only comparisons drawn, and the only arithmetic, are the two places where this page says so. Nothing here is taken from a third-party article about the game, and the coverage of the three WARDOGS sites was read on the same day.</p>
+</div>
+
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-battalion-1944-launch-light.png"><img src="/assets/img/wardogs-battalion-1944-launch.png" width="1200" height="630" alt="Battalion 1944 launch card: closed alpha on 26 May 2017, no streaming under the test agreement, and a 2018 plan promising free DLC"></picture><figcaption>Drawn for this page, dark or light to match. The studio's own rules and dates, published in 2017 and 2018.</figcaption></figure>
+
+${adUnit}
+
+<div class="readnext">
+<p><a href="/wardogs-battalion-1944">Battalion 1944 — how BULKHEAD designed the shooter it made before WARDOGS &rarr;</a></p>
+<p><a href="/wardogs">Scoring, prices and platform support for WARDOGS &rarr;</a></p>
+<p><a href="/wardogs-release-date">When WARDOGS released, and what the date did not settle &rarr;</a></p>
+<p><a href="/wardogs-early-access">What the developers say about Early Access timing and the full game &rarr;</a></p>
+</div>`,
+};

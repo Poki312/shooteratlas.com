@@ -357,6 +357,7 @@ ${main}
 <li><a href="/wardogs-reddit">On Reddit</a></li>
 <li><a href="/wardogs-release-date">Release date</a></li>
 <li><a href="/wardogs-battalion-1944">Battalion 1944</a></li>
+<li><a href="/wardogs-battalion-1944-launch">Battalion 1944 launch</a></li>
 </ul></nav>
 </div>
 <div>
@@ -426,7 +427,7 @@ ${THEME_TOGGLE}
         return "source_url: " + page.url + "\\nlast_modified: " + page.last_modified
           + "\\ngenerated: see " + page.markdown_url + "\\n\\n" + page.text;
       }).catch(function () {
-      return "No page with id " + id + ". Try: index, wardogs, wardogs-price, wardogs-reviews, wardogs-achievements, wardogs-early-access, wardogs-reddit, wardogs-release-date, wardogs-battalion-1944, about, privacy, contact.";
+      return "No page with id " + id + ". Try: index, wardogs, wardogs-price, wardogs-reviews, wardogs-achievements, wardogs-early-access, wardogs-reddit, wardogs-release-date, wardogs-battalion-1944, wardogs-battalion-1944-launch, about, privacy, contact.";
       });
     }
   });

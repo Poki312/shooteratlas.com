@@ -157,5 +157,6 @@ ${adUnit}
 <p><a href="/wardogs-early-access">What the developers say about Early Access timing and the full game &rarr;</a></p>
 <p><a href="/wardogs-release-date">When WARDOGS released, and what the date did not settle &rarr;</a></p>
 <p><a href="/wardogs-reddit">What WARDOGS players are asking for on Reddit &rarr;</a></p>
+<p><a href="/wardogs-battalion-1944-launch">How the closed alpha was run, and what the 2018 plan promised &rarr;</a></p>
 </div>`,
 };

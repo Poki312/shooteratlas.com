@@ -16,7 +16,7 @@ const TOOL = {
     properties: {
       id: {
         type: "string",
-        description: "Page id: index, wardogs, wardogs-price, wardogs-reviews, wardogs-achievements, wardogs-early-access, wardogs-reddit, wardogs-release-date, wardogs-battalion-1944, about, privacy, contact",
+        description: "Page id: index, wardogs, wardogs-price, wardogs-reviews, wardogs-achievements, wardogs-early-access, wardogs-reddit, wardogs-release-date, wardogs-battalion-1944, wardogs-battalion-1944-launch, about, privacy, contact",
       },
       query: {
         type: "string",

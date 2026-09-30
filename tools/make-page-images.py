@@ -237,6 +237,10 @@ PAGES = [
      "Bulkhead's 2017 design notes, item by item",
      [("-30%", "movement, alpha v0.2"), ("-25%", "strafe jump"), ("2017", "when it was written")],
      "/wardogs-battalion-1944", "29 September 2026"),
+    ("wardogs-battalion-1944-launch", "WARDOGS · The studio's first launch",
+     "Closed alpha rules, dates and the 2018 plan",
+     [("26 May 2017", "first closed alpha"), ("No streams", "under the agreement"), ("Free DLC", "promised in 2018")],
+     "/wardogs-battalion-1944-launch", "30 September 2026"),
 ]
 
 for row in PAGES:
