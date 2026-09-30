@@ -241,6 +241,10 @@ PAGES = [
      "Closed alpha rules, dates and the 2018 plan",
      [("26 May 2017", "first closed alpha"), ("No streams", "under the agreement"), ("Free DLC", "promised in 2018")],
      "/wardogs-battalion-1944-launch", "30 September 2026"),
+    ("wardogs-languages", "WARDOGS · Languages",
+     "Fourteen languages, one with full audio",
+     [("14", "languages listed"), ("1", "with full audio"), ("0", "subtitles ticks")],
+     "/wardogs-languages", "30 September 2026"),
 ]
 
 for row in PAGES:

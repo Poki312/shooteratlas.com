@@ -124,5 +124,6 @@ ${adUnit}
 <p><a href="/wardogs">Scoring, prices and platform support for WARDOGS &rarr;</a></p>
 <p><a href="/wardogs-early-access">What the developers say about Early Access timing and the full game &rarr;</a></p>
 <p><a href="/wardogs-achievements">All ten WARDOGS achievements and how rare each one is &rarr;</a></p>
+<p><a href="/wardogs-languages">Which languages those reviews were written in, and what the store lists &rarr;</a></p>
 </div>`,
 };

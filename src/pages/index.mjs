@@ -26,7 +26,7 @@ export const page = {
 <div><span class="stat-n">1</span><span class="stat-k">game documented</span></div>
 <div><span class="stat-n">100</span><span class="stat-k">players per match</span></div>
 <div><span class="stat-n">3</span><span class="stat-k">factions, one objective</span></div>
-<div><span class="stat-n">13</span><span class="stat-k">pages published</span></div>
+<div><span class="stat-n">14</span><span class="stat-k">pages published</span></div>
 </div>
 </aside>
 </div>
@@ -51,6 +51,7 @@ export const page = {
 <tr data-terms="release date launch unlock hour 16:00 utc steam early access september 2026 console 2028 queue sales"><td><a href="/wardogs-release-date">Release date</a></td><td class="wrap-cell">The day, the unlock hour in fourteen time zones, the launch-day queue figures and what the date did not settle.</td><td class="num">30 Sep 2026</td></tr>
 <tr data-terms="battalion 1944 bulkhead previous game developer design maps alpha movement unlocks drop shot"><td><a href="/wardogs-battalion-1944">Battalion 1944</a></td><td class="wrap-cell">The studio's previous tactical shooter, from its own 2017 notes: the map formula, the refusal to make unlocks the reward, and the alpha cuts.</td><td class="num">29 Sep 2026</td></tr>
 <tr data-terms="battalion 1944 launch closed alpha nda no streaming roadmap 2018 dlc free offline lan clanwars square enix price rise"><td><a href="/wardogs-battalion-1944-launch">Battalion 1944 launch</a></td><td class="wrap-cell">The rules the alpha ran under, the three dates behind it, and the 2018 plan that promised free DLC and printed a price rise months ahead.</td><td class="num">30 Sep 2026</td></tr>
+<tr data-terms="languages language support subtitles full audio localisation german french japanese korean russian chinese polish turkish ukrainian italian spanish portuguese"><td><a href="/wardogs-languages">Languages</a></td><td class="wrap-cell">Fourteen languages in Valve's table, one with full audio, no subtitles ticks at all &mdash; plus where the players in each language actually are.</td><td class="num">30 Sep 2026</td></tr>
 </tbody>
 </table>
 </div>
