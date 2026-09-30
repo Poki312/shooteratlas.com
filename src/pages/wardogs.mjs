@@ -75,12 +75,12 @@ export const page = {
   ogImage: "https://shooteratlas.com/assets/img/wardogs.png",
   source: "src/pages/wardogs.mjs",
   path: "/wardogs",
-  title: "Wardogs — Shooter Atlas",
+  title: "WARDOGS — how a match is scored, what kit costs, what gates it and what runs it",
   description:
     "Wardogs is a 100-player, three-team tactical FPS from BULKHEAD, published by Team17, and it has been in Steam Early Access since 10 September 2026.",
   extraHead:
     "<script type='application/ld+json'>" + JSON.stringify(schema) + "</script>",
-  body: `<h1>Wardogs</h1>
+  body: `<h1>WARDOGS: how a match is scored, what kit costs, what gates it and what runs it</h1>
 <p>Wardogs is a 100-player, three-team tactical FPS from BULKHEAD, published by Team17, and it has been in Steam Early Access since 10 September 2026 (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 28 September 2026). Every match drops three factions onto one large map and asks them to hold a randomised 2 × 2 km Control Zone; the side with the most bodies inside scores, and the first to 100 points wins. That is the game. The rest of the store page is bullet points, so here is the part they compress.</p>
 
 <div class="strip">
