@@ -35,7 +35,8 @@ export const page = {
 <p>Player counts, store prices, achievement rarity, review sentiment and the developer's own answers. One game per page, and the same questions in the same order on every one.</p>
 <div class="filter">
 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5l5 5"/></svg>
-<input id="page-filter" type="search" placeholder="Filter pages &mdash; try &ldquo;price&rdquo; or &ldquo;reviews&rdquo;" aria-label="Filter pages" autocomplete="off">
+<label class="sr-only" for="page-filter">Filter pages</label>
+<input id="page-filter" type="search" placeholder="Filter pages &mdash; try &ldquo;price&rdquo; or &ldquo;reviews&rdquo;" autocomplete="off">
 </div>
 <div class="data-block">
 <div class="matrix-scroll" role="region" tabindex="0" aria-label="WARDOGS pages">

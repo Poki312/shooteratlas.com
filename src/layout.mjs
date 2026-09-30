@@ -52,6 +52,9 @@ body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.62 var(--sans);-
 main{padding:2.4rem 0 0}
 .skip{position:absolute;left:-9999px;background:var(--accent);color:var(--accent-ink);padding:.6rem 1rem;border-radius:var(--r-sm);font-weight:700;z-index:60}
 .skip:focus{left:1rem;top:1rem}
+/* A control that reads fine to the eye but still needs a real label: the text
+   stays in the accessibility tree only, so nothing on the page moves. */
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;white-space:nowrap;clip-path:inset(50%)}
 h1{font-size:clamp(1.85rem,1.4rem + 1.8vw,2.5rem);line-height:1.12;letter-spacing:-.025em;font-weight:800;margin:0 0 .9rem;text-wrap:balance;overflow-wrap:break-word}
 h2{font-size:1.35rem;line-height:1.28;letter-spacing:-.015em;font-weight:750;margin:2.8rem 0 .7rem;scroll-margin-top:5rem}
 h2::before{content:"";display:block;width:28px;height:2px;background:var(--accent);margin-bottom:.8rem;border-radius:2px}
@@ -100,7 +103,9 @@ main>.wrap>:is(h1,h2,h3,p,ul,ol,blockquote,.src,.lede),
 .btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:var(--accent-ink);font-weight:650;padding:.72rem 1.15rem;border-radius:var(--r-sm);text-decoration:none;border:1px solid transparent}
 .btn:hover{color:var(--accent-ink);filter:brightness(1.08)}
 .site-head{position:sticky;top:0;z-index:40;background:var(--bg-band);border-bottom:1px solid var(--rule)}
-@supports (backdrop-filter:blur(2px)){.site-head{background:color-mix(in srgb,var(--bg-band) 88%,transparent);backdrop-filter:saturate(140%) blur(10px)}}
+/* The header sticks, so what passes under it must be either fully covered or
+   fully visible: a half-transparent band leaves a link showing through and
+   still out of reach. It stays opaque. */
 .site-head-in{display:flex;align-items:center;gap:1.1rem;min-height:64px;flex-wrap:wrap;padding-top:.5rem;padding-bottom:.5rem}
 .brand-block{min-width:0}
 .brand{display:flex;align-items:center;gap:.6rem;color:var(--ink);text-decoration:none}
@@ -195,7 +200,7 @@ details.qa[open]>summary::after{content:"\\2212"}
 .foot-bar{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:2.4rem;padding-top:1.1rem;border-top:1px solid var(--rule-soft);font-size:.82rem;color:var(--muted)}
 @media (max-width:960px){.foot-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:960px){
-.page-grid{grid-template-columns:1fr;gap:1.6rem}
+.page-grid{grid-template-columns:minmax(0,1fr);gap:1.6rem}
 .toc{position:static;order:-1}
 .toc ol{display:flex;flex-wrap:wrap;gap:.4rem;border-left:0}
 .toc a{display:block;margin:0;border:1px solid var(--rule);border-radius:999px;padding:.3rem .7rem;font-size:.82rem;overflow:visible}
