@@ -364,6 +364,9 @@ ${main}
 <li><a href="/wardogs-battalion-1944">Battalion 1944</a></li>
 <li><a href="/wardogs-battalion-1944-launch">Battalion 1944 launch</a></li>
 <li><a href="/wardogs-languages">Languages</a></li>
+<li><a href="/wardogs-genres">Genres and specs</a></li>
+<li><a href="/wardogs-gameplay">Gameplay and modes</a></li>
+<li><a href="/wardogs-steam-deck">Steam Deck</a></li>
 </ul></nav>
 </div>
 <div>

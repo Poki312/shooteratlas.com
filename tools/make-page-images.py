@@ -249,6 +249,14 @@ PAGES = [
      "Five genres, eight categories, Windows only",
      [("5", "genres, Valve's own list"), ("8", "store categories"), ("0", "VR entries")],
      "/wardogs-genres", "30 September 2026"),
+    ("wardogs-gameplay", "WARDOGS · Gameplay",
+     "One mode, 100 points, two server types",
+     [("1", "game mode"), ("3", "teams, up to 100"), ("100", "points to win")],
+     "/wardogs-gameplay", "1 October 2026"),
+    ("wardogs-steam-deck", "WARDOGS · Steam Deck",
+     "Valve's own check says it does not support",
+     [("DoesNotSupport", "Deck, SteamOS, Machine"), ("Windows", "only platform listed"), ("4 Sep 2026", "studio's post")],
+     "/wardogs-steam-deck", "1 October 2026"),
 ]
 
 for row in PAGES:
