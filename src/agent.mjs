@@ -144,7 +144,7 @@ function skillDoc(site, pageList) {
     "`wardogs-price`, `wardogs-reviews`, `wardogs-achievements`, `wardogs-early-access`,",
     "`wardogs-reddit`, `wardogs-release-date`, `wardogs-battalion-1944`,",
     "`wardogs-battalion-1944-launch`, `wardogs-languages`, `wardogs-genres`,",
-    "`wardogs-gameplay`, `wardogs-steam-deck`, `about`, `privacy`, `contact`.",
+    "`wardogs-gameplay`, `wardogs-steam-deck`, `wardogs-player-count`, `about`, `privacy`, `contact`.",
     "",
     "## Agent instructions",
     "",

@@ -367,6 +367,7 @@ ${main}
 <li><a href="/wardogs-genres">Genres and specs</a></li>
 <li><a href="/wardogs-gameplay">Gameplay and modes</a></li>
 <li><a href="/wardogs-steam-deck">Steam Deck</a></li>
+<li><a href="/wardogs-player-count">Player count</a></li>
 </ul></nav>
 </div>
 <div>

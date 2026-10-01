@@ -26,7 +26,7 @@ export const page = {
 <div><span class="stat-n">1</span><span class="stat-k">game documented</span></div>
 <div><span class="stat-n">100</span><span class="stat-k">players per match</span></div>
 <div><span class="stat-n">3</span><span class="stat-k">factions, one objective</span></div>
-<div><span class="stat-n">16</span><span class="stat-k">pages published</span></div>
+<div><span class="stat-n">17</span><span class="stat-k">pages published</span></div>
 </div>
 </aside>
 </div>
@@ -56,6 +56,7 @@ export const page = {
 <tr data-terms="genres categories platform windows vr controller specs steam api"><td><a href="/wardogs-genres">Genres and specs</a></td><td class="wrap-cell">Five genres and eight categories read out of Valve's API, Windows as the only platform, no VR entry and no controller category.</td><td class="num">30 Sep 2026</td></tr>
 <tr data-terms="gameplay game mode king of the hill control zone hot zone 100 points infantry mode low level server modifiers"><td><a href="/wardogs-gameplay">Gameplay and modes</a></td><td class="wrap-cell">The one mode in the developers' own words, and the two names that are server modifiers rather than modes.</td><td class="num">1 Oct 2026</td></tr>
 <tr data-terms="steam deck steamdeck linux proton steamos machine unsupported compatibility refund deck verified"><td><a href="/wardogs-steam-deck">Steam Deck</a></td><td class="wrap-cell">Valve's own compatibility result for the Deck, SteamOS and Steam Machine, and the studio's pinned answer to Linux players.</td><td class="num">1 Oct 2026</td></tr>
+<tr data-terms="player count concurrent players steam charts peak online how many players server browser queue population live"><td><a href="/wardogs-player-count">Player count</a></td><td class="wrap-cell">103,208 accounts open on Steam against 83,730 people inside matches, the three competing peak figures, and how to check the number yourself.</td><td class="num">1 Oct 2026</td></tr>
 </tbody>
 </table>
 </div>

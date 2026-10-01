@@ -257,6 +257,10 @@ PAGES = [
      "Valve's own check says it does not support",
      [("DoesNotSupport", "Deck, SteamOS, Machine"), ("Windows", "only platform listed"), ("4 Sep 2026", "studio's post")],
      "/wardogs-steam-deck", "1 October 2026"),
+    ("wardogs-player-count", "WARDOGS · Player count",
+     "103,208 on Steam, 83,730 in a match",
+     [("103,208", "accounts with it open"), ("83,730", "actually in matches"), ("18.9%", "the gap, calculated")],
+     "/wardogs-player-count", "1 October 2026"),
 ]
 
 for row in PAGES:
