@@ -112,7 +112,7 @@ export const page = {
 <li><strong>The three teams have names and a setting.</strong> LONESTAR, VALKYRA and MANTICORE, fighting over a rare resource called PV-1 in a region the studio calls Kolchia.</li>
 <li><strong>Squad size is unlimited.</strong> "Unlimited! No friend is left behind. Squadding up provides additional UI, communication tools, and vehicle locking for better coordination."</li>
 </ul>
-<p>An announcement is a weaker surface than a store page in one direction and a stronger one in another: it is the studio speaking in its own voice, but it is also dated marketing, written five months before launch. Anything on this page that comes only from that post is labelled as such below.</p>
+<p>An announcement is a weaker surface than a store page in one direction and a stronger one in another: it is the studio speaking in its own voice, but it is also dated marketing, written seven months before launch. Anything on this page that comes only from that post is labelled as such below.</p>
 
 <h2>The mode has a parent, and the studio says so out loud</h2>
 <p>On 19 February 2026 the same feed carried a short post titled around the King of the Hill mod, and its one factual sentence is the only official account of where this mode comes from: "Our Design Team has spent years collaborating directly with the original ARMA mod creators. Developing a standalone KOTH-inspired FPS that can surpass the original mod's limitations." (<a href='https://steamcommunity.com/app/1867240/announcements/'>official Steam announcement feed</a>, read 1 October 2026)</p>
