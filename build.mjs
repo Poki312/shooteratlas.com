@@ -173,7 +173,7 @@ async function build() {
   // character for character as issued.
   const adsTxt =
     [
-      "# ads.txt for [shooteratlas.com](https://shooteratlas.com/)",
+      "# ads.txt for shooteratlas.com",
       "",
       "# No advertising system is authorised to sell inventory on this site yet",
       "",
