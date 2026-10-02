@@ -166,6 +166,25 @@ async function build() {
   await writeFile(path.join(OUT, "robots.txt"), robots, "utf8");
   console.log("file    robots.txt");
 
+  // ads.txt: who is authorised to sell or monetise inventory on this site.
+  // One line per network, in the IAB format:
+  //   <domain>, <publisher account id>, <DIRECT|RESELLER>[, <certification authority id>]
+  // The CJ line carries the publisher CID read from the CJ backend; the AdSense
+  // line goes in once that account is approved and a publisher id exists.
+  const adsTxt =
+    [
+      "# ads.txt for shooteratlas.com",
+      "# One line per network authorised to sell or monetise inventory on this site.",
+      "# Format: <domain>, <publisher account id>, <DIRECT|RESELLER>",
+      "",
+      "# CJ Affiliate (Commission Junction) - publisher CID 8083808, read 2 October 2026.",
+      "cj.com, 8083808, DIRECT",
+      "",
+      "# Google AdSense - add the google.com line here once the publisher id is issued.",
+    ].join("\n") + "\n";
+  await writeFile(path.join(OUT, "ads.txt"), adsTxt, "utf8");
+  console.log("file    ads.txt");
+
   // Agent discovery documents, all generated from the page data above.
   for (const doc of agentDocuments({ site: SITE, pageList, generated: today })) {
     const target = path.join(OUT, doc.path);
