@@ -16,11 +16,12 @@ import { page as wardogsSteamDeck } from "./pages/wardogs-steam-deck.mjs";
 import { page as wardogsPlayerCount } from "./pages/wardogs-player-count.mjs";
 import { page as wardogsSteam } from "./pages/wardogs-steam.mjs";
 import { page as wardogsFactions } from "./pages/wardogs-factions.mjs";
+import { page as wardogsMap } from "./pages/wardogs-map.mjs";
 import { page as about } from "./pages/about.mjs";
 import { page as privacy } from "./pages/privacy.mjs";
 import { page as contact } from "./pages/contact.mjs";
 
 // Every page that should exist on the live site. 404 is rendered separately and
 // deliberately kept out of the sitemap.
-export const pages = [index, wardogs, wardogsAchievements, wardogsReviews, wardogsEarlyAccess, wardogsReddit, wardogsPrice, wardogsReleaseDate, wardogsBattalion1944, wardogsBattalion1944Launch, wardogsLanguages, wardogsGenres, wardogsGameplay, wardogsSteamDeck, wardogsPlayerCount, wardogsSteam, wardogsFactions, about, privacy, contact];
+export const pages = [index, wardogs, wardogsAchievements, wardogsReviews, wardogsEarlyAccess, wardogsReddit, wardogsPrice, wardogsReleaseDate, wardogsBattalion1944, wardogsBattalion1944Launch, wardogsLanguages, wardogsGenres, wardogsGameplay, wardogsSteamDeck, wardogsPlayerCount, wardogsSteam, wardogsFactions, wardogsMap, about, privacy, contact];
 export { notFound };

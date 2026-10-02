@@ -424,6 +424,7 @@ ${main}
 <li><a href="/wardogs-factions">Factions</a></li>
 <li><a href="/wardogs-steam-deck">Steam Deck</a></li>
 <li><a href="/wardogs-player-count">Player count</a></li>
+<li><a href="/wardogs-map">Map</a></li>
 </ul></nav>
 </div>
 <div>

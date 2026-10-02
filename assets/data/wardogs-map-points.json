@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "game": "WARDOGS",
+    "steamAppId": "1867240",
+    "page": "/wardogs-map",
+    "readOn": "2026-10-03",
+    "ownerNote": "This is the only file the map page reads. It is read at build time by src/pages/wardogs-map.mjs and also served as-is at /assets/data/wardogs-map-points.json. Add a location by copying the shape of `template` into `points`. Never guess: if a position has not been read, leave x and y as null and the page will print the row as 'position not read yet' instead of plotting it.",
+    "fieldNote": "x and y are kilometres. x counts east from the west edge, y counts south from the north edge, so both run 0-16 on every map. gridRef is the lettered 1 km cell: columns A-P west to east, rows 1-16 north to south.",
+    "template": {
+      "id": "bakurani-example-01",
+      "name": "Name exactly as the game prints it",
+      "type": "tower",
+      "map": "bakurani",
+      "x": null,
+      "y": null,
+      "note": "What it is, in one line. Leave out anything you did not read.",
+      "source": {
+        "label": "Where you read it",
+        "url": "https://example.com/page-you-read",
+        "readOn": "2026-10-03"
+      },
+      "confidence": "ingame"
+    },
+    "confidenceValues": [
+      "official - printed by Bulkhead, Team17 or Valve",
+      "ingame - read off a screen in the game",
+      "third-party - a page outside the studio that we read and can link",
+      "our-reading - arithmetic or a convention we chose, said out loud"
+    ]
+  },
+  "grid": {
+    "maps": 3,
+    "sizeKm": 16,
+    "cellsPerSide": 16,
+    "cellKm": 1,
+    "columns": "A-P",
+    "rows": "1-16",
+    "rowDirection": "rows are numbered down the map, 1 at the north edge",
+    "source": {
+      "label": "Community map projects that print the same 1 km lettered grid",
+      "url": "https://wardogshub.gg/map/",
+      "readOn": "2026-10-03"
+    },
+    "sizeSource": {
+      "label": "Steam store page: 'a randomised 2x2km Control Zone within a 256km\u00b2 map'",
+      "url": "https://store.steampowered.com/app/1867240/WARDOGS/",
+      "readOn": "2026-10-03"
+    }
+  },
+  "maps": [
+    {
+      "id": "bakurani",
+      "name": "Bakurani",
+      "sizeKm": 16,
+      "readOn": "2026-10-03",
+      "summary": "River valley. A town on the valley floor, forested ridges either side, one sustained road across it.",
+      "confidence": "third-party",
+      "source": {
+        "label": "wardogshub.gg interactive maps, three maps of 256 km2 named Bakurani, Ozeti and Zestafona",
+        "url": "https://wardogshub.gg/map/",
+        "readOn": "2026-10-03"
+      }
+    },
+    {
+      "id": "ozeti",
+      "name": "Ozeti",
+      "sizeKm": 16,
+      "readOn": "2026-10-03",
+      "summary": "Hill town. Low buildings along one road, a walled stadium, a church on the high ground, orchard and dry fields around it.",
+      "confidence": "third-party",
+      "source": {
+        "label": "wardogshub.gg interactive maps",
+        "url": "https://wardogshub.gg/map/",
+        "readOn": "2026-10-03"
+      }
+    },
+    {
+      "id": "zestafona",
+      "name": "Zestafona",
+      "sizeKm": 16,
+      "readOn": "2026-10-03",
+      "summary": "Arid high country. Irrigated field blocks along a creek, scattered settlement, bare rock and low scrub on the ridges.",
+      "confidence": "third-party",
+      "source": {
+        "label": "wardogshub.gg interactive maps",
+        "url": "https://wardogshub.gg/map/",
+        "readOn": "2026-10-03"
+      }
+    }
+  ],
+  "types": [
+    {
+      "id": "tower",
+      "name": "Towers",
+      "colour": "#f0a92c",
+      "recorded": false,
+      "source": {
+        "label": "Official mechanic; the tower and terminal screens read in game on 28 September 2026, and the PCGamesN guide Valve's news feed carries",
+        "url": "https://www.pcgamesn.com/wardogs/capture-wardogs-towers",
+        "readOn": "2026-10-03"
+      }
+    },
+    {
+      "id": "spawn",
+      "name": "Spawn points",
+      "colour": "#8fb8ff",
+      "recorded": false,
+      "source": {
+        "label": "Category tracked by the community map projects (positions not read yet)",
+        "url": "https://wardogstools.org/",
+        "readOn": "2026-10-03"
+      }
+    },
+    {
+      "id": "safe",
+      "name": "Safe areas",
+      "colour": "#4ec9a0",
+      "recorded": false,
+      "source": {
+        "label": "Category tracked by the community map projects (positions not read yet)",
+        "url": "https://wardogstools.org/",
+        "readOn": "2026-10-03"
+      }
+    },
+    {
+      "id": "deploy",
+      "name": "Deployment boards",
+      "colour": "#c9a0ff",
+      "recorded": false,
+      "source": {
+        "label": "Category tracked by the community map projects (positions not read yet)",
+        "url": "https://wardogstools.org/",
+        "readOn": "2026-10-03"
+      }
+    },
+    {
+      "id": "vendor",
+      "name": "Vendors",
+      "colour": "#ffb3b3",
+      "recorded": false,
+      "source": {
+        "label": "Category tracked by the community map projects (positions not read yet)",
+        "url": "https://wardogstools.org/",
+        "readOn": "2026-10-03"
+      }
+    },
+    {
+      "id": "garage",
+      "name": "Garages",
+      "colour": "#9fe0ff",
+      "recorded": false,
+      "source": {
+        "label": "Category tracked by the community map projects (positions not read yet)",
+        "url": "https://wardogstools.org/",
+        "readOn": "2026-10-03"
+      }
+    },
+    {
+      "id": "fuel",
+      "name": "Fuel points",
+      "colour": "#ffd166",
+      "recorded": false,
+      "source": {
+        "label": "Category tracked by the community map projects (positions not read yet)",
+        "url": "https://wardogstools.org/",
+        "readOn": "2026-10-03"
+      }
+    },
+    {
+      "id": "ladder",
+      "name": "Ladders",
+      "colour": "#b8c4d0",
+      "recorded": false,
+      "source": {
+        "label": "Category tracked by the community map projects (positions not read yet)",
+        "url": "https://wardogstools.org/",
+        "readOn": "2026-10-03"
+      }
+    }
+  ],
+  "features": [
+    {
+      "id": "control-zone",
+      "name": "Control Zone",
+      "sizeKm": [2, 2],
+      "areaKm2": 4,
+      "placed": false,
+      "note": "2 x 2 km, randomised somewhere inside the 256 km2 map every match, so it has no fixed position. Drag the square to where your match put it.",
+      "confidence": "official",
+      "source": {
+        "label": "Bulkhead, WARDOGS - TOP QUESTIONS, Steam news, 18 February 2026",
+        "url": "https://store.steampowered.com/news/app/1867240",
+        "readOn": "2026-10-03"
+      }
+    },
+    {
+      "id": "hot-zone",
+      "name": "Hot Zone",
+      "sizeKm": [null, null],
+      "areaKm2": null,
+      "placed": false,
+      "note": "A shifting sub-zone inside the Control Zone. Players inside count double and earn double cash. No diameter has been published, so none is printed here.",
+      "confidence": "official",
+      "source": {
+        "label": "Bulkhead, WARDOGS - TOP QUESTIONS, Steam news, 18 February 2026",
+        "url": "https://store.steampowered.com/news/app/1867240",
+        "readOn": "2026-10-03"
+      }
+    }
+  ],
+  "points": [],
+  "notYetRecorded": [
+    "Every location on all three maps. No official material lists one: the only sets in circulation were data-mined by community projects, and this page does not republish another site's marker set.",
+    "How many towers stand on each map, and where. The mechanic is confirmed; the count and the positions are not published by the studio.",
+    "Where the three faction bases and their vendors sit, and whether the vendor, garage, fuel, deployment-board and safe-area categories above exist on all three maps.",
+    "Which side the in-game grid numbers its rows from. The page numbers rows 1-16 down from the north edge; confirm it in game and this line comes out."
+  ]
+}
