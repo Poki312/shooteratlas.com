@@ -6,7 +6,7 @@ export const page = {
   ogImage: "https://shooteratlas.com/assets/img/home.png",
   source: "src/pages/index.mjs",
   path: "/",
-  title: "Shooter Atlas — numbers for large-scale tactical shooters",
+  title: "Tactical shooters, sourced and dated — Shooter Atlas",
   description:
     "Shooter Atlas covers 100-player, three-team tactical shooters: how a match is scored, what weapons and vehicles cost, what gates them, and which platforms are actually supported. One game per page.",
   extraHead:
@@ -17,8 +17,8 @@ export const page = {
     "\n<!-- Awin publisher verification marker -->",
   body: `<div class="hero">
 <div>
-<h1>Numbers for 100&#8209;player tactical shooters</h1>
-<p class="lede">Shooter Atlas is a reference site for large-scale tactical shooters &mdash; the kind where a hundred players split into three teams, fight over one moving objective, and pay for every loadout out of their own pocket.</p>
+<h1>Tactical shooters, every figure sourced and dated</h1>
+<p class="lede">Large-scale tactical shooters, where every figure carries its source and the date it was read.</p>
 </div>
 <aside class="spec" aria-label="At a glance">
 <div class="spec-head"><span>At a glance</span><span>v2026.09</span></div>
