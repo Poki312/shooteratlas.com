@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     q: "How big is the Control Zone, on the map?",
-    a: "4 km\u00b2 out of 256 km\u00b2 \u2014 one sixty-fourth of the battlefield, or one sixteenth of one side of it. That is the number worth holding on to: every match is decided inside a square that covers 1.6% of the ground, and the other 98.4% is the trip to it. Drag the square on this page to any of the 225 whole-kilometre positions it can occupy and the proportions stay the same.",
+    a: "4 km\u00b2 out of 256 km\u00b2 \u2014 one sixty-fourth of the map's area, and one eighth of one of its sides, since 2 km of 16 km is 1/8 and 2 km \u00d7 2 km of 16 km \u00d7 16 km is 1/64. That is the number worth holding on to: every match is decided inside a square that is 1/64th of the ground, and the other 252 km\u00b2 are the trip to it. Drag the square on this page to any of the 225 whole-kilometre positions its north-west corner can take \u2014 15 along one side \u00d7 15 down the other \u2014 and the proportions stay the same.",
   },
   {
     q: "What does the Hot Zone do?",
@@ -712,7 +712,7 @@ ${DATA_TAG}
 
 <h2>What the Control Zone looks like to scale</h2>
 
-<p>The square on the map is the real proportion, not a symbol. A 2 \u00d7 2 km zone on a 16 \u00d7 16 km map is one sixteenth of a side and one sixty-fourth of the area \u2014 4 km\u00b2 out of 256 km\u00b2. Press <em>Control Zone</em>, drag it to the corner the match drew, and the other 252 km\u00b2 stop being an abstraction: that is the ground you cross after every death, which is also the reason the studio describes your respawn timer as the choices you make on the way back rather than a countdown on screen.</p>
+<p>The square on the map is the real proportion, not a symbol. A 2 \u00d7 2 km zone on a 16 \u00d7 16 km map is one eighth of a side (2 of 16 km) and one sixty-fourth of the area (4 of 256 km\u00b2). Press <em>Control Zone</em>, drag it to the corner the match drew, and the other 252 km\u00b2 stop being an abstraction: that is the ground you cross after every death, which is also the reason the studio describes your respawn timer as the choices you make on the way back rather than a countdown on screen.</p>
 
 <div class="qa">
 <h2>Common questions</h2>
