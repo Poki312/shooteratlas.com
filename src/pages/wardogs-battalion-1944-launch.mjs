@@ -117,6 +117,40 @@ export const page = {
 
 <figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-battalion-1944-launch-fig-calendar-light.png"><img src="/assets/img/wardogs-battalion-1944-launch-fig-calendar.png" width="1200" height="630" alt="Timeline of the closed alpha calendar: surveys on 28 April 2017, Steam codes on 24 May, first alpha weekend on 26 May"></picture><figcaption>The closed alpha calendar from the archived studio announcement of 2 May 2017. Read 30 September 2026.</figcaption></figure>
 
+<h2>How the first alpha weekend was built</h2>
+<p>The first weekend was deliberately small, and the studio itemised it in advance: 6v6 Team Deathmatch on Brecourt Manor, the first and smallest map, on official servers only, with four weapons in the build &mdash; the M1 Garand, the Kar98k, the Thompson and the MP40 (<a href='https://web.archive.org/web/*/battaliongame.com/news/closed-alpha-0-1-weekend-breakdown'>archived studio weekend breakdown</a>, page dated 22 May 2017, captured 23 July 2017, read 2 October 2026). The servers opened on Friday 26 May at 18:00 BST and closed at 02:00 BST, and the same window repeated on Saturday 27 May: 19:00 in central Europe, 13:00 on the US east coast, 03:00 in eastern Australia.</p>
+<p>The same page lists where the servers actually stood, region by region: Amsterdam and London; Moscow; New York and Washington DC; Dallas; Salt Lake City and San Jose; Sao Paulo; Sydney; Singapore; Hong Kong; and Tokyo &mdash; thirteen cities in all.</p>
+<p>It also says what the player pool was meant to be, and the answer is not a growth target. The studio had \"purposefully aimed\" for a pool of around a few thousand players, and added that this did not mean concurrent counts would reach it &mdash; \"in fact we expect concurrent player counts to be much lower\" &mdash; because a smaller group that came back every weekend produced better feedback than a crowd passing through once.</p>
+
+<h2>What the first alpha weekend produced</h2>
+<p>196,467 kills. That is the studio's own total for every player on every server across the first alpha weekend, published next to the weekend's top ten (<a href='https://web.archive.org/web/*/battaliongame.com/news/alpha-0-1-recap'>archived studio recap</a>, page dated 31 May 2017, captured 23 July 2017, read 2 October 2026).</p>
+<div class="matrix-scroll" role="region" tabindex="0" aria-labelledby="alpha01-top10-caption">
+<table class="matrix">
+<caption id="alpha01-top10-caption">The top ten fraggers of the first alpha weekend, as the studio published them. Page dated 31 May 2017, captured 23 July 2017, read 2 October 2026.</caption>
+<thead><tr><th scope="col" class="num">Kills</th><th scope="col">Player</th></tr></thead>
+<tbody>
+<tr><td class="num">2,466</td><td>Bot Alien</td></tr>
+<tr><td class="num">1,852</td><td>ddnp</td></tr>
+<tr><td class="num">1,651</td><td>Davsa</td></tr>
+<tr><td class="num">1,612</td><td>dL Spirks</td></tr>
+<tr><td class="num">1,601</td><td>Ryzn &gt;&lt;&gt;</td></tr>
+<tr><td class="num">1,464</td><td>seekax</td></tr>
+<tr><td class="num">1,414</td><td>stani</td></tr>
+<tr><td class="num">1,392</td><td>&#10026;Mikoelele</td></tr>
+<tr><td class="num">1,348</td><td>solaze</td></tr>
+<tr><td class="num">1,274</td><td>FRESHY</td></tr>
+</tbody>
+</table>
+</div>
+<p>The studio's own reading of its own leaderboard is worth keeping: \"a lot of players were simply testing and not actually playing seriously to win\", which makes the table a record of a test rather than a ranking of players. The top name is a case in point &mdash; the weekend's most prolific fragger went by Bot Alien, a handle the studio felt obliged to point out belonged to neither a bot nor an alien.</p>
+
+<h2>How testers were asked to report what they found</h2>
+<p>The second alpha weekend came with hardware prizes attached to three behaviours, and the categories read like a testing checklist: most frags across the weekend, first person to knife the executive producer, and the best post-weekend feedback. The studio named the winners afterwards &mdash; Vaposki was first to knife Joe Brammertron, Bot Alien returned with 3,750 kills after topping the previous weekend, and Dark took the feedback prize (<a href='https://web.archive.org/web/*/battaliongame.com/news/alpha-v0-2-recap-and-v0-3-release-date'>archived studio recap</a>, page dated 21 July 2017, captured 19 August 2017, read 2 October 2026).</p>
+<p>What Dark won it for is the reusable part, and it is a reporting standard rather than a bug: he \"correlated multiple excellent bug reports, without telling us how we should have fixed it\", describing the problem and how to reproduce it instead. The studio's line about the weekend is just as direct &mdash; it wanted to hear \"both what we're doing wrong and what we're doing right\", clearly and concisely.</p>
+
+<h2>The week the office flooded</h2>
+<p>A week before the first alpha weekend, heavy rain sent water through a leaking balcony above the studio and flooded the floor of the art room, with the water making its way toward the studio's internal servers (<a href='https://web.archive.org/web/*/battaliongame.com/news/closed-alpha-0-1-weekend-breakdown'>archived studio weekend breakdown</a>, page dated 22 May 2017, captured 23 July 2017, read 2 October 2026). The team salvaged the equipment, reconfigured security and the server setup that same evening, and the art team was back at work by 9am the next morning in a temporary room. Backups were held in several locations, so nothing was lost &mdash; and the studio told testers the whole story in a short note rather than sitting on it.</p>
+
 <h2>What the 2017 FAQ committed the game to</h2>
 <p>The FAQ is the long document in this record: 18 answers, written while the alpha was running. A handful of them set expectations specific enough to be checked against the game later, and this page prints those as the studio wrote them (<a href='https://web.archive.org/web/*/battaliongame.com/faq'>archived studio FAQ</a>, captured 26 May 2017, read 30 September 2026):</p>
 <ul>
@@ -152,6 +186,14 @@ export const page = {
 
 <h2>Who was publishing it</h2>
 <p>The roadmap page carries something the 2017 pages do not: a footer reading <strong>"PUBLISHED BY SQUARE ENIX COLLECTIVE"</strong>, next to a credit to Bulkhead Interactive, and a copyright line dated 2018 (<a href='https://web.archive.org/web/*/battaliongame.com/'>archived studio roadmap</a>, captured 20 January 2018, read 30 September 2026). The 2017 FAQ and announcement name no publisher at all. That is the entire publishing record in this material &mdash; no deal date, no territories, no terms, and no statement about what the arrangement covered.</p>
+
+<h2>The money behind the game</h2>
+<p>The Kickstarter campaign opened on 2 February 2016, passed its funding goal within three days with 27 days still to run, and closed at £317,281 from 10,096 backers against an initial goal of £100,000 (<a href='https://web.archive.org/web/*/battaliongame.com/about'>archived studio about page</a>, captured 26 May 2017, read 2 October 2026). The same page records two more contributions: the studio pledged £100,000 of its own money on reaching that goal, and all profits from its August 2016 game The Turing Test went into Battalion 1944. In 2017 the studio announced a partnership with the publisher Square Enix Collective, which the page says has been assisting with marketing and development funds &mdash; a statement about what the arrangement covered that the 2018 roadmap footer does not carry.</p>
+<p>The money is also the one unresolved discrepancy in this record, and this page prints both readings rather than choosing between them. A separate Kickstarter financial report published by the studio gives the \"Public Kickstarter Figure\" as £317,241.67 (<a href='https://web.archive.org/web/*/battaliongame.com/news/battalion-1944-kickstarter-financial-report'>archived studio financial report</a>, page dated 11 April 2017, captured 20 September 2017, read 2 October 2026). The two pages are £39.33 apart &mdash; our subtraction, on the studio's two figures. Both were the studio's own, both are now unreachable, and nothing read for this page explains the difference.</p>
+
+<h2>How the studio warmed the game up for release</h2>
+<p>The last document in this record carries the date the roadmap never gave: a full release on 23 May 2019, and a developer showmatch to lead into it. The event was Team Howard against Team Brammer, streamed on Monday 20 May 2019 from 19:00 BST and expected to run about three hours, on the two partner channels the studio named (<a href='https://web.archive.org/web/*/bulkheadinteractive.com/*'>archived studio showcase page</a>, captured 16 June 2019, read 2 October 2026). The page also lists local start times for seven cities, from Berlin at 20:00 to Canberra at 04:30 the following morning. This is the full release rather than the Early Access launch, which nothing read for this page dates.</p>
+<p>Two sentences on that page matter beyond the schedule. The studio dated its own work &mdash; \"it's time for us to show what we've been doing for the last 14 months\" &mdash; and it named the lineage outright: the game's roots are \"grounded in classic shooters such as COD2, COD4 and Enemy Territory\". The showcase list reads as a contents page for the release build: new weapons, a new economy, spectator improvements, movement improvements, map design changes and new maps including Vanguard.</p>
 
 <h2>How each claim on this page is labelled</h2>
 <p>This site sorts every conclusion into one of three buckets. On this page the buckets carry more weight than usual, because the underlying pages no longer exist on the live web and a reader ought to see exactly how thin the ground is.</p>
