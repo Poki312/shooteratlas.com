@@ -31,6 +31,30 @@ const faqs = [
     q: "Will WARDOGS get more expensive on Steam?",
     a: "Yes, by the developers' own account: the Early Access notes say the price is lower during Early Access and rises toward the full release (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 2 October 2026). No 1.0 price has been published anywhere, so nobody can tell you what it becomes, and this page will not quote a number the studio has not printed. Today the listing reads $39.99 with a 0% discount (read 2 October 2026).",
   },
+  {
+    q: "Where do the WARDOGS patch notes live?",
+    a: "On the game's own Steam news feed, which is what this page reads. The two newest entries as read on 2 October 2026 are Update 0.1.2, posted 30 September with a maintenance window at 08:00 UTC, and a Security &amp; Stability Hotfix post that the feed dates 2 October and that announces a hotfix at 08:00 UTC on Friday 2 October with an expected downtime of one hour (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news</a>, read 2 October 2026). Dated milestones are collected on <a href='/wardogs-release-date'>the release date page</a>.",
+  },
+  {
+    q: "What is error WD-L020?",
+    a: "It is the one error code the studio has published: the notes for update 0.1.2 say the patch fixes a Windows 11 crash caused by update KB5124010, reported as WD-L020 (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news</a>, 30 September 2026, read 2 October 2026). No index of WARDOGS error codes exists on either official surface, so any other code you see has no published meaning yet.",
+  },
+  {
+    q: "Which anti-cheat does the WARDOGS listing name?",
+    a: "One: the store page's feature block reads \"Uses Kernel Level Anti-Cheat\" and names Elytra, and no other provider appears anywhere on that page, which also requires agreement to a third-party EULA (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 2 October 2026). What a kernel-level driver means for Linux and Proton is the subject of <a href='/wardogs-steam-deck'>the Steam Deck page</a>, and the studio's own ban policy is written up on <a href='/wardogs'>the hub page</a>.",
+  },
+  {
+    q: "Is there a WARDOGS wiki?",
+    a: "Yes, and it is a database rather than a guide site: wardogs.wiki describes itself as documenting 400 items in the fourteen languages the game ships, and its pages are item cards carrying prices, unlock levels and statistics (<a href='https://wardogs.wiki/'>wardogs.wiki</a>, read 2 October 2026). It publishes no editorial pages, and nothing on this site is taken from it.",
+  },
+  {
+    q: "Does the WARDOGS wiki have guides or maps?",
+    a: "No. Asked for its category contents on 2 October 2026, wardogs.wiki reports zero members for Guides, Maps, Mechanics, Game modes and Factions — the subject areas a guide site would start from — while Weapons holds 44 entries (<a href='https://wardogs.wiki/api.php?action=query&amp;prop=categoryinfo&amp;titles=Category:Guides%7CCategory:Maps%7CCategory:Mechanics%7CCategory:Game%20modes%7CCategory:Factions%7CCategory:Weapons&amp;format=json'>MediaWiki API</a>, read 2 October 2026). Guides and tools for this game exist on the third-party hub instead, and this page does not copy them.",
+  },
+  {
+    q: "Does WARDOGS stream on Twitch?",
+    a: "The studio has streamed: its feed carries a livestream announcement on 17 July 2026 and a first-livestream post on 22 July, both pointing at the studio's own Twitch channel for a stream on 23 July at 18:00 UTC (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news</a>, read 2 October 2026). No schedule and no viewing figures are published in the official material read for this site, so this page prints none.",
+  },
 ];
 
 const stripTags = (s) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -194,6 +218,7 @@ ${faqHtml}
 ${adUnit}
 
 <div class="readnext">
+<p><a href="/wardogs-release-date">When WARDOGS released, and every date since &rarr;</a></p>
 <p><a href="/wardogs-player-count">How many people play WARDOGS, and how many are actually in a match &rarr;</a></p>
 <p><a href="/wardogs">The hub: scoring, kit prices and what runs the game &rarr;</a></p>
 <p><a href="/wardogs-reviews">What the Steam reviews say, and why the all-language grade is lower &rarr;</a></p>

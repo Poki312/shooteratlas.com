@@ -28,6 +28,46 @@ const faqs = [
     q: "Will WARDOGS add more game modes?",
     a: "What is promised is variety, not a mode list: the studio's Early Access notes name \"additional objective variations\" among planned additions (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 1 October 2026). The most recent official word on what is coming is Season 02 on 15 October 2026, described in the update 0.1.2 notes as \"a larger content update, with new map conditions, equipment, balance reworks and additional features\" (<a href='https://steamcommunity.com/app/1867240/announcements/'>official Steam announcement feed</a>, read 1 October 2026).",
   },
+  {
+    q: "How does a WARDOGS match play out?",
+    a: "You buy a loadout, get to the Control Zone, and stand in it. Scoring is occupancy rather than kills: the team with the most players inside the randomised 2 × 2 km zone earns points, and the first team to 100 takes the match (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 2 October 2026). The trip back after dying is the real penalty, which is why transport and vehicles are paid roles and why <a href='/wardogs'>the hub page</a> prints what they cost.",
+  },
+  {
+    q: "What are Community servers in WARDOGS?",
+    a: "The player-run half of the server list, and the studio has publicly said it launched them badly. Patch 0.11 (12 September 2026) split the front end into a Community browser and an Official browser, added text search, stopped Community server IDs wiping on every map change, and paid a 5% end-of-match cash bonus on community servers for a week by way of apology (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, read 2 October 2026). Update 0.1.2 then put Community alongside Official, Infantry Mode and Low-Level on the deploy screen.",
+  },
+  {
+    q: "Is there a WARDOGS server status page?",
+    a: "Not from the studio, and not from Valve. The official material read for this site carries patch notes and maintenance windows but no status page, no outage feed and no live server list (read 2 October 2026). A community server directory and a server-status page exist on the third-party hub instead (<a href='https://wardogshub.gg/servers/'>wardogshub.gg</a>, read 2 October 2026), and this page does not republish its data.",
+  },
+  {
+    q: "Is there a tutorial in WARDOGS?",
+    a: "Nothing official describes one. The closest thing in the published material is the deploy flow, which update 0.1.2 rebuilt so that picking between Official, Community, Infantry Mode and Low-Level servers is the first step (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, 30 September 2026, read 2 October 2026). The third-party hub keeps a skip-tutorial page of its own, which is where that question is answered for this game.",
+  },
+  {
+    q: "What are the WARDOGS maps called?",
+    a: "Nothing official names them. The store copy sizes the battlefield at 256 km² and says the Control Zone is randomised inside it, but no map list, map name or point-of-interest list appears in any official material read for this site (read 2 October 2026). The names in circulation come from community data-mining, and the third-party hub publishes an interactive map of three maps of 256 km² each, one of them under the name Bakurani (<a href='https://wardogshub.gg/map/'>wardogshub.gg</a>, read 2 October 2026).",
+  },
+  {
+    q: "Is there an interactive map for WARDOGS?",
+    a: "Not from the studio and not from Valve — no official map tool appears in the material read for this site (read 2 October 2026). The third-party hub publishes an interactive map with its own marker set, which is where that feature lives for this game; it is community work and this page does not copy it.",
+  },
+  {
+    q: "Can you drive a Humvee in WARDOGS?",
+    a: "Yes. The Season 1 changelog carries a vehicles section that moves \"Humvee with minigun\" to Driver level 30, alongside a rebalanced URAL list and helicopter changes (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, 9 September 2026, read 2 October 2026). Vehicles come out of the cash you earn rather than the store page — the studio lists vehicles among the things a loadout purchase covers.",
+  },
+  {
+    q: "What is the URAL used for?",
+    a: "Transport, and the studio keeps moving it around the unlock grid: the Season 1 changelog sets the base URAL to Driver level 3, the Covered variant to 18 and the Attack variant to 25, and cuts the base URAL's vendor price from $50,000 to $35,000 (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, 9 September 2026, read 2 October 2026). No official page publishes vehicle statistics, so those unlock levels are the only official numbers attached to the name.",
+  },
+  {
+    q: "Are there helicopters in WARDOGS?",
+    a: "Yes. The Season 1 changelog's gameplay and vehicles section rebalances the Z20 Lakota and applies helicopter input damping to every input device, and the vendor list carries an AH-6M with miniguns as a Pilot unlock (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, 9 September 2026, read 2 October 2026). Flying is a role you pay into rather than a free asset, which is why <a href='/wardogs'>the hub page</a> treats transport as part of the economy.",
+  },
+  {
+    q: "Is there a Toyota Hilux in WARDOGS?",
+    a: "No. Nothing in the store copy, the studio's posts or the patch notes read for this site mentions a Hilux or any civilian truck. The idea is the community's: an r/WarDogs thread titled \"We should get a Toyota Hilux with a .50 cal. Here's why\" was posted on 20 September 2026 (gathered for this project on 2 October 2026). It is a wish, not a vehicle.",
+  },
 ];
 
 const stripTags = (s) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();

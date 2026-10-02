@@ -28,6 +28,14 @@ const faqs = [
     q: "Why does this page correct its own headline?",
     a: "Because the note this page was written from said the game \"has controller support but is not gamepad-preferred\". Valve's two surfaces support the second half and not the first: the hidden hardware block does read bGamepadPreferred false, but the same block leaves every controller family null and marks Steam Input API support false, and the store page prints no controller category at all. The corrected reading is stated in full in the section below rather than quietly edited.",
   },
+  {
+    q: "Is WARDOGS a battle royale or an extraction shooter?",
+    a: "The studio says no in as many words: \"This isn't a Battle Royale. This isn't another Extraction FPS.\" (<a href='https://store.steampowered.com/news/app/1867240'>WARDOGS - TOP QUESTIONS</a>, 18 February 2026, read 2 October 2026). What it is instead is one objective mode — three teams, a randomised 2 × 2 km Control Zone inside a 256 km² map, first team to 100 points — set out in full on <a href='/wardogs-gameplay'>the gameplay page</a>.",
+  },
+  {
+    q: "What PC does WARDOGS need?",
+    a: "Valve's listing carries both tiers: minimum is Windows 10, a Core i5-8600, 16 GB of RAM, a GTX 1660 and 50 GB, and recommended is Windows 11, an i7-12700K, 16 GB of RAM and an RTX 3070 (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 2 October 2026). Windows is the only platform on the listing, and the Deck, SteamOS and Steam Machine each return does-not-support — <a href='/wardogs-steam-deck'>the Steam Deck page</a> prints those tokens.",
+  },
 ];
 
 const stripTags = (s) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -154,6 +162,8 @@ ${faqHtml}
 ${adUnit}
 
 <div class="readnext">
+<p><a href="/wardogs-gameplay">The one mode, and the two names that are not modes &rarr;</a></p>
+<p><a href="/wardogs-steam-deck">Does WARDOGS run on the Steam Deck? Valve's own answer &rarr;</a></p>
 <p><a href="/wardogs">Scoring, prices and platform support for WARDOGS &rarr;</a></p>
 <p><a href="/wardogs-languages">The fourteen languages WARDOGS ships, and which have audio &rarr;</a></p>
 <p><a href="/wardogs-price">What WARDOGS costs in eight regions &rarr;</a></p>

@@ -24,6 +24,14 @@ const faqs = [
     q: "Where does this text come from?",
     a: "The Early Access question-and-answer block on the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read on 28 September 2026. Every quotation above is the developer's own wording from that block.",
   },
+  {
+    q: "What is on the WARDOGS roadmap?",
+    a: "Two official lists and no schedule. The store page's Early Access notes promise \"new vehicle types including fighter jets, expanded weapon categories, additional objective variations\"; the studio's own post of 7 April 2026 adds the metagame being built during Early Access, naming \"The Black Market &amp; Vault\" and \"Player Skills &amp; Challenge System\" (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, read 2 October 2026). The only dated milestone in either list is Season 02 on 15 October 2026, which <a href='/wardogs-release-date'>the release date page</a> tracks.",
+  },
+  {
+    q: "What is the Vault?",
+    a: "An announced feature with nothing published about it beyond the name. The studio mentioned it once, in its 7 April 2026 post about the Early Access metagame, as \"The Black Market &amp; Vault\" alongside a player skills and challenge system (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, read 2 October 2026). Nothing since describes what it holds, who can enter it or what it costs, so this page files it as announced rather than described.",
+  },
 ];
 
 const stripTags = (s) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -112,6 +120,7 @@ ${faqHtml}
 ${adUnit}
 
 <div class="readnext">
+<p><a href="/wardogs-release-date">When WARDOGS released, and what the date did not settle &rarr;</a></p>
 <p><a href="/wardogs">Scoring, prices and platform support for WARDOGS &rarr;</a></p>
 <p><a href="/wardogs-reviews">What 51,079 English Steam reviews say about WARDOGS &rarr;</a></p>
 <p><a href="/wardogs-achievements">All ten WARDOGS achievements and how rare each one is &rarr;</a></p>

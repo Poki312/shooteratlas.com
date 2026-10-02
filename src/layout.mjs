@@ -355,6 +355,7 @@ ${main}
 <h2>Pages</h2>
 <nav aria-label="Pages"><ul>
 <li><a href="/wardogs">WARDOGS</a></li>
+<li><a href="/wardogs-steam">Steam page</a></li>
 <li><a href="/wardogs-price">Price by region</a></li>
 <li><a href="/wardogs-achievements">Achievements</a></li>
 <li><a href="/wardogs-reviews">Steam reviews</a></li>
@@ -366,6 +367,7 @@ ${main}
 <li><a href="/wardogs-languages">Languages</a></li>
 <li><a href="/wardogs-genres">Genres and specs</a></li>
 <li><a href="/wardogs-gameplay">Gameplay and modes</a></li>
+<li><a href="/wardogs-factions">Factions</a></li>
 <li><a href="/wardogs-steam-deck">Steam Deck</a></li>
 <li><a href="/wardogs-player-count">Player count</a></li>
 </ul></nav>

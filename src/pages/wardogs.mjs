@@ -30,6 +30,54 @@ const faqs = [
     q: "Will the price go up?",
     a: "Yes — the studio's Early Access notes say the price is lower during Early Access and rises toward the full release.",
   },
+  {
+    q: "What do you start with in WARDOGS?",
+    a: "Ten thousand in cash and three rifles that cost nothing. The starter rifles are the Bushmaster M17S, the A-91 and the KH-2002, and they sit at the bottom of the vendor list at a $0 sticker; everything above them is bought with cash you have to earn (in-game vendor screen, Season 1, read 28 September 2026). The cash is granted once rather than every life, so the loadout you buy is a spending decision rather than a starting kit.",
+  },
+  {
+    q: "How do you keep the cost of a loadout down?",
+    a: "Vendor prices are halved below level 9, so the cheapest shopping window is also the one in which the least is unlocked, and the balance in your account carries between matches, which makes an unspent round pay for the next one (in-game vendor and account readings, Season 1, read 28 September 2026). Season 1 also raised several vendor and unlock prices the day before launch, so any price list dated before 10 September 2026 is out of date (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, 9 September 2026, read 2 October 2026).",
+  },
+  {
+    q: "Is the A-91 free?",
+    a: "Yes. The A-91 is one of the three rifles that carry a $0 sticker in the Season 1 vendor list, alongside the Bushmaster M17S and the KH-2002 (in-game vendor screen, read 28 September 2026). It is also the rifle Valkyra's name is painted on: the Supporter Edition includes a \"Valkyra Branded A-91 Rifle Camo\" (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, 11 August 2026, read 2 October 2026), and the faction-to-rifle mapping is set out on <a href='/wardogs-factions'>the factions page</a>. The skin is sold; the rifle is not.",
+  },
+  {
+    q: "How much does the AK74 cost?",
+    a: "$1,600 from the in-game vendor, plus a $10,000 unlock that opens at Assault level 3 (vendor screen, Season 1, read 28 September 2026). It is the cheapest paid rifle on that list and, for most players, the first purchase that changes how a round plays. Prices moved at launch, so read the vendor screen rather than a pre-launch list.",
+  },
+  {
+    q: "What is the KH-2002?",
+    a: "One of the three rifles WARDOGS issues for nothing, and the one Manticore's name is attached to: the Supporter Edition carries a \"Manticore Branded KH-2002 Camo\" (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, 11 August 2026, read 2 October 2026). Nothing official prices it above zero or publishes its statistics, and the store page carries no weapon table at all, so every stat sheet in circulation is somebody's in-game reading.",
+  },
+  {
+    q: "How do you earn cash in WARDOGS?",
+    a: "Through teamplay, in the studio's own words: \"Revives, transport, kills, spotting, and MORE\", with cash earned in a match staying in the account for the next one (<a href='https://store.steampowered.com/news/app/1867240'>WARDOGS - TOP QUESTIONS</a>, 18 February 2026, read 2 October 2026). The Hot Zone pays double while your team holds it, and the losing side still gets paid at the end of a match.",
+  },
+  {
+    q: "What are the Gold Bars for?",
+    a: "They are the endgame currency, and they are converted rather than bought: the studio describes exchanging \"your cash profits for GOLD BARS\", which are then used to obtain cosmetic unlocks in the Gold Market (<a href='https://store.steampowered.com/news/app/1867240'>WARDOGS - TOP QUESTIONS</a>, 18 February 2026, read 2 October 2026). Nothing published says what the conversion is priced at, so this page prints no rate.",
+  },
+  {
+    q: "Can you buy cash or Gold Bars with real money?",
+    a: "No, and the studio has said so twice in one post: it will never monetise in-game cash or gold bars, which \"must be earned through play\", and there will be no monetisation during Early Access except the optional Supporter Edition (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, 11 August 2026, read 2 October 2026). The studio's earlier FAQ post puts the same position in three words: no battle pass, no pay to win.",
+  },
+  {
+    q: "Does WARDOGS have classes?",
+    a: "No fixed ones. The studio's own answer is that roles are \"totally player-defined\": you buy the specialist items that make the role and earn XP across six progression tracks, from Medic to Pilot (<a href='https://store.steampowered.com/news/app/1867240'>WARDOGS - TOP QUESTIONS</a>, 18 February 2026, read 2 October 2026). Season 1 reshuffled parts of that grid — Heavy Tank moved from Career 35 to Driver 35 — so a screenshot of the old unlock map is worth less than it looks.",
+  },
+  {
+    q: "What is the quickest way to earn XP and cash?",
+    a: "Teamplay pays more than kills alone: the studio's list is revives, transport, kills and spotting, and the Hot Zone doubles both the cash and the head count you contribute while you are inside it (<a href='https://store.steampowered.com/news/app/1867240'>WARDOGS - TOP QUESTIONS</a>, 18 February 2026, read 2 October 2026). One published bonus is worth knowing: when the studio apologised for the server browser in patch 0.11, community servers carried an extra 5% end-of-match cash bonus for a week (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, 12 September 2026, read 2 October 2026). Whether that bonus is still running is stated nowhere read for this page.",
+  },
+  {
+    q: "What are the towers for?",
+    a: "They steer the objective. Each tower your faction takes reveals one digit of a four-digit code, and entering all four at your base terminal starts the Hot Zone drifting toward ground you already hold (read from the in-game tower and terminal screens, 28 September 2026); <a href='/wardogs-gameplay'>the gameplay page</a> covers the Hot Zone itself. Taking a tower is a procedure rather than a capture circle: clear the area, wait out the lockout, press the panel, then hold it against a single surviving defender. No official page describes the mechanic — Valve's own feed carries a third-party guide on capturing them instead.",
+  },
+  {
+    q: "What anti-cheat does WARDOGS use, and what does it ban for?",
+    a: "The store listing's feature block reads \"Uses Kernel Level Anti-Cheat\" and names one provider, Elytra (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 2 October 2026); what that means for Linux and Proton is on <a href='/wardogs-steam-deck'>the Steam Deck page</a>. The studio's enforcement policy is published separately from the software: economy exploiters get a timed ban with cash and XP reset to zero, and since update 0.1.2 leniency for first-time offenders \"is now over\", with repeat abuse risking a permanent ban without warning (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news posts</a>, 12 and 30 September 2026, read 2 October 2026).",
+  },
 ];
 
 const stripTags = (s) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -175,6 +223,8 @@ ${faqHtml}
 ${adUnit}
 
 <div class="readnext">
+<p><a href="/wardogs-steam">The live Steam reading and the whole store listing &rarr;</a></p>
+<p><a href="/wardogs-factions">The three factions, and the rifle each one's name sits on &rarr;</a></p>
 <p><a href="/wardogs-reddit">What WARDOGS players are asking for on Reddit &rarr;</a></p>
 <p><a href="/wardogs-price">What WARDOGS costs in eight Steam regions &rarr;</a></p>
 <p><a href="/wardogs-achievements">WARDOGS achievements, all ten and how rare each one is &rarr;</a></p>

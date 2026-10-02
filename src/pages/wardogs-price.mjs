@@ -24,6 +24,14 @@ const faqs = [
     q: "Why is there no price for Russia?",
     a: "Because Steam returns none. Asked for the Russian region, Valve's store API answers with no price data at all for this app rather than a rouble figure, and this page prints what the API returns instead of estimating one (<a href='https://store.steampowered.com/api/appdetails?appids=1867240&amp;cc=ru&amp;l=english'>Steam appdetails API, cc=ru</a>, read 29 September 2026).",
   },
+  {
+    q: "What is in the Supporter Edition?",
+    a: "Cosmetics, itemised by the studio: three starter-weapon camos, a Valkyra-branded A-91 camo, a Lonestar-branded Bushmaster camo, a Manticore-branded KH-2002 camo, a \"Taxi\" camo for the Littlebird helicopter, a scoreboard supporter icon that can be hidden in settings, and two bobbleheads (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, 11 August 2026, read 2 October 2026). The same post says there will be no other monetisation during Early Access, with this pack as the sole exception.",
+  },
+  {
+    q: "Can you buy camos in WARDOGS?",
+    a: "Not individually, and the studio says it will not start: \"We will NEVER allow you to directly purchase camos, camos should show that a player has worked hard to unlock that item not how much money they have\" (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, 11 August 2026, read 2 October 2026). The camo set that shipped with the Supporter Edition is bundled rather than sold piece by piece, and the faction camos in it are the only ones carrying a faction's name.",
+  },
 ];
 
 const stripTags = (s) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -146,6 +154,7 @@ ${faqHtml}
 ${adUnit}
 
 <div class="readnext">
+<p><a href="/wardogs-factions">Three factions, and the branded rifle camos in the Supporter Edition &rarr;</a></p>
 <p><a href="/wardogs">Scoring, prices and platform support for WARDOGS &rarr;</a></p>
 <p><a href="/wardogs-reddit">What WARDOGS players are asking for on Reddit &rarr;</a></p>
 <p><a href="/wardogs-early-access">What the developers say about Early Access timing and the full game &rarr;</a></p>

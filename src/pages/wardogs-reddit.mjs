@@ -24,6 +24,18 @@ const faqs = [
     q: "Why is none of this on the other WARDOGS sites?",
     a: "The three sites that document WARDOGS in depth cover other ground: wardogs.site is an official changelog and FAQ, wardogs.wiki is a database of item stats, and wardogshub.gg tracks weapons, economy, servers and patch notes. None of them reproduces what players are asking for, which is the gap this page fills.",
   },
+  {
+    q: "Is there an official WARDOGS Discord?",
+    a: "The studio has one, and its own posts point players at it rather than linking it: the 11 August 2026 pre-order post signs off by telling readers to \"read all discord announcements carefully\" (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, read 2 October 2026). Everything else under that name is player-run, and the threads gathered for this project on 2 October 2026 show the range: a United Kingdom server aimed at players over 30, a Singapore group recruiting squads, and a player in Australia asking whether anyone had started one (r/WarDogs and r/OfficialWARDOGS).",
+  },
+  {
+    q: "Are there regional WARDOGS groups?",
+    a: "Players organise by region, and the subreddits are where it happens: an \"Australian discord?\" thread was posted on 9 September 2026 by a player looking for squads to join, and a pair of community-server threads are groups recruiting around a shared server (r/WarDogs, gathered for this project on 2 October 2026). None of them is official, and this page does not print invite links it cannot verify.",
+  },
+  {
+    q: "How do you appeal a WARDOGS ban?",
+    a: "No appeal route is published. The studio's posts cover what bans are for and how hard they land — a timed ban with cash and XP reset to zero for economy exploiters, and, since update 0.1.2, a permanent ban without warning for repeat abuse — but none of them says where a banned player should take a case (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news posts</a>, 12 and 30 September 2026, read 2 October 2026; the same policy is set out on <a href='/wardogs'>the hub page</a>). The question comes from the players: an 11 August 2026 r/WarDogs thread is someone asking where to post, having found no appeal process.",
+  },
 ];
 
 const stripTags = (s) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();

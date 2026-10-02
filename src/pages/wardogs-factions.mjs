@@ -27,6 +27,10 @@ const faqs = [
     q: "Where is WARDOGS set, and does the setting decide the factions?",
     a: "The setting is stated, and it does not. The game is set in war-torn Kolchia, built around the fight for PV-1, \"a rare resource fuelling decades of Eurasian conflict\", with the faction names drawn from a different map of the world entirely — a Western paramilitary outfit, a restorationist Soviet republic and the Kingdom of Persia (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post, WARDOGS - TOP QUESTIONS</a>, 18 February 2026, read 2 October 2026). That mismatch is the studio's own, not ours.",
   },
+  {
+    q: "How do you get weapon skins in WARDOGS?",
+    a: "By playing, according to the studio's own policy: cosmetics are earned, in-game cash and gold bars will never be sold, and camos cannot be bought directly because they are meant to show work rather than spending (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, 11 August 2026, read 2 October 2026). The exception in the same post is the Supporter Edition's camo set, which carries the three faction-branded starter-rifle camos above and is priced on <a href='/wardogs-price'>the price page</a>.",
+  },
 ];
 
 const stripTags = (s) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -171,6 +175,7 @@ ${faqHtml}
 ${adUnit}
 
 <div class="readnext">
+<p><a href="/wardogs-price">What the Supporter Edition costs, and what is inside it &rarr;</a></p>
 <p><a href="/wardogs">The hub: how a match is scored and what kit costs &rarr;</a></p>
 <p><a href="/wardogs-gameplay">The one mode, and the two names that are not modes &rarr;</a></p>
 <p><a href="/wardogs-player-count">How many people play WARDOGS, and how many are in a match &rarr;</a></p>

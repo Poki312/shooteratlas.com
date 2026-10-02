@@ -28,6 +28,10 @@ const faqs = [
     q: "Should I buy it now and wait for support?",
     a: "The studio's own advice is the opposite. The pinned post asks Linux buyers to \"refund the game if you mistakenly bought it thinking you would be able to run Linux via Proton on September 10th\", and Valve's refund window for a Steam purchase is normally fourteen days and under two hours of play (<a href='https://store.steampowered.com/steam_refunds/'>Steam refunds page</a>, read 1 October 2026). A game that cannot connect also cannot rack up the play time, but the fourteen days move regardless.",
   },
+  {
+    q: "Does WARDOGS work on GeForce NOW?",
+    a: "Not confirmed anywhere official. The third-party hub reports that NVIDIA announced the game for GeForce NOW on 10 September 2026 and then could not ship it, and it advises treating any listing dated before 11 September 2026 as the announcement rather than the outcome (reported, not confirmed; <a href='https://wardogshub.gg/anti-cheat/'>wardogshub.gg</a>, read 2 October 2026). Neither the studio nor Valve publishes a statement on it, and no new date appears in the material read for this page.",
+  },
 ];
 
 const stripTags = (s) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -158,6 +162,7 @@ ${faqHtml}
 ${adUnit}
 
 <div class="readnext">
+<p><a href="/wardogs-steam">What the store listing itself says, line by line &rarr;</a></p>
 <p><a href="/wardogs-gameplay">The one mode, and the two names that are not modes &rarr;</a></p>
 <p><a href="/wardogs-genres">Five genres, eight categories, Windows only &rarr;</a></p>
 <p><a href="/wardogs">Scoring, prices and platform support for WARDOGS &rarr;</a></p>

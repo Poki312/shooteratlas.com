@@ -33,6 +33,14 @@ const faqs = [
     q: "Is WARDOGS still being updated?",
     a: "Yes. A client hotfix landed on launch day to fix failed joins, mid-match kicks and long queues, and the studio has since shipped a server-browser patch and dated Season 2 to 15 October 2026 (<a href='https://steamcommunity.com/app/1867240/announcements/'>official Steam announcements</a>, read 30 September 2026). Nothing on the store page commits to a date for the end of Early Access.",
   },
+  {
+    q: "When is Season 02?",
+    a: "15 October 2026. The studio's teaser post of 22 September 2026 carries that date and nothing else — no content list, no features (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, read 2 October 2026). Update 0.1.2 later described Season 02 as \"a larger content update, with new map conditions, equipment, balance reworks and additional features\", which is the most detail published so far.",
+  },
+  {
+    q: "Does your progress reset between seasons?",
+    a: "Nothing official says it does. The two published statements closest to it are the Season 1 changelog's line that \"each season we will have a different XP curve with different item orders\", and the patch before it setting cash and XP to zero as a penalty for economy exploiters (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news posts</a>, 9 and 12 September 2026, read 2 October 2026). A season-end wipe is documented by the third-party hub as its own reading; neither Valve nor the studio has confirmed one, so this page leaves it unconfirmed.",
+  },
 ];
 
 const stripTags = (s) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -229,6 +237,7 @@ ${faqHtml}
 ${adUnit}
 
 <div class="readnext">
+<p><a href="/wardogs-steam">The live Steam reading, and what changed on Steam this week &rarr;</a></p>
 <p><a href="/wardogs">Scoring, prices and platform support for WARDOGS &rarr;</a></p>
 <p><a href="/wardogs-early-access">What the developers say about Early Access timing and the full game &rarr;</a></p>
 <p><a href="/wardogs-price">What WARDOGS costs in eight Steam regions &rarr;</a></p>
