@@ -167,20 +167,17 @@ async function build() {
   console.log("file    robots.txt");
 
   // ads.txt: who is authorised to sell or monetise inventory on this site.
-  // One line per network, in the IAB format:
-  //   <domain>, <publisher account id>, <DIRECT|RESELLER>[, <certification authority id>]
-  // The CJ line carries the publisher CID read from the CJ backend; the AdSense
-  // line goes in once that account is approved and a publisher id exists.
+  // No advertising system is listed yet: the CJ line had no source for its
+  // format and was removed, and the AdSense line goes in verbatim once that
+  // account has a publisher id. The three lines below are the whole file,
+  // character for character as issued.
   const adsTxt =
     [
-      "# ads.txt for shooteratlas.com",
-      "# One line per network authorised to sell or monetise inventory on this site.",
-      "# Format: <domain>, <publisher account id>, <DIRECT|RESELLER>",
+      "# ads.txt for [shooteratlas.com](https://shooteratlas.com/)",
       "",
-      "# CJ Affiliate (Commission Junction) - publisher CID 8083808, read 2 October 2026.",
-      "cj.com, 8083808, DIRECT",
+      "# No advertising system is authorised to sell inventory on this site yet",
       "",
-      "# Google AdSense - add the google.com line here once the publisher id is issued.",
+      "# Add the AdSense line verbatim when the publisher id is issued",
     ].join("\n") + "\n";
   await writeFile(path.join(OUT, "ads.txt"), adsTxt, "utf8");
   console.log("file    ads.txt");
