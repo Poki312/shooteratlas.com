@@ -41,7 +41,7 @@ const DARK_TOKENS =
   "--grid:rgba(255,255,255,.035)";
 
 const STYLES = `
-:root{${LIGHT_TOKENS};--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,"Cascadia Mono","Segoe UI Mono",Menlo,Consolas,monospace;--wrap:64rem;--prose:44rem;--rail:14rem;--r:12px;--r-sm:6px}
+:root{${LIGHT_TOKENS};--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,"Cascadia Mono","Segoe UI Mono",Menlo,Consolas,monospace;--wrap:72rem;--prose:44rem;--measure:38rem;--rail:14rem;--r:12px;--r-sm:6px}
 :root[data-theme="dark"]{${DARK_TOKENS}}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){${DARK_TOKENS}}}
 *{box-sizing:border-box}
@@ -59,12 +59,15 @@ h1{font-size:clamp(1.85rem,1.4rem + 1.8vw,2.5rem);line-height:1.12;letter-spacin
 h2{font-size:1.35rem;line-height:1.28;letter-spacing:-.015em;font-weight:750;margin:2.8rem 0 .7rem;scroll-margin-top:5rem}
 h2::before{content:"";display:block;width:28px;height:2px;background:var(--accent);margin-bottom:.8rem;border-radius:2px}
 h3{font-size:1.04rem;line-height:1.4;letter-spacing:-.005em;margin:1.8rem 0 .4rem}
-p{margin:0 0 1.05rem;overflow-wrap:break-word}
+p{margin:0 0 1.05rem;overflow-wrap:break-word;text-wrap:pretty}
 ul,ol{margin:0 0 1.15rem;padding-left:1.2rem}
 li{margin:.42rem 0}
 li::marker{color:var(--accent)}
 a{color:var(--link);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
 a:hover{color:var(--link-hover)}
+/* A pasted API URL is one unbreakable token and it will set the width of the
+   whole document if nothing is allowed to break inside it. */
+code{overflow-wrap:anywhere}
 a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
 blockquote{margin:1.4rem 0 1.6rem;padding:.1rem 0 .1rem 1.15rem;border-left:2px solid var(--accent);color:var(--ink-2)}
 blockquote p:last-child{margin-bottom:0}
@@ -72,11 +75,20 @@ figure.pagefig{margin:2.4rem 0 0}
 figure.pagefig img{display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:var(--r)}
 figure.pagefig figcaption{margin:.6rem 0 0;font-size:.84rem;color:var(--muted)}
 /* Running text keeps a readable measure; data blocks stay at full width,
-   with or without the contents rail beside them. */
-main>.wrap>:is(h1,h2,h3,p,ul,ol,blockquote,.src,.lede),
-.page-grid>article>:is(h1,h2,h3,p,ul,ol,blockquote,.src,.lede){max-width:var(--prose)}
+   with or without the contents rail beside them.
+   Two caps, not one: headings may use the wider --prose because they are set
+   large and short, while running text sits at --measure. At 17px the old
+   single cap of 44rem ran to 92 characters a line; --measure holds it to
+   about 75, which is where the return sweep stops costing the reader a line. */
+main>.wrap>:is(h1,h2,h3),
+.page-grid>article>:is(h1,h2,h3){max-width:var(--prose)}
+main>.wrap>:is(p,ul,ol,blockquote,.src,.lede),
+.page-grid>article>:is(p,ul,ol,blockquote,.src,.lede){max-width:var(--measure)}
 .page-grid{display:grid;grid-template-columns:minmax(0,1fr) var(--rail);gap:2.5rem;align-items:start}
 .toc{position:sticky;top:5.5rem;font-size:.88rem}
+.toc summary{margin:0 0 .7rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);cursor:pointer;list-style:none}
+.toc summary::-webkit-details-marker{display:none}
+.toc summary::marker{content:""}
 .toc h2{margin:0 0 .7rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .toc h2::before{display:none}
 .toc ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--rule)}
@@ -123,9 +135,20 @@ main>.wrap>:is(h1,h2,h3,p,ul,ol,blockquote,.src,.lede),
 .hub a{display:block;padding:.8rem 0;border-top:1px solid var(--rule);font-weight:600;color:var(--ink);text-decoration:none}
 .hub a:first-child{border-top:0}
 .hub a:hover{color:var(--accent)}
-.matrix-scroll,.tablewrap{margin:0 0 1.05rem;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--rule);border-radius:var(--r);background:var(--surface)}
+/* A table that is wider than its column scrolls sideways, and nothing on
+   screen says so until the reader happens to swipe. The two local gradients
+   sit exactly over the two scroll shadows while that edge is reached, so the
+   hint appears on the side that still has content behind it and disappears
+   once there is none. */
+.matrix-scroll,.tablewrap{margin:0 0 1.05rem;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--rule);border-radius:var(--r);
+  background:
+    linear-gradient(to right,var(--surface) 22%,transparent) left center/34px 100% no-repeat local,
+    linear-gradient(to left,var(--surface) 22%,transparent) right center/34px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%,color-mix(in srgb,var(--ink) 16%,transparent),transparent) left center/14px 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%,color-mix(in srgb,var(--ink) 16%,transparent),transparent) right center/14px 100% no-repeat scroll,
+    var(--surface)}
 .matrix-scroll:focus-visible,.tablewrap:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
-table.matrix{border-collapse:collapse;width:100%;font-size:.93rem;line-height:1.45}
+table.matrix{border-collapse:collapse;width:100%;font-size:.93rem;line-height:1.45;font-variant-numeric:tabular-nums}
 table.matrix caption{caption-side:top;text-align:left;font-size:.86rem;color:var(--muted);padding:.85rem 1.1rem .1rem}
 table.matrix th,table.matrix td{text-align:left;padding:.62rem 1.1rem;border-bottom:1px solid var(--rule-soft);white-space:nowrap}
 table.matrix thead th{position:sticky;top:0;z-index:1;background:var(--surface-2);color:var(--muted);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--rule)}
@@ -135,9 +158,13 @@ table.matrix td:first-child{color:var(--ink);font-weight:600}
 table.matrix td.wrap-cell{white-space:normal;min-width:14rem}
 table.matrix code{font-size:.88em}
 .num,td.num,th.num{font-variant-numeric:tabular-nums;text-align:right}
-.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;margin:0 0 2rem}
-.strip>div{background:var(--surface);padding:.95rem 1.05rem 1rem;display:grid;grid-template-rows:auto 1fr auto;align-content:start}
-.stat-n{display:block;font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.4rem;font-weight:700;line-height:1.15;letter-spacing:-.01em}
+/* Flex, not grid, for one reason: a grid leaves the tail of a five- or
+   six-stat row empty, and the 1px gap colour that draws the hairlines fills
+   that empty area as a solid slab. Flex distributes the free space back into
+   the cells, so every row ends flush and no page can grow a grey rectangle. */
+.strip{display:flex;flex-wrap:wrap;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;margin:0 0 2rem}
+.strip>div{flex:1 1 9.5rem;min-width:0;background:var(--surface);padding:.95rem 1.05rem 1rem;display:grid;grid-template-rows:auto 1fr auto;align-content:start}
+.stat-n{display:block;font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.4rem;font-weight:700;line-height:1.15;letter-spacing:-.01em;overflow-wrap:anywhere}
 .stat-k{display:block;margin-top:.3rem;font-size:.83rem;color:var(--muted)}
 .stat-src{display:block;margin-top:.5rem}
 .src-chip{display:inline-flex;align-items:center;gap:.34rem;padding:.1rem .45rem .12rem;border-radius:5px;font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;border:1px solid;white-space:nowrap}
@@ -179,16 +206,21 @@ table.matrix code{font-size:.88em}
 .ad-note{margin:.45rem 0 0;font-size:.82rem;color:var(--muted)}
 details.qa{border:1px solid var(--rule);border-radius:var(--r);background:var(--surface);margin:.6rem 0 0;overflow:hidden}
 details.qa[open]{border-color:color-mix(in srgb,var(--accent) 35%,var(--rule))}
+/* A closed disclosure hides its content either way. Saying display:none as
+   well is what stops the hidden rows keeping a layout box: without it a link
+   inside a closed rail still answers getBoundingClientRect with its open size,
+   and a hit test aimed at it lands on whatever is really there. */
+details.toc:not([open])>nav,details.qa:not([open])>.qa-body{display:none}
 details.qa>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.95rem 1.15rem;font-weight:650;font-size:1rem}
 details.qa>summary::-webkit-details-marker{display:none}
 details.qa>summary::after{content:"+";flex:none;font-family:var(--mono);font-size:1.15rem;color:var(--accent);line-height:1}
 details.qa[open]>summary::after{content:"\\2212"}
 .qa-body{padding:0 1.15rem 1.1rem;color:var(--ink-2);font-size:.96rem}
-.qa-body p{margin:0;max-width:var(--prose)}
+.qa-body p{margin:0;max-width:var(--measure)}
 .qa{margin:2.9rem 0 0;border-top:1px solid var(--rule);padding-top:1.7rem}
 .qa h2{margin-top:0}
 .qa h3{font-size:1.05rem;line-height:1.4;margin:1.55rem 0 .35rem}
-.qa p{margin:0 0 .45rem;color:var(--ink-2);max-width:var(--prose)}
+.qa p{margin:0 0 .45rem;color:var(--ink-2);max-width:var(--measure)}
 .site-foot{border-top:1px solid var(--rule);background:var(--bg-band);margin-top:4rem;padding:2.6rem 0 1.4rem;color:var(--muted);font-size:.9rem}
 .foot-grid{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,.8fr));gap:2rem}
 .foot-grid h2{margin:0 0 .7rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
@@ -199,10 +231,24 @@ details.qa[open]>summary::after{content:"\\2212"}
 .foot-about p{margin:.8rem 0 0;font-size:.88rem;color:var(--muted);max-width:26rem}
 .foot-bar{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:2.4rem;padding-top:1.1rem;border-top:1px solid var(--rule-soft);font-size:.82rem;color:var(--muted)}
 @media (max-width:960px){.foot-grid{grid-template-columns:1fr 1fr}}
-@media (max-width:960px){
+/* Between 1100px and this one the page is too narrow to hold a 14rem rail and
+   a full-width data table at once. The rail gives 2rem back, which is the
+   difference between the price matrix fitting and scrolling on a laptop with
+   the window snapped to one side. */
+@media (min-width:1100px) and (max-width:1240px){:root{--rail:12rem}}
+/* Below 1100px the rail does not fit beside the widest table, so the page goes
+   single column: the contents become one scrollable row above the h1 and the
+   article gets the whole width, which is what the tables need. */
+@media (max-width:1099px){
 .page-grid{grid-template-columns:minmax(0,1fr);gap:1.6rem}
 .toc{position:static;order:-1}
-.toc ol{display:flex;flex-wrap:wrap;gap:.4rem;border-left:0}
+/* Closed on a phone, the contents cost one 44px line instead of the 210px a
+   block of wrapped chips took, and the h1 stays on the first screen. Tap it
+   and the same chips appear; nothing is hidden behind a sideways swipe. */
+.toc summary{display:flex;align-items:center;gap:.45rem;margin:0;padding:.55rem 0;font-size:.72rem}
+.toc summary::after{content:"show";font-size:.62rem;letter-spacing:.08em;color:var(--accent)}
+.toc[open] summary::after{content:"hide"}
+.toc ol{display:flex;flex-wrap:wrap;gap:.4rem;border-left:0;margin:0 0 .2rem}
 .toc a{display:block;margin:0;border:1px solid var(--rule);border-radius:999px;padding:.3rem .7rem;font-size:.82rem;overflow:visible}
 }
 @media (max-width:820px){.hero{grid-template-columns:1fr;gap:1.8rem}.spec{justify-self:stretch;max-width:none}}
@@ -284,10 +330,17 @@ function contentsFor(body) {
 
   return {
     body: withIds,
+    // The rail is a disclosure so a phone can fold it into one line without
+    // leaving links sitting off the side of a scroller, where they would be
+    // reachable but not visible. The script that closes it on narrow screens
+    // sits directly after the element, so it runs while the parser is still on
+    // that line and the open state never paints at the wrong width.
     rail:
-      `<nav class="toc" aria-label="On this page">\n<h2>On this page</h2>\n<ol>\n` +
+      `<details class="toc" open>\n<summary>On this page</summary>\n<nav aria-label="On this page">\n<ol>\n` +
       items.map((i) => `<li><a href="#${i.id}">${i.label}</a></li>`).join("\n") +
-      `\n</ol>\n</nav>`,
+      `\n</ol>\n</nav>\n</details>\n` +
+      `<script>(function(){var d=document.currentScript.previousElementSibling;` +
+      `if(d&&matchMedia("(max-width:1099px)").matches)d.removeAttribute("open");})();</script>`,
   };
 }
 
@@ -316,7 +369,8 @@ export function layout({ title, description, canonical, body, extraHead = "", og
 <link rel="alternate" type="text/markdown" href="${mdPath}" title="Markdown">
 <link rel="ai-catalog" href="/.well-known/ai-catalog.json">
 <meta name="color-scheme" content="dark light">
-<meta name="theme-color" content="#0a0e13">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0e13" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Shooter Atlas">
 <meta property="og:title" content="${title}">

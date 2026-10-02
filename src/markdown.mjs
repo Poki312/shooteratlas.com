@@ -107,6 +107,10 @@ export function htmlToMarkdown(html) {
   s = s.replace(/<table\b[^>]*>[\s\S]*?<\/table>/gi, (m) => "\n\n" + tableToMarkdown(m) + "\n\n");
   // The contents rail only repeats headings the markdown already carries, and
   // its anchors mean nothing in a text answer, so it is the one thing dropped.
+  // The rail ships as a <details class="toc"> wrapper around that nav, and the
+  // wrapper has to go with it or its "On this page" label would survive as a
+  // stray line in every markdown answer.
+  s = s.replace(/<details\b[^>]*class="[^"]*\btoc\b[^"]*"[^>]*>[\s\S]*?<\/details>/gi, "");
   s = s.replace(/<nav\b[^>]*class="[^"]*\btoc\b[^"]*"[^>]*>[\s\S]*?<\/nav>/gi, "");
   // Navigation becomes a link list: the page's own links are part of what the
   // markdown answer has to preserve.
