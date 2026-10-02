@@ -182,6 +182,14 @@ async function build() {
   await writeFile(path.join(OUT, "ads.txt"), adsTxt, "utf8");
   console.log("file    ads.txt");
 
+  // IndexNow key. Bing, Yandex, Seznam and Naver read this file to confirm that
+  // whoever pings them about this host is allowed to. The key is public by
+  // design - it is a filename, not a secret - so it is written as its own file
+  // at the site root and nothing else changes.
+  const indexNowKey = "9f3c1a7e5b2d8460af13c95e7d204b18";
+  await writeFile(path.join(OUT, indexNowKey + ".txt"), indexNowKey + "\n", "utf8");
+  console.log("file    " + indexNowKey + ".txt  (IndexNow)");
+
   // Agent discovery documents, all generated from the page data above.
   for (const doc of agentDocuments({ site: SITE, pageList, generated: today })) {
     const target = path.join(OUT, doc.path);
