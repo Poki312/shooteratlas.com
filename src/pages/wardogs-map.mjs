@@ -50,7 +50,7 @@ const faqs = [
   },
   {
     q: "Is there an official WARDOGS map, or an official location list?",
-    a: "No. The material read for this page carries the map size, the Control Zone, the Hot Zone and the tower mechanic, and no map list, no location name and no coordinates (read " + READ + "). Every location set in circulation comes from community projects that read them out of the game files, and this page does not republish another project's marker set, which is why the location rows here start empty and carry the source for each one that is added.",
+    a: "No. The material read for this page carries the map size, the Control Zone, the Hot Zone and the tower mechanic, and no map list, no location name and no coordinates (read " + READ + "). Every location set in circulation comes from community projects that read them out of the game files, and this page does not republish another project's marker set: the only rows here are towers, the one category where two or more of those projects put the same thing in the same place, and each row states on the page only its layer and the date it was checked.",
   },
   {
     q: "What are the three maps called?",
@@ -58,11 +58,11 @@ const faqs = [
   },
   {
     q: "Can I use this page to give a squad a position?",
-    a: "Yes \u2014 that is what the grid readout is for. Move the pointer or your finger over the map and the panel prints the 1 km cell, the letters and numbers, and the offset in kilometres from the west and north edges; the copy button puts the whole line on the clipboard. What you cannot do yet is look up a named location, because no location row has been read and added. The readout is a coordinate, not a gazetteer.",
+    a: "Yes \u2014 that is what the grid readout is for. Move the pointer or your finger over the map and the panel prints the 1 km cell, the letters and numbers, and the offset in kilometres from the west and north edges; the copy button puts the whole line on the clipboard. Twelve towers are on the map to look up as well; what you cannot look up is anything else, because no other category has a position from more than one project. The readout is a coordinate, and the map is still closer to a coordinate tool than to a gazetteer.",
   },
   {
-    q: "Why does the location list start empty?",
-    a: "Because filling it any other way would mean copying a community project's data-mined marker set, and inventing one would be worse. The page therefore ships the tool, the official geometry and the category list, and takes locations from one data file (<code>" + dataFile + "</code>) where every row carries the page it was read from and the date it was read. The rows that are still missing are listed on the page rather than filled with a plausible number.",
+    q: "Why are only towers on this map?",
+    a: "Because towers are the one category where at least two independent projects put the same thing in the same spot: three or four of them, agreeing to within 0.03 km. Every other category has been published by a single project, and one source is not enough to put a position on this site, so those stay blank and are listed as blanks. Each tower row carries the number of projects behind it and how far apart they are, and the whole cross-check is written up in <code>" + dataFile + "</code>.",
   },
 ];
 
@@ -126,6 +126,8 @@ const STYLE = `
 .wm-mk{position:absolute;width:calc(18px * var(--k,1));height:calc(18px * var(--k,1));margin:calc(-9px * var(--k,1)) 0 0 calc(-9px * var(--k,1));border-radius:50%;border:2px solid var(--accent-ink);background:var(--accent);cursor:pointer;padding:0;z-index:3}
 .wm-mk[aria-pressed="true"]{box-shadow:0 0 0 3px var(--accent-wash),0 0 0 1px var(--accent)}
 .wm-mk-unplaced{opacity:.45;cursor:default}
+.wm-cluster{position:absolute;min-width:calc(30px * var(--k,1));height:calc(30px * var(--k,1));padding:0 calc(4px * var(--k,1));margin:calc(-15px * var(--k,1)) 0 0 calc(-15px * var(--k,1));border-radius:999px;border:2px solid var(--accent-ink);background:var(--accent);color:var(--accent-ink);font:700 calc(12px * var(--k,1))/1 var(--mono);cursor:zoom-in;z-index:4;display:grid;place-items:center}
+.wm-cluster:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .wm-zone{position:absolute;width:120px;height:120px;left:420px;top:420px;border:2px solid var(--accent);background:var(--accent-wash);z-index:2;cursor:move;touch-action:none;display:none}
 .wm-zone[data-on="1"]{display:block}
 .wm-zone-tag{position:absolute;left:0;top:calc(-1.4rem * var(--k,1));font-family:var(--mono);font-size:calc(10px * var(--k,1));letter-spacing:.06em;color:var(--accent);white-space:nowrap;background:var(--surface);border:1px solid var(--accent);border-radius:var(--r-sm);padding:1px 4px}
@@ -310,6 +312,7 @@ ${DATA_TAG}
     state.x = (w - PLANE * state.zoom) / 2;
     state.y = (h - PLANE * state.zoom) / 2;
     apply();
+    renderPoints();
   }
   function zoomBy(factor, cx, cy) {
     var z0 = state.zoom;
@@ -320,6 +323,7 @@ ${DATA_TAG}
     state.y = cy - (cy - state.y) * (z1 / z0);
     state.zoom = z1;
     apply();
+    renderPoints();
   }
   function centreOn(xKm, yKm) {
     state.x = view.clientWidth / 2 - kmToPx(xKm) * state.zoom;
@@ -386,6 +390,10 @@ ${DATA_TAG}
   var pointers = {}, drag = null, pinch = null;
   view.addEventListener("pointerdown", function (e) {
     if (state.dragZone) return;
+    // A press that starts on a marker or a cluster badge belongs to that
+    // button. Capturing the pointer for the pane here would swallow its click:
+    // with capture set, the click lands on the pane, not on the marker.
+    if (e.target && e.target.closest && e.target.closest(".wm-mk,.wm-cluster")) return;
     pointers[e.pointerId] = { x: e.clientX, y: e.clientY };
     var ids = Object.keys(pointers);
     if (ids.length === 1) {
@@ -514,22 +522,67 @@ ${DATA_TAG}
       return true;
     });
   }
+  // Towers on WARDOGS maps stand within a kilometre of each other, so on a
+  // 16 km map drawn to fit, five markers land on the same few pixels and only
+  // the top one can be tapped. Markers that overlap at the current zoom are
+  // drawn as one badge that says how many are under it and zooms in when
+  // pressed; nothing is ever drawn away from its own coordinates.
+  var MIN_SEP = 22; // px on screen before two markers count as separate
   function renderPoints() {
-    Array.prototype.slice.call(plane.querySelectorAll(".wm-mk")).forEach(function (n) { n.remove(); });
+    Array.prototype.slice.call(plane.querySelectorAll(".wm-mk,.wm-cluster")).forEach(function (n) { n.remove(); });
+    var placed = [], loose = [];
     visiblePoints().forEach(function (p) {
-      var b = document.createElement("button");
-      b.type = "button";
-      b.className = "wm-mk" + (p.x == null || p.y == null ? " wm-mk-unplaced" : "");
-      if (p.x != null && p.y != null) {
+      if (p.x == null || p.y == null) { loose.push(p); return; }
+      placed.push({ p: p, sx: kmToPx(p.x) * state.zoom, sy: kmToPx(p.y) * state.zoom });
+    });
+    var groups = [];
+    placed.forEach(function (m) {
+      var g = null;
+      for (var i = 0; i < groups.length; i++) {
+        var c = groups[i];
+        if (Math.hypot(m.sx - c.sx / c.items.length, m.sy - c.sy / c.items.length) < MIN_SEP) { g = c; break; }
+      }
+      if (!g) { g = { items: [], sx: 0, sy: 0 }; groups.push(g); }
+      g.items.push(m);
+      g.sx += m.sx; g.sy += m.sy;
+    });
+    groups.forEach(function (g) {
+      var cx = g.sx / g.items.length, cy = g.sy / g.items.length;
+      if (g.items.length === 1) {
+        var p = g.items[0].p;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "wm-mk";
         b.style.left = kmToPx(p.x) + "px";
         b.style.top = kmToPx(p.y) + "px";
         b.style.background = (TYPES[p.type] || {}).colour || "var(--accent)";
-        b.title = p.name + (p.x != null ? " \u00b7 " + gridRef(p.x, p.y) : "");
-      } else {
-        b.hidden = true;
+        b.title = p.name + " \u00b7 " + gridRef(p.x, p.y);
+        b.setAttribute("aria-label", p.name + ", grid " + gridRef(p.x, p.y));
+        b.addEventListener("click", function (e) { e.stopPropagation(); select(p); });
+        plane.appendChild(b);
+        return;
       }
+      var names = g.items.map(function (m) { return m.p.name; });
+      var badge = document.createElement("button");
+      badge.type = "button";
+      badge.className = "wm-cluster";
+      badge.style.left = cx / state.zoom + "px";
+      badge.style.top = cy / state.zoom + "px";
+      badge.textContent = String(g.items.length);
+      badge.title = g.items.length + " towers within " + MIN_SEP + " px at this zoom \u2014 " + names.join(", ") + ". Press to zoom in.";
+      badge.setAttribute("aria-label", g.items.length + " towers here: " + names.join(", ") + ". Zoom in.");
+      badge.addEventListener("click", function (e) {
+        e.stopPropagation();
+        zoomBy(2.4, state.x + cx, state.y + cy);
+      });
+      plane.appendChild(badge);
+    });
+    loose.forEach(function (p) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "wm-mk wm-mk-unplaced";
+      b.hidden = true;
       b.setAttribute("aria-label", p.name);
-      b.addEventListener("click", function (e) { e.stopPropagation(); select(p); });
       plane.appendChild(b);
     });
   }
@@ -557,7 +610,7 @@ ${DATA_TAG}
     if (!pts.length) {
       emptyEl.hidden = false;
       emptyEl.innerHTML =
-        "<p><strong>No location has been recorded on this map yet.</strong> Every location set in circulation was data-mined by a community project, and this site does not republish another project's marker set, so the file starts empty and fills from what is read in game.</p>" +
+        "<p><strong>No location in this category has been recorded on this map yet.</strong> A position goes in only where at least two independent community projects place the same thing in the same spot; that is true of the towers and of nothing else so far, so every other category is blank rather than copied from the one project that published it.</p>" +
         "<p style=\\"margin:.5rem 0 0\\">Still to read, on every map:</p><ul>" +
         DATA.notYetRecorded.map(function (n) { return "<li>" + n + "</li>"; }).join("") +
         "</ul>" +
@@ -627,8 +680,8 @@ ${DATA_TAG}
         "<dt>Map</dt><dd>" + MAPS[p.map].name + "</dd>" +
         "<dt>Grid</dt><dd>" + (placed ? gridRef(p.x, p.y) : "not read yet") + "</dd>" +
         "<dt>Position</dt><dd>" + (placed ? kmLine(p.x, p.y) : "not read yet") + "</dd>" +
-        "<dt>Source</dt><dd>" + (p.source && p.source.url ? "<a href=\\"" + p.source.url + "\\">" + (p.source.label || p.source.url) + "</a>, read " + p.source.readOn : "not recorded") + "</dd>" +
         "<dt>Layer</dt><dd>" + (p.confidence || "not stated") + "</dd>" +
+        "<dt>Read</dt><dd>" + (p.source && p.source.readOn ? p.source.readOn : "not recorded") + "</dd>" +
         "</dl>" +
         "<div class=\\"wm-actions\\">" +
         (placed ? "<button class=\\"wm-btn\\" data-primary=\\"1\\" data-copy=\\"line\\">Copy coordinates</button>" : "") +
@@ -717,7 +770,7 @@ ${DATA_TAG}
 <div class="qa">
 <h2>Common questions</h2>
 ${faqHtml}
-<p class="src">Where these figures come from: the map size, the randomised 2 \u00d7 2 km Control Zone, the Hot Zone and the three factions are Bulkhead's, from <a href="https://store.steampowered.com/news/app/1867240">WARDOGS \u2014 TOP QUESTIONS</a> of 18 February 2026 and the <a href="https://store.steampowered.com/app/1867240/WARDOGS/">Steam store page</a>; the tower and hot-zone-magnet mechanic is from <a href="https://www.pcgamesn.com/wardogs/capture-wardogs-towers">PCGamesN's tower guide</a> of 11 September 2026 and this site's own in-game reading of the tower and terminal screens of 28 September 2026; the 16 \u00d7 16 km plane, the 1 km lettered grid and the three map names are the community map projects' \u2014 <a href="https://wardogshub.gg/map/">wardogshub.gg</a>, <a href="https://wardogstools.org/">wardogstools.org</a> and <a href="https://wardogs.tools/map">wardogs.tools</a>. All read ${READ}. The location categories the filter lists are the ones the community maps track; the locations themselves are not here, because they are that community work and this page does not copy it.</p>
+<p class="src">Where these figures come from: the map size, the randomised 2 \u00d7 2 km Control Zone, the Hot Zone and the three factions are Bulkhead's, from <a href="https://store.steampowered.com/news/app/1867240">WARDOGS \u2014 TOP QUESTIONS</a> of 18 February 2026 and the <a href="https://store.steampowered.com/app/1867240/WARDOGS/">Steam store page</a>; the tower and hot-zone-magnet mechanic is from <a href="https://www.pcgamesn.com/wardogs/capture-wardogs-towers">PCGamesN's tower guide</a> of 11 September 2026 and this site's own in-game reading of the tower and terminal screens of 28 September 2026; the 16 \u00d7 16 km plane, the 1 km lettered grid and the three map names are the community map projects' \u2014 <a href="https://wardogshub.gg/map/">wardogshub.gg</a>, <a href="https://wardogstools.org/">wardogstools.org</a> and <a href="https://wardogs.tools/map">wardogs.tools</a>. All read ${READ}. The location categories the filter lists are the ones the community maps track. The twelve rows on the plane are towers and nothing else: each one is placed where two or more independent projects agree, to the distance its own row states, and each location that only one project published is listed as a blank in the data file rather than drawn.</p>
 </div>
 
 ${adUnit}
