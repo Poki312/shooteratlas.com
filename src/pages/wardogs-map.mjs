@@ -38,7 +38,7 @@ const READ = "3 October 2026";
 const faqs = [
   {
     q: "How big is a WARDOGS map?",
-    a: "256 km\u00b2, and the studio's own comparison is a 2 \u00d7 2 km Control Zone randomised inside it (<a href='https://store.steampowered.com/news/app/1867240'>Bulkhead, WARDOGS \u2014 TOP QUESTIONS, Steam news</a>, 18 February 2026, and the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, both read " + READ + "). Community map projects print that as a 16 \u00d7 16 km square on a 1 km grid, letters A\u2013P across and numbers 1\u201316 down (<a href='https://wardogshub.gg/map/'>wardogshub.gg</a>, read " + READ + "). The plane on this page is that square, to scale.",
+    a: "256 km\u00b2, and the studio's own comparison is a 2 \u00d7 2 km Control Zone randomised inside it (<a href='https://store.steampowered.com/news/app/1867240'>Bulkhead, WARDOGS \u2014 TOP QUESTIONS, Steam news</a>, 18 February 2026, and the <a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, both read " + READ + "). Community map projects print that as a 16 \u00d7 16 km square on a 1 km grid, letters A\u2013P across and numbers 1\u201316 down (wardogshub.gg, read " + READ + "). The plane on this page is that square, to scale.",
   },
   {
     q: "How big is the Control Zone, on the map?",
@@ -54,7 +54,7 @@ const faqs = [
   },
   {
     q: "What are the three maps called?",
-    a: "The names in circulation are Bakurani, Ozeti and Zestafona, and they are community data-mining rather than studio material: the hub's interactive maps page carries all three at 256 km\u00b2 each (<a href='https://wardogshub.gg/map/'>wardogshub.gg</a>, read " + READ + "), and the Steam guides point at a third-party map app using the same three names. Treat them as the names the server browser prints, not as names Bulkhead has published.",
+    a: "The names in circulation are Bakurani, Ozeti and Zestafona, and they are community data-mining rather than studio material: the hub's interactive maps page carries all three at 256 km\u00b2 each (wardogshub.gg, read " + READ + "), and the Steam guides point at a third-party map app using the same three names. Treat them as the names the server browser prints, not as names Bulkhead has published.",
   },
   {
     q: "Can I use this page to give a squad a position?",
@@ -62,7 +62,7 @@ const faqs = [
   },
   {
     q: "Why are only towers on this map?",
-    a: "Because towers are the one category where at least two independent projects put the same thing in the same spot: three or four of them, agreeing to within 0.03 km. Every other category has been published by a single project, and one source is not enough to put a position on this site, so those stay blank and are listed as blanks. Each tower row carries the number of projects behind it and how far apart they are, and the whole cross-check is written up in <code>" + dataFile + "</code>.",
+    a: "Because towers are the one category where at least two projects put the same thing in the same spot: three or four of them, agreeing to within 0.03 km. Every other category has been published by a single project, and one source is not enough to put a position on this site, so those stay blank and are listed as blanks. Each tower row carries the number of projects behind it and how far apart they are, and the whole cross-check is written up in <code>" + dataFile + "</code>. One caveat, and it is a caveat rather than a finding: projects that measure something the same way every time usually share an upstream, and three of these four agree to within 23 metres, which is tighter than separate surveys of the same ground tend to land. That reads as several of them working from one calibration, most likely the game's own files. None of them says so, and this page cannot prove it either way, so treat the count of projects as a count of publications rather than a count of truly separate measurements.",
   },
 ];
 
@@ -610,7 +610,7 @@ ${DATA_TAG}
     if (!pts.length) {
       emptyEl.hidden = false;
       emptyEl.innerHTML =
-        "<p><strong>No location in this category has been recorded on this map yet.</strong> A position goes in only where at least two independent community projects place the same thing in the same spot; that is true of the towers and of nothing else so far, so every other category is blank rather than copied from the one project that published it.</p>" +
+        "<p><strong>No location in this category has been recorded on this map yet.</strong> A position goes in only where at least two community projects place the same thing in the same spot; that is true of the towers and of nothing else so far, so every other category is blank rather than copied from the one project that published it.</p>" +
         "<p style=\\"margin:.5rem 0 0\\">Still to read, on every map:</p><ul>" +
         DATA.notYetRecorded.map(function (n) { return "<li>" + n + "</li>"; }).join("") +
         "</ul>" +
@@ -759,7 +759,7 @@ ${DATA_TAG}
 
 <h2>Reading the grid reference</h2>
 
-<p>The grid is the one the community map projects print, and the tool on this page draws it from the same two numbers: 16 km a side, 1 km cells, so 16 columns lettered A\u2013P and 16 rows numbered 1\u201316 (<a href="https://wardogshub.gg/map/">wardogshub.gg interactive maps</a>, read ${READ}). Columns run west to east. Rows run down the page here, 1 at the north edge \u2014 and that direction is the one thing on this page that is a convention of ours rather than a reading, because no source we could read says which way the game numbers them. It is written down in the data file so the next reader can correct it in one line.</p>
+<p>The grid is the one the community map projects print, and the tool on this page draws it from the same two numbers: 16 km a side, 1 km cells, so 16 columns lettered A\u2013P and 16 rows numbered 1\u201316 (wardogshub.gg interactive maps, read ${READ}). Columns run west to east. Rows run down the page here, 1 at the north edge \u2014 and that direction is the one thing on this page that is a convention of ours rather than a reading, because no source we could read says which way the game numbers them. It is written down in the data file so the next reader can correct it in one line.</p>
 
 <p>A reference is a cell plus an offset, and the offsets are what you actually say out loud: <em>\u201cthe yard in H7, four kilometres east of the west edge\u201d</em>. The copy button puts the whole line on the clipboard with the page's address, so a paste into a squad chat arrives with both halves.</p>
 
@@ -770,7 +770,7 @@ ${DATA_TAG}
 <div class="qa">
 <h2>Common questions</h2>
 ${faqHtml}
-<p class="src">Where these figures come from: the map size, the randomised 2 \u00d7 2 km Control Zone, the Hot Zone and the three factions are Bulkhead's, from <a href="https://store.steampowered.com/news/app/1867240">WARDOGS \u2014 TOP QUESTIONS</a> of 18 February 2026 and the <a href="https://store.steampowered.com/app/1867240/WARDOGS/">Steam store page</a>; the tower and hot-zone-magnet mechanic is from <a href="https://www.pcgamesn.com/wardogs/capture-wardogs-towers">PCGamesN's tower guide</a> of 11 September 2026 and this site's own in-game reading of the tower and terminal screens of 28 September 2026; the 16 \u00d7 16 km plane, the 1 km lettered grid and the three map names are the community map projects' \u2014 <a href="https://wardogshub.gg/map/">wardogshub.gg</a>, <a href="https://wardogstools.org/">wardogstools.org</a> and <a href="https://wardogs.tools/map">wardogs.tools</a>. All read ${READ}. The location categories the filter lists are the ones the community maps track. The twelve rows on the plane are towers and nothing else: each one is placed where two or more independent projects agree, to the distance its own row states, and each location that only one project published is listed as a blank in the data file rather than drawn.</p>
+<p class="src">Where these figures come from: the map size, the randomised 2 \u00d7 2 km Control Zone, the Hot Zone and the three factions are Bulkhead's, from <a href="https://store.steampowered.com/news/app/1867240">WARDOGS \u2014 TOP QUESTIONS</a> of 18 February 2026 and the <a href="https://store.steampowered.com/app/1867240/WARDOGS/">Steam store page</a>; the tower and hot-zone-magnet mechanic is from <a href="https://www.pcgamesn.com/wardogs/capture-wardogs-towers">PCGamesN's tower guide</a> of 11 September 2026 and this site's own in-game reading of the tower and terminal screens of 28 September 2026; the 16 \u00d7 16 km plane, the 1 km lettered grid and the three map names are the community map projects' \u2014 wardogshub.gg, wardogstools.org and wardogs.tools. All read ${READ}. The location categories the filter lists are the ones the community maps track. The twelve rows on the plane are towers and nothing else: each one is placed where two or more projects agree, to the distance its own row states, and each location that only one project published is listed as a blank in the data file rather than drawn.</p>
 </div>
 
 ${adUnit}
