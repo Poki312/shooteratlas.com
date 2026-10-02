@@ -141,12 +141,12 @@ export const page = {
 <p>This site sorts every conclusion into one of three buckets. On this page the buckets matter more than usual, because the underlying pages no longer exist on the live web and a reader ought to know exactly how thin the ground is.</p>
 <div class="matrix-scroll" role="region" tabindex="0" aria-labelledby="layers-caption">
 <table class="matrix">
-<caption id="layers-caption">Every claim on this page, sorted. Read 29 September 2026.</caption>
+<caption id="layers-caption">Every claim on this page, sorted. Read 29 September and 2 October 2026.</caption>
 <thead><tr><th scope="col">Layer</th><th scope="col">What is in it</th></tr></thead>
 <tbody>
-<tr><td>Confirmed by the studio</td><td class="wrap-cell">The map formula (figure-eights with Call of Duty-style verticality, sized for close quarters). The refusal to make unlocks the measure of skill. The post-playtest change list, including the performance-first trade-off and the 144 fps / 300+ frame figures for the show build. Every line of the alpha v0.2 table, and the fact that the test agreement was still in force. All of it is the studio's own published text, captured in the archive in 2017.</td></tr>
+<tr><td>Confirmed by the studio</td><td class="wrap-cell">The map formula (figure-eights with Call of Duty-style verticality, sized for close quarters). The refusal to make unlocks the measure of skill. The post-playtest change list, including the performance-first trade-off and the 144 fps / 300+ frame figures for the show build. Every line of the alpha v0.2 table, and the fact that the test agreement was still in force. All of it is the studio's own published text, captured in the archive in 2017. Read on 2 October 2026 and added here: the death heat map and the reading the studio took from it; the decision to skip minor weekly updates and never to announce the Beta or Early Access dates before they were fixed; the admission that the alpha ran too many local and LAN tests and not enough online ones, with the netcode handover that followed; the E3 week and the ESL One Cologne invitation, with the competitive aim in the studio's own words; and The War Torn System, its rank-tied wear, the art rule about reference images and the studio's own \"Rendered in game engine Unreal Engine 4\" line.</td></tr>
 <tr><td>Observed, not officially confirmed</td><td class="wrap-cell">That these rules carried over into WARDOGS. The studio has never said so, and the connection is our reading of two sets of its own material placed side by side. The WARDOGS facts used for that comparison are separately sourced: the double gate on weapons, and the three free rifles sitting at the bottom of the roster.</td></tr>
-<tr><td>Not yet confirmed</td><td class="wrap-cell">What the shipped version of Battalion 1944 finally played like, and whether the 2017 intent survived to release. Nothing in the material we could read covers the period after July 2017.</td></tr>
+<tr><td>Not yet confirmed</td><td class="wrap-cell">What the shipped version of Battalion 1944 finally played like, and whether the 2017 intent survived to release. The design notes read here stop in July 2017, and the only later document in this record &mdash; the May 2019 pre-release showcase on the launch page &mdash; describes what the build contained rather than how it played.</td></tr>
 </tbody>
 </table>
 </div>
@@ -158,7 +158,7 @@ export const page = {
 <li><strong>Any measured result of the alpha v0.2 changes.</strong> No retention figure, no duel-win statistic, no before-and-after gameplay measurement appears in the notes.</li>
 <li><strong>Whether the 2017 design formula reached the released build.</strong> The notes describe intent during an invitation-only test; no later document we could read says what survived.</li>
 <li><strong>A public explanation of the changes.</strong> The alpha note was written for testers under an agreement that barred publishing outside the studio's own channels, so the reasoning above exists only in that captured page.</li>
-<li><strong>The publisher and the funding structure.</strong> The 2017 pages we could read describe the game and not the business around it.</li>
+<li><strong>The publisher and the funding structure.</strong> The design pages read here describe the game rather than the business around it; that half of the record is on <a href='/wardogs-battalion-1944-launch'>the launch page</a>, which carries the Kickstarter totals, the studio's own £100,000 pledge and the Square Enix Collective partnership.</li>
 </ul>
 
 <h2>Why this page is not on the three WARDOGS sites</h2>
