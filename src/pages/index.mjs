@@ -12,7 +12,7 @@ export const page = {
   path: "/",
   title: "Tactical shooters, sourced and dated — Shooter Atlas",
   description:
-    "Shooter Atlas covers 100-player, three-team tactical shooters: how a match is scored, what weapons and vehicles cost, what gates them, and which platforms are actually supported. One game per page.",
+    "Shooter Atlas documents large-scale tactical shooters one page at a time, with every figure carrying its source and the date it was read.",
   extraHead:
     "<meta name='impact-site-verification' value='d4f89c0e-f51b-4811-8db0-8aaa955f9dde'>" +
     "\n<meta name='awin-verification' content='Awin'>" +
@@ -25,18 +25,18 @@ export const page = {
 <p class="lede">Large-scale tactical shooters, where every figure carries its source and the date it was read.</p>
 </div>
 <aside class="spec" aria-label="At a glance">
-<div class="spec-head"><span>At a glance</span><span>v2026.09</span></div>
+<div class="spec-head"><span>At a glance</span><span>v2026.10</span></div>
 <div class="spec-grid">
-<div><span class="stat-n">2</span><span class="stat-k">games documented</span></div>
-<div><span class="stat-n">100</span><span class="stat-k">players per match</span></div>
-<div><span class="stat-n">3</span><span class="stat-k">factions, one objective</span></div>
-<div><span class="stat-n">17</span><span class="stat-k">pages published</span></div>
+<div><span class="stat-n">3</span><span class="stat-k">games documented</span></div>
+<div><span class="stat-n">1</span><span class="stat-k">page type, every game</span></div>
+<div><span class="stat-n">2</span><span class="stat-k">games, one page type each</span></div>
+<div><span class="stat-n">{{CONTENT_PAGES}}</span><span class="stat-k">pages published</span></div>
 </div>
 </aside>
 </div>
 
 <h2>Pages</h2>
-<p>Player counts, store prices, achievement rarity, review sentiment and the developer's own answers. One game per page, and the same questions in the same order on every one.</p>
+<p>One page per game, the same questions in the same order on every one, and every figure with its source and the date it was read.</p>
 <div class="filter">
 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5l5 5"/></svg>
 <label class="sr-only" for="page-filter">Filter pages</label>
@@ -47,6 +47,7 @@ export const page = {
 <table class="matrix" id="pages-table">
 <thead><tr><th scope="col">Page</th><th scope="col">What it answers</th><th scope="col" class="num">Read on</th></tr></thead>
 <tbody>
+<tr data-terms="foxhole player count concurrent players steam charts peak online how many players shards war persistent queue population live"><td><a href="/foxhole-player-count">Foxhole player count</a></td><td class="wrap-cell">1,774 accounts open on Steam, the two all-time peaks that disagree by 213, and the war the game publishes instead of a count of who is in it.</td><td class="num">3 Oct 2026</td></tr>
 <tr data-terms="squad player count concurrent players steam charts peak online how many players server browser queue population live"><td><a href="/squad-player-count">Squad player count</a></td><td class="wrap-cell">10,302 accounts open on Steam, the two all-time peaks that disagree by 39, and why nobody can print the count of players actually on a map.</td><td class="num">3 Oct 2026</td></tr>
 <tr data-terms="wardogs overview match scoring economy platforms kit loadout"><td><a href="/wardogs">WARDOGS</a></td><td class="wrap-cell">How a match is scored, what kit costs, what gates it, and what runs it.</td><td class="num">28 Sep 2026</td></tr>
 <tr data-terms="price region steam store japan korea brazil currency premium supporter"><td><a href="/wardogs-price">Price by region</a></td><td class="wrap-cell">What Steam charges in eight countries, and the premium each one carries on the Supporter Edition.</td><td class="num">29 Sep 2026</td></tr>
@@ -65,11 +66,11 @@ export const page = {
 </tbody>
 </table>
 </div>
-<p class="data-foot">Every page carries the source link and the date each figure was read. Nothing here is a live value, and nothing is a round number invented to fill a cell.</p>
+<p class="data-foot">Every page carries the source link and the date each figure was read. Nothing here is a live value: every reading carries the minute it was taken, and nothing is a round number invented to fill a cell.</p>
 </div>
-<p>Two more pages go with that list. <a href="/wardogs-discord">The WARDOGS Discord page</a> reads the official server's member and online counts from Discord's own invite endpoint, and <a href="/wardogs-towers">the WARDOGS towers page</a> lists the twelve tower positions across the three maps, each cross-checked between three or four community projects.</p>
+<p>Two more WARDOGS pages go with that list. <a href="/wardogs-discord">The WARDOGS Discord page</a> reads the official server's member and online counts from Discord's own invite endpoint, and <a href="/wardogs-towers">the WARDOGS towers page</a> lists the twelve tower positions across the three maps, each cross-checked between three or four community projects.</p>
 <h2>What this site is</h2>
-<p>One page per game, and the same questions answered in the same order on every page, so two games can be compared without re-learning a layout:</p>
+<p>Every game gets the same pages in the same order, so two games can be compared without re-learning a layout. The WARDOGS set answers:</p>
 <ul>
 <li>How a match is scored, and what actually moves the objective.</li>
 <li>What each weapon and vehicle costs, and which gate you pass before you are allowed to buy it.</li>
@@ -78,22 +79,22 @@ export const page = {
 </ul>
 
 <h2>Who it is for</h2>
-<p>Two readers. The first is a player deciding what to buy and how to spend the first hours in a game where the starter kit is deliberately weak and travelling back to the fight costs real money. The second is a squad lead who needs the numbers on one screen while the rest of the team is still loading in.</p>
+<p>Two readers. The first is a player deciding what to buy and how to spend the first hours in a game like WARDOGS, where the starter kit is deliberately weak and travelling back to the fight costs real money. The second is a squad lead who needs the numbers on one screen while the rest of the team is still loading in.</p>
 <p>Both of them want the same thing: the figure, where it came from, and whether it still holds after the last patch.</p>
 
-<h2>What the first page will do</h2>
-<p>The first page covers WARDOGS, and it is live. It will open with the two things a new player hits immediately: how the 2&nbsp;km&nbsp;&times;&nbsp;2&nbsp;km Control Zone scores, and how the smaller Hot Zone inside it doubles both cash and count. From there it goes through the vendor list &mdash; what each rifle and vehicle costs, what class level and one-off unlock fee stands in front of it, and why the cheapest shopping window in the game is also the window in which nothing worth buying is unlocked. It closes on the platform questions people ask before paying: which storefront, which hardware, and what the anti-cheat rules out.</p>
+<h2>What the WARDOGS pages cover</h2>
+<p>The WARDOGS hub opens with the two things a new player hits immediately: how the 2&nbsp;km&nbsp;&times;&nbsp;2&nbsp;km Control Zone scores, and how the smaller Hot Zone inside it doubles both cash and count. From there it goes through the vendor list &mdash; what each rifle and vehicle costs, what class level and one-off unlock fee stands in front of it, and why the cheapest shopping window in the game is also the window in which nothing worth buying is unlocked. It closes on the platform questions people ask before paying: which storefront, which hardware, and what the anti-cheat rules out.</p>
 
 <h2>How the numbers here get checked</h2>
 <ul>
 <li>Official material first: store pages, patch notes, developer posts. Those are quoted as they are written.</li>
-<li>Figures that exist only inside the game are captured from the vendor screen and stamped with the patch they were read from.</li>
+<li>Figures that exist only inside the game are captured in the game itself and stamped with the build they were read from.</li>
 <li>Anything the studio has never published is labelled as reported rather than confirmed.</li>
 <li>What cannot be sourced does not go on the page. There is no filler figure and no round number invented to fill a table cell.</li>
 </ul>
 <p>The result is a site that is slower to fill up than a news blog, and that is the point: a number you cannot trace back is worse than a blank space.</p>
 
-<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/home-light.png"><img src="/assets/img/home.png" width="1200" height="630" alt="Shooter Atlas card: one game per page, 100 players per match, three teams"></picture><figcaption>Drawn for this page, dark or light to match. Figures as read on 28 September 2026.</figcaption></figure>
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/home-light.png"><img src="/assets/img/home.png" width="1200" height="630" alt="Shooter Atlas card: 2 games documented, 1 page type, 20 pages published"></picture><figcaption>Drawn for this page, dark or light to match. Figures as read on 3 October 2026.</figcaption></figure>
 
 ${adUnit}
 

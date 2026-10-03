@@ -83,12 +83,18 @@ async function build() {
 
   const sitemapEntries = [];
   const rendered = [];
+  // The home page's "pages published" figure is counted from this same list at
+  // build time, so adding a page updates the number and it cannot go stale.
+  // Content pages are everything a reader can open except the home page and the
+  // three site pages below it.
+  const NON_CONTENT = new Set(["/", "/about", "/privacy", "/contact"]);
+  const contentPages = pages.filter((p) => !NON_CONTENT.has(p.path)).length;
   for (const page of pages) {
     const html = layout({
       title: page.title,
       description: page.description,
       canonical: urlFor(page.path),
-      body: page.body,
+      body: page.body.replace(/\{\{CONTENT_PAGES\}\}/g, String(contentPages)),
       extraHead: page.extraHead ?? "",
       ogImage: page.ogImage ?? "",
       toc: page.toc !== false,

@@ -203,8 +203,8 @@ def build(name, eyebrow, headline, stats, path, date, theme):
 PAGES = [
     ("home", "Shooter Atlas",
      "Numbers for 100-player tactical shooters",
-     [("1", "game per page"), ("100", "players per match"), ("3", "teams")], "/",
-     "28 September 2026"),
+     [("2", "games documented"), ("1", "page type, every game"), ("20", "pages published")], "/",
+     "3 October 2026"),
     ("wardogs", "WARDOGS",
      "Scoring, prices and platform support",
      [("$10,000", "starting balance"), ("100", "players per match"), ("3", "factions")], "/wardogs",
@@ -265,6 +265,10 @@ PAGES = [
      "10,302 on Steam, 38,573 at the record",
      [("10,302", "accounts with it open"), ("38,573", "all-time peak"), ("26.7%", "of the record, calculated")],
      "/squad-player-count", "3 October 2026"),
+    ("foxhole-player-count", "FOXHOLE · Player count",
+     "1,774 on Steam, 17,451 at the record",
+     [("1,774", "accounts with it open"), ("17,451", "all-time peak"), ("10.2%", "of the record, calculated")],
+     "/foxhole-player-count", "3 October 2026"),
 ]
 
 for row in PAGES:
