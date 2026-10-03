@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "Is there an official WARDOGS Discord?",
-    a: "The studio has one, and its own posts point players at it rather than linking it: the 11 August 2026 pre-order post signs off by telling readers to \"read all discord announcements carefully\" (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, read 2 October 2026). Everything else under that name is player-run, and the threads gathered for this project on 2 October 2026 show the range: a United Kingdom server aimed at players over 30, a Singapore group recruiting squads, and a player in Australia asking whether anyone had started one (r/WarDogs and r/OfficialWARDOGS).",
+    a: "The studio has one, and its own posts point players at it rather than linking it: the 11 August 2026 pre-order post signs off by telling readers to \"read all discord announcements carefully\" (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, read 2 October 2026). Everything else under that name is player-run, and the threads gathered for this project on 2 October 2026 show the range: a United Kingdom server aimed at players over 30, a Singapore group recruiting squads, and a player in Australia asking whether anyone had started one (r/WarDogs and r/OfficialWARDOGS). The server's own member and online counts are read on <a href='/wardogs-discord'>the WARDOGS Discord page</a>.",
   },
   {
     q: "Are there regional WARDOGS groups?",

@@ -62,6 +62,7 @@ export const page = {
 </div>
 <p class="data-foot">Every page carries the source link and the date each figure was read. Nothing here is a live value, and nothing is a round number invented to fill a cell.</p>
 </div>
+<p>Two more pages go with that list. <a href="/wardogs-discord">The WARDOGS Discord page</a> reads the official server's member and online counts from Discord's own invite endpoint, and <a href="/wardogs-towers">the WARDOGS towers page</a> lists the twelve tower positions across the three maps, each cross-checked between three or four community projects.</p>
 <h2>What this site is</h2>
 <p>One page per game, and the same questions answered in the same order on every page, so two games can be compared without re-learning a layout:</p>
 <ul>

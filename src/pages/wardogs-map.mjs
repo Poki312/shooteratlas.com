@@ -738,6 +738,8 @@ ${DATA_TAG}
 
 <p>What is confirmed about locations is nothing. Bulkhead's own line is that Kolchia \u201cfeatures multiple locations and POIs\u201d, and the material read for this page names none of them, gives no count, and publishes no coordinates (read ${READ}). The location sets in circulation \u2014 60-odd named places per map, plus spawn points, vendors, garages, fuel points and ladders \u2014 were read out of the game files by community projects. The <a href="/wardogs-gameplay">gameplay page</a> already states this site's position on that: the hub's interactive map \u201cis community work and this page does not copy it.\u201d The same rule applies here, so this page ships the tool, the geometry and the categories, and takes locations from one file.</p>
 
+<p>One category is on the map as data rather than a blank, and it gets its own page: the tower positions, with the projects that agree on each one and the gap between them, are written up on <a href="/wardogs-towers">the WARDOGS towers page</a>.</p>
+
 <div class="data-block">
 <div class="data-head"><h3>The one file every location comes from</h3></div>
 <div class="matrix-scroll" role="region" tabindex="0" aria-label="Where the map page's data lives">

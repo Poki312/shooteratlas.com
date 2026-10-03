@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: "Do I have to join a Discord to play WARDOGS?",
-    a: "No. Steam is where the game is bought, launched and listed, and the servers are picked inside it. Discord is where the community organises around it, which is why the studio's own posts tell players to read its Discord announcements carefully (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, 11 August 2026, read 2 October 2026).",
+    a: "No. Steam is where the game is bought, launched and listed, and the servers are picked inside it. Discord is where the community organises around it, which is why the studio's own posts tell players to read its Discord announcements carefully (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, 11 August 2026, read 2 October 2026). The server's member count, its online count and the studio's ban policy are on <a href='/wardogs-discord'>the WARDOGS Discord page</a>.",
   },
   {
     q: "Does WARDOGS work on the Steam Deck?",
