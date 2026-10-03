@@ -77,6 +77,10 @@ async function build() {
       extraHead: page.extraHead ?? "",
       ogImage: page.ogImage ?? "",
       toc: page.toc !== false,
+      // Both are opt-in and empty for every page that does not ask for them,
+      // so the pass-through cannot change a page's output on its own.
+      bodyClass: page.bodyClass ?? "",
+      pageStyles: page.pageStyles ?? "",
     });
     // "/" -> index.html ; "/wardogs" -> wardogs.html (Pages serves /wardogs from it)
     const clean = page.path.replace(/^\//, "");

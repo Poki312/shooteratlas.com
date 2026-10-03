@@ -344,7 +344,11 @@ function contentsFor(body) {
   };
 }
 
-export function layout({ title, description, canonical, body, extraHead = "", ogImage = "", toc = true }) {
+// `bodyClass` and `pageStyles` exist so one page can be restyled on its own.
+// Both default to empty: a page that passes neither produces exactly the same
+// bytes it produced before these two knobs were added, which is what lets a
+// redesign land one page at a time instead of across the whole site at once.
+export function layout({ title, description, canonical, body, extraHead = "", ogImage = "", toc = true, bodyClass = "", pageStyles = "" }) {
   // The Markdown twin of this page. It is served when a client asks for
   // text/markdown instead of HTML; see functions/_middleware.js.
   const contents = toc ? contentsFor(body) : null;
@@ -380,9 +384,9 @@ ${socialMeta(ogImage)}
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23f0a92c'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='6.5'%20fill='none'%20stroke='%2310161d'%20stroke-width='2.4'/%3E%3Cpath%20d='M16%203.5v5M16%2023.5v5M3.5%2016h5M23.5%2016h5'%20stroke='%2310161d'%20stroke-width='2.4'%20stroke-linecap='round'/%3E%3C/svg%3E">
 ${extraHead}
 ${THEME_INIT}
-<style>${STYLES}</style>
+<style>${STYLES}</style>${pageStyles ? `\n<style>${pageStyles}</style>` : ""}
 </head>
-<body>
+<body${bodyClass ? ` class="${bodyClass}"` : ""}>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head"><div class="wrap site-head-in">
 <div class="brand-block">

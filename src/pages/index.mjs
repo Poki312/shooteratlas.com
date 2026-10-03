@@ -1,8 +1,15 @@
 import { adUnit } from "../ad.mjs";
+import { homeStyles } from "../home-restyle.mjs";
 
 export const page = {
   // The home page is not an article: it has no contents rail.
   toc: false,
+  // The 2026-10-03 restyle is scoped to this one page, so it is handed to the
+  // shell as a body class plus a stylesheet rather than edited into the shared
+  // one. Remove these two lines and the page is back to the old skin; nothing
+  // else on the site was touched to put it here.
+  bodyClass: "v2-home",
+  pageStyles: homeStyles,
   ogImage: "https://shooteratlas.com/assets/img/home.png",
   source: "src/pages/index.mjs",
   path: "/",
