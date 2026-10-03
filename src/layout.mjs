@@ -393,9 +393,11 @@ ${THEME_INIT}
 <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><svg class="mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="16" cy="16" r="6.5"/><path d="M16 3.5v5M16 23.5v5M3.5 16h5M23.5 16h5"/></svg></span><span class="brand-text"><span class="brand-name">Shooter Atlas</span><span class="tagline">Numbers for large-scale tactical shooters</span></span></a>
 </div>
 <nav class="site-head-nav" aria-label="Site">
-<a href="/wardogs">Wardogs</a>
-<a href="/about">About</a>
-<a href="/contact">Contact</a>
+<a href="/wardogs">WARDOGS</a>
+<a href="/wardogs-release-date">Release date</a>
+<a href="/wardogs-price">Price by region</a>
+<a href="/wardogs-gameplay">Gameplay and modes</a>
+<a href="/wardogs-player-count">Player count</a>
 <button class="theme-btn" id="theme-toggle" type="button" aria-label="Switch colour theme"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"/></svg></button>
 </nav>
 </div></header>
