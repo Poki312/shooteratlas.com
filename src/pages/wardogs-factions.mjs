@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     q: "Which WARDOGS faction wins most often?",
-    a: "No per-faction win rate has been published anywhere, by the studio or by Valve. The one public statement we can point at is second-hand: the community hub attributes a 17 September 2026 remark to the studio's chief executive giving the order green, then red, then blue, with blue's problem described as having \"mixed reasons\" (<a href='https://wardogshub.gg/factions/'>hub factions page</a>, read 2 October 2026). We could not re-read the original today, because Reddit refused this machine on 2 October 2026, so treat the order as reported rather than confirmed.",
+    a: "No per-faction win rate has been published anywhere, by the studio or by Valve. The one public statement we can point at is second-hand: the community hub attributes a 17 September 2026 remark to the studio's chief executive giving the order green, then red, then blue, with blue's problem described as having \"mixed reasons\" (hub factions page, read 2 October 2026). We could not re-read the original today, because Reddit refused this machine on 2 October 2026, so treat the order as reported rather than confirmed.",
   },
   {
     q: "What are the faction skins on the starter rifles?",
@@ -119,7 +119,7 @@ export const page = {
 
 <p>Those three rifles are the ones every player starts with for nothing, which makes the pairing the closest thing to a faction identity the game ships: LONESTAR on the Bushmaster, VALKYRA on the A-91, MANTICORE on the KH-2002. The same announcement lists the skins as granted content rather than priced content, alongside a helicopter livery, a scoreboard icon and two bobbleheads, and states the studio's position in its own words: "We will NEVER allow you to directly purchase camos" (read 2 October 2026).</p>
 
-<p class="src">One correction to how this is usually catalogued. The community hub lists all three as "Faction Logo" skins — the name it reads from the item itself — without naming which faction's logo belongs to which rifle (<a href="https://wardogshub.gg/skins/">hub skins page</a>, read 2 October 2026). The mapping above is the studio's own wording from the announcement, not our reading of an emblem.</p>
+<p class="src">One correction to how this is usually catalogued. The community hub lists all three as "Faction Logo" skins — the name it reads from the item itself — without naming which faction's logo belongs to which rifle (hub skins page, read 2 October 2026). The mapping above is the studio's own wording from the announcement, not our reading of an emblem.</p>
 
 <h2>What the game does not say about factions</h2>
 
@@ -135,9 +135,9 @@ export const page = {
 <h2>Who else covers the three factions</h2>
 
 <ul>
-<li><strong>wardogs.site</strong> — nothing. The field guide runs nine pages in each of three languages, covering gameplay, classes, system requirements, release date, price and the September beta, and none of them models the factions (<a href="https://wardogs.site/">site map</a>, read 2 October 2026).</li>
-<li><strong>wardogs.wiki</strong> — nothing. Searching it for "faction" returns zero results and its factions category holds no entries at all (<a href="https://wardogs.wiki/api.php?action=query&amp;list=search&amp;srsearch=faction&amp;format=json">MediaWiki API</a>, read 2 October 2026). Of everything on this site's list, this is the purest blank: the category exists and is empty.</li>
-<li><strong>wardogshub.gg</strong> — the deepest coverage, and worth crediting. It carries a full factions page with the same three names, the studio's identities paraphrased, an attribution of the 17 September win-rate remark to the studio's chief executive, and a set of players' explanations for one team losing so often, marked as unconfirmed on the page itself. It is also honest about the one thing that matters: that no mechanical difference between the factions has ever been announced (<a href="https://wardogshub.gg/factions/">hub factions page</a>, read 2 October 2026). The one thing it does not carry is the mapping from each faction to the starter rifle that already wears its name.</li>
+<li><strong>wardogs.site</strong> — nothing. The field guide runs nine pages in each of three languages, covering gameplay, classes, system requirements, release date, price and the September beta, and none of them models the factions (site map, read 2 October 2026).</li>
+<li><strong>wardogs.wiki</strong> — nothing. Searching it for "faction" returns zero results and its factions category holds no entries at all (MediaWiki API, read 2 October 2026). Of everything on this site's list, this is the purest blank: the category exists and is empty.</li>
+<li><strong>wardogshub.gg</strong> — the deepest coverage, and worth crediting. It carries a full factions page with the same three names, the studio's identities paraphrased, an attribution of the 17 September win-rate remark to the studio's chief executive, and a set of players' explanations for one team losing so often, marked as unconfirmed on the page itself. It is also honest about the one thing that matters: that no mechanical difference between the factions has ever been announced (hub factions page, read 2 October 2026). The one thing it does not carry is the mapping from each faction to the starter rifle that already wears its name.</li>
 <li><strong>Reddit</strong> — where the faction arguments actually happen, and unreadable from this machine on 2 October 2026 (HTTP 403). The faction threads quoted on this site are the ones read on 28 September 2026 and dated that way where they appear.</li>
 </ul>
 
@@ -169,7 +169,7 @@ export const page = {
 <div class="qa">
 <h2>Common questions</h2>
 ${faqHtml}
-<p class="src">Where these figures come from: the studio's own Steam news posts of <a href="https://store.steampowered.com/news/app/1867240">18 February 2026 and 11 August 2026</a> for the faction names, identities, match shape, squad sizes and branded skins, all read on 2 October 2026; the <a href="https://wardogs.wiki/api.php?action=query&amp;list=search&amp;srsearch=faction&amp;format=json">wardogs.wiki API</a> and the <a href="https://wardogs.site/">wardogs.site map</a> for what the two other reference sites hold, read 2 October 2026; and the <a href="https://wardogshub.gg/factions/">wardogshub.gg factions page</a> for the second-hand win-rate remark and the players' explanations, read 2 October 2026 and labelled as reported wherever it appears.</p>
+<p class="src">Where these figures come from: the studio's own Steam news posts of <a href="https://store.steampowered.com/news/app/1867240">18 February 2026 and 11 August 2026</a> for the faction names, identities, match shape, squad sizes and branded skins, all read on 2 October 2026; the wardogs.wiki API and the wardogs.site map for what the two other reference sites hold, read 2 October 2026; and the wardogshub.gg factions page for the second-hand win-rate remark and the players' explanations, read 2 October 2026 and labelled as reported wherever it appears.</p>
 </div>
 
 ${adUnit}

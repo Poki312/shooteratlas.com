@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: "Do the other WARDOGS sites publish a spec sheet like this?",
-    a: "No. wardogs.site's six content pages contain the words genre, controller, gamepad and VR zero times between them; wardogs.wiki's search API returns zero results for genre, controller, VR and platform across the whole wiki (<a href='https://wardogs.wiki/'>wardogs.wiki</a> API, read 30 September 2026). wardogshub.gg is the exception in one direction only: it has a controller explainer of its own, and this page does not repeat its contents.",
+    a: "No. wardogs.site's six content pages contain the words genre, controller, gamepad and VR zero times between them; wardogs.wiki's search API returns zero results for genre, controller, VR and platform across the whole wiki (wardogs.wiki API, read 30 September 2026). wardogshub.gg is the exception in one direction only: it has a controller explainer of its own, and this page does not repeat its contents.",
   },
   {
     q: "Why does this page correct its own headline?",
@@ -134,7 +134,7 @@ export const page = {
 <p>The store page carries no controller category. Both strings that Valve uses for this, "Full Controller Support" and "Partial Controller Support", appear <strong>zero times</strong> in the page we read, and no entry in the eight categories above is a controller entry (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 30 September 2026).</p>
 <p>The page's hidden hardware block, which is not rendered to readers, says something narrower than either support label:</p>
 <blockquote>bSteamInputAPISupport: false, bNoKeyboardSupport: false, bGamepadPreferred: false, bControllerSupportWizardComplete: true, bHasXbox: null, bHasPS4: null, bHasPS5: null, bHasOther: false</blockquote>
-<p>Decoded: a controller-configuration wizard was completed, the game is not marked as gamepad-preferred, no controller family is claimed, and Steam Input API support is off. A completed wizard is not the same claim as "the game supports a pad", and Steam never prints one here. Whether a pad works in practice is a question Valve's surfaces do not answer; the studio's own statements are the place to look, and <a href='https://wardogshub.gg/blog/wardogs-controller-support/'>wardogshub.gg has an explainer</a> that collects them (page dated 5 August 2026, updated 23 September 2026, read 30 September 2026). This page does not repeat that site's contents.</p>
+<p>Decoded: a controller-configuration wizard was completed, the game is not marked as gamepad-preferred, no controller family is claimed, and Steam Input API support is off. A completed wizard is not the same claim as "the game supports a pad", and Steam never prints one here. Whether a pad works in practice is a question Valve's surfaces do not answer; the studio's own statements are the place to look, and wardogshub.gg has an explainer that collects them (page dated 5 August 2026, updated 23 September 2026, read 30 September 2026). This page does not repeat that site's contents.</p>
 
 <h2>No VR, on either surface</h2>
 <p>"VR Supported", "VR Only" and "VR Support" each appear zero times in the store page we read, and the API returns no VR category (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 30 September 2026). This page prints that as an absence, not as a promise about the future: nothing in either Valve surface mentions VR work, and nothing in the studio's Steam feed does either.</p>

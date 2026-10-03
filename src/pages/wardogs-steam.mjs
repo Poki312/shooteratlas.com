@@ -45,11 +45,11 @@ const faqs = [
   },
   {
     q: "Is there a WARDOGS wiki?",
-    a: "Yes, and it is a database rather than a guide site: wardogs.wiki describes itself as documenting 400 items in the fourteen languages the game ships, and its pages are item cards carrying prices, unlock levels and statistics (<a href='https://wardogs.wiki/'>wardogs.wiki</a>, read 2 October 2026). It publishes no editorial pages, and nothing on this site is taken from it.",
+    a: "Yes, and it is a database rather than a guide site: wardogs.wiki describes itself as documenting 400 items in the fourteen languages the game ships, and its pages are item cards carrying prices, unlock levels and statistics (wardogs.wiki, read 2 October 2026). It publishes no editorial pages, and nothing on this site is taken from it.",
   },
   {
     q: "Does the WARDOGS wiki have guides or maps?",
-    a: "No. Asked for its category contents on 2 October 2026, wardogs.wiki reports zero members for Guides, Maps, Mechanics, Game modes and Factions — the subject areas a guide site would start from — while Weapons holds 44 entries (<a href='https://wardogs.wiki/api.php?action=query&amp;prop=categoryinfo&amp;titles=Category:Guides%7CCategory:Maps%7CCategory:Mechanics%7CCategory:Game%20modes%7CCategory:Factions%7CCategory:Weapons&amp;format=json'>MediaWiki API</a>, read 2 October 2026). Guides and tools for this game exist on the third-party hub instead, and this page does not copy them.",
+    a: "No. Asked for its category contents on 2 October 2026, wardogs.wiki reports zero members for Guides, Maps, Mechanics, Game modes and Factions — the subject areas a guide site would start from — while Weapons holds 44 entries (MediaWiki API, read 2 October 2026). Guides and tools for this game exist on the third-party hub instead, and this page does not copy them.",
   },
   {
     q: "Does WARDOGS stream on Twitch?",
@@ -108,7 +108,7 @@ export const page = {
   extraHead: "<script type='application/ld+json'>" + JSON.stringify(schema) + "</script>",
   body: `<h1>WARDOGS Steam: 160,481 players at once, and what the store page states</h1>
 
-<p class="lede">160,481 accounts had WARDOGS open on Steam at 00:03 UTC on 2 October 2026. That is Valve's own number, out of the Steam Web API for app 1867240 (<a href="https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1867240">GetNumberOfCurrentPlayers</a>, read 2 October 2026). Two minutes later a third-party tracker reading the same endpoint printed 160,133 (<a href="https://wardogshub.gg/player-count/">wardogshub.gg</a>, read 2 October 2026). Both are snapshots of a number that moves all day.</p>
+<p class="lede">160,481 accounts had WARDOGS open on Steam at 00:03 UTC on 2 October 2026. That is Valve's own number, out of the Steam Web API for app 1867240 (<a href="https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1867240">GetNumberOfCurrentPlayers</a>, read 2 October 2026). Two minutes later a third-party tracker reading the same endpoint printed 160,133 (wardogshub.gg, read 2 October 2026). Both are snapshots of a number that moves all day.</p>
 
 <p>How to read this page. Where a figure is live, the line under it names the interface it came from and the minute it was read. Where it comes out of Valve's own listing, it says so. Nothing here is averaged, nothing is rounded to a friendlier figure, and where nobody has published something, the page says that instead of filling the hole. The live number is a reading, not a live value: it was true at 00:03 UTC and it is history by the time you read this.</p>
 
@@ -175,9 +175,9 @@ export const page = {
 <p>Five places show up when you go looking for these figures, and they are not interchangeable.</p>
 
 <ul>
-<li><strong>wardogs.site</strong> — the field guide. Twenty-seven URLs, which is nine pages in each of three languages, and the pages are the game at a system level: gameplay, classes, system requirements, release date, price, the September beta (<a href="https://wardogs.site/">site map</a>, read 2 October 2026). There is no player-count page and nothing that follows the listing.</li>
-<li><strong>wardogs.wiki</strong> — the item database. Searching it for "steam", "players" and "concurrent" returns zero results, and the factions category holds no entries (<a href="https://wardogs.wiki/api.php?action=query&amp;list=search&amp;srsearch=steam&amp;format=json">MediaWiki API</a>, read 2 October 2026). A live figure has nowhere to live in a catalogue of items.</li>
-<li><strong>wardogshub.gg</strong> — the one that reads the number for itself and keeps a record. Its player-count page hits Valve's endpoint on every load and files the results: an Early Access peak of 428,666 at 19:44 UTC on 13 September 2026, plus two beta peaks on a separate app. It labels each figure and dates it. Its 00:05 UTC reading on 2 October was 160,133, two minutes after ours (<a href="https://wardogshub.gg/player-count/">hub player count</a>, read 2 October 2026).</li>
+<li><strong>wardogs.site</strong> — the field guide. Twenty-seven URLs, which is nine pages in each of three languages, and the pages are the game at a system level: gameplay, classes, system requirements, release date, price, the September beta (site map, read 2 October 2026). There is no player-count page and nothing that follows the listing.</li>
+<li><strong>wardogs.wiki</strong> — the item database. Searching it for "steam", "players" and "concurrent" returns zero results, and the factions category holds no entries (MediaWiki API, read 2 October 2026). A live figure has nowhere to live in a catalogue of items.</li>
+<li><strong>wardogshub.gg</strong> — the one that reads the number for itself and keeps a record. Its player-count page hits Valve's endpoint on every load and files the results: an Early Access peak of 428,666 at 19:44 UTC on 13 September 2026, plus two beta peaks on a separate app. It labels each figure and dates it. Its 00:05 UTC reading on 2 October was 160,133, two minutes after ours (hub player count, read 2 October 2026).</li>
 <li><strong>SteamDB</strong> — third-party charts, and the origin of the 428,666 peak that most coverage quotes. Its chart pages could not be read from this machine on 2 October 2026: the site requires a sign-in and returns an access restriction for this network. What can be read is that Valve's own feed for this game republishes it — 8 of the 61 posts are SteamDB posts, including the 13 September one announcing the peak (<a href="https://store.steampowered.com/news/app/1867240">official Steam news</a>, read 2 October 2026).</li>
 <li><strong>Reddit</strong> — where the players are and where none of the numbers are. r/WarDogs answered this machine with HTTP 403 on 2 October 2026, so the threads quoted on this site are the ones read on 28 September 2026 and are dated that way where they appear. The sentiment can only be quoted in words: under the returning-player thread of 30 September 2026, the most-upvoted reply treats the coming wave of teardown videos as a genre rather than a forecast (read 28 September 2026).</li>
 </ul>

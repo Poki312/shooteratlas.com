@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     q: "Does WARDOGS work on GeForce NOW?",
-    a: "Not confirmed anywhere official. The third-party hub reports that NVIDIA announced the game for GeForce NOW on 10 September 2026 and then could not ship it, and it advises treating any listing dated before 11 September 2026 as the announcement rather than the outcome (reported, not confirmed; <a href='https://wardogshub.gg/anti-cheat/'>wardogshub.gg</a>, read 2 October 2026). Neither the studio nor Valve publishes a statement on it, and no new date appears in the material read for this page.",
+    a: "Not confirmed anywhere official. The third-party hub reports that NVIDIA announced the game for GeForce NOW on 10 September 2026 and then could not ship it, and it advises treating any listing dated before 11 September 2026 as the announcement rather than the outcome (reported, not confirmed; wardogshub.gg, read 2 October 2026). Neither the studio nor Valve publishes a statement on it, and no new date appears in the material read for this page.",
   },
 ];
 
@@ -121,9 +121,9 @@ export const page = {
 <h2>What the three WARDOGS sites carry, and what this page adds</h2>
 <p>All three were swept page by page on 1 October 2026, every URL each site lists in its own sitemap, fetched and searched:</p>
 <ul>
-<li><strong>wardogshub.gg</strong> is the only one of the three with a real article on this, published 26 September 2026 and updated the next day; its answer matches ours &mdash; no, and refund if you bought for Linux. Where it stops is the badge: it says the store "shows no Deck rating that we can see". Valve does return a result, and the three tokens are printed above (<a href='https://wardogshub.gg/blog/does-wardogs-work-on-linux-steam-deck/'>wardogshub.gg</a>, read 1 October 2026).</li>
-<li><strong>wardogs.site</strong> covers it in one place: its <a href='https://wardogs.site/system-requirements/'>system requirements page</a> says Linux and the Steam Deck are not supported at launch. Three of the site's 27 pages mention Steam Deck, and none of them carries Valve's compatibility result or the studio's pinned statement (<a href='https://wardogs.site/'>wardogs.site</a>, read 1 October 2026).</li>
-<li><strong>wardogs.wiki</strong> has nothing to carry it with: it is an item database whose search API returns zero results for Linux, Proton and Steam Deck (<a href='https://wardogs.wiki/'>wardogs.wiki</a> API, read 1 October 2026).</li>
+<li><strong>wardogshub.gg</strong> is the only one of the three with a real article on this, published 26 September 2026 and updated the next day; its answer matches ours &mdash; no, and refund if you bought for Linux. Where it stops is the badge: it says the store "shows no Deck rating that we can see". Valve does return a result, and the three tokens are printed above (wardogshub.gg, read 1 October 2026).</li>
+<li><strong>wardogs.site</strong> covers it in one place: its system requirements page says Linux and the Steam Deck are not supported at launch. Three of the site's 27 pages mention Steam Deck, and none of them carries Valve's compatibility result or the studio's pinned statement (wardogs.site, read 1 October 2026).</li>
+<li><strong>wardogs.wiki</strong> has nothing to carry it with: it is an item database whose search API returns zero results for Linux, Proton and Steam Deck (wardogs.wiki API, read 1 October 2026).</li>
 </ul>
 <p>What this page adds is small and checkable: Valve's three compatibility tokens quoted from the page rather than summarised, the studio's pinned post read and dated first-hand instead of second-hand, and the separation of what is official from what is this page's reading.</p>
 
