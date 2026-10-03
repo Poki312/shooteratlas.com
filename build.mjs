@@ -21,6 +21,13 @@ import { skinStyles } from "./src/skin-20261003.mjs";
 // skin — which is why the shared shell carries it rather than each page.
 const SKIN_CLASS = "skin-20261003";
 
+// One source of truth for the skin, because the 404 is rendered outside the
+// loop below and would otherwise quietly miss it.
+const skinFor = (page) => ({
+  bodyClass: page.bodyClass ?? (page.heroType ? SKIN_CLASS + " v2-hero" : SKIN_CLASS),
+  pageStyles: page.pageStyles ?? skinStyles,
+});
+
 const SITE = (process.env.SITE_URL || "https://shooteratlas.com").replace(/\/+$/, "");
 const OUT = "dist";
 
@@ -85,8 +92,7 @@ async function build() {
       extraHead: page.extraHead ?? "",
       ogImage: page.ogImage ?? "",
       toc: page.toc !== false,
-      bodyClass: page.bodyClass ?? (page.heroType ? SKIN_CLASS + " v2-hero" : SKIN_CLASS),
-      pageStyles: page.pageStyles ?? skinStyles,
+      ...skinFor(page),
     });
     // "/" -> index.html ; "/wardogs" -> wardogs.html (Pages serves /wardogs from it)
     const clean = page.path.replace(/^\//, "");
@@ -149,6 +155,7 @@ async function build() {
     description: notFound.description,
     canonical: SITE + "/404.html",
     body: notFound.body,
+    ...skinFor(notFound),
   });
   await writeFile(path.join(OUT, "404.html"), nf, "utf8");
   console.log("page    404.html");
