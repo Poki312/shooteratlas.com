@@ -75,6 +75,19 @@ const schema = {
 
 const faqHtml = faqList(faqs);
 
+// 2026-10-04: one "Quick answers" entry added straight after the first screen, on
+// the owner's order. Content addition only — title, h1, url and the existing
+// sections are untouched. Source: the studio's own server hub page (read 3
+// October 2026), whose second invite points at a server-admins server.
+const quickAnswers = [
+  {
+    q: "Is there a second official WARDOGS Discord?",
+    a: "Yes. The studio's own server hub page carries a second invite, <code>discord.com/invite/wardogsadminhub</code>, under the heading \"JOIN THE SERVER ADMIN HUB DISCORD\" — that one is for the people running servers, and it is a separate server from the community one this page measures (<a href=\"https://www.wardogs.com/serverhub\">studio server hub page</a>, read 3 October 2026).",
+  },
+];
+
+const quickHtml = faqList(quickAnswers);
+
 import { adUnit } from "../ad.mjs";
 import { faqList } from "../faq.mjs";
 
@@ -99,6 +112,10 @@ export const page = {
 <div><span class="stat-n">49</span><span class="stat-k">distinct Discord invites on the community server list, read 3 October 2026</span><span class="stat-src"><span class="src-chip src-third">hub</span></span></div>
 <div><span class="stat-n">48</span><span class="stat-k">members in the wiki's own server, read 3 October 2026</span><span class="stat-src"><span class="src-chip src-third">Discord</span></span></div>
 </div>
+
+<h2>Quick answers</h2>
+
+${quickHtml}
 
 <h2>The official server, in Discord's own fields</h2>
 

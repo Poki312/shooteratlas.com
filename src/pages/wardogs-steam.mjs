@@ -96,6 +96,19 @@ const schema = {
 
 const faqHtml = faqList(faqs);
 
+// 2026-10-04: one "Quick answers" entry added straight after the first screen, on
+// the owner's order. Content addition only — title, h1, url and the existing
+// sections are untouched. Source: the studio's own server hub page (read 3
+// October 2026), which lists the hosting partners it approves.
+const quickAnswers = [
+  {
+    q: "Can you rent your own WARDOGS server?",
+    a: "Yes. The studio's server hub page lists the hosting partners it approves — two of them, Bisect Hosting and xREALM, each with a WARDOGS-specific hosting page of its own (<a href=\"https://www.wardogs.com/serverhub\">studio server hub page</a>, read 3 October 2026).",
+  },
+];
+
+const quickHtml = faqList(quickAnswers);
+
 import { adUnit } from "../ad.mjs";
 import { faqList } from "../faq.mjs";
 
@@ -120,6 +133,10 @@ export const page = {
 <div><span class="stat-n">14</span><span class="stat-k">languages listed, English the only one with full audio, read 2 October 2026</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
 <div><span class="stat-n">10</span><span class="stat-k">achievements on the app, read 2 October 2026</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
 </div>
+
+<h2>Quick answers</h2>
+
+${quickHtml}
 
 <h2>The live reading, and the endpoint behind it</h2>
 
