@@ -199,7 +199,24 @@ def build(name, eyebrow, headline, stats, path, date, theme):
     return f"{name}{suffix}.png"
 
 
-SRC_INDEX = Path(__file__).resolve().parent.parent / "src" / "pages" / "index.mjs"
+SRC = Path(__file__).resolve().parent.parent / "src"
+SRC_INDEX = SRC / "pages" / "index.mjs"
+
+# build.mjs counts the home page's "pages published" figure at build time and
+# substitutes it into the page. This file reads the page's source, so it has to
+# resolve the same placeholder; the rule is written down again here, the same way
+# the colour tokens are, because a static drawing has no build step of its own.
+NON_CONTENT = {"/", "/about", "/privacy", "/contact"}
+
+
+def content_pages():
+    text = (SRC / "pages.mjs").read_text(encoding="utf-8")
+    body = re.search(r"export const pages = \[(.*?)\];", text, re.S).group(1)
+    entries = [e.strip() for e in body.split(",") if e.strip()]
+    return len(entries) - len(NON_CONTENT)
+
+
+PLACEHOLDERS = {"{{CONTENT_PAGES}}": str(content_pages())}
 
 
 def at_a_glance():
@@ -212,9 +229,10 @@ def at_a_glance():
     source, pages published. The card takes the first two and the fourth.
     """
     html = SRC_INDEX.read_text(encoding="utf-8")
-    return re.findall(
+    pairs = re.findall(
         r'<span class="stat-n">([^<]+)</span><span class="stat-k">([^<]+)</span>', html
     )
+    return [(PLACEHOLDERS.get(v, v), k) for v, k in pairs]
 
 
 CELLS = at_a_glance()
