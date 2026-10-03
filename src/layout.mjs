@@ -414,6 +414,7 @@ ${main}
 <div>
 <h2>Pages</h2>
 <nav aria-label="Pages"><ul>
+<li><a href="/arma-reforger-player-count">Arma Reforger player count</a></li>
 <li><a href="/hell-let-loose-player-count">Hell Let Loose player count</a></li>
 <li><a href="/foxhole-player-count">Foxhole player count</a></li>
 <li><a href="/squad-player-count">Squad player count</a></li>

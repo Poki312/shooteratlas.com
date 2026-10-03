@@ -312,6 +312,10 @@ PAGES = [
      "2,207 on Steam, 21,086 at the record",
      [("2,207", "accounts with it open"), ("21,086", "all-time peak"), ("10.5%", "of the record, calculated")],
      "/hell-let-loose-player-count", "3 October 2026"),
+    ("arma-reforger-player-count", "ARMA REFORGER · Player count",
+     "8,681 on Steam, 24,632 at the record",
+     [("8,681", "accounts with it open"), ("24,632", "all-time peak"), ("35.2%", "of the record, calculated")],
+     "/arma-reforger-player-count", "3 October 2026"),
 ]
 
 for row in PAGES:
