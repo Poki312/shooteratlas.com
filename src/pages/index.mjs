@@ -27,7 +27,7 @@ export const page = {
 <aside class="spec" aria-label="At a glance">
 <div class="spec-head"><span>At a glance</span><span>v2026.10</span></div>
 <div class="spec-grid">
-<div><span class="stat-n">5</span><span class="stat-k">games documented</span></div>
+<div><span class="stat-n">6</span><span class="stat-k">games documented</span></div>
 <div><span class="stat-n">1</span><span class="stat-k">page type, every game</span></div>
 <div><span class="stat-n">0</span><span class="stat-k">figures without a source and a read date</span></div>
 <div><span class="stat-n">{{CONTENT_PAGES}}</span><span class="stat-k">pages published</span></div>
@@ -47,6 +47,7 @@ export const page = {
 <table class="matrix" id="pages-table">
 <thead><tr><th scope="col">Page</th><th scope="col">What it answers</th><th scope="col" class="num">Read on</th></tr></thead>
 <tbody>
+<tr data-terms="rising storm 2 vietnam player count concurrent players steam charts peak online how many players tripwire antimatter 64 player servers population live"><td><a href="/rising-storm-2-player-count">Rising Storm 2 player count</a></td><td class="wrap-cell">208 accounts open on Steam, the two all-time peaks that disagree by 26, and a record month that is simply the month the game launched.</td><td class="num">3 Oct 2026</td></tr>
 <tr data-terms="arma reforger player count concurrent players steam charts peak online how many players crossplay xbox playstation console population live"><td><a href="/arma-reforger-player-count">Arma Reforger player count</a></td><td class="wrap-cell">8,681 accounts open on Steam, the two all-time peaks that disagree by 1,591, and a studio that has never printed how many players a server holds.</td><td class="num">3 Oct 2026</td></tr>
 <tr data-terms="hell let loose player count concurrent players steam charts peak online how many players server browser console playstation xbox population live"><td><a href="/hell-let-loose-player-count">Hell Let Loose player count</a></td><td class="wrap-cell">2,207 accounts open on Steam, the two all-time peaks that disagree by 21, and the console half of the game that no public number covers.</td><td class="num">3 Oct 2026</td></tr>
 <tr data-terms="foxhole player count concurrent players steam charts peak online how many players shards war persistent queue population live"><td><a href="/foxhole-player-count">Foxhole player count</a></td><td class="wrap-cell">1,774 accounts open on Steam, the two all-time peaks that disagree by 213, and the war the game publishes instead of a count of who is in it.</td><td class="num">3 Oct 2026</td></tr>
