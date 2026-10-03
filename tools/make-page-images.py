@@ -18,7 +18,9 @@ from src/layout.mjs; if they change there, change them here too, because this
 is the only place they are written down a second time.
 """
 
+import json
 import re
+import subprocess
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -237,6 +239,52 @@ def at_a_glance():
 
 CELLS = at_a_glance()
 
+# src/data/live.mjs is the one place a player count is written down: the pages
+# read it, and so do the cards. Asking node for it keeps the arithmetic in one
+# language rather than a second copy of the rounding rules in Python.
+LIVE = json.loads(
+    subprocess.run(
+        [
+            "node",
+            "--input-type=module",
+            "-e",
+            "import('./src/data/live.mjs').then(m => process.stdout.write(JSON.stringify(m.live)))",
+        ],
+        cwd=SRC.parent,
+        capture_output=True,
+        text=True,
+        # The JSON carries the U+2212 minus of a signed percentage, and the
+        # interpreter's default codec on Windows is not UTF-8.
+        encoding="utf-8",
+        check=True,
+    ).stdout
+)
+
+
+def pc_card(name, eyebrow, slug, middle=None):
+    """One player-count card, read out of src/data/live.mjs.
+
+    The headline figure, the record beside it, the share that works out from
+    the two and the read date all come from the file the page itself reads, so
+    a card cannot disagree with the page it opens.
+    """
+    d = LIVE[name]
+    if middle:
+        headline = f"{d['countText']} on Steam, {d[middle + 'CountText']} in a match"
+        stats = [
+            (d["countText"], "accounts with it open"),
+            (d[middle + "CountText"], "actually in matches"),
+            (d["timeShort"], "the minute this was read"),
+        ]
+    else:
+        headline = f"{d['countText']} on Steam, {d['peakAtext']} at the record"
+        stats = [
+            (d["countText"], "accounts with it open"),
+            (d["peakAtext"], "all-time peak"),
+            (d["timeShort"], "the minute this was read"),
+        ]
+    return (slug, eyebrow, headline, stats, "/" + slug, d["day"])
+
 # One row per page. The figures here are the same ones the page leads with, so
 # a shared link and the page it opens agree.
 PAGES = [
@@ -296,30 +344,14 @@ PAGES = [
      "Valve's own check says it does not support",
      [("DoesNotSupport", "Deck, SteamOS, Machine"), ("Windows", "only platform listed"), ("4 Sep 2026", "studio's post")],
      "/wardogs-steam-deck", "1 October 2026"),
-    ("wardogs-player-count", "WARDOGS · Player count",
-     "103,208 on Steam, 83,730 in a match",
-     [("103,208", "accounts with it open"), ("83,730", "actually in matches"), ("18.9%", "the gap, calculated")],
-     "/wardogs-player-count", "1 October 2026"),
-    ("squad-player-count", "SQUAD · Player count",
-     "10,302 on Steam, 38,573 at the record",
-     [("10,302", "accounts with it open"), ("38,573", "all-time peak"), ("26.7%", "of the record, calculated")],
-     "/squad-player-count", "3 October 2026"),
-    ("foxhole-player-count", "FOXHOLE · Player count",
-     "1,774 on Steam, 17,451 at the record",
-     [("1,774", "accounts with it open"), ("17,451", "all-time peak"), ("10.2%", "of the record, calculated")],
-     "/foxhole-player-count", "3 October 2026"),
-    ("hell-let-loose-player-count", "HELL LET LOOSE · Player count",
-     "2,207 on Steam, 21,086 at the record",
-     [("2,207", "accounts with it open"), ("21,086", "all-time peak"), ("10.5%", "of the record, calculated")],
-     "/hell-let-loose-player-count", "3 October 2026"),
-    ("arma-reforger-player-count", "ARMA REFORGER · Player count",
-     "8,681 on Steam, 24,632 at the record",
-     [("8,681", "accounts with it open"), ("24,632", "all-time peak"), ("35.2%", "of the record, calculated")],
-     "/arma-reforger-player-count", "3 October 2026"),
-    ("rising-storm-2-player-count", "RISING STORM 2 · Player count",
-     "208 on Steam, 24,518 at the record",
-     [("208", "accounts with it open"), ("24,518", "all-time peak"), ("0.8%", "of the record, calculated")],
-     "/rising-storm-2-player-count", "3 October 2026"),
+    # The player-count cards read src/data/live.mjs through pc_card(), so the
+    # number on the card and the number on the page are the same reading.
+    pc_card("wardogsPlayerCount", "WARDOGS · Player count", "wardogs-player-count", middle="match"),
+    pc_card("squad", "SQUAD · Player count", "squad-player-count"),
+    pc_card("foxhole", "FOXHOLE · Player count", "foxhole-player-count"),
+    pc_card("hellLetLoose", "HELL LET LOOSE · Player count", "hell-let-loose-player-count"),
+    pc_card("armaReforger", "ARMA REFORGER · Player count", "arma-reforger-player-count"),
+    pc_card("risingStorm2", "RISING STORM 2 · Player count", "rising-storm-2-player-count"),
 ]
 
 for row in PAGES:

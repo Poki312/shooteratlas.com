@@ -30,6 +30,9 @@ const schema = {
 
 import { adUnit } from "../ad.mjs";
 import { faqList } from "../faq.mjs";
+import { live } from "../data/live.mjs";
+
+const V = live.wardogsPlayerCount;
 
 // Questions the player-count keyword keeps turning up, from the owner's question
 // library (wardogs family, 2026-10-03). Answers are one to three sentences and
@@ -38,15 +41,15 @@ import { faqList } from "../faq.mjs";
 const quickAnswers = [
   {
     q: "Is WARDOGS worth it?",
-    a: "Not a question these numbers settle, and this page does not pretend otherwise: there is no price, review or tag reading on it. What it has is the population — 103,208 accounts with the game open at 08:33 UTC on 1 October 2026, and 83,730 of those inside a match a minute earlier (<a href='https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1867240'>Valve's API for app 1867240</a>, wardogservers.com; both read 1 October 2026).",
+    a: `Not a question these numbers settle, and this page does not pretend otherwise: there is no price, review or tag reading on it. What it has is the population — ${V.countText} accounts with the game open at ${V.timeFull}, and ${V.matchCountText} of those inside a match a minute earlier (<a href='https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1867240'>Valve's API for app 1867240</a>, wardogservers.com; both read 1 October 2026).`,
   },
   {
     q: "Will the player count hold?",
-    a: "The two trend readings on this page are both small: the 30-day average is 221,831.21, down 2,086.2 (−0.93%) on the September average of 223,917.42 (SteamCharts, read 1 October 2026), and the 24-hour Steam peak is 230,732 against 103,208 at 08:33 UTC, a 2.24× swing inside one day (<a href='https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1867240'>Valve's API for app 1867240</a>, read 1 October 2026). What \"holding\" would even mean is not published anywhere: a concurrency target sits under \"Not confirmed\" further down this page.",
+    a: `${V.countText} accounts had WARDOGS open on Steam at ${V.timeFull} (<a href='https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1867240'>Valve's API for app 1867240</a>, read 1 October 2026). What \"holding\" would even mean is not published anywhere: a concurrency target sits under \"Not confirmed\" further down this page.`,
   },
   {
     q: "Where is the player base?",
-    a: "At 08:32 UTC on 1 October 2026 it sat on 2,554 servers — 766 run by the studio, averaging 89.5 players each, and 1,788 rented from approved hosts, averaging 8.5 (wardogservers.com, read 1 October 2026). The busiest single reading on record is 428,666 accounts on Steam at 19:44 UTC on 13 September 2026 (wardogshub.gg, read 1 October 2026).",
+    a: `At ${V.matchTimeFull} it sat on ${V.serversText} servers — ${V.officialServersText} run by the studio, averaging ${V.officialAvg} players each, and ${V.communityServersText} rented from approved hosts, averaging ${V.communityAvg} (wardogservers.com, read 1 October 2026). The busiest single reading on record is ${V.peakAtext} accounts on Steam at 19:44 UTC on 13 September 2026 (wardogshub.gg, read 1 October 2026).`,
   },
 ];
 
@@ -56,27 +59,25 @@ export const page = {
   ogImage: "https://shooteratlas.com/assets/img/wardogs-player-count.png",
   source: "src/pages/wardogs-player-count.mjs",
   path: "/wardogs-player-count",
-  title: "WARDOGS player count: 103,208 on Steam, 83,730 actually in a match",
+  title: `WARDOGS player count: ${V.countText} on Steam, ${V.matchCountText} actually in a match`,
   description:
-    "103,208 accounts had WARDOGS open on Steam at 08:33 UTC on 1 October 2026. A minute earlier the in-game server browser put 83,730 people inside actual matches. The 19,478 gap, the three competing peak figures, and how to check the number yourself.",
+    `${V.countText} accounts had WARDOGS open on Steam at ${V.timeFull}. A minute earlier the in-game server browser put ${V.matchCountText} people inside actual matches. The ${V.gapText} gap, the three competing peak figures, and how to check the number yourself.`,
   extraHead:
     "<style>" +
     "blockquote{margin:0 0 1.2rem;padding:.7rem 1rem;border-left:3px solid var(--rule);color:var(--muted);font-style:italic;font-size:.98rem}" +
     "blockquote code,code{font-size:.92em}" +
     "</style>" +
     "<script type='application/ld+json'>" + JSON.stringify(schema) + "</script>",
-  body: `<h1>WARDOGS player count: 103,208 on Steam, 83,730 actually in a match</h1>
+  body: `<h1>WARDOGS player count: ${V.countText} on Steam, ${V.matchCountText} actually in a match</h1>
 
-<p class="lede">103,208 accounts had WARDOGS open on Steam at 08:33 UTC on 1 October 2026. Valve's own number, straight from the Steam Web API for app 1867240. A minute earlier, a tally of the in-game server browser put 83,730 people inside actual matches. Both are true, and almost every player-count page you find quotes one of them without telling you which.</p>
-
-<p>Short version: 19,478 people were logged in and not playing. That is 18.9% of the Steam figure. (103,208 − 83,730) ÷ 103,208. My arithmetic. Neither site publishes it.</p>
+<p class="lede">${V.countText} accounts had WARDOGS open on Steam at ${V.timeFull}. Valve's own number, straight from the Steam Web API for app 1867240. A minute earlier, a tally of the in-game server browser put ${V.matchCountText} people inside actual matches. Both are true, and almost every player-count page you find quotes one of them without telling you which.</p>
 
 <div class="strip">
-<div><span class="stat-n">103,208</span><span class="stat-k">accounts with the game open, 08:33 UTC</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
-<div><span class="stat-n">83,730</span><span class="stat-k">players inside matches, 08:32 UTC</span><span class="stat-src"><span class="src-chip src-ingame">in-game</span></span></div>
-<div><span class="stat-n">18.9%</span><span class="stat-k">of the Steam count not in a match</span><span class="stat-src"><span class="src-chip src-calc">calculated</span></span></div>
-<div><span class="stat-n">428,666 / 402,686</span><span class="stat-k">highest peak, depends who asked</span><span class="stat-src"><span class="src-chip src-third">third-party</span></span></div>
-<div><span class="stat-n">221,831.21</span><span class="stat-k">30-day average, down 0.93%</span><span class="stat-src"><span class="src-chip src-third">third-party</span></span></div>
+<div><span class="stat-n">${V.countText}</span><span class="stat-k">accounts with the game open, ${V.timeShort}</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
+<div><span class="stat-n">${V.matchCountText}</span><span class="stat-k">players inside matches, ${V.matchTimeShort}</span><span class="stat-src"><span class="src-chip src-ingame">in-game</span></span></div>
+<div><span class="stat-n">${V.timeShort}</span><span class="stat-k">the minute this was read</span><span class="stat-src"><span class="src-chip src-official">official</span></span></div>
+<div><span class="stat-n">${V.peakAtext} / ${V.peakCtext}</span><span class="stat-k">highest peak, depends who asked</span><span class="stat-src"><span class="src-chip src-third">third-party</span></span></div>
+<div><span class="stat-n">${V.avg30Text}</span><span class="stat-k">30-day average, down ${V.avg30DeltaPct}</span><span class="stat-src"><span class="src-chip src-third">third-party</span></span></div>
 </div>
 
 <h2>Quick answers</h2>
@@ -91,25 +92,25 @@ ${quickHtml}
 
 <p>Does sitting in a queue count as playing? By Valve's arithmetic, yes.</p>
 
-<p>No source publishes how those 19,478 split between queue, menu and idle. Inference, mine: the queue carries most of it, because the studio has said in writing that a queue exists. Quote below.</p>
+<p>No source publishes how those ${V.gapText} split between queue, menu and idle. Inference, mine: the queue carries most of it, because the studio has said in writing that a queue exists. Quote below.</p>
 
 <h2>Three peaks, three clocks</h2>
 
-<p>Search this keyword and you will meet 428,666, 428,372 and 402,686, all labelled all-time peak. Steam has no history endpoint. It answers "how many right now" and stops there. So every peak on the internet means one thing only: the highest number that particular site happened to catch.</p>
+<p>Search this keyword and you will meet ${V.peakAtext}, ${V.peakBtext} and ${V.peakCtext}, all labelled all-time peak. Steam has no history endpoint. It answers "how many right now" and stops there. So every peak on the internet means one thing only: the highest number that particular site happened to catch.</p>
 
 <ul>
-<li><strong>428,666</strong>, at 19:44 UTC on 13 September. Read on every page load (wardogshub.gg).</li>
-<li><strong>428,372</strong>, 13 September. Sampled every 10 minutes (wardogshub.uk).</li>
-<li><strong>402,686</strong>. Sampled hourly. SteamCharts says so on its own about page: "The collector queries the number of concurrent players on an hourly interval for every single game in the Steam catalog."</li>
+<li><strong>${V.peakAtext}</strong>, at 19:44 UTC on 13 September. Read on every page load (wardogshub.gg).</li>
+<li><strong>${V.peakBtext}</strong>, 13 September. Sampled every 10 minutes (wardogshub.uk).</li>
+<li><strong>${V.peakCtext}</strong>. Sampled hourly. SteamCharts says so on its own about page: "The collector queries the number of concurrent players on an hourly interval for every single game in the Steam catalog."</li>
 </ul>
 
 <p>An eleven-minute spike slips clean between two ten-minute samples. Who is wrong? Nobody. They looked at different minutes.</p>
 
 <h2>The busiest minute on record, counted twice</h2>
 
-<p>13 September. Steam-side peak at 19:44 UTC (428,666). In-match peak at 19:46 UTC (367,742). Two minutes apart. Same rush.</p>
+<p>13 September. Steam-side peak at 19:44 UTC (${V.peakAtext}). In-match peak at 19:46 UTC (${V.matchPeakText}). Two minutes apart. Same rush.</p>
 
-<p>60,924 people were logged in and not on a map at the busiest moment of the game's life so far. 14.2% of the Steam figure: (428,666 − 367,742) ÷ 428,666. My division of two public readings.</p>
+<p>${V.busiestGapText} people were logged in and not on a map at the busiest moment of the game's life so far. ${V.busiestGapPct} of the Steam figure: (${V.peakAtext} − ${V.matchPeakText}) ÷ ${V.peakAtext}. My division of two public readings.</p>
 
 <h2>100 is the ceiling. The team size is not published anywhere.</h2>
 
@@ -117,7 +118,7 @@ ${quickHtml}
 
 <p>The store page says up to 100. Neither one says how large a team gets. I read the full text of all 61 posts on the official Steam news feed. Not one gives a per-team figure.</p>
 
-<p>Live data shows how far from full the average game actually runs. Of 2,554 servers up at 08:32 UTC, 766 were run by the studio and 1,788 rented from approved hosts. Split them and the picture changes completely. Official servers averaged 89.5 players each (68,592 ÷ 766). Community servers averaged 8.5 (15,138 ÷ 1,788). Take them together and you get 32.8, which reads like proof against a 100-player game until you remember most community servers are empty.</p>
+<p>Live data shows how far from full the average game actually runs. Of ${V.serversText} servers up at ${V.matchTimeShort}, ${V.officialServersText} were run by the studio and ${V.communityServersText} rented from approved hosts. Split them and the picture changes completely. Official servers averaged ${V.officialAvg} players each (${V.officialPlayersText} ÷ ${V.officialServersText}). Community servers averaged ${V.communityAvg} (${V.communityPlayersText} ÷ ${V.communityServersText}). Take them together and you get ${V.combinedAvg}, which reads like proof against a 100-player game until you remember most community servers are empty.</p>
 
 <h2>Why the two counts refuse to meet, in the studio's own words</h2>
 
@@ -129,15 +130,9 @@ ${quickHtml}
 
 <p>The same patch split the front end into two browsers, Community and Official.</p>
 
-<p>No matchmaking to fill a server. A queue in front of the door. 766 official servers listed next to 1,788 community ones. That is the structure. Inference, mine, from those three official statements: it is why the two numbers can sit 19,000 apart in the same minute. Nobody publishes the breakdown.</p>
+<p>No matchmaking to fill a server. A queue in front of the door. ${V.officialServersText} official servers listed next to ${V.communityServersText} community ones. That is the structure. Inference, mine, from those three official statements: it is why the two numbers can sit 19,000 apart in the same minute. Nobody publishes the breakdown.</p>
 
 <h2>What a day looks like</h2>
-
-<p>In-match peak in the last 24 hours was 152,922 at 01:56 UTC. By 08:32 it was 83,730. The population halved in six and a half hours.</p>
-
-<p>On the Steam side, the 24-hour peak is 230,732 against 103,208 now. A 2.24× swing (230,732 ÷ 103,208). Any snapshot taken at 08:00 UTC understates the whole game.</p>
-
-<p>For trend there is one option and it is third-party: a 30-day average of 221,831.21, down 2,086.2 (−0.93%) on the September average of 223,917.42. A weekly wobble. Read one minute as a trend and you will call it a collapse.</p>
 
 <h2>Checking it yourself</h2>
 
@@ -161,15 +156,15 @@ ${quickHtml}
 <caption id="layers-caption">Every claim on this page, sorted. Read 1 October 2026.</caption>
 <thead><tr><th scope="col">Layer</th><th scope="col">What is in it</th></tr></thead>
 <tbody>
-<tr><td>Confirmed officially</td><td class="wrap-cell">103,208 concurrent at 08:33 UTC (Steam Web API, app 1867240). 100 players across 3 teams, in the studio's own news post of 18 February 2026. The login queue and controlled batches, from the 10 September hotfix. No matchmaking, and the split into Community and Official browsers, from patch 0.11 on 12 September.</td></tr>
-<tr><td>Read off third parties</td><td class="wrap-cell">102,998 / 230,732 / 402,686 / 221,831.21 / 223,917.42 (SteamCharts). 102,705 and 428,666 (wardogshub.gg). 428,372 (wardogshub.uk). 83,730 in matches, 152,922 today's peak, 367,742 all-time in-match peak, 2,554 servers as 766 official plus 1,788 community (wardogservers.com).</td></tr>
-<tr><td>Calculated here, not published anywhere</td><td class="wrap-cell">18.9% = (103,208 − 83,730) ÷ 103,208. 14.2% = (428,666 − 367,742) ÷ 428,666. 89.5 = 68,592 ÷ 766. 8.5 = 15,138 ÷ 1,788. 32.8 = 83,730 ÷ 2,554. 2.24× = 230,732 ÷ 103,208. Also the reading that sampling interval explains the three peaks.</td></tr>
-<tr><td>Not confirmed</td><td class="wrap-cell">How the 19,478 gap splits between queue, menu and idle. No source publishes it. Any per-team player figure: none exists in any official post read here. Any concurrency target the studio may have set.</td></tr>
+<tr><td>Confirmed officially</td><td class="wrap-cell">${V.countText} concurrent at ${V.timeShort} (Steam Web API, app 1867240). 100 players across 3 teams, in the studio's own news post of 18 February 2026. The login queue and controlled batches, from the 10 September hotfix. No matchmaking, and the split into Community and Official browsers, from patch 0.11 on 12 September.</td></tr>
+<tr><td>Read off third parties</td><td class="wrap-cell">${V.steamChartsLiveText} / ${V.peak24hText} / ${V.peakCtext} / ${V.avg30Text} / ${V.sepAvgText} (SteamCharts). ${V.hubLiveText} and ${V.peakAtext} (wardogshub.gg). ${V.peakBtext} (wardogshub.uk). ${V.matchCountText} in matches, ${V.matchPeak24hText} today's peak, ${V.matchPeakText} all-time in-match peak, ${V.serversText} servers as ${V.officialServersText} official plus ${V.communityServersText} community (wardogservers.com).</td></tr>
+<tr><td>Calculated here, not published anywhere</td><td class="wrap-cell">${V.busiestGapPct} = (${V.peakAtext} − ${V.matchPeakText}) ÷ ${V.peakAtext}. ${V.officialAvg} = ${V.officialPlayersText} ÷ ${V.officialServersText}. ${V.communityAvg} = ${V.communityPlayersText} ÷ ${V.communityServersText}. ${V.combinedAvg} = ${V.matchCountText} ÷ ${V.serversText}. Also the reading that sampling interval explains the three peaks.</td></tr>
+<tr><td>Not confirmed</td><td class="wrap-cell">How the ${V.gapText} gap splits between queue, menu and idle. No source publishes it. Any per-team player figure: none exists in any official post read here. Any concurrency target the studio may have set.</td></tr>
 </tbody>
 </table>
 </div>
 
-<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-player-count-light.png"><img src="/assets/img/wardogs-player-count.png" width="1200" height="630" alt="Card for the WARDOGS player count: 103,208 on Steam, 83,730 in matches, an 18.9% gap"></picture><figcaption>Drawn for this page, dark or light to match. Figures as read on 1 October 2026.</figcaption></figure>
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/wardogs-player-count-light.png"><img src="/assets/img/wardogs-player-count.png" width="1200" height="630" alt="Card for the WARDOGS player count: ${V.countText} on Steam, ${V.matchCountText} in matches, the minute it was read"></picture><figcaption>Drawn for this page, dark or light to match. Figures as read on 1 October 2026.</figcaption></figure>
 
 ${adUnit}
 
