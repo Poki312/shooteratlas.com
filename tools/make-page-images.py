@@ -261,6 +261,10 @@ PAGES = [
      "103,208 on Steam, 83,730 in a match",
      [("103,208", "accounts with it open"), ("83,730", "actually in matches"), ("18.9%", "the gap, calculated")],
      "/wardogs-player-count", "1 October 2026"),
+    ("squad-player-count", "SQUAD · Player count",
+     "10,302 on Steam, 38,573 at the record",
+     [("10,302", "accounts with it open"), ("38,573", "all-time peak"), ("26.7%", "of the record, calculated")],
+     "/squad-player-count", "3 October 2026"),
 ]
 
 for row in PAGES:

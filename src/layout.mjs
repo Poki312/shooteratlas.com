@@ -414,6 +414,7 @@ ${main}
 <div>
 <h2>Pages</h2>
 <nav aria-label="Pages"><ul>
+<li><a href="/squad-player-count">Squad player count</a></li>
 <li><a href="/wardogs">WARDOGS</a></li>
 <li><a href="/wardogs-steam">Steam page</a></li>
 <li><a href="/wardogs-price">Price by region</a></li>

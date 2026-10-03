@@ -27,7 +27,7 @@ export const page = {
 <aside class="spec" aria-label="At a glance">
 <div class="spec-head"><span>At a glance</span><span>v2026.09</span></div>
 <div class="spec-grid">
-<div><span class="stat-n">1</span><span class="stat-k">game documented</span></div>
+<div><span class="stat-n">2</span><span class="stat-k">games documented</span></div>
 <div><span class="stat-n">100</span><span class="stat-k">players per match</span></div>
 <div><span class="stat-n">3</span><span class="stat-k">factions, one objective</span></div>
 <div><span class="stat-n">17</span><span class="stat-k">pages published</span></div>
@@ -35,7 +35,7 @@ export const page = {
 </aside>
 </div>
 
-<h2>WARDOGS pages</h2>
+<h2>Pages</h2>
 <p>Player counts, store prices, achievement rarity, review sentiment and the developer's own answers. One game per page, and the same questions in the same order on every one.</p>
 <div class="filter">
 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5l5 5"/></svg>
@@ -43,10 +43,11 @@ export const page = {
 <input id="page-filter" type="search" placeholder="Filter pages &mdash; try &ldquo;price&rdquo; or &ldquo;reviews&rdquo;" autocomplete="off">
 </div>
 <div class="data-block">
-<div class="matrix-scroll" role="region" tabindex="0" aria-label="WARDOGS pages">
+<div class="matrix-scroll" role="region" tabindex="0" aria-label="Pages">
 <table class="matrix" id="pages-table">
 <thead><tr><th scope="col">Page</th><th scope="col">What it answers</th><th scope="col" class="num">Read on</th></tr></thead>
 <tbody>
+<tr data-terms="squad player count concurrent players steam charts peak online how many players server browser queue population live"><td><a href="/squad-player-count">Squad player count</a></td><td class="wrap-cell">10,302 accounts open on Steam, the two all-time peaks that disagree by 39, and why nobody can print the count of players actually on a map.</td><td class="num">3 Oct 2026</td></tr>
 <tr data-terms="wardogs overview match scoring economy platforms kit loadout"><td><a href="/wardogs">WARDOGS</a></td><td class="wrap-cell">How a match is scored, what kit costs, what gates it, and what runs it.</td><td class="num">28 Sep 2026</td></tr>
 <tr data-terms="price region steam store japan korea brazil currency premium supporter"><td><a href="/wardogs-price">Price by region</a></td><td class="wrap-cell">What Steam charges in eight countries, and the premium each one carries on the Supporter Edition.</td><td class="num">29 Sep 2026</td></tr>
 <tr data-terms="achievements rarity steam global stats big spender tutorial"><td><a href="/wardogs-achievements">Achievements</a></td><td class="wrap-cell">All ten, and how rare each one is &mdash; from 78.3% on the tutorial to 0.1% on Big Spender.</td><td class="num">28 Sep 2026</td></tr>
