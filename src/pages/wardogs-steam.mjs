@@ -105,6 +105,14 @@ const quickAnswers = [
     q: "Can you rent your own WARDOGS server?",
     a: "Yes. The studio's server hub page lists the hosting partners it approves — two of them, Bisect Hosting and xREALM, each with a WARDOGS-specific hosting page of its own (<a href=\"https://www.wardogs.com/serverhub\">studio server hub page</a>, read 3 October 2026).",
   },
+  // 2026-10-04: one more "Quick answers" entry, on the owner's order. Content
+  // addition only — title, h1, url, structure and the existing sentences are
+  // untouched. Source: the Steam listing's category row, which carries no
+  // cross-platform tag, read 3 October 2026.
+  {
+    q: "Is WARDOGS crossplay?",
+    a: "No cross-platform category appears on the Steam listing: its eight categories are Multi-player, PvP, Online PvP, Steam Achievements, Camera Comfort, Custom Volume Controls, Stereo Sound and Surround Sound (<a href='https://store.steampowered.com/app/1867240/WARDOGS/'>Steam store page</a>, read 3 October 2026). The studio's own posts date console work to 2028 and say nothing about playing across PC and console, so cross-play is recorded here as a blank rather than a yes (<a href='https://store.steampowered.com/news/app/1867240'>official Steam news post</a>, 10 September 2026, read 2 October 2026).",
+  },
 ];
 
 const quickHtml = faqList(quickAnswers);
