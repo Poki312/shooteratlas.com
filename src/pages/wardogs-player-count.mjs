@@ -1,5 +1,7 @@
-// Body is the DeAI-passed draft published verbatim. No FAQ block: the draft has
-// none, and the brief for this page was "content unchanged, formatting only".
+// Body is the DeAI-passed draft published verbatim, plus one addition made on
+// 2026-10-03: the "Quick answers" block after the first screen. Every figure in
+// it is already read on this page, with the same source and read date. There is
+// still no foot-of-page FAQ, because the draft has none.
 const SITE = "https://shooteratlas.com";
 
 const schema = {
@@ -27,6 +29,28 @@ const schema = {
 };
 
 import { adUnit } from "../ad.mjs";
+import { faqList } from "../faq.mjs";
+
+// Questions the player-count keyword keeps turning up, from the owner's question
+// library (wardogs family, 2026-10-03). Answers are one to three sentences and
+// use only readings already on this page. No community figure is used as a
+// source anywhere below.
+const quickAnswers = [
+  {
+    q: "Is WARDOGS worth it?",
+    a: "Not a question these numbers settle, and this page does not pretend otherwise: there is no price, review or tag reading on it. What it has is the population — 103,208 accounts with the game open at 08:33 UTC on 1 October 2026, and 83,730 of those inside a match a minute earlier (<a href='https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1867240'>Valve's API for app 1867240</a>, wardogservers.com; both read 1 October 2026).",
+  },
+  {
+    q: "Will the player count hold?",
+    a: "The two trend readings on this page are both small: the 30-day average is 221,831.21, down 2,086.2 (−0.93%) on the September average of 223,917.42 (SteamCharts, read 1 October 2026), and the 24-hour Steam peak is 230,732 against 103,208 at 08:33 UTC, a 2.24× swing inside one day (<a href='https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1867240'>Valve's API for app 1867240</a>, read 1 October 2026). What \"holding\" would even mean is not published anywhere: a concurrency target sits under \"Not confirmed\" further down this page.",
+  },
+  {
+    q: "Where is the player base?",
+    a: "At 08:32 UTC on 1 October 2026 it sat on 2,554 servers — 766 run by the studio, averaging 89.5 players each, and 1,788 rented from approved hosts, averaging 8.5 (wardogservers.com, read 1 October 2026). The busiest single reading on record is 428,666 accounts on Steam at 19:44 UTC on 13 September 2026 (wardogshub.gg, read 1 October 2026).",
+  },
+];
+
+const quickHtml = faqList(quickAnswers);
 
 export const page = {
   ogImage: "https://shooteratlas.com/assets/img/wardogs-player-count.png",
@@ -54,6 +78,10 @@ export const page = {
 <div><span class="stat-n">428,666 / 402,686</span><span class="stat-k">highest peak, depends who asked</span><span class="stat-src"><span class="src-chip src-third">third-party</span></span></div>
 <div><span class="stat-n">221,831.21</span><span class="stat-k">30-day average, down 0.93%</span><span class="stat-src"><span class="src-chip src-third">third-party</span></span></div>
 </div>
+
+<h2>Quick answers</h2>
+
+${quickHtml}
 
 <h2>Two counts, one game</h2>
 
