@@ -325,6 +325,124 @@ function wardogsPlayerCount() {
   };
 }
 
+// The next eight pages, added here before their pages exist so the number on
+// each one is read out of this file from the first day it is written. Only the
+// three fields the daily job moves are filled in: everything else a page quotes
+// (the trackers' peaks, the official figure, the Discord counts) goes in on the
+// day that page is written, from that page's own sources. Nothing is invented
+// ahead of it, and the refresh script keys off the same two lines.
+function battlefield6() {
+  const count = 38616;
+  const readAt = stamp("2026-10-03T18:01:57Z");
+  return {
+    appid: 2807960,
+    count,
+    readAtUtc: "2026-10-03T18:01:57Z",
+    countText: int(count),
+    timeShort: readAt.short,
+    timeFull: readAt.full,
+    day: readAt.day,
+  };
+}
+
+function deltaForce() {
+  const count = 69812;
+  const readAt = stamp("2026-10-03T18:01:58Z");
+  return {
+    appid: 2507950,
+    count,
+    readAtUtc: "2026-10-03T18:01:58Z",
+    countText: int(count),
+    timeShort: readAt.short,
+    timeFull: readAt.full,
+    day: readAt.day,
+  };
+}
+
+function hellLetLooseVietnam() {
+  const count = 1879;
+  const readAt = stamp("2026-10-03T18:01:58Z");
+  return {
+    appid: 3079210,
+    count,
+    readAtUtc: "2026-10-03T18:01:58Z",
+    countText: int(count),
+    timeShort: readAt.short,
+    timeFull: readAt.full,
+    day: readAt.day,
+  };
+}
+
+function warOfRights() {
+  const count = 456;
+  const readAt = stamp("2026-10-03T18:01:59Z");
+  return {
+    appid: 424030,
+    count,
+    readAtUtc: "2026-10-03T18:01:59Z",
+    countText: int(count),
+    timeShort: readAt.short,
+    timeFull: readAt.full,
+    day: readAt.day,
+  };
+}
+
+function squad44() {
+  const count = 157;
+  const readAt = stamp("2026-10-03T18:01:59Z");
+  return {
+    appid: 736220,
+    count,
+    readAtUtc: "2026-10-03T18:01:59Z",
+    countText: int(count),
+    timeShort: readAt.short,
+    timeFull: readAt.full,
+    day: readAt.day,
+  };
+}
+
+function arma3() {
+  const count = 12041;
+  const readAt = stamp("2026-10-03T18:01:59Z");
+  return {
+    appid: 107410,
+    count,
+    readAtUtc: "2026-10-03T18:01:59Z",
+    countText: int(count),
+    timeShort: readAt.short,
+    timeFull: readAt.full,
+    day: readAt.day,
+  };
+}
+
+function holdfast() {
+  const count = 767;
+  const readAt = stamp("2026-10-03T18:02:00Z");
+  return {
+    appid: 589290,
+    count,
+    readAtUtc: "2026-10-03T18:02:00Z",
+    countText: int(count),
+    timeShort: readAt.short,
+    timeFull: readAt.full,
+    day: readAt.day,
+  };
+}
+
+function isonzo() {
+  const count = 198;
+  const readAt = stamp("2026-10-03T18:02:00Z");
+  return {
+    appid: 1556790,
+    count,
+    readAtUtc: "2026-10-03T18:02:00Z",
+    countText: int(count),
+    timeShort: readAt.short,
+    timeFull: readAt.full,
+    day: readAt.day,
+  };
+}
+
 export const live = {
   armaReforger: armaReforger(),
   squad: squad(),
@@ -332,4 +450,12 @@ export const live = {
   hellLetLoose: hellLetLoose(),
   risingStorm2: risingStorm2(),
   wardogsPlayerCount: wardogsPlayerCount(),
+  battlefield6: battlefield6(),
+  deltaForce: deltaForce(),
+  hellLetLooseVietnam: hellLetLooseVietnam(),
+  warOfRights: warOfRights(),
+  squad44: squad44(),
+  arma3: arma3(),
+  holdfast: holdfast(),
+  isonzo: isonzo(),
 };
