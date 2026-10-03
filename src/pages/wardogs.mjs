@@ -118,8 +118,13 @@ const faqHtml = faqList(faqs);
 
 import { adUnit } from "../ad.mjs";
 import { faqList } from "../faq.mjs";
+import { skinStyles } from "../skin-20261003.mjs";
 
 export const page = {
+  // Second page onto the 2026-10-03 skin. An article title is long, so this one
+  // takes the skin without the `v2-hero` class and keeps the smaller h1.
+  bodyClass: "skin-20261003",
+  pageStyles: skinStyles,
   ogImage: "https://shooteratlas.com/assets/img/wardogs.png",
   source: "src/pages/wardogs.mjs",
   path: "/wardogs",
