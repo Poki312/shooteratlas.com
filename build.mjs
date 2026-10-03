@@ -12,6 +12,14 @@ import { layout } from "./src/layout.mjs";
 import { pages, notFound } from "./src/pages.mjs";
 import { htmlToMarkdown, tokenCount } from "./src/markdown.mjs";
 import { agentDocuments } from "./src/agent.mjs";
+import { skinStyles } from "./src/skin-20261003.mjs";
+
+// Every page wears the 2026-10-03 skin. `v2-hero` is the only difference
+// between pages: it raises the h1 from the article scale to the landing scale,
+// and only the home page asks for it (`heroType: true`). A page can still
+// override either field outright, and a page that overrides neither gets the
+// skin — which is why the shared shell carries it rather than each page.
+const SKIN_CLASS = "skin-20261003";
 
 const SITE = (process.env.SITE_URL || "https://shooteratlas.com").replace(/\/+$/, "");
 const OUT = "dist";
@@ -77,10 +85,8 @@ async function build() {
       extraHead: page.extraHead ?? "",
       ogImage: page.ogImage ?? "",
       toc: page.toc !== false,
-      // Both are opt-in and empty for every page that does not ask for them,
-      // so the pass-through cannot change a page's output on its own.
-      bodyClass: page.bodyClass ?? "",
-      pageStyles: page.pageStyles ?? "",
+      bodyClass: page.bodyClass ?? (page.heroType ? SKIN_CLASS + " v2-hero" : SKIN_CLASS),
+      pageStyles: page.pageStyles ?? skinStyles,
     });
     // "/" -> index.html ; "/wardogs" -> wardogs.html (Pages serves /wardogs from it)
     const clean = page.path.replace(/^\//, "");

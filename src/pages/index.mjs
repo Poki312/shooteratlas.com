@@ -1,15 +1,12 @@
 import { adUnit } from "../ad.mjs";
-import { skinStyles } from "../skin-20261003.mjs";
 
 export const page = {
   // The home page is not an article: it has no contents rail.
   toc: false,
-  // The 2026-10-03 skin is opt-in per page, handed to the shell as a body class
-  // plus a stylesheet rather than edited into the shared one. Remove these two
-  // lines and the page is back to the old skin; nothing else was touched to put
-  // it here. `v2-hero` only raises the h1 to landing-page size.
-  bodyClass: "skin-20261003 v2-hero",
-  pageStyles: skinStyles,
+  // Every page wears the 2026-10-03 skin by default. This flag is the whole of
+  // what makes the home page different: it raises the h1 to landing-page size
+  // instead of the article size an inner page uses.
+  heroType: true,
   ogImage: "https://shooteratlas.com/assets/img/home.png",
   source: "src/pages/index.mjs",
   path: "/",

@@ -105,12 +105,16 @@ body.skin-20261003 .theme-btn:hover{background:var(--surface-3);border-color:var
 
 /* ---- first screen -------------------------------------------------------
    The two-column hero stays two columns: same blocks, same order, same words.
-   What changes is the air around them and the surface the figures sit on. */
+   What changes is the air around them and the surface the figures sit on.
+   The .spec* rules below are scoped through .hero on purpose: "spec" is also
+   the class on the plain spec tables in wardogs-genres and wardogs-gameplay,
+   and an unscoped rule would cap those tables at 23.5rem and draw a card
+   border round them. Only the home page has a .hero. */
 body.skin-20261003 .hero{gap:3rem;margin:0 0 3rem}
-body.skin-20261003 .spec{max-width:23.5rem;border:1px solid var(--rule);border-radius:var(--r);background:var(--surface);box-shadow:var(--shadow)}
-body.skin-20261003 .spec-head{padding:.85rem 1.15rem;background:transparent;border-bottom:1px solid var(--rule);font-size:.68rem;letter-spacing:.15em}
-body.skin-20261003 .spec-head span:last-child{font-family:var(--mono);font-size:.68rem;letter-spacing:.05em}
-body.skin-20261003 .spec-grid>div{padding:1.15rem 1.15rem 1.2rem;border-color:var(--rule-soft)}
+body.skin-20261003 .hero .spec{max-width:23.5rem;border:1px solid var(--rule);border-radius:var(--r);background:var(--surface);box-shadow:var(--shadow)}
+body.skin-20261003 .hero .spec-head{padding:.85rem 1.15rem;background:transparent;border-bottom:1px solid var(--rule);font-size:.68rem;letter-spacing:.15em}
+body.skin-20261003 .hero .spec-head span:last-child{font-family:var(--mono);font-size:.68rem;letter-spacing:.05em}
+body.skin-20261003 .hero .spec-grid>div{padding:1.15rem 1.15rem 1.2rem;border-color:var(--rule-soft)}
 body.skin-20261003 .stat-n{font-size:1.72rem;letter-spacing:-.032em}
 body.skin-20261003 .stat-k{font-size:.8rem;margin-top:.35rem}
 
@@ -151,8 +155,8 @@ body.skin-20261003 .site-foot{background:var(--surface);border-top:1px solid var
   body.skin-20261003.v2-hero h1{font-size:1.95rem;letter-spacing:-.028em}
   body.skin-20261003 h2{font-size:1.32rem;margin-top:2.9rem}
   body.skin-20261003 .lede{font-size:1.1rem}
-  body.skin-20261003 .spec{max-width:none;box-shadow:none}
-  body.skin-20261003 .spec-grid>div{padding:.95rem 1rem}
+  body.skin-20261003 .hero .spec{max-width:none;box-shadow:none}
+  body.skin-20261003 .hero .spec-grid>div{padding:.95rem 1rem}
   body.skin-20261003 .stat-n{font-size:1.5rem}
   body.skin-20261003 table.matrix{font-size:.9rem}
   body.skin-20261003 table.matrix th,body.skin-20261003 table.matrix td{padding:.62rem .9rem}
