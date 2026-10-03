@@ -414,6 +414,7 @@ ${main}
 <div>
 <h2>Pages</h2>
 <nav aria-label="Pages"><ul>
+<li><a href="/hell-let-loose-player-count">Hell Let Loose player count</a></li>
 <li><a href="/foxhole-player-count">Foxhole player count</a></li>
 <li><a href="/squad-player-count">Squad player count</a></li>
 <li><a href="/wardogs">WARDOGS</a></li>
@@ -433,6 +434,8 @@ ${main}
 <li><a href="/wardogs-steam-deck">Steam Deck</a></li>
 <li><a href="/wardogs-player-count">Player count</a></li>
 <li><a href="/wardogs-map">Map</a></li>
+<li><a href="/wardogs-towers">Towers</a></li>
+<li><a href="/wardogs-discord">Discord</a></li>
 </ul></nav>
 </div>
 <div>

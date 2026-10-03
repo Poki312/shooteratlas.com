@@ -18,6 +18,7 @@ from src/layout.mjs; if they change there, change them here too, because this
 is the only place they are written down a second time.
 """
 
+import re
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -198,12 +199,32 @@ def build(name, eyebrow, headline, stats, path, date, theme):
     return f"{name}{suffix}.png"
 
 
+SRC_INDEX = Path(__file__).resolve().parent.parent / "src" / "pages" / "index.mjs"
+
+
+def at_a_glance():
+    """The home page's own at-a-glance cells, read from its source.
+
+    The card is meant to show the figures the page leads with, and three of the
+    four move whenever a page or a game is added. Reading them here keeps one
+    source of truth, so the card cannot go stale the way a typed number would.
+    Order in src/pages/index.mjs: games documented, page type, figures without a
+    source, pages published. The card takes the first two and the fourth.
+    """
+    html = SRC_INDEX.read_text(encoding="utf-8")
+    return re.findall(
+        r'<span class="stat-n">([^<]+)</span><span class="stat-k">([^<]+)</span>', html
+    )
+
+
+CELLS = at_a_glance()
+
 # One row per page. The figures here are the same ones the page leads with, so
 # a shared link and the page it opens agree.
 PAGES = [
     ("home", "Shooter Atlas",
-     "Numbers for 100-player tactical shooters",
-     [("2", "games documented"), ("1", "page type, every game"), ("20", "pages published")], "/",
+     "Numbers for large-scale tactical shooters",
+     [CELLS[0], CELLS[1], CELLS[3]], "/",
      "3 October 2026"),
     ("wardogs", "WARDOGS",
      "Scoring, prices and platform support",
@@ -269,6 +290,10 @@ PAGES = [
      "1,774 on Steam, 17,451 at the record",
      [("1,774", "accounts with it open"), ("17,451", "all-time peak"), ("10.2%", "of the record, calculated")],
      "/foxhole-player-count", "3 October 2026"),
+    ("hell-let-loose-player-count", "HELL LET LOOSE · Player count",
+     "2,207 on Steam, 21,086 at the record",
+     [("2,207", "accounts with it open"), ("21,086", "all-time peak"), ("10.5%", "of the record, calculated")],
+     "/hell-let-loose-player-count", "3 October 2026"),
 ]
 
 for row in PAGES:

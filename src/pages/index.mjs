@@ -27,9 +27,9 @@ export const page = {
 <aside class="spec" aria-label="At a glance">
 <div class="spec-head"><span>At a glance</span><span>v2026.10</span></div>
 <div class="spec-grid">
-<div><span class="stat-n">3</span><span class="stat-k">games documented</span></div>
+<div><span class="stat-n">4</span><span class="stat-k">games documented</span></div>
 <div><span class="stat-n">1</span><span class="stat-k">page type, every game</span></div>
-<div><span class="stat-n">2</span><span class="stat-k">games, one page type each</span></div>
+<div><span class="stat-n">0</span><span class="stat-k">figures without a source and a read date</span></div>
 <div><span class="stat-n">{{CONTENT_PAGES}}</span><span class="stat-k">pages published</span></div>
 </div>
 </aside>
@@ -47,6 +47,7 @@ export const page = {
 <table class="matrix" id="pages-table">
 <thead><tr><th scope="col">Page</th><th scope="col">What it answers</th><th scope="col" class="num">Read on</th></tr></thead>
 <tbody>
+<tr data-terms="hell let loose player count concurrent players steam charts peak online how many players server browser console playstation xbox population live"><td><a href="/hell-let-loose-player-count">Hell Let Loose player count</a></td><td class="wrap-cell">2,207 accounts open on Steam, the two all-time peaks that disagree by 21, and the console half of the game that no public number covers.</td><td class="num">3 Oct 2026</td></tr>
 <tr data-terms="foxhole player count concurrent players steam charts peak online how many players shards war persistent queue population live"><td><a href="/foxhole-player-count">Foxhole player count</a></td><td class="wrap-cell">1,774 accounts open on Steam, the two all-time peaks that disagree by 213, and the war the game publishes instead of a count of who is in it.</td><td class="num">3 Oct 2026</td></tr>
 <tr data-terms="squad player count concurrent players steam charts peak online how many players server browser queue population live"><td><a href="/squad-player-count">Squad player count</a></td><td class="wrap-cell">10,302 accounts open on Steam, the two all-time peaks that disagree by 39, and why nobody can print the count of players actually on a map.</td><td class="num">3 Oct 2026</td></tr>
 <tr data-terms="wardogs overview match scoring economy platforms kit loadout"><td><a href="/wardogs">WARDOGS</a></td><td class="wrap-cell">How a match is scored, what kit costs, what gates it, and what runs it.</td><td class="num">28 Sep 2026</td></tr>
@@ -94,7 +95,7 @@ export const page = {
 </ul>
 <p>The result is a site that is slower to fill up than a news blog, and that is the point: a number you cannot trace back is worse than a blank space.</p>
 
-<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/home-light.png"><img src="/assets/img/home.png" width="1200" height="630" alt="Shooter Atlas card: 2 games documented, 1 page type, 20 pages published"></picture><figcaption>Drawn for this page, dark or light to match. Figures as read on 3 October 2026.</figcaption></figure>
+<figure class="pagefig"><picture><source media="(prefers-color-scheme: light)" srcset="/assets/img/home-light.png"><img src="/assets/img/home.png" width="1200" height="630" alt="Shooter Atlas card: the at-a-glance figures for games documented, page type and pages published"></picture><figcaption>Drawn for this page, dark or light to match. Figures as read on 3 October 2026.</figcaption></figure>
 
 ${adUnit}
 
