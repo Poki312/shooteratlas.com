@@ -443,12 +443,65 @@ function isonzo() {
   };
 }
 
+// The store surfaces the PS5 page reads, kept here so the page and its card
+// take the same reading. Three of these are Valve's own answer to "which
+// platforms": the three flags below, which this listing sets to Windows only
+// and never to a console. The console half of the answer is not in this file
+// at all, because Valve does not carry it — it comes from the studio's pinned
+// Q&A and from Sony's and Microsoft's own listings, each read the minute this
+// says. Nothing here moves daily; the daily job only touches the two lines it
+// knows how to find.
+function wardogsStoreSurface() {
+  const readAt = stamp("2026-10-03T19:26:26Z");
+  const categories = [
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Steam Achievements",
+    "Camera Comfort",
+    "Custom Volume Controls",
+    "Stereo Sound",
+    "Surround Sound",
+  ];
+  // Read out of the list above rather than typed next to it, so the sentence on
+  // the page cannot drift away from what Valve actually returned.
+  const crossplayTag = categories.some((c) => /cross-?platform/i.test(c));
+  return {
+    appid: 1867240,
+    windows: true,
+    mac: false,
+    linux: false,
+    windowsText: "Windows",
+    macText: "macOS",
+    linuxText: "Linux",
+    platformCount: [true, false, false].filter(Boolean).length,
+    categories,
+    categoryCount: categories.length,
+    crossplayTag,
+    // Sony's own listing, read in the same minute. `type` is the field Sony
+    // uses for a listing that carries a year and no day, which is why this page
+    // prints a year and no month.
+    psStoreState: "Announced",
+    psStoreYear: "2028",
+    psStoreDateType: "YEAR",
+    psStoreWishlistable: true,
+    psStorePriceListed: false,
+    // Microsoft's own listing, same minute.
+    xboxStoreOptimised: "Xbox Series X|S",
+    readAtUtc: "2026-10-03T19:26:26Z",
+    timeShort: readAt.short,
+    timeFull: readAt.full,
+    day: readAt.day,
+  };
+}
+
 export const live = {
   armaReforger: armaReforger(),
   squad: squad(),
   foxhole: foxhole(),
   hellLetLoose: hellLetLoose(),
   risingStorm2: risingStorm2(),
+  wardogsStoreSurface: wardogsStoreSurface(),
   wardogsPlayerCount: wardogsPlayerCount(),
   battlefield6: battlefield6(),
   deltaForce: deltaForce(),

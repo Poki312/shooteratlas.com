@@ -438,6 +438,7 @@ ${main}
 <li><a href="/wardogs-map">Map</a></li>
 <li><a href="/wardogs-towers">Towers</a></li>
 <li><a href="/wardogs-discord">Discord</a></li>
+<li><a href="/wardogs-game-ps5">PS5</a></li>
 </ul></nav>
 </div>
 <div>

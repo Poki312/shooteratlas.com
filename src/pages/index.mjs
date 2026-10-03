@@ -66,6 +66,7 @@ export const page = {
 <tr data-terms="gameplay game mode king of the hill control zone hot zone 100 points infantry mode low level server modifiers"><td><a href="/wardogs-gameplay">Gameplay and modes</a></td><td class="wrap-cell">The one mode in the developers' own words, and the two names that are server modifiers rather than modes.</td><td class="num">1 Oct 2026</td></tr>
 <tr data-terms="steam deck steamdeck linux proton steamos machine unsupported compatibility refund deck verified"><td><a href="/wardogs-steam-deck">Steam Deck</a></td><td class="wrap-cell">Valve's own compatibility result for the Deck, SteamOS and Steam Machine, and the studio's pinned answer to Linux players.</td><td class="num">1 Oct 2026</td></tr>
 <tr data-terms="player count concurrent players steam charts peak online how many players server browser queue population live"><td><a href="/wardogs-player-count">Player count</a></td><td class="wrap-cell">103,208 accounts open on Steam against 83,730 people inside matches, the three competing peak figures, and how to check the number yourself.</td><td class="num">1 Oct 2026</td></tr>
+<tr data-terms="ps5 playstation console release date 2028 announced xbox series x cloud geforce now edge browser crossplay cross-platform price wishlist"><td><a href="/wardogs-game-ps5">PS5</a></td><td class="wrap-cell">A year and no date, a store listing in the Announced state, no price to quote &mdash; and the route players are using on an Xbox in the meantime.</td><td class="num">3 Oct 2026</td></tr>
 </tbody>
 </table>
 </div>

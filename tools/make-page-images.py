@@ -344,6 +344,10 @@ PAGES = [
      "Valve's own check says it does not support",
      [("DoesNotSupport", "Deck, SteamOS, Machine"), ("Windows", "only platform listed"), ("4 Sep 2026", "studio's post")],
      "/wardogs-steam-deck", "1 October 2026"),
+    ("wardogs-game-ps5", "WARDOGS · PS5",
+     "A year, a wishlist button and no price",
+     [("2028", "consoles, year only"), ("Announced", "PS Store listing state"), ("Windows", "the one platform Valve lists")],
+     "/wardogs-game-ps5", "3 October 2026"),
     # The player-count cards read src/data/live.mjs through pc_card(), so the
     # number on the card and the number on the page are the same reading.
     pc_card("wardogsPlayerCount", "WARDOGS · Player count", "wardogs-player-count", middle="match"),

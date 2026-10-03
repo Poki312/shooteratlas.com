@@ -19,6 +19,7 @@ import { page as wardogsFactions } from "./pages/wardogs-factions.mjs";
 import { page as wardogsMap } from "./pages/wardogs-map.mjs";
 import { page as wardogsDiscord } from "./pages/wardogs-discord.mjs";
 import { page as wardogsTowers } from "./pages/wardogs-towers.mjs";
+import { page as wardogsGamePs5 } from "./pages/wardogs-game-ps5.mjs";
 import { page as squadPlayerCount } from "./pages/squad-player-count.mjs";
 import { page as foxholePlayerCount } from "./pages/foxhole-player-count.mjs";
 import { page as hellLetLoosePlayerCount } from "./pages/hell-let-loose-player-count.mjs";
@@ -30,5 +31,5 @@ import { page as contact } from "./pages/contact.mjs";
 
 // Every page that should exist on the live site. 404 is rendered separately and
 // deliberately kept out of the sitemap.
-export const pages = [index, wardogs, wardogsAchievements, wardogsReviews, wardogsEarlyAccess, wardogsReddit, wardogsPrice, wardogsReleaseDate, wardogsBattalion1944, wardogsBattalion1944Launch, wardogsLanguages, wardogsGenres, wardogsGameplay, wardogsSteamDeck, wardogsPlayerCount, wardogsSteam, wardogsFactions, wardogsMap, wardogsDiscord, wardogsTowers, squadPlayerCount, foxholePlayerCount, hellLetLoosePlayerCount, armaReforgerPlayerCount, risingStorm2PlayerCount, about, privacy, contact];
+export const pages = [index, wardogs, wardogsAchievements, wardogsReviews, wardogsEarlyAccess, wardogsReddit, wardogsPrice, wardogsReleaseDate, wardogsBattalion1944, wardogsBattalion1944Launch, wardogsLanguages, wardogsGenres, wardogsGameplay, wardogsSteamDeck, wardogsPlayerCount, wardogsSteam, wardogsFactions, wardogsMap, wardogsDiscord, wardogsTowers, wardogsGamePs5, squadPlayerCount, foxholePlayerCount, hellLetLoosePlayerCount, armaReforgerPlayerCount, risingStorm2PlayerCount, about, privacy, contact];
 export { notFound };
