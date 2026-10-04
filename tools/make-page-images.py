@@ -348,6 +348,10 @@ PAGES = [
      "A year, a wishlist button and no price",
      [("2028", "consoles, year only"), ("Announced", "PS Store listing state"), ("Windows", "the one platform Valve lists")],
      "/wardogs-game-ps5", "3 October 2026"),
+    ("wardogs-console", "WARDOGS · Console",
+     "Two store pages up, 2028 and no price",
+     [("2028", "the only console date"), ("2", "console listings up"), ("No price", "on either listing")],
+     "/wardogs-console", "4 October 2026"),
     # The player-count cards read src/data/live.mjs through pc_card(), so the
     # number on the card and the number on the page are the same reading.
     pc_card("wardogsPlayerCount", "WARDOGS · Player count", "wardogs-player-count", middle="match"),

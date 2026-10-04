@@ -51,8 +51,8 @@ function stamp(iso) {
 }
 
 function armaReforger() {
-  const count = 15752;
-  const readAt = stamp("2026-10-03T17:49:24Z");
+  const count = 11285;
+  const readAt = stamp("2026-10-04T00:15:23Z");
   const peakA = 24632;
   const peakB = 23041;
   const peak24h = 14153;
@@ -109,8 +109,8 @@ function armaReforger() {
 }
 
 function squad() {
-  const count = 13596;
-  const readAt = stamp("2026-10-03T17:49:24Z");
+  const count = 6262;
+  const readAt = stamp("2026-10-04T00:15:24Z");
   const peakA = 38573;
   const peakB = 38534;
   const peak24h = 13544;
@@ -150,8 +150,8 @@ function squad() {
 }
 
 function foxhole() {
-  const count = 3400;
-  const readAt = stamp("2026-10-03T17:49:24Z");
+  const count = 2077;
+  const readAt = stamp("2026-10-04T00:15:24Z");
   const peakA = 17451;
   const peakB = 17238;
   const peak24h = 3010;
@@ -187,8 +187,8 @@ function foxhole() {
 }
 
 function hellLetLoose() {
-  const count = 3848;
-  const readAt = stamp("2026-10-03T17:49:24Z");
+  const count = 2561;
+  const readAt = stamp("2026-10-04T00:15:24Z");
   const peakA = 21086;
   const peakB = 21107;
   const peak24h = 3960;
@@ -222,8 +222,8 @@ function hellLetLoose() {
 }
 
 function risingStorm2() {
-  const count = 325;
-  const readAt = stamp("2026-10-03T17:49:24Z");
+  const count = 247;
+  const readAt = stamp("2026-10-04T00:15:24Z");
   const peakA = 24518;
   const peakB = 24492;
   const peak24h = 357;
@@ -264,9 +264,9 @@ function wardogsPlayerCount() {
   // apart. Both move; only the Steam one has an endpoint we can read daily, so
   // the in-match figure keeps the reading its own source last published and
   // the page says so where it is used.
-  const count = 229586;
+  const count = 189299;
   const matchCount = 83730;
-  const readAt = stamp("2026-10-03T17:49:24Z");
+  const readAt = stamp("2026-10-04T00:15:24Z");
   const matchAt = stamp("2026-10-01T08:32:00Z");
   const peakA = 428666;
   const peakB = 428372;
@@ -332,8 +332,8 @@ function wardogsPlayerCount() {
 // day that page is written, from that page's own sources. Nothing is invented
 // ahead of it, and the refresh script keys off the same two lines.
 function battlefield6() {
-  const count = 38616;
-  const readAt = stamp("2026-10-03T18:01:57Z");
+  const count = 27686;
+  const readAt = stamp("2026-10-04T00:15:24Z");
   return {
     appid: 2807960,
     count,
@@ -346,8 +346,8 @@ function battlefield6() {
 }
 
 function deltaForce() {
-  const count = 69812;
-  const readAt = stamp("2026-10-03T18:01:58Z");
+  const count = 37569;
+  const readAt = stamp("2026-10-04T00:15:24Z");
   return {
     appid: 2507950,
     count,
@@ -360,8 +360,8 @@ function deltaForce() {
 }
 
 function hellLetLooseVietnam() {
-  const count = 1879;
-  const readAt = stamp("2026-10-03T18:01:58Z");
+  const count = 2202;
+  const readAt = stamp("2026-10-04T00:15:24Z");
   return {
     appid: 3079210,
     count,
@@ -374,8 +374,8 @@ function hellLetLooseVietnam() {
 }
 
 function warOfRights() {
-  const count = 456;
-  const readAt = stamp("2026-10-03T18:01:59Z");
+  const count = 1066;
+  const readAt = stamp("2026-10-04T00:15:24Z");
   return {
     appid: 424030,
     count,
@@ -388,8 +388,8 @@ function warOfRights() {
 }
 
 function squad44() {
-  const count = 157;
-  const readAt = stamp("2026-10-03T18:01:59Z");
+  const count = 80;
+  const readAt = stamp("2026-10-04T00:15:24Z");
   return {
     appid: 736220,
     count,
@@ -402,8 +402,8 @@ function squad44() {
 }
 
 function arma3() {
-  const count = 12041;
-  const readAt = stamp("2026-10-03T18:01:59Z");
+  const count = 8105;
+  const readAt = stamp("2026-10-04T00:15:24Z");
   return {
     appid: 107410,
     count,
@@ -416,8 +416,8 @@ function arma3() {
 }
 
 function holdfast() {
-  const count = 767;
-  const readAt = stamp("2026-10-03T18:02:00Z");
+  const count = 723;
+  const readAt = stamp("2026-10-04T00:15:24Z");
   return {
     appid: 589290,
     count,
@@ -430,8 +430,8 @@ function holdfast() {
 }
 
 function isonzo() {
-  const count = 198;
-  const readAt = stamp("2026-10-03T18:02:00Z");
+  const count = 75;
+  const readAt = stamp("2026-10-04T00:15:24Z");
   return {
     appid: 1556790,
     count,
